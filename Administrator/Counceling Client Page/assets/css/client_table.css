@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.client_content{
+    width: 70%;
+    padding: 20px 30px 20px;
+    background-color: var(--color-content0-bg);
+    border-radius: .5rem;
+    margin-top: 30px;
+}
+.client_content .title{
+    width: 150px;
+}
+.client_content .title h1{
+    font-size: 1.5rem;
+    color: var(--button-color-font-icon);
+    display: inline-block;
+}
+.client_content .title hr{
+    border-bottom: 2px solid var(--maroong-content-bg);
+}
+
+.searchBar{
+    padding-right: 30px;
+    float: right;
+    height: 25px;
+}
+.searchBar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+  
+.searchBar button {
+    padding: 6px 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    height: 37px;
+    position: fixed;
+    background: #ddd;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+.searchBar button i{
+    color: rgb(136, 136, 136);
+}
+.searchBar button:hover{
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-color-font-icon);
+}
+
+.list_client{
+    padding-top: 30px;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+}
+.list_client .list_title{
+    padding: 5px 30px 3px;
+    width: auto;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.list_client .display_client{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.display_client .client_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-hover);
+}
+.display_client .client_data{
+    border: 1px solid #ddd;
+    padding: 2px 5px 2px;
+    font-size: var(--small-font-size);
+}

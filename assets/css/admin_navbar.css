@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+    
+    background-color: rgb(209, 209, 209);
+}
+
+/*.search-container{
+    width: 40%;
+}*/
+
+.search-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 15px;
+    border: none;
+}
+  
+.search-container button {
+    float: right;
+    padding: 6px 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+.search-container button i{
+    color: rgb(136, 136, 136);
+}
+.search-container button i:hover, .menu .btndrop_user i:hover,
+ .menu .btndrop_notif i:hover{
+    color: rgb(84, 83, 87);
+}
+.top_nav_bar{
+    margin: 0;
+}
+.navi-bar{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20%;
+    padding-right: 20%;
+    height: auto;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+}
+.navi-bar, .menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu a{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px;
+    color: rgb(136, 136, 136);
+}
+
+.menu{
+    margin: 10px, 0px;
+}
+
+.menu .btndrop_user, .menu .btndrop_notif{
+    margin: 5%;
+    width: 30px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.menu .btndrop_user i, .menu .btndrop_notif i{
+    font-size: 18px;
+    color: rgb(136, 136, 136);
+}
+
+.dropdown1{
+    position: relative;
+}
+
+.notif_content{
+    position: absolute;
+    right: 20%;
+    width: 300px;
+    height: auto;
+    background: white;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-1px);
+    transition: opacity 150ms ease-in-out, tranform 150ms ease-in-out;
+}
+.dropdown1.active > .btndrop_notif + .notif_content{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.nofit-content{
+    padding: .25rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.notif_content p{
+    color: rgb(136, 136, 136);
+    right: 0px;
+    margin: 10px
+}
+.notif-line{
+    border-radius: 1px;
+}
+.notif_content .notif-content p{
+    font-size: 13px;
+}
+.dropdown{
+    position: relative;
+}
+.user_menu{
+    position: absolute;
+    right: 20%;
+    width: 150px;
+    height: auto;
+    background: white;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-1px);
+    transition: opacity 150ms ease-in-out, tranform 150ms ease-in-out;
+}
+.dropdown.active > .btndrop_user + .user_menu{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.user_menu a{
+    padding: .25rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+.user_menu a:hover{
+    color: rgb(84, 83, 87);
+}
+.user_menu a i{
+    padding-right: 10px;
+}
+
+.side_nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 57px;
+    height: 100%;
+    background-color: white;
+    padding: 1.25rem 0.5rem 2rem;
+    transition: 0.5s;
+}
+nav{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.nav-inner{
+    margin-top: 20px;
+}
+.nav_toggle{
+    width: 20px;
+    position: absolute;
+    top: 1.1rem;
+    right: -.6rem;
+    padding: 5px 9px;
+    background-color: white;
+    border-radius: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .5s;
+    /*box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);*/
+    font-size: 1.25rem;
+}
+
+.side_menu a{
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    color: rgb(136, 136, 136);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.side_menu .active, .side_menu a:hover{
+    background-color: rgb(160, 160, 160);
+    color: rgb(84, 83, 87);
+}
+
+.side_menu .icon{
+    margin-right: 1rem;
+    font-size: 20px;
+}
+.side_menu title{
+    font-weight: bold;
+}
+
+.show{
+    width: 250px;
+}
+.rotate{
+    transform: rotate(180deg);
+    transition: .5s;
+}
+.body-pd{
+    padding: 2rem 0 0 16rem;
+}

@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(209, 209, 209);
+}
+.page{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20%;
+    padding-right: 20%;
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.navi-bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.navi-bar, .menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.menu{
+    margin: 10px, 0px;
+}
+.navi-bar .link, .navi-bar .link_active, .menu a{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100px;
+    margin: 5px;
+    color: rgb(136, 136, 136);
+}
+.navi-bar .link_active, .navi-bar .link:hover{
+    border-bottom: 3px solid var(--maroong-content-bg);
+}
+
+
+.menu .btndrop_user, .menu .btndrop_notif{
+    margin: 5%;
+    width: 30px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.menu .btndrop_user i, .menu .btndrop_notif i{
+    font-size: 18px;
+    color: rgb(136, 136, 136);
+}
+
+.menu .btndrop_user i:hover, .menu .btndrop_notif i:hover,
+.menu .btndrop_user i:focus, .menu .btndrop_notif i:focus{
+    color: rgb(84, 83, 87);
+}
+
+.navi-bar a:hover, .menu a:hover,
+.navi-bar a:focus, .menu a:focus{
+    color: rgb(84, 83, 87);
+}
+
+.dropdown1{
+    position: relative;
+}
+
+.notif_content{
+    position: absolute;
+    right: 20%;
+    width: 300px;
+    height: auto;
+    background: white;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-1px);
+    transition: opacity 150ms ease-in-out, tranform 150ms ease-in-out;
+}
+.dropdown1.active > .btndrop_notif + .notif_content{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.nofit-content{
+    padding: .25rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.notif_content p{
+    color: rgb(136, 136, 136);
+    right: 0px;
+    margin: 10px
+}
+.notif-line{
+    border-radius: 1px;
+}
+.notif_content .notif-content p{
+    font-size: 13px;
+}
+.dropdown{
+    position: relative;
+}
+.user_menu{
+    position: absolute;
+    right: 20%;
+    width: 150px;
+    height: auto;
+    background: white;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-1px);
+    transition: opacity 150ms ease-in-out, tranform 150ms ease-in-out;
+}
+.dropdown.active > .btndrop_user + .user_menu{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.user_menu a{
+    padding: .25rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.user_menu a i{
+    padding-right: 10px;
+}

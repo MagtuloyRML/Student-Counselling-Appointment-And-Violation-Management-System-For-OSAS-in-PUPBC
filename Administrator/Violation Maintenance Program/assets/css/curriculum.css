@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content .subcontent{
+    width: 100%;
+}
+.subcontent .title{
+    width: 110px;
+}
+.subcontent .c_bttn_group{
+    float: right;
+    padding-top: 20px;
+    display: flex;
+}
+.c_bttn_group .c_bttn{
+    margin: 0 5px 0;
+    padding: 7px 15px 7px;
+    text-decoration: none;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-radius: .5rem;
+}
+.c_bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+
+.subcontent .c_table_content{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.c_table_content .c_table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+}
+.c_table .curriculum_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+}
+.c_table .curriculum_data{
+    border: 1px solid #ddd;
+    padding: 2px 3px 2px;
+    font-size: var(--small-font-size);
+}
+.curriculum_data .c_data_bttn{
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    color: var(--maroong-content-bg);
+    font-size: 20px;
+    text-decoration: none;
+}
+.c_data_bttn:hover{
+    color: var(--maroong-content-hover);
+}
+
+/*modal*/
+.modal_bg .modal{
+    width: 35%;
+}
+
+.modal_curri_input_container{
+    width: 100%;
+}
+.modal_curri_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+.modal_curri_input .label{
+    width: 100px;
+}
+.modal_curri_input .input_field{
+    width: 200px;
+}

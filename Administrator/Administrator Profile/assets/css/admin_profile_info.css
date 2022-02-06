@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile{
+    margin-top: 10px;
+    background-color: white;
+    padding: 30px 5%;
+    width: 70%;
+}
+.profile p{
+    color: var(--button-hover-color-font-icon);
+    font-weight: 600;
+}
+.acc_bttn{
+    float: right;
+    font-size: 18px;
+    background-color: transparent;
+    color: rgb(136, 136, 136);
+    border: none;
+    cursor: pointer;
+}
+.acc_bttn:hover{
+    color: rgb(84, 83, 87);
+}
+
+.profile_info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.profile_pic .prof_pic{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-image: none;
+    padding: 5px;
+}
+.profile_pic .pic_bttn{
+    display: block;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+    background-color: transparent;
+    color: rgb(136, 136, 136);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profile_pic .pic_bttn:hover{
+    color: rgb(84, 83, 87);
+    background-color: rgb(160, 160, 160);
+}
+
+.profile_content_info{
+    width: 70%;
+}
+.profile_content_info .input-container{
+    width: 100%;
+    font-size: 14px;
+    color: var(--button-hover-color-font-icon);
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-container .label{
+    width: 40%;
+    padding-right: 2px;
+}
+.input-container .input-field{
+    font-size: var(--small-font-size);
+    width: 80%;
+    padding: 0 2px 0;
+    color: var(--button-hover-color-font-icon);
+    border-bottom: 1px solid var(--button-hover-color-font-icon);
+    
+}
+
+.counceling_records_content{
+    margin-top: 10px;
+    width: 100%;
+}
+.counceling_records_content h3{
+    color: var(--button-color-font-icon);
+}
+
+.counceling_records_content .cr_record{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cr_record .cr_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+}
+.cr_record .cr_data{
+    border: 1px solid #ddd;
+    padding: 2px 5px 2px;
+    font-size: var(--small-font-size);
+}
