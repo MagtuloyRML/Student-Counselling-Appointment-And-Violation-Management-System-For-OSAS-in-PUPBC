@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 26, 2022 at 12:27 PM
+-- Generation Time: Feb 06, 2022 at 03:56 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `test_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminaccountinfo`
+--
+
+DROP TABLE IF EXISTS `adminaccountinfo`;
+CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
+  `AdminAccountID` int NOT NULL AUTO_INCREMENT,
+  `AdminFirstName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminMiddleName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `AdminLastName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminSufifx` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `RoleID` int NOT NULL,
+  `AdminContactNo` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminUsername` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminPassword` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminEmailAdd` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminAddress` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`AdminAccountID`),
+  KEY `admin_user_role` (`RoleID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `adminaccountinfo`
+--
+
+INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddleName`, `AdminLastName`, `AdminSufifx`, `RoleID`, `AdminContactNo`, `AdminUsername`, `AdminPassword`, `AdminEmailAdd`, `AdminAddress`) VALUES
+(1, 'Sample', 'Sample', 'Sample', '', 2, 'Sample', 'Sample', 'paramore123', 'Sample', 'Sample Addres');
 
 -- --------------------------------------------------------
 
@@ -47,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
   PRIMARY KEY (`ClientAccountID`),
   KEY `gender_role` (`ClientGenderID`),
   KEY `user_role` (`RoleID`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `clientaccountinfo`
@@ -57,11 +87,12 @@ INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMi
 (1, 'Sample', 'Sample', 'Sample', '', 'Sample', 1, '1999-01-01', 'Sample address', 'sample', 'sample', 'sample', 'sample', 'sample', 1),
 (2, 'Sample1', 'Sample1', 'Sample1', '', 'sample1', 1, '2022-01-20', 'Sample address1', 'sample1', 'sample1', 'sample1', 'ermilmagtuloy', 'paramore', 1),
 (32, 'Deigo', '', 'Malsamal', '', '2018-00003-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Berta', '09090909090', 'dMamal@gmail.com', 'paramore123', 1),
-(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore123', 1),
+(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
 (35, 'Remy', '', 'Daldalso', '', '2019-00111-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'remd@gmail.com', 'paramore123', 2),
 (36, 'Sinangdomeng', '', 'Bigas', '', '2017-00154-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'bgas@gmail.com', 'paramore123', 1),
 (37, 'Juana', 'Sample', 'De la Cruz', '', '2018-00008-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Berta', '09090909090', 'juana@gmail.com', 'paramore123', 2),
-(38, 'Juanita', '', 'Valdez', '', '2016-00154-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'juanita@gmail.com', 'paramore123', 1);
+(38, 'Juanita', '', 'Valdez', '', '2016-00154-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'juanita@gmail.com', 'paramore123', 1),
+(39, 'Joselito', '', 'Mercado', '', '2020-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'jm@gmail.com', 'paramore123', 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `schedules` (
   `stat` varchar(255) NOT NULL,
   `remarks` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedules`
@@ -123,7 +154,9 @@ INSERT INTO `schedules` (`id`, `title`, `email_add`, `start_app`, `end_app`, `st
 (14, '', '', '2021-12-09 20:56:00', '2021-12-09 21:56:00', 'Confirmed', ' '),
 (15, 'Ermil', '', '2021-12-10 17:00:00', '2021-12-10 18:00:00', 'Cancelled', ' '),
 (16, 'Ermil', 'dalmerer09@gmail.com', '2021-12-09 17:42:00', '2021-12-09 18:42:00', 'Confirmed', ' '),
-(17, 'Ermil', 'dalmerer09@gmail.com', '2021-12-10 20:28:00', '2021-12-10 21:28:00', 'Confirmed', ' ');
+(17, 'Ermil', 'dalmerer09@gmail.com', '2021-12-10 20:28:00', '2021-12-10 21:28:00', 'Confirmed', ' '),
+(18, 'jghfhjtgfhgf', 'dalmerer09@gmail.com', '2022-02-11 14:44:00', '0000-00-00 00:00:00', 'Pending', ' '),
+(19, '', '', '2022-02-11 14:00:00', '2022-02-11 16:00:00', 'Pending', ' ');
 
 -- --------------------------------------------------------
 
@@ -197,6 +230,12 @@ INSERT INTO `userrole` (`RoleID`, `Description`, `ForPage`) VALUES
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `adminaccountinfo`
+--
+ALTER TABLE `adminaccountinfo`
+  ADD CONSTRAINT `admin_user_role` FOREIGN KEY (`RoleID`) REFERENCES `userrole` (`RoleID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `clientaccountinfo`
