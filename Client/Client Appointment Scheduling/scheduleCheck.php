@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     $remarks = ' ';
 	
 	$start_edited = date("Y-m-d H", strtotime($start_app));
-	$end_app = date("Y-m-d H", strtotime('+2 hour', strtotime($start_app)));
+	$end_app = date("Y-m-d H", strtotime('+1 hour', strtotime($start_app)));
 	$end_updated = $end_app;
 //yung may comment after ng $start_app below. , kapag sinama iyon sa code, pati yung end time ay nababasa and magkakaerror pag may kasabay na nagpasched.
 
@@ -57,3 +57,4 @@ if (isset($_POST['submit'])) {
 		}
 			
 	}
+	

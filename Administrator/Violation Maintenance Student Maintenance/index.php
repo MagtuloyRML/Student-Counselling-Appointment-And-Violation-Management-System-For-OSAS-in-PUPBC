@@ -68,16 +68,42 @@
                 $curriculum = $_POST['curri_'.$updateid];
                 $sec = $_POST['section_'.$updateid];
                 $add = $_POST['address_'.$updateid];
+                $fullName = $ln . ", " . $fn . " " . $mn;
 
                 
                 
 
-                if($ln !=''){
+                if($curriculum !=''){
 
-                    $updateUser = "UPDATE forstudents SET lastName = '$ln', 
+                    $updateUser = "UPDATE forstudents SET fullName = '$fullName', 
+                    lastName = '$ln', 
                     firstName = '$fn',
                     middleName = '$mn',
                     progCode = '$curriculum',
+                    Section = '$sec',
+                    Address = '$add'
+                    WHERE id = $updateid";
+                    mysqli_query($conn, $updateUser);
+                    $sched = $conn->query("SELECT 
+                    `id`,
+                    `studNum`,
+                    `lastName`,
+                    `firstName`,
+                    `middleName`,
+                    `Section`,
+                    `Address`,
+                    `Gender`,
+                    t2.pCode AS p_description,
+                    t3.code AS a_code,
+                    status FROM forstudents t1
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+                }else{
+                    $updateUser = "UPDATE forstudents SET fullName = '$fullName', 
+                    lastName = '$ln', 
+                    firstName = '$fn',
+                    middleName = '$mn',
+                    progCode = '$curriculum2',
                     Section = '$sec',
                     Address = '$add'
                     WHERE id =$updateid";
@@ -102,6 +128,7 @@
             
         }
     }
+
 ?>
 
             <div class="subcontent">
