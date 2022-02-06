@@ -67,7 +67,7 @@
 
                                     
 
-                                        echo "<option value='". $row['progCode'] ."'>" .$row['progCode'] ."</option>";
+                                        echo "<option value='". $row['pCode'] ."'>" .$row['pDescription'] ."</option>";
                                     
                                     }
                                     ?>
