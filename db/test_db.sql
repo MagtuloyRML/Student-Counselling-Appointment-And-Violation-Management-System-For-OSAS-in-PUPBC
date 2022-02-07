@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 06, 2022 at 03:56 AM
+-- Generation Time: Feb 07, 2022 at 02:21 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -54,6 +54,28 @@ INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddle
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `avail_sched`
+--
+
+DROP TABLE IF EXISTS `avail_sched`;
+CREATE TABLE IF NOT EXISTS `avail_sched` (
+  `meta_field` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `avail_sched`
+--
+
+INSERT INTO `avail_sched` (`meta_field`, `start_date`, `end_date`, `start_time`, `end_time`) VALUES
+('first', '2022-02-06', '2022-02-12', '07:00:00', '18:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `clientaccountinfo`
 --
 
@@ -84,15 +106,40 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
 --
 
 INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`) VALUES
-(1, 'Sample', 'Sample', 'Sample', '', 'Sample', 1, '1999-01-01', 'Sample address', 'sample', 'sample', 'sample', 'sample', 'sample', 1),
-(2, 'Sample1', 'Sample1', 'Sample1', '', 'sample1', 1, '2022-01-20', 'Sample address1', 'sample1', 'sample1', 'sample1', 'ermilmagtuloy', 'paramore', 1),
-(32, 'Deigo', '', 'Malsamal', '', '2018-00003-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Berta', '09090909090', 'dMamal@gmail.com', 'paramore123', 1),
-(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
-(35, 'Remy', '', 'Daldalso', '', '2019-00111-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'remd@gmail.com', 'paramore123', 2),
-(36, 'Sinangdomeng', '', 'Bigas', '', '2017-00154-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'bgas@gmail.com', 'paramore123', 1),
-(37, 'Juana', 'Sample', 'De la Cruz', '', '2018-00008-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Berta', '09090909090', 'juana@gmail.com', 'paramore123', 2),
-(38, 'Juanita', '', 'Valdez', '', '2016-00154-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'juanita@gmail.com', 'paramore123', 1),
-(39, 'Joselito', '', 'Mercado', '', '2020-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'jm@gmail.com', 'paramore123', 1);
+(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clientprofilepictureinfo`
+--
+
+DROP TABLE IF EXISTS `clientprofilepictureinfo`;
+CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
+  `ClientProfilePictureID` int NOT NULL AUTO_INCREMENT,
+  `ClientAccountID` int NOT NULL,
+  `PictureFilename` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `UploadDate` datetime NOT NULL,
+  `UsedStatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`ClientProfilePictureID`),
+  KEY `cppInfo_Client` (`ClientAccountID`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clientprofilepictureinfo`
+--
+
+INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccountID`, `PictureFilename`, `UploadDate`, `UsedStatus`) VALUES
+(4, 34, '2019-00001-BN-0202202071644213952.jpg', '2022-02-07 06:05:52', 0),
+(6, 34, '2019-00001-BN-0202202071644234645.jpg', '2022-02-07 11:50:45', 0),
+(7, 34, '2019-00001-BN-0202202071644234663.jpg', '2022-02-07 11:51:03', 0),
+(8, 34, '2019-00001-BN-0202202071644240068.jpg', '2022-02-07 13:21:08', 0),
+(9, 34, '2019-00001-BN-0202202071644240847.jpg', '2022-02-07 13:34:07', 0),
+(10, 34, '2019-00001-BN-0202202071644241168.jpg', '2022-02-07 13:39:28', 0),
+(11, 34, '2019-00001-BN-0202202071644242322.jpg', '2022-02-07 13:58:42', 0),
+(12, 34, '2019-00001-BN-0202202071644242382.jpg', '2022-02-07 13:59:42', 0),
+(13, 34, '2019-00001-BN-0202202071644242461.jpg', '2022-02-07 14:01:01', 0),
+(14, 34, '2019-00001-BN-0202202071644243420.jpg', '2022-02-07 14:17:00', 1);
 
 -- --------------------------------------------------------
 
@@ -128,35 +175,36 @@ CREATE TABLE IF NOT EXISTS `schedules` (
   `email_add` varchar(255) NOT NULL,
   `start_app` datetime NOT NULL,
   `end_app` datetime NOT NULL,
+  `start_app_date` date NOT NULL,
+  `end_app_date` date NOT NULL,
+  `start_app_time` time NOT NULL,
+  `end_app_time` time NOT NULL,
   `stat` varchar(255) NOT NULL,
   `remarks` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedules`
 --
 
-INSERT INTO `schedules` (`id`, `title`, `email_add`, `start_app`, `end_app`, `stat`, `remarks`) VALUES
-(1, 'Meet with Me', '', '2021-11-27 08:00:00', '2021-11-27 09:00:00', '', ''),
-(2, '', '', '2021-12-01 23:00:00', '2021-12-01 23:30:00', '', ''),
-(3, 'Meeting with Bri', '', '2021-12-02 12:00:00', '2021-12-02 13:00:00', '', ''),
-(4, 'Meeting with Bri Again', '', '2021-12-05 22:00:00', '2021-12-05 23:00:00', 'Confirmed', ''),
-(5, 'Meeting with Bri Again 2', '', '2021-12-06 08:00:00', '2021-12-06 09:00:00', 'Confirmed', ''),
-(6, 'Meet', '', '2021-12-06 10:30:00', '2021-12-06 11:30:00', 'Cancelled', ''),
-(7, 'Bri', 'brianpacheca123@gmail.com', '2021-12-06 02:00:00', '2021-12-06 03:00:00', 'Confirmed', ''),
-(8, 'Josh', 'brianpacheca123@gmail.com', '2021-12-06 04:00:00', '2021-12-06 05:00:00', 'Confirmed', ''),
-(9, 'Josh', 'brianpacheca123@gmail.com', '2021-12-06 04:00:00', '2021-12-06 05:00:00', 'Cancelled', ''),
-(10, 'Josh', 'brianpacheca123@gmail.com', '2021-12-06 04:00:00', '2021-12-06 05:00:00', 'Cancelled', ''),
-(11, 'Josh', 'brianpacheca123@gmail.com', '2021-12-06 04:00:00', '2021-12-06 05:00:00', 'Cancelled', ''),
-(12, 'Paulo', 'brianpacheca123@gmail.com', '2021-12-07 22:07:00', '2021-12-07 23:07:00', 'Confirmed', ''),
-(13, 'Marvin', 'brianpacheca123@gmail.com', '2021-12-07 22:09:00', '2021-12-07 22:09:00', 'Cancelled', ''),
-(14, '', '', '2021-12-09 20:56:00', '2021-12-09 21:56:00', 'Confirmed', ' '),
-(15, 'Ermil', '', '2021-12-10 17:00:00', '2021-12-10 18:00:00', 'Cancelled', ' '),
-(16, 'Ermil', 'dalmerer09@gmail.com', '2021-12-09 17:42:00', '2021-12-09 18:42:00', 'Confirmed', ' '),
-(17, 'Ermil', 'dalmerer09@gmail.com', '2021-12-10 20:28:00', '2021-12-10 21:28:00', 'Confirmed', ' '),
-(18, 'jghfhjtgfhgf', 'dalmerer09@gmail.com', '2022-02-11 14:44:00', '0000-00-00 00:00:00', 'Pending', ' '),
-(19, '', '', '2022-02-11 14:00:00', '2022-02-11 16:00:00', 'Pending', ' ');
+INSERT INTO `schedules` (`id`, `title`, `email_add`, `start_app`, `end_app`, `start_app_date`, `end_app_date`, `start_app_time`, `end_app_time`, `stat`, `remarks`) VALUES
+(15, 'Ermil', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2021-12-10', '0000-00-00', '00:00:00', '18:00:00', 'Cancelled', ' '),
+(16, 'Ermil', 'dalmerer09@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2021-12-09', '0000-00-00', '00:00:00', '18:42:00', 'Confirmed', ' '),
+(17, 'Ermil', 'dalmerer09@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2021-12-10', '0000-00-00', '00:00:00', '21:28:00', 'Confirmed', ' '),
+(18, 'jghfhjtgfhgf', 'dalmerer09@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-11', '0000-00-00', '00:00:00', '00:00:00', 'Confirmed', ' '),
+(19, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-11', '0000-00-00', '00:00:00', '16:00:00', 'Pending', ' '),
+(21, '', 'brianpacheca123@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-07', '2022-02-07', '09:33:00', '10:33:00', 'Pending', ' '),
+(23, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-08', '2022-02-08', '10:00:00', '11:00:00', 'Pending', ' '),
+(24, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-07', '2022-02-07', '09:00:00', '10:00:00', 'Pending', ' '),
+(25, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-07', '2022-02-07', '11:00:00', '12:00:00', 'Pending', ' '),
+(26, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-07', '2022-02-07', '10:49:00', '11:49:00', 'Pending', ' '),
+(27, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '1970-01-01', '1970-01-01', '12:00:00', '13:00:00', 'Pending', ' '),
+(28, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-09', '2022-02-09', '11:00:00', '12:00:00', 'Pending', ' '),
+(29, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-08', '2022-02-08', '13:00:00', '14:00:00', 'Pending', ' '),
+(30, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-06', '2022-02-06', '13:00:00', '14:00:00', 'Pending', ' '),
+(31, 'Brian', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-08', '2022-02-08', '10:00:00', '11:00:00', '', ''),
+(32, '', '', '2022-02-10 13:00:00', '2022-02-10 14:00:00', '2022-02-10', '2022-02-10', '13:00:00', '14:00:00', 'Pending', ' ');
 
 -- --------------------------------------------------------
 
@@ -243,6 +291,12 @@ ALTER TABLE `adminaccountinfo`
 ALTER TABLE `clientaccountinfo`
   ADD CONSTRAINT `gender_role` FOREIGN KEY (`ClientGenderID`) REFERENCES `genderrole` (`GenderID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `user_role` FOREIGN KEY (`RoleID`) REFERENCES `userrole` (`RoleID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `clientprofilepictureinfo`
+--
+ALTER TABLE `clientprofilepictureinfo`
+  ADD CONSTRAINT `cppInfo_Client` FOREIGN KEY (`ClientAccountID`) REFERENCES `clientaccountinfo` (`ClientAccountID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -107,6 +107,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: auto;
     border: 1px solid var(--button-hover-bg);
     border-bottom-left-radius: .50rem;
     border-bottom-right-radius: .50rem;
@@ -192,7 +193,31 @@ h4{
     background-color: var(--body-color);
     pointer-events: none;
 }
+.upload_pic{
+    margin-top: 20px;
+}
+.upload_pic .upload_pic_hidden{
+    display: none;
+}
+.upload_pic .upload_pic_bttn{
+    color: var(--button-color-font-icon);
+    padding: 10px;
+    border: 2px solid var(--button-color-font-icon);
+    border-radius: .25rem;
+    cursor: pointer;
+    font-size: large;
+}
+.upload_pic .upload_pic_bttn:hover{
+    color: var(--color-content0-bg);
+    background-color: var(--button-color-font-icon);
+}
+
 
 .prof_pic_edit{
-    width: 70%;
+    width: 45%;
+}
+.image_crop{
+    width: 350px;
+    height: 350px;
+    padding-bottom: 25px;
 }

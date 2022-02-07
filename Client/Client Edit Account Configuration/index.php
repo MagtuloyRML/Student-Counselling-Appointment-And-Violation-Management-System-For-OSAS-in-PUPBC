@@ -2,6 +2,17 @@
     $title = 'Profile Edit';
     $page = 'client_edit_profile';
     include_once('../includes/header.php');
+    $sql_fetch = mysqli_query($conn, "SELECT ClientStudentNo from clientaccountinfo WHERE ClientAccountID = '$id'");
+    while($details = mysqli_fetch_assoc($sql_fetch))
+    {
+        $stud_ID = $details['ClientStudentNo'];
+    }
+    $sql_fetchpic = mysqli_query($conn, "SELECT PictureFilename from clientprofilepictureinfo WHERE ClientAccountID = '$id' AND UsedStatus = TRUE ");
+    while($detailpic = mysqli_fetch_assoc($sql_fetchpic))
+    {
+        $prof_pic = $detailpic['PictureFilename'];
+    }
+    $directory = "../../assets/user_profile_pic/";
 ?>
     <div class="content">
         <div class="profile">
@@ -9,11 +20,11 @@
             <p>Edit Profile Info</p>
             <div class="profile_info">
                 <div class="pic_container">
-                    <div class="profile_pic">                  
-                        <img class="prof_pic" src="../../assets/user_profile_pic/default_user.jpg" alt="Profile Pic">
-                        <div class="bttn_group">
-                            <button class="pic_bttn" id="openEditPicModal"><i class="fas fa-camera"></i> Profile Piture</button>
-                            <button class="pic_bttn" id="openEditPicModal"><i class="fas fa-camera"></i> Profile Piture</button>
+                    <div class="profile_pic" id="prof_pic_div">                  
+                        <img class="prof_pic" id="prof_pic" src="<?php echo $directory, $stud_ID,'/', $prof_pic?>" alt="Profile Pic">
+                        <div class="upload_pic">
+                            <input class="upload_pic_hidden" id="pic_filename" type="file" name="pic_filename" accept="image/*" visbility="hidden">
+                            <label class="pic_bttn" for="pic_filename"><i class="fas fa-camera"></i> Edit Profile Picture</label>
                         </div>
                     </div>
                 </div>
@@ -76,7 +87,6 @@
     <?php
         include('assets/modal_edit_picture.php')
     ?>
-    <script src="assets/js/modal_edit_picture.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
