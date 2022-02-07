@@ -54,6 +54,7 @@
 .modal_upload .title_bar .modal_title_bttn{
     color: var(--maroong-content-bg);
     font-size: 22px;
+    cursor: pointer;
 }
 .modal_upload .title_bar .modal_title_bttn:hover{
     color: var(--maroong-content-hover);
@@ -117,6 +118,7 @@
     margin: 0 5px 0;
     padding: 2px 10px 2px;
     text-decoration: none;
+    cursor: pointer;
 }
 .footer_modal_input .file_input .file_bttn:hover{
     background-color: var(--maroong-content-hover);
@@ -128,6 +130,9 @@
     display: flex;
     align-items: center;
     float: right;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 .modal_upload .footer_modal_bttn .modal_foot_bttn{
     color: var(--color-content0-bg);
@@ -137,6 +142,9 @@
     padding: 5px 10px 5px;
     margin: 8px;
     text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 .modal_upload .footer_modal_bttn .modal_foot_bttn:hover{
     background-color: var(--maroong-content-hover);

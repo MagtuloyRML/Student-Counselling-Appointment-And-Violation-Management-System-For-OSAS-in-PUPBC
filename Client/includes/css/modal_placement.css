@@ -56,6 +56,7 @@
 .modal .title_bar .modal_title_bttn{
     color: var(--maroong-content-bg);
     font-size: 22px;
+    cursor: pointer;
 }
 .modal .title_bar .modal_title_bttn:hover{
     color: var(--maroong-content-hover);
@@ -77,6 +78,8 @@
     align-items: center;
     float: right;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 .footer_modal_bttn .modal_foot_bttn{
     color: var(--color-content0-bg);
@@ -86,6 +89,8 @@
     padding: 5px 10px 5px;
     margin: 8px;
     text-decoration: none;
+    border: none;
+    outline: none;
     cursor: pointer;
 }
 .footer_modal_bttn .modal_foot_bttn:hover{
