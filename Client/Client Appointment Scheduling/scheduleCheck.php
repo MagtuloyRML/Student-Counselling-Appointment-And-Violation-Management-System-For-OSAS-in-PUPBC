@@ -17,34 +17,43 @@ if (isset($_POST['submit'])) {
 //Calling functions
 	$name = validate($_POST['name']);
     $email = $_POST['email_add'];
-	$start_app = validate($_POST['start_app']);
+	$start_app_time = validate($_POST['start_app_time']);
+	$start_app_date = validate($_POST['start_app_date']);
 	
     $stat = 'Pending';
     $remarks = ' ';
-	
-	$start_edited = date("Y-m-d H", strtotime($start_app));
-	$end_app = date("Y-m-d H", strtotime('+1 hour', strtotime($start_app)));
-	$end_updated = $end_app;
+
+	$start_app = date("Y-m-d H:i:s", strtotime("$start_app_date $start_time_edited"));
+
+	$start_time_edited = date("H:i:s ", strtotime($start_app_time));
+	$date_edited = date("Y-m-d", strtotime($start_app_date));
+	$end_app_edited = date("H:i:s ", strtotime('+1 hour', strtotime($start_app_time)));
+	$end_updated = $end_app_edited;
+	$start_app = date("Y-m-d H:i:s", strtotime("$start_app_date $start_time_edited"));
+	$end_app = date("Y-m-d H:i:s", strtotime("$start_app_date $end_updated"));
+
 //yung may comment after ng $start_app below. , kapag sinama iyon sa code, pati yung end time ay nababasa and magkakaerror pag may kasabay na nagpasched.
 
-	$user_data = 'start_app='. $start_app. '&end_app='. $end_app;
+	
 
 	
 //pag kuha ng data sa db tables.
-	$sql = "SELECT start_app, end_app FROM schedules WHERE '$start_app' BETWEEN start_app AND end_app";
+	$sql = "SELECT start_app_date, end_app_date, start_app_time, end_app_time FROM schedules
+	WHERE '$start_app_date' BETWEEN start_app_date AND end_app_date
+	AND '$start_app_time' BETWEEN start_app_time AND end_app_time";
 	$result = mysqli_query($conn, $sql);
 
 //conditions
 	if (mysqli_num_rows($result) > 0) {
 		
-			header("Location: index.php?error=The schedule is already taken&$user_data");
+			header("Location: index.php?error=The schedule is already taken");
 	        exit();
 		} 
 		//if ever  walang kaparehas, papasok na yung nilagay sa form sa db.
 		
 		else{
-			$sql2 = "INSERT INTO schedules(title, email_add, start_app, end_app, stat, remarks)
-           VALUES('$name', '$email', '$start_edited', '$end_updated', '$stat', '$remarks')";
+			$sql2 = "INSERT INTO schedules(title, email_add, start_app, end_app, start_app_date, end_app_date, start_app_time, end_app_time, stat, remarks)
+           VALUES('$name', '$email', '$start_app', '$end_app', '$date_edited', '$date_edited', '$start_time_edited', '$end_updated', '$stat', '$remarks')";
 				$result2 = mysqli_query($conn, $sql2);
 				if ($result2){
 					header("Location: index.php?success=Recorded successfully");
