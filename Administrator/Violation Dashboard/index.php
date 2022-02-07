@@ -37,13 +37,28 @@
 
                 <!-- TOTAL NUMBERS OF STUDENT VISUAL DATA  -->
                 <div class="dash_content">
-                    <h3><i class="fas fa-user-graduate"></i>Total Student: </h3>
-                    <p>00000000</p>
+                    <?php 
+                    include('assets/dbconnection.php');
+                    $query = "SELECT id FROM forstudents ORDER BY id";
+                    $run = mysqli_query($conn, $query);
+
+                    $row = mysqli_num_rows($run);
+                    echo '<h3><i class="fas fa-user-graduate"></i>Total Student: </h3>';
+                    echo '<p>'.$row.'</p>';
+                    ?>
+                    
                 </div>
                 <!-- TOTAL NUMBERS OF VIOLATION VISUAL DATA  -->
                 <div class="dash_content">
-                    <h3><i class="fas fa-exclamation-circle"></i>Total Violation: </h3>
-                    <p>00000000</p>
+                <?php 
+                    include('assets/dbconnection.php');
+                    $query2 = "SELECT entry_id FROM forviolationentries ORDER BY entry_id";
+                    $run2 = mysqli_query($conn, $query2);
+
+                    $row2 = mysqli_num_rows($run2);
+                    echo '<h3><i class="fas fa-user-graduate"></i>Total Violation: </h3>';
+                    echo '<p>'.$row2.'</p>';
+                    ?>
                 </div>
             </div>
             
