@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $image_croppie = $('#image_demo').croppie({
+    $image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport:{
             width: 200,
