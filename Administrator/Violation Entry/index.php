@@ -59,7 +59,7 @@
                     <!-- DATA MANIPULATION BUTTONS -->
                     <div class="action_content">
                         <div class="action_bttn">
-                            <input class="bttn" type="button" name="save" value="Save" id="bttnModalEntry">
+                            <input class="bttn" type="button" name="save" value="Create" id="bttnModalEntry">
                         </div>
                         <div class="action_bttn">
                             <input class="bttn" type="button" name="delete" value="Delete">
