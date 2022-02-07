@@ -29,7 +29,7 @@
                         [<?php while($row = $query -> fetch_object()) {?>
                         {
                             id : '<?php echo $row->id;?>', title: '<?php echo $row->title;?>',
-                        start : '<?php echo $row->start_app;?>', end: '<?php echo $row->end_app;?>', 
+                            start : '<?php echo $row->start_app;?>', end: '<?php echo $row->end_app;?>', 
                         }, 
                         <?php }?>],
                         selectable: false,

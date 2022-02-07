@@ -23,7 +23,7 @@
                     </tr>
                     <?php
                     include '../../assets/connection/DBconnection.php';
-                    $sched = $conn->query("SELECT id, title, start_app, end_app, stat FROM `schedules`
+                    $sched = $conn->query("SELECT id, title, start_app_date, start_app_time, end_app_date, end_app_time, stat FROM `schedules`
                     WHERE stat = 'Pending'");
 						while($row = $sched->fetch_array()){
 				    ?>
@@ -31,10 +31,11 @@
                         <td class="approv_data"><?php echo $row['id']?></td>
                         <td class="approv_data"><?php echo $row['title']?></td>
                         <td class="approv_data"><?php 
-                            $start = date("d/m/Y h:i A", strtotime($row['start_app']));
-                            $end = date(" h:i A", strtotime($row['end_app']));
+                            $start_date = date("d/m/Y", strtotime($row['start_app_date']));
+                            $start_time = date("h:i A", strtotime($row['start_app_time']));
+                            $end_time = date("h:i A", strtotime($row['end_app_time']));
                             
-                            $final = $start.' - '. $end;
+                            $final = $start_date.' '. $start_time. ' - '. $end_time;
                             echo $final;
                             
                             ?></td>
@@ -45,6 +46,7 @@
                     <?php
 									}
 				?>
+                
                 </table>
                 </form>
             </div>

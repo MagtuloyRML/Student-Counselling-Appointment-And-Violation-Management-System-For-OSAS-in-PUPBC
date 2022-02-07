@@ -32,14 +32,44 @@
                             <input class="input" type="text" id="#" name="email_add">
                         </div>
                         <div class="input_container">
-                            <label class="label" for="#">Start Date and Time of Appointment: </label>
+                        <?php 
+                            include('../../assets/connection/dbconnection.php');
+                            $SQL = $conn->query("SELECT `meta_field`,
+                            `start_date`,
+                            `end_date` FROM `avail_sched` WHERE `meta_field` = 'first'");
+
+                                while ($row = $SQL->fetch_assoc()) {
+                            ?>
+                            <label class="label" for="#">Date of Appointment: </label>
                             <br>
-                            <input class="input" type="datetime-local" id="#" name="start_app">
+                            <input class="input" type="date" id="#" name="start_app_date" min = "<?php echo $row['start_date']; ?>" max = "<?php echo $row['end_date']; ?>">
+                            <?php
+                            }
+                          ?>
+                        </div>
+                        
+                        <div class="input_container">
+                            <?php 
+                            include('../../assets/connection/dbconnection.php');
+                            $SQL = $conn->query("SELECT `meta_field`,
+                            `start_time`,
+                            `end_time` FROM `avail_sched` WHERE `meta_field` = 'first'");
+
+                                while ($row = $SQL->fetch_assoc()) {
+                            ?>
+                            <label class="label" for="#">Time of Appointment: </label>
+                            <br>
+                            <input class="input" type="time" id="start_app_time" name="start_app_time" step="3600" min ="<?php echo $row['start_time'];?>" max="<?php echo $row['end_time']; ?>" >
+                            <?php
+                            }
+                        
+                          ?>
                         </div>
                     </div>
                     <div class="form_action">
                         <button type="submit" name="submit" class="form_bttn">Appoint</a>
                     </div>
+                
                 </form>
             </div>
             
