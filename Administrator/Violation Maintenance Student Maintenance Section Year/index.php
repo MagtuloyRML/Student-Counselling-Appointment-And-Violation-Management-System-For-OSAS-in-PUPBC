@@ -32,7 +32,42 @@
         $searched = $_POST['curri'];
         $searched2 = $_POST['section'];
 
-        $sched = $conn->query("SELECT `id`,
+        if(!$searched){
+            $sched = $conn->query("SELECT `id`,
+        `studNum`,
+        `lastName`,
+        `firstName`,
+        `middleName`,
+        `Section`,
+        `Address`,
+        `Gender`,
+        t2.pCode AS p_description,
+        t3.code AS a_code,
+        status FROM forstudents t1
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+
+        WHERE ayCode ='{$searched2}'");
+
+        }elseif(!$searched2){
+            $sched = $conn->query("SELECT `id`,
+        `studNum`,
+        `lastName`,
+        `firstName`,
+        `middleName`,
+        `Section`,
+        `Address`,
+        `Gender`,
+        t2.pCode AS p_description,
+        t3.code AS a_code,
+        status FROM forstudents t1
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+
+        WHERE pCode ='{$searched}'");
+
+        }else{
+            $sched = $conn->query("SELECT `id`,
         `studNum`,
         `lastName`,
         `firstName`,
@@ -48,6 +83,7 @@
 
         WHERE ayCode ='{$searched2}'
         AND pCode ='{$searched}'");
+        }
     }
 
 ?>

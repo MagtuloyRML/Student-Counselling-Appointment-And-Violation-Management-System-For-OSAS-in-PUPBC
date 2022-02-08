@@ -1,7 +1,7 @@
 <?php
     include_once 'dbconnection.php';
 
-    $SQL = ("SELECT studNum, lastName, firstName, middleName, Section, Address, Gender , progCode FROM forstudents");
+    $SQL = ("SELECT studNum, lastName, firstName, middleName, Section, Address, Gender , progCode, ayCode FROM forstudents");
     $RESULT = mysqli_query($conn, $SQL);
     $resultchecker = mysqli_num_rows($RESULT);
 
