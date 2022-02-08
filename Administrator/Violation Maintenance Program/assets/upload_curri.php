@@ -36,7 +36,7 @@ if($_FILES["file_path"]["name"] != '')
             $pdescription  = $row[1];
 
 
-            $checkExistingCode = "SELECT pID, pCode, pDescription FROM forprogram WHERE pCode = :pcoded ";
+            $checkExistingCode = "SELECT pCode, pDescription FROM forprogram WHERE pCode = :pcoded ";
             $query_result = $connect->prepare($checkExistingCode);
             $query_result->bindValue(':pcoded', $pCoded);
             $query_result->execute();
@@ -48,7 +48,7 @@ if($_FILES["file_path"]["name"] != '')
                 UPDATE forprogram
                 SET pCode = :pcode, 
                 pDescription = :description
-                WHERE progCode = :pcode ";
+                WHERE pCode = :pcode ";
                 $updatestatement = $connect->prepare($update_data);
                 $updatestatement->execute($insert_data);
             }

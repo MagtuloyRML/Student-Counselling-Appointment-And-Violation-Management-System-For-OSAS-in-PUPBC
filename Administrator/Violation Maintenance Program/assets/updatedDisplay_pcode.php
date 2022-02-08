@@ -1,7 +1,7 @@
 <?php
     include_once 'dbconnection.php';
 
-    $SQL = ("SELECT pID, pCode, pDescription FROM forprogram");
+    $SQL = ("SELECT pCode, pDescription FROM forprogram");
     $RESULT = mysqli_query($conn, $SQL);
     $resultchecker = mysqli_num_rows($RESULT);
 
