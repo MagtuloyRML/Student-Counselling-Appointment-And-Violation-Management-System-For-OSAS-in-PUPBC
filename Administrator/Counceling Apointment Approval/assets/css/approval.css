@@ -28,17 +28,12 @@
     box-sizing: border-box;
 }
 .content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.approv_content{
-    width: 70%;
-    border-radius: .5rem;
     background-color: var(--color-content0-bg);
-    padding: 20px 30px 20px;
-    margin-top: 30px;
+    margin-top: 10px;
+    padding: 30px 5% 30px;
+    width: 70%;
 }
+
 .approv_content .title{
     width: 235px;
 }

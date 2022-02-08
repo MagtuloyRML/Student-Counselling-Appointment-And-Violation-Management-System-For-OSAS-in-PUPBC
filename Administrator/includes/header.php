@@ -43,7 +43,7 @@
 
     <link href="assets/css/violation_records.css" rel="stylesheet">
 
-    <link href="assets/css/maintenance.css" rel="stylesheet">
+    <link href="../includes/css/maintenance.css" rel="stylesheet">
 
     <link href="assets/css/reg_style.css" rel="stylesheet">
 
@@ -60,6 +60,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
 
     <!--violation maintenance-->
     <link rel="stylesheet" href="assets/css/curriculum.css">
@@ -72,9 +74,9 @@
 
     <link rel="stylesheet" href="assets/css/update_student.css">
 
-    <link rel="stylesheet" href="assets/css/modal_placement.css">
+    <link rel="stylesheet" href="../includes/css/modal_placement.css">
 
-    <link rel="stylesheet" href="assets/css/modal_upload_placement.css">
+    <link rel="stylesheet" href="../includes/css/modal_upload_placement.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

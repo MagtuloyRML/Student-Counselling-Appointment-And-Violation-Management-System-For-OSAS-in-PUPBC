@@ -3,6 +3,7 @@
     $page = 'ca_client';
     include_once('../includes/header.php');
 ?>
+    
     <div class="content">
         <div class="client_content">
             <div class="title">

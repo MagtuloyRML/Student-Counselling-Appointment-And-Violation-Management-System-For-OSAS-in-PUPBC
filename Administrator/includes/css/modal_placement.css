@@ -26,12 +26,12 @@
     box-sizing: border-box;
 }
 
-.modal_upload_bg{
+.modal_bg{
     display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
-    z-index: 999;
+    z-index: 1000;
     left: 0;
     top: 0;
     height: 100%;
@@ -39,28 +39,26 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal_upload_bg .modal_upload{
-    width: 55%;
+.modal_bg .modal{
     background-color: var(--color-content0-bg);
     border-radius: .5rem;
 }
-.modal_upload .title_bar{
+.modal .title_bar{
     padding: 8px 17px 5px;
     color: var(--button-color-font-icon);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.modal_upload .title_bar .modal_title_bttn{
+.modal .title_bar .modal_title_bttn{
     color: var(--maroong-content-bg);
     font-size: 22px;
-    cursor: pointer;
 }
-.modal_upload .title_bar .modal_title_bttn:hover{
+.modal .title_bar .modal_title_bttn:hover{
     color: var(--maroong-content-hover);
 }
 
-.modal_upload .modal_content{
+.modal .modal_content{
     width: 100%;
     padding: 15px 22px 15px;
     display: flex;
@@ -69,83 +67,25 @@
     border-top: 1px solid var(--button-color-font-icon);
     border-bottom: 1px solid var(--button-color-font-icon);
 }
-
-.modal_content .preview_table_content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-.preview_table_content .preview_table{
-    width: 100%;
-    border-collapse: collapse;
-
-}
-.preview_table .preview_title{
-    color: var(--color-content0-bg);
-    background-color: var(--maroong-content-bg);
-}
-.preview_table .preview_data{
-    border: 1px solid #ddd;
-    padding: 2px 3px 2px;
-    font-size: var(--small-font-size);
-}
-
-.footer_modal_input{
-    padding: 5px 20px 0;
-}
-.footer_modal_input .file_input{
-    display: flex;
-    margin: 0 0 5px;
-    color: var(--button-color-font-icon);
-}
-.footer_modal_input .file_input .label{
-    width: 100px;
-    font-size: 15px;
-}
-.footer_modal_input .file_input .input_field{
-    width: 250px;
-    font-size: 12px;
-    padding: 2px;
-    border: 1px solid var(--button-color-font-icon);
-    color: var(--button-hover-color-font-icon);
-}
-.footer_modal_input .file_input .file_bttn{
-    color: var(--color-content0-bg);
-    background-color: var(--maroong-content-bg);
-    font-size: .875rem;
-    border-radius: .25rem;
-    margin: 0 5px 0;
-    padding: 2px 10px 2px;
-    text-decoration: none;
-    cursor: pointer;
-}
-.footer_modal_input .file_input .file_bttn:hover{
-    background-color: var(--maroong-content-hover);
-}
-
-.modal_upload .footer_modal_bttn{
+.modal .footer_modal_bttn{
     padding: 5px 17px 8px;
     color: var(--button-color-font-icon);
     display: flex;
     align-items: center;
     float: right;
-    cursor: pointer;
-    border: none;
-    outline: none;
 }
-.modal_upload .footer_modal_bttn .modal_foot_bttn{
+.footer_modal_bttn .modal_foot_bttn{
+    cursor: pointer;
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    outline: none;
+    border: none;
     font-size: .875rem;
     border-radius: .5rem;
     padding: 5px 10px 5px;
     margin: 8px;
     text-decoration: none;
-    cursor: pointer;
-    border: none;
-    outline: none;
 }
-.modal_upload .footer_modal_bttn .modal_foot_bttn:hover{
+.footer_modal_bttn .modal_foot_bttn:hover{
     background-color: var(--maroong-content-hover);
 }
