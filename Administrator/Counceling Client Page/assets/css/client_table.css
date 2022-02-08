@@ -30,13 +30,7 @@
     justify-content: center;
     align-items: center;
 }
-.client_content{
-    width: 70%;
-    padding: 20px 30px 20px;
-    background-color: var(--color-content0-bg);
-    border-radius: .5rem;
-    margin-top: 30px;
-}
+
 .client_content .title{
     width: 150px;
 }
@@ -98,6 +92,7 @@
 .list_client .display_client{
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .display_client .client_title{

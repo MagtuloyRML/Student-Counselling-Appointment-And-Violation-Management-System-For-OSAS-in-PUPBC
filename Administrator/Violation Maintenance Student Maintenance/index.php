@@ -151,7 +151,7 @@
                         <div class="student_input">
                             <label for="#" class="label">Search:</label>
                             <input type="text" class="input_field" id="search_box" name="search_box" class="">
-                            <button type="submit" name="submit" value=">>"><i class="fas fa-search"></i></button>
+                            <button type="submit" name="submit" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button>
                         </div>
                         
                         <div class="student_select">
@@ -171,7 +171,7 @@
                                 <?php } ?>
                                 
                             </select>
-                            <button type="submit" name="submit" value=">>"><i class="fas fa-search"></i></button>
+                            <button type="submit" name="submit" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button>
                         </div>
                         
                     </div>

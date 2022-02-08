@@ -87,6 +87,20 @@
     color: var(--button-color-font-icon);
 }
 
+.srch_bttn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--button-color-font-icon);
+    background-color: var(--body-color);
+    padding: 5px;
+    font-size: var(--small-font-size);
+}
+.srch_bttn:hover{
+    color: var(--color-content0-bg);
+    background-color: var(--button-color-font-icon);
+}
+
 .stud_left_group .student_select{
     display: flex;
     padding-bottom: 10px;
@@ -115,6 +129,10 @@
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
     border-radius: .5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
 }
 .stud_bttn:hover{
     background-color: var(--maroong-content-hover);

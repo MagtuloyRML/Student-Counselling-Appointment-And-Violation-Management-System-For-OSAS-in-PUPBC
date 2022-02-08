@@ -75,8 +75,11 @@
     float: right;
 }
 .footer_modal_bttn .modal_foot_bttn{
+    cursor: pointer;
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    outline: none;
+    border: none;
     font-size: .875rem;
     border-radius: .5rem;
     padding: 5px 10px 5px;
