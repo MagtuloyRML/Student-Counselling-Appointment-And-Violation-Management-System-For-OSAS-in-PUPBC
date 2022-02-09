@@ -8,7 +8,7 @@
         $yearTo = $_POST['yearTo'];
         $Semester = $_POST['semester'];
         
-        $sql = "INSERT INTO foracademicyear (code, yearFrom, yearTo, Semester) VALUES ('$yearFrom, $yearTo ', '$yearFrom', '$yearTo', '$Semester')";
+        $sql = "INSERT INTO foracademicyear (code, yearFrom, yearTo, Semester) VALUES ('$yearFrom - $yearTo ', '$yearFrom', '$yearTo', '$Semester')";
         $result = mysqli_query($conn, $sql);
     
         header("Location: ../index.php?save=success");
