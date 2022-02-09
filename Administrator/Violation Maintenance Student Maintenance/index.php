@@ -1,6 +1,6 @@
 <?php
     $title = 'Maintenance';
-    $page = 'v_maintenance';
+    $page = 'maintenance';
     include_once('../includes/header.php');
 ?>
 
@@ -190,7 +190,7 @@
                 <div class="stud_table_content">
                     <table class="stud_table">
                         <tr> 
-                            <th class="stud_title" ><input type='checkbox' id='checkAll'>All</th>
+                            <th class="stud_title" style="width: 40px" ><input type='checkbox' id='checkAll'>All</th>
                             <th class="stud_title">Student Num</th>
                             <th class="stud_title">Last Name</th>
                             <th class="stud_title">First Name</th>
@@ -213,7 +213,7 @@
                             $address = $row['Address'];
 				        ?>
                         <tr>
-                            <td class="curriculum_data"> <input type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
+                            <td class="stud_data"> <input type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
                             <td class="stud_data"> <?php echo $row['studNum']?> </td>
                             <td class="stud_data"> <input type ='text' name ='lastName_<?= $id ?>' value='<?= $lastName ?>'></td>
                             <td class="stud_data"> <input type ='text' name ='firstName_<?= $id ?>' value='<?= $firstName ?>'> </td>

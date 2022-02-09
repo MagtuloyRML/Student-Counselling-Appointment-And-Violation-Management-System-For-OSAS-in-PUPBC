@@ -25,6 +25,28 @@
     '$client_email', '$password', '$gender')";
     $query_run = mysqli_query($conn, $insert);
     if($query_run){
+        $directoryFolder = '../../assets/user_profile_pic/'.$stud_num;
+        mkdir($directoryFolder);
+
+        $sourceIMG = '../../assets/user_profile_pic/default_user.jpg';
+        $insertIMG = '../../assets/user_profile_pic/'.$stud_num.'/default_user.jpg';
+        copy($sourceIMG, $insertIMG);
+
+        $imgFileName = 'default_user.jpg';
+        $now = date("Y-m-d H:i:s");
+
+        $sql_fetch = mysqli_query($conn, "SELECT ClientAccountID FROM clientaccountinfo WHERE ClientFirstName = '$fst_name' AND ClientMiddleName = '$mid_name' 
+        AND ClientLastName = '$last_name' AND ClientSuffix = '$suf_name' AND ClientStudentNo = '$stud_num' AND ClientBDay = '$bday' 
+        AND ClientAddress = '$add' AND ClientContactNo = '$client_contact' AND ClientGuardian = '$guar_name' AND ClientGuardianNo = '$guardian_contact' 
+        AND ClientEmailAdd = '$client_email' AND ClientPassword = '$password' ");
+        while($details = mysqli_fetch_assoc($sql_fetch))
+        {
+            $id = $details['ClientAccountID']; 
+        }
+
+        $insert="INSERT INTO clientprofilepictureinfo (ClientAccountID, PictureFilename, UploadDate, UsedStatus) VALUES ('$id','$imgFileName', '$now', TRUE)";
+        mysqli_query($conn, $insert);
+
         echo "Data Inserted";
         header ("Location: ../../Client Login/");
     }else{

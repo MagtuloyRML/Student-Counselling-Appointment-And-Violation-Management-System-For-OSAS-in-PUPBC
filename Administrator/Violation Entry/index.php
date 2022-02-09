@@ -12,8 +12,8 @@
             <!-- SEARCH BOX -->
             <div class="searchBar">
                 <form action="">
-                    <input type="text" placeholder="Search" class="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input class="srcinput" type="text" placeholder="Search" class="search">
+                    <button class="srcbttn" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <!-- STUDENT INFO -->

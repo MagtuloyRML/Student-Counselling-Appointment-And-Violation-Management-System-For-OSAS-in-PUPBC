@@ -1,6 +1,6 @@
 <?php
     $title = 'Maintenance';
-    $page = 'v_maintenance';
+    $page = 'maintenance';
     include_once('../includes/header.php');
 ?>
 

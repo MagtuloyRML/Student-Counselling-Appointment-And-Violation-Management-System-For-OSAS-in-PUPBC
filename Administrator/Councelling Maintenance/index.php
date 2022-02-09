@@ -24,30 +24,29 @@ if (isset($_POST['submit'])){
 
 
      <div class="subcontent">
-         <form action ="index.php" method = "POST">
-         <?php 
-                     
-         $query = "SELECT * from avail_sched";
-         $result = mysqli_query($conn, $query);
-         while($row = mysqli_fetch_assoc($result))
-         {?>
+        <form action ="index.php" method = "POST">
+        <?php            
+            $query = "SELECT * from avail_sched";
+            $result = mysqli_query($conn, $query);
+            while($row = mysqli_fetch_assoc($result))
+            {
+        ?>
         
-         <label>Available Time</label>
-         <br>
-         <label>Start Time:</label>
-         <input type ="time" id = "start_time" name = "start_time" value="<?php echo $row['start_time'];?>">       
-         <br>
-         <label>End Time:</label>
-         <input type ="time" id = "end_time" name = "end_time" value="<?php echo $row['end_time'];?>">
-         <br>
-         <label>Start Date:</label>
-         <input type ="date" id = "start_date" name = "start_date" value="<?php echo $row['start_date'];?>">       
-         <br>
-         <label>End Date:</label>
-         <input type ="date" id = "end_date" name = "end_date" value="<?php echo $row['end_date'];?>">
-         <?php } ?>       
-         <input type = "submit" value="submit" name="submit" id="submit" >
-         </form>
+        <label>Available Time</label>
+         
+        <label>Start Time:</label>
+        <input type ="time" id = "start_time" name = "start_time" value="<?php echo $row['start_time'];?>">       
+         
+        <label>End Time:</label>
+        <input type ="time" id = "end_time" name = "end_time" value="<?php echo $row['end_time'];?>">
+        <label>Start Date:</label>
+        <input type ="date" id = "start_date" name = "start_date" value="<?php echo $row['start_date'];?>">       
+        
+        <label>End Date:</label>
+        <input type ="date" id = "end_date" name = "end_date" value="<?php echo $row['end_date'];?>">
+        <?php } ?>       
+        <input type = "submit" value="submit" name="submit" id="submit" >
+        </form>
     </div>
 
 
