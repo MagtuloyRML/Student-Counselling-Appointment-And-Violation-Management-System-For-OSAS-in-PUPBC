@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 07, 2022 at 02:21 PM
+-- Generation Time: Feb 09, 2022 at 05:11 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `avail_sched` (
 --
 
 INSERT INTO `avail_sched` (`meta_field`, `start_date`, `end_date`, `start_time`, `end_time`) VALUES
-('first', '2022-02-06', '2022-02-12', '07:00:00', '18:00:00');
+('first', '2022-02-06', '2022-02-17', '07:00:00', '18:00:00');
 
 -- --------------------------------------------------------
 
@@ -99,14 +99,15 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
   PRIMARY KEY (`ClientAccountID`),
   KEY `gender_role` (`ClientGenderID`),
   KEY `user_role` (`RoleID`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `clientaccountinfo`
 --
 
 INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`) VALUES
-(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1);
+(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
+(45, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1);
 
 -- --------------------------------------------------------
 
@@ -123,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`ClientProfilePictureID`),
   KEY `cppInfo_Client` (`ClientAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientprofilepictureinfo`
@@ -139,7 +140,11 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (11, 34, '2019-00001-BN-0202202071644242322.jpg', '2022-02-07 13:58:42', 0),
 (12, 34, '2019-00001-BN-0202202071644242382.jpg', '2022-02-07 13:59:42', 0),
 (13, 34, '2019-00001-BN-0202202071644242461.jpg', '2022-02-07 14:01:01', 0),
-(14, 34, '2019-00001-BN-0202202071644243420.jpg', '2022-02-07 14:17:00', 1);
+(14, 34, '2019-00001-BN-0202202071644243420.jpg', '2022-02-07 14:17:00', 1),
+(17, 45, 'default_user.jpg', '2022-02-08 08:36:22', 0),
+(18, 45, '2010-00001-BN-0202202081644309514.jpg', '2022-02-08 08:38:34', 0),
+(19, 45, '2010-00001-BN-0202202081644312537.jpg', '2022-02-08 09:28:57', 0),
+(20, 45, '2010-00001-BN-0202202081644312551.jpg', '2022-02-08 09:29:11', 1);
 
 -- --------------------------------------------------------
 

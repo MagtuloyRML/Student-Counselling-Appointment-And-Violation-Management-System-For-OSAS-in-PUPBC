@@ -33,6 +33,8 @@
     <link href="../includes/css/admin_navbar.css" rel="stylesheet">
     <script src="../includes/js/side_navi.js" defer></script>
 
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <link href="assets/css/admin_profile_info.css" rel="stylesheet">
 
     <link href="assets/css/client_profile_info.css" rel="stylesheet">
@@ -132,13 +134,13 @@
                 </div>
                 <br>
                 <div class="navi_list">
-                    <div class="navi_link <?php if ($page == 'v_maintenance'){ echo 'active_side';}?> collapse">
+                    <div class="navi_link <?php if ($page == 'maintenance'){ echo 'active_side';}?> collapse">
                         <i class="fas fa-tools"></i>
                         <span class="navi_name">Maintenance</span>
                         <i class="fas fa-chevron-down" id="drop_bttn"></i>
 
                         <ul class="collapse_menu">
-                            <a href="#" class="collapse_link">Counceling</a>
+                            <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counceling</a>
                             <a href="../Violation Maintenance Program/" class="collapse_link">Violation</a>
                             <a href="../Administrator Registration/" class="collapse_link">Add Admin</a>
                         </ul>

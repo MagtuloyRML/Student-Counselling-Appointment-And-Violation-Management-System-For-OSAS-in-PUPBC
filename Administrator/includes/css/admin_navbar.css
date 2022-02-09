@@ -5,6 +5,28 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+
+*::before, ::after{
+    box-sizing: border-box;
+}
+
 body{
     position: relative;
     background-color: rgb(209, 209, 209);
@@ -251,4 +273,30 @@ nav{
 .rotate{
     transform: rotate(180deg);
     transition: .5s;
+}
+
+.sub_nav{
+    padding: 20px 0 0;
+    display: flex;
+}
+.sub_nav .sub_nav_bttn_active,
+.sub_nav .sub_nav_bttn{
+    font-size: var(--normal-font-size);
+    background-color: var(--button-hover-bg);
+    padding: 5px;
+    margin: 0 3px 0 0;
+    color: var(--color-content0-bg);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    text-decoration: none;
+}
+.sub_nav .sub_nav_bttn_active,
+.sub_nav .sub_nav_bttn:hover
+{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+}
+.active_bttn{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
 }

@@ -128,7 +128,7 @@ if(isset($_POST['submit'])){
                 </div>
 
                 <div class="footer_modal_bttn">
-                    <input class="modal_foot_bttn" type="submit" id="submit" name="submit"><i class="fas fa-save"></i> Save</input>
+                    <button class="modal_foot_bttn" type="submit" id="submit" name="submit"><i class="fas fa-save"></i> Save</button>
                     <a href="#" id="close_modal2" class="modal_foot_bttn"><i class="fas fa-sign-out-alt"></i> Exit</a>
                 </div>
 
