@@ -18,7 +18,7 @@
     {
         $prof_pic = $detailpic['PictureFilename'];
     }
-    $directory = "../../assets/user_profile_pic/";
+    $directory = "../../assets/user_profile_pic/client/";
 ?>
     <div class="content">
         <div class="profile">
@@ -36,98 +36,94 @@
                 </div>
             </div>
 
-            <div class="profile_info">
-                <div>
-                    <?php
-                        $sub_page = 'client_e_personal_info';
-                        include('../includes/prof_sub_nav.php');
-                    ?>
-                </div>
-                <form id="editInfo" method="POST">
-                    <div class="sub_content">
-                        <div class="profile_content_info">
+            <div>
+                <?php
+                    $sub_page = 'client_e_personal_info';
+                    include('../includes/prof_sub_nav.php');
+                ?>
+            </div>
+            <form id="editInfo" method="POST">
+                <div class="sub_content">
+                        
+                        <h4>Personal Information:</h4>
 
-                            <h4>Personal Information:</h4>
-
-                            <div class="input-container">
-                                <label class="label" for="#">Student Number: </label>
-                                <input type="text" class="input-field" name="stud_num" id="stud_num" value="<?php echo $stud_ID?>">
-                                <i id="i_stud_num" class="fas"></i>
-                            </div>
-
-                            <h4>Full Name:</h4>
-
-                            <div class="input-container group">
-                                <div class="input">
-                                    <label class="label" for="#">First Name: </label>
-                                    <div class="input_align" id="input_fname">
-                                        <input type="text" class="input-field" name="fname" id="fname" value="<?php echo $fname?>">
-                                        <i id="i_fname" class="fas"></i>
-                                    </div> 
-                                </div>
-                                <div class="input">
-                                    <label class="label" for="#">Middle Name: </label>
-                                    <div class="input_align" id="input_mname">
-                                        <input type="text" class="input-field" name="mname" id="mname" value="<?php echo $mname?>">
-                                        <i id="i_mname" class="fas"></i>
-                                    </div> 
-                                </div>
-                                <div class="input">
-                                    <label class="label" for="#">Last Name: </label>
-                                    <div class="input_align" id="input_lname">
-                                        <input type="text" class="input-field" name="lname" id="lname" value="<?php echo $lname?>">
-                                        <i id="i_lname"class="fas" ></i>
-                                    </div> 
-                                    
-                                </div>
-                                <div class="input">
-                                    <label class="label" for="#">Suffix Name: </label>
-                                    <div class="input_align" id="input_sname">
-                                        <input type="text" class="input-field" name="suffname" id="suffname" value="<?php echo $sname?>">
-                                        <i id="i_suffname" class="fas"></i>
-                                    </div> 
+                        <div class="input_group">
+                            <div class="input_container stud_id">
+                                <label for="#" class="label">Student Number: </label>
+                                <div class="input " id="input_stud_num">
+                                    <input type="text" class="input-field" name="stud_num" id="stud_num" value="<?php echo $stud_ID?>">
+                                    <i id="i_stud_num" class="fas"></i>
                                 </div>
                             </div>
+                        </div>
 
-                            <h4>Other Information:</h4>
-                            
-                            <div class="input-container group">
-                                <div class="input-container">
-                                    <label class="label" for="#">BirthDate: </label>
-                                    <input type="date" class="input-field" name="bday" id="bday" value="<?php echo $bday?>">
+                        <h4>Full Name:</h4>
+                        <div class="input_group">
+                            <div class="input_container">
+                                <label for="#" class="label">First Name: </label>
+                                <div class="input " id="input_fname">
+                                    <input type="text" class="input-field" name="fname" id="fname" value="<?php echo $fname?>">
+                                    <i id="i_fname" class="fas" ></i>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Middle Name: </label>
+                                <div class="input " id="input_mname">
+                                    <input type="text" class="input-field" name="mname" id="mname" value="<?php echo $mname?>">
+                                    <i id="i_mname" class="fas"></i>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Last Name: </label>
+                                <div class="input " id="input_lname">
+                                    <input type="text" class="input-field" name="lname" id="lname" value="<?php echo $lname?>">
+                                    <i id="i_lname"class="fas" ></i>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Suffix Name:</label>
+                                <div class="input " id="input_suffname">
+                                    <input type="text" class="input-field" name="suffname" id="suffname" value="<?php echo $sname?>">
+                                    <i id="i_suffname" class="fas"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Other Information:</h4>
+
+                        <div class="input_group">
+                            <div class="input_container">
+                                <label for="#" class="label">BirthDate: </label>
+                                <div class="input " id="input_bday">
+                                    <input type="text" class="input-field" name="bday" id="bday" value="<?php echo $bday?>">
                                     <i id="i_bday" class="fas"></i>
                                 </div>
-                                <div class="input-container">
-                                    <label class="label" for="#">Gender: </label>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Gender: </label>
+                                <div class="input " id="input_mname">
                                     <select class="input-field select" name="gender" id="gender">
                                         <option value = '' >Select Gender</option>
                                         <?php 
                                             $result1 = mysqli_query($conn, "SELECT GenderID, Description from genderrole");
                                             while($row2 = mysqli_fetch_assoc($result1))
                                         {   $genderID = $row2['GenderID']; $genderName = $row2['Description'];
-                                            ?>
+                                                ?>
                                             <option value = "<?php echo $genderID ?>" <?php if($genderID == $gend )echo "selected" ?>> <?php echo $genderName?>  </option>
                                         <?php }?>
-                                        
+                                            
                                     </select>
                                     <i id="i_gender" class="fas"></i>
                                 </div>
-                                
-                                
-                            </div>
-                            
-                            
-
+                            </div>   
                         </div>
-                    </div>
-                    <div class="config_bttn_group">
-                        <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
-                    </div>
-                </form>
-                
-
-            </div>
-            
+                        
+                </div>
+                <div class="config_bttn_group">
+                    <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
+                </div>
+            </form>
+                    
         </div>
 
     </div>

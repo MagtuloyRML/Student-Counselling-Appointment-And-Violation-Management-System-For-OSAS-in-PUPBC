@@ -20,7 +20,7 @@
         $img_array_2 = explode(",", $img_array_1[1]);
         $basedecode = base64_decode($img_array_2[1]);
         $filename = $stud_ID.date("Ymd").time(). '.jpg';
-        $directory = "../../../assets/user_profile_pic";
+        $directory = "../../../assets/user_profile_pic/client";
         file_put_contents("$directory/$stud_ID/$filename", $basedecode);
         $now = date("Y-m-d H:i:s");
         

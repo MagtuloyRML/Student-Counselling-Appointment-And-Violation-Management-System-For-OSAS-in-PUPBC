@@ -18,7 +18,7 @@
     {
         $prof_pic = $detailpic['PictureFilename'];
     }
-    $directory = "../../assets/user_profile_pic/";
+    $directory = "../../assets/user_profile_pic/client/";
 ?>
     <div class="content">
         <div class="profile">

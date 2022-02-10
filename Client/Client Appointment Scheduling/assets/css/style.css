@@ -25,64 +25,59 @@
 *::before, ::after{
     box-sizing: border-box;
 }
-
-.modal_bg{
-    display: none;
+.content{
+    display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal_bg .modal{
+.appoint_form{
+    margin-top: 10px;
     background-color: var(--color-content0-bg);
-    border-radius: .5rem;
+    border-radius: .25rem;
+    padding: 20px 30px 10px;
+    width: 70%;
 }
-.modal .title_bar{
-    padding: 8px 17px 5px;
-    color: var(--button-color-font-icon);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.appoint_form .title_content h3{
+    color: var(--button-hover-color-font-icon);
+    padding-bottom: 20px;
 }
-.modal .title_bar .modal_title_bttn{
-    color: var(--maroong-content-bg);
-    font-size: 22px;
-}
-.modal .title_bar .modal_title_bttn:hover{
-    color: var(--maroong-content-hover);
-}
-
-.modal .modal_content{
+.appoint_form .content_appoint{
     width: 100%;
-    padding: 15px 22px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid var(--button-color-font-icon);
-    border-bottom: 1px solid var(--button-color-font-icon);
 }
-.modal .footer_modal_bttn{
-    padding: 5px 17px 8px;
-    color: var(--button-color-font-icon);
+.content_appoint .input_container{
+    width: 100%;
+}
+.input_container .label{
+    color: var(--button-hover-color-font-icon);
+    font-size: 1rem;
+    font-weight: 600;
+}
+.input_container .input{
+    width: 300px;
+    padding: 2px 5px 2px;
+    border: 1px solid var(--button-hover-color-font-icon);
+    color: var(--button-hover-color-font-icon);
+}
+
+.form_action{
+    padding: 10px 0 10px;
+    width: 100%;
     display: flex;
-    align-items: center;
-    float: right;
 }
-.footer_modal_bttn .modal_foot_bttn{
+.form_action .form_bttn{
+    width: 100%;
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
-    font-size: .875rem;
     border-radius: .5rem;
-    padding: 5px 10px 5px;
-    margin: 8px;
     text-decoration: none;
+    padding: 10px 20px 10px;
+    text-align: center;
+    font-weight: 600;
 }
-.footer_modal_bttn .modal_foot_bttn:hover{
+.form_action .form_bttn:hover{
     background-color: var(--maroong-content-hover);
 }

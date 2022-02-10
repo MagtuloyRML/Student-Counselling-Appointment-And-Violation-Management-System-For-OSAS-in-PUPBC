@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
 
         $insert_run = mysqli_query($conn, $insert);
         if($insert_run){
-            //header('../index.php');
+            header('../index.php');
         }
     }
 

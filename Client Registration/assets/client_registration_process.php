@@ -25,11 +25,11 @@
     '$client_email', '$password', '$gender')";
     $query_run = mysqli_query($conn, $insert);
     if($query_run){
-        $directoryFolder = '../../assets/user_profile_pic/'.$stud_num;
+        $directoryFolder = '../../assets/user_profile_pic/client/'.$stud_num;
         mkdir($directoryFolder);
 
         $sourceIMG = '../../assets/user_profile_pic/default_user.jpg';
-        $insertIMG = '../../assets/user_profile_pic/'.$stud_num.'/default_user.jpg';
+        $insertIMG = '../../assets/user_profile_pic/client/'.$stud_num.'/default_user.jpg';
         copy($sourceIMG, $insertIMG);
 
         $imgFileName = 'default_user.jpg';

@@ -27,10 +27,9 @@
 }
 .content{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
-
 .profile{
     margin-top: 10px;
     background-color: white;
@@ -56,6 +55,9 @@
 .profile_info{
     padding: 10px 0 10px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .pic_container{
     width: 100%;
@@ -104,9 +106,7 @@
     background-color: rgb(160, 160, 160);
 }
 .sub_content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px 3% 10px;
     height: auto;
     border: 1px solid var(--button-hover-bg);
     border-bottom-left-radius: .50rem;
@@ -120,53 +120,65 @@ h4{
     font-weight: 600;
     padding: 10px 0 10px;
 }
-.profile_content_info{
-    padding: 10px 0 0;
-    width: 90%;
-}
-.profile_content_info .input-container{
-    height: 50px;
-    width: 100%;
-    padding: 10px 0 10px;
-    font-size: 14px;
-    color: var(--button-hover-color-font-icon);
+
+.input_group{
+    padding: 10px 2% 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.input-container .label{
-    width: 30%;
-    padding-right: 2px;
-    font-size: var(--small-font-size);
-}
-.input-container .input-field{
-    font-size: var(--small-font-size);
-    width: 80%;
-    padding: 2px;
-    color: var(--button-color-font-icon);
-    border: none;
-    border-bottom: 2px solid var(--button-color-font-icon);
-}
-.input-container .input-field:focus{
-    border: 2px solid var(--maroong-content-bg);
-}
-.input-container .fas{
-    width: 40px;
-    font-size: 1.25rem;
-    color: var(--maroong-content-bg);
-    text-align: center;
-}
-.input_align{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.input .label{
-    margin-bottom: 2px;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
 }
 
-.input-error{
-    box-shadow: 5px solid var(--maroong-content-bg);
+.input_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    font-size: var(--small-font-size);
+    text-align: center;
+}
+.stud_id, .add{
+    width: 95%;
+}
+.input_container .label{
+    color: var(--button-hover-color-font-icon);
+    margin-right: 5px;
+    width: 120px;
+}
+.input_container .input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: .25rem;
+}
+  
+.input_container .input-field {
+    color: var(--button-hover-color-font-icon);
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid var(--button-hover-color-font-icon);
+    background-color: transparent;
+}
+.input .fas{
+    padding: .5rem;
+    font-size: 18px;
+    color: var(--maroong-content-bg);
+}
+
+.input .fa-eye, .input .fa-eye-slash{
+    cursor: pointer;
+    color: var(--button-hover-color-font-icon);
+    transition: ease 2s;
+}
+
+.select{
+    padding: 0px;
+}
+  
+.input_container .input-field:focus {
+    border: 0 0 2px solid var(--button-hover-color-font-icon);
 }
 
 .config_bttn_group{
@@ -193,9 +205,11 @@ h4{
     background-color: var(--body-color);
     pointer-events: none;
 }
-.upload_pic{
+
+.upload_pic {
     margin-top: 20px;
 }
+
 .upload_pic .upload_pic_hidden{
     display: none;
 }
@@ -211,7 +225,6 @@ h4{
     color: var(--color-content0-bg);
     background-color: var(--button-color-font-icon);
 }
-
 
 .prof_pic_edit{
     width: 45%;

@@ -12,7 +12,7 @@
     {
         $prof_pic = $detailpic['PictureFilename'];
     }
-    $directory = "../../assets/user_profile_pic/";
+    $directory = "../../assets/user_profile_pic/client/";
 ?>
     <div class="content">
         <div class="profile">
@@ -29,56 +29,51 @@
                     </div>
                 </div>
             </div>
-
-            <div class="profile_info">
-                <div>
-                    <?php
-                        $sub_page = 'client_e_acc_config';
-                        include('../includes/prof_sub_nav.php');
-                    ?>
-                </div>
-                <form id="editInfo" method="POST">
-                    <div class="sub_content">
-                        <div class="profile_content_info">
-
-                            <h4>Account Information:</h4>
-
-                            <div class="input-container">
-                                <div class="input-container">
-                                    <label class="label" for="#">Previous Password: </label>
-                                    <input type="password" class="input-field" name="prepass" id="prepass" >
-                                    <i class="fas fa-eye" id="viewPass"></i>
-                                    <i id="i_prepass" class="fas"></i>
-                                </div>
+            <div>
+                <?php
+                    $sub_page = 'client_e_acc_config';
+                    include('../includes/prof_sub_nav.php');
+                ?>
+            </div>
+            <form id="editInfo" action="assets/updateInfo.php" method="POST">
+                <div class="sub_content">
+                    <h4>Account Configuration:</h4>
+                    
+                    <div class="input_group">
+                        <div class="input_container prePass">
+                            <label for="#" class="label">Previous Password: </label>
+                            <div class="input " id="input_fname">
+                                <input type="password" class="input-field" name="prepass" id="prepass" >
+                                 <i class="fas fa-eye" id="viewPass"></i>
+                                <i id="i_prepass" class="fas"></i>
                             </div>
-
-                            <div class="input-container">
-                                <div class="input-container">
-                                    <label class="label" for="#">New Password: </label>
-                                    <input type="password" class="input-field" name="npass" id="npass">
-                                    <i class="fas fa-eye" id="viewPass1"></i>
-                                    <i id="i_npass" class="fas"></i>
-                                </div>
-                            </div>
-
-                            <div class="input-container">
-                                <div class="input-container">
-                                    <label class="label" for="#">Confirm Password: </label>
-                                    <input type="password" class="input-field" name="conpass" id="conpass" >
-                                    <i class="fas fa-eye" id="viewPass2"></i>
-                                    <i id="i_conpass" class="fas"></i>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
-                    <div class="config_bttn_group">
-                        <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
-                    </div>
-                </form>
+                        <div class="input_container">
+                            <label for="#" class="label">New Password: </label>
+                            <div class="input " id="input_mname">
+                                <input  type="password" class="input-field" name="npass" id="npass">
+                                <i class="fas fa-eye" id="viewPass1"></i>
+                                <i id="i_npass" class="fas"></i>
+                            </div>
+                        </div>
+                        <div class="input_container">
+                            <label for="#" class="label">Confirm Password: </label>
+                            <div class="input " id="input_lname">
+                                <input type="password" class="input-field" name="conpass" id="conpass" >
+                                <i class="fas fa-eye" id="viewPass2"></i>
+                                <i id="i_conpass" class="fas"></i>
+                            </div>
+                        </div>
+                        
+                    </div>                 
+                 </div>
+                <div class="config_bttn_group">
+                    <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
+                </div>
+            </form>
                 
 
-            </div>
+            
             
         </div>
 

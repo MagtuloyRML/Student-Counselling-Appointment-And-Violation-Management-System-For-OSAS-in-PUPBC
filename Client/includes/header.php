@@ -10,7 +10,6 @@
         unset($_SESSION['StudID']);
         die();
     }
-
     include '../../assets/connection/DBconnection.php';
 
     $id = $_SESSION['StudID'];
@@ -34,7 +33,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
-    
 
     <link href="../includes/css/stud_nav_bar.css" rel="stylesheet">
     <script src="../includes/js/acc_dropdown_notif_dropdown.js" defer></script>
@@ -42,13 +40,7 @@
     <link href="../includes/css/modal_placement.css" rel="stylesheet">
     <link href="../includes/css/modal_upload_placement.css" rel="stylesheet">
 
-    <?php if ($page == 'client_home'){ echo '<link href="assets/css/home.css" rel="stylesheet">';}?>
-
-    <?php if ($page == 'client_profile'){ echo '<link href="assets/css/stud_profile_info.css" rel="stylesheet">';}?>
-
-    <?php if ($page == 'client_edit_profile'){ echo '<link href="assets/css/stud_edit_profile_info.css" rel="stylesheet">';}?>
-
-    <?php if ($page == 'client_app_sched'){ echo '<link href="assets/css/stud_appoint_sched.css" rel="stylesheet">';}?>
+    <link href="assets/css/style.css" rel="stylesheet">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">

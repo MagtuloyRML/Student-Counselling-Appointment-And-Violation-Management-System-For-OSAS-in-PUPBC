@@ -25,7 +25,6 @@
                 <div class="ac_table_content">
                     <table class="ac_table">
                         <tr> 
-                            <th class="acadYear_title"> </th>
                             <th class="acadYear_title">AYCODE</th>
                             <th class="acadYear_title">Year From</th>
                             <th class="acadYear_title">Year To</th>
@@ -40,7 +39,6 @@
                             while ($row = $SQL->fetch_assoc()) {
                                 ?>
                         <tr>
-                            <td class="acadYear_data"> </td>
                             <td class="acadYear_data"><?php  echo $row['code'] ."<br>";?></td>
                             <td class="acadYear_data"><?php  echo $row['yearFrom'] ."<br>";?></td>
                             <td class="acadYear_data"><?php  echo $row['yearTo'] ."<br>";?></td>

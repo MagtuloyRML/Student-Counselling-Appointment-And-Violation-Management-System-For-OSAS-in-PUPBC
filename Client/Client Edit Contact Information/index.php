@@ -15,7 +15,7 @@
     {
         $prof_pic = $detailpic['PictureFilename'];
     }
-    $directory = "../../assets/user_profile_pic/";
+    $directory = "../../assets/user_profile_pic/client/";
 ?>
     <div class="content">
         <div class="profile">
@@ -32,69 +32,77 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <?php
+                    $sub_page = 'client_e_cont_info';
+                    include('../includes/prof_sub_nav.php');
+                ?>
+            </div>
+            <form id="editContactInfo" method="POST">
+                <div class="sub_content">
+                        
+                        <h4>Personal Information:</h4>
 
-            <div class="profile_info">
-                <div>
-                    <?php
-                        $sub_page = 'client_e_cont_info';
-                        include('../includes/prof_sub_nav.php');
-                    ?>
-                </div>
-                <form id="editContactInfo" method="POST">
-                    <div class="sub_content">
-                        <div class="profile_content_info">
+                        <div class="input_group">
+                            <div class="input_container stud_id">
+                                <label for="#" class="label">Student Number: </label>
+                                <div class="input " id="input_stud_num">
+                                    <input type="text" class="input-field" name="stud_num" id="stud_num" value="<?php echo $stud_ID?>">
+                                    <i id="i_stud_num" class="fas"></i>
+                                </div>
+                            </div>
+                        </div>
 
-                            <h4>Contact Information:</h4>
-
-                            <div class="input-container">
-
-                                <div class="input-container">
-                                    <label class="label" for="#">Email Address: </label>
+                        <h4>Contact Information:</h4>
+                        <div class="input_group">
+                            <div class="input_container">
+                                <label for="#" class="label">Email Address: </label>
+                                <div class="input " id="input_fname">
                                     <input type="text" class="input-field" name="email" id="email" value="<?php echo $email?>">
                                     <i id="i_email" class="fas"></i>
-                                </div>     
-                            </div>
-                            
-                            <div class="input-container">
-
-                                <div class="input-container">
-                                    <label class="label" for="#">Address: </label>
-                                    <input type="text" class="input-field" name="add" id="add" value="<?php echo $add?>">
-                                    <i id="i_add" class="fas"></i>
                                 </div>
-
-                                <div class="input-container">
-                                    <label class="label" for="#">Contact Number: </label>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Contact Number: </label>
+                                <div class="input " id="input_mname">
                                     <input type="text" class="input-field" name="cNom" id="cNom" value="<?php echo $cNom?>">
                                     <i id="i_cNom" class="fas"></i>
                                 </div>
-
                             </div>
+                        </div>
 
-                            <div class="input-container">
-                                <div class="input-container">
-                                    <label class="label" for="#">Guardian's Name: </label>
+                        <div class="input_group">
+                            <div class="input_container">
+                                <label for="#" class="label">Guardian's Name: </label>
+                                <div class="input " id="input_lname">
                                     <input type="text" class="input-field" name="cguard" id="cguard" value="<?php echo $cguard?>">
                                     <i id="i_cguard" class="fas"></i>
                                 </div>
-
-                                <div class="input-container">
-                                    <label class="label" for="#">Guardian's Contact Number: </label>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Guardian's Contact Number: </label>
+                                <div class="input " id="input_suffname">
                                     <input type="text" class="input-field" name="cguardNum" id="cguardNum" value="<?php echo $cguardNum?>">
                                     <i id="i_cguardNum" class="fas"></i>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                    <div class="config_bttn_group">
-                        <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
-                    </div>
-                </form>
-                
 
-            </div>
-            
+                        <div class="input_group">
+                            <div class="input_container add">
+                                <label for="#" class="label">Address: </label>
+                                <div class="input " id="input_stud_num">
+                                    <input type="text" class="input-field" name="add" id="add" value="<?php echo $add?>">
+                                    <i id="i_add" class="fas"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="config_bttn_group">
+                    <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
+                </div>
+            </form>
         </div>
 
     </div>

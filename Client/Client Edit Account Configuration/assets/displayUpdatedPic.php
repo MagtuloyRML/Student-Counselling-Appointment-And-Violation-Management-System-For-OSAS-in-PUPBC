@@ -11,7 +11,7 @@
     while($detailpic = mysqli_fetch_assoc($sql_fetchpic))
     {
         $prof_pic = $detailpic['PictureFilename'];
-        $directory = "../../assets/user_profile_pic/";
+        $directory = "../../assets/user_profile_pic/client/";
         ?>
         <img class="prof_pic" id="prof_pic" src="<?php echo $directory, $stud_ID,'/', $prof_pic?>" alt="Profile Pic">
         <div class="upload_pic">

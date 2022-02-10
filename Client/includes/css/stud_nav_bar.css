@@ -29,6 +29,7 @@ body{
     background-color: rgb(209, 209, 209);
 }
 .page{
+    position: fixed;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20%;
@@ -190,4 +191,8 @@ body{
 .active_bttn{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+}
+
+.content{
+    padding-top: 50px;
 }

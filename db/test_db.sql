@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 09, 2022 at 05:11 AM
+-- Generation Time: Feb 10, 2022 at 09:09 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
   `AdminLastName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `AdminSufifx` varchar(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `RoleID` int NOT NULL,
-  `AdminContactNo` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `AdminContactNo` varchar(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `AdminUsername` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `AdminPassword` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `AdminEmailAdd` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -49,7 +49,34 @@ CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
 --
 
 INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddleName`, `AdminLastName`, `AdminSufifx`, `RoleID`, `AdminContactNo`, `AdminUsername`, `AdminPassword`, `AdminEmailAdd`, `AdminAddress`) VALUES
-(1, 'Sample', 'Sample', 'Sample', '', 2, 'Sample', 'Sample', 'paramore123', 'Sample', 'Sample Addres');
+(1, 'Joseph', 'Blakis', 'kolorpul', '', 2, '09010102030', 'Sample', 'memapig009', 'Sample@gmail.com', 'Sample Addres');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminprofilepictureinfo`
+--
+
+DROP TABLE IF EXISTS `adminprofilepictureinfo`;
+CREATE TABLE IF NOT EXISTS `adminprofilepictureinfo` (
+  `AdminProfilePictureID` int NOT NULL AUTO_INCREMENT,
+  `AdminAccountID` int NOT NULL,
+  `PictureFilename` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `UploadDate` datetime NOT NULL,
+  `UsedStatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`AdminProfilePictureID`),
+  KEY `appInfo_Admin` (`AdminAccountID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `adminprofilepictureinfo`
+--
+
+INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`, `PictureFilename`, `UploadDate`, `UsedStatus`) VALUES
+(1, 1, 'default_user.jpg', '2022-02-07 06:05:52', 0),
+(2, 1, 'pbcscvs1202202091644412996.jpg', '2022-02-09 13:23:16', 0),
+(3, 1, 'pbcscvs1202202091644413268.jpg', '2022-02-09 13:27:48', 0),
+(4, 1, 'pbcscvs1202202101644452348.jpg', '2022-02-10 00:19:08', 1);
 
 -- --------------------------------------------------------
 
@@ -99,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
   PRIMARY KEY (`ClientAccountID`),
   KEY `gender_role` (`ClientGenderID`),
   KEY `user_role` (`RoleID`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `clientaccountinfo`
@@ -107,7 +134,8 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
 
 INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`) VALUES
 (34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
-(45, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1);
+(45, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1),
+(46, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`ClientProfilePictureID`),
   KEY `cppInfo_Client` (`ClientAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientprofilepictureinfo`
@@ -140,11 +168,14 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (11, 34, '2019-00001-BN-0202202071644242322.jpg', '2022-02-07 13:58:42', 0),
 (12, 34, '2019-00001-BN-0202202071644242382.jpg', '2022-02-07 13:59:42', 0),
 (13, 34, '2019-00001-BN-0202202071644242461.jpg', '2022-02-07 14:01:01', 0),
-(14, 34, '2019-00001-BN-0202202071644243420.jpg', '2022-02-07 14:17:00', 1),
+(14, 34, '2019-00001-BN-0202202071644243420.jpg', '2022-02-07 14:17:00', 0),
 (17, 45, 'default_user.jpg', '2022-02-08 08:36:22', 0),
 (18, 45, '2010-00001-BN-0202202081644309514.jpg', '2022-02-08 08:38:34', 0),
 (19, 45, '2010-00001-BN-0202202081644312537.jpg', '2022-02-08 09:28:57', 0),
-(20, 45, '2010-00001-BN-0202202081644312551.jpg', '2022-02-08 09:29:11', 1);
+(20, 45, '2010-00001-BN-0202202081644312551.jpg', '2022-02-08 09:29:11', 1),
+(21, 34, '2019-00001-BN-0202202091644398074.jpg', '2022-02-09 09:14:34', 1),
+(22, 46, 'default_user.jpg', '2022-02-09 09:31:47', 0),
+(24, 46, '2014-00005-BN-0202202091644448697.jpg', '2022-02-09 23:18:17', 1);
 
 -- --------------------------------------------------------
 
@@ -289,6 +320,12 @@ INSERT INTO `userrole` (`RoleID`, `Description`, `ForPage`) VALUES
 --
 ALTER TABLE `adminaccountinfo`
   ADD CONSTRAINT `admin_user_role` FOREIGN KEY (`RoleID`) REFERENCES `userrole` (`RoleID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `adminprofilepictureinfo`
+--
+ALTER TABLE `adminprofilepictureinfo`
+  ADD CONSTRAINT `appInfo_Admin` FOREIGN KEY (`AdminAccountID`) REFERENCES `adminaccountinfo` (`AdminAccountID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `clientaccountinfo`

@@ -25,11 +25,6 @@
 *::before, ::after{
     box-sizing: border-box;
 }
-.content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .profile{
     margin-top: 10px;
@@ -121,6 +116,7 @@
 .counceling_records_content .cr_record{
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .cr_record .cr_title{
@@ -131,4 +127,29 @@
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
     font-size: var(--small-font-size);
+}
+
+.upload_pic .upload_pic_hidden{
+    display: none;
+}
+.upload_pic .upload_pic_bttn{
+    color: var(--button-color-font-icon);
+    padding: 10px;
+    border: 2px solid var(--button-color-font-icon);
+    border-radius: .25rem;
+    cursor: pointer;
+    font-size: large;
+}
+.upload_pic .upload_pic_bttn:hover{
+    color: var(--color-content0-bg);
+    background-color: var(--button-color-font-icon);
+}
+
+.prof_pic_edit{
+    width: 45%;
+}
+.image_crop{
+    width: 350px;
+    height: 350px;
+    padding-bottom: 25px;
 }
