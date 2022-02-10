@@ -42,7 +42,19 @@
                     $updateUser = "UPDATE forstudents SET status = '$enrolled'
                     WHERE id =$updateid";
                     mysqli_query($conn, $updateUser);
-                    $sched = $conn->query("SELECT * from forstudents WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+                    $sched = $conn->query("SELECT `id`,
+                    `studNum`,
+                    `lastName`,
+                    `firstName`,
+                    `middleName`,
+                    `Section`,
+                    `Address`,
+                    `Gender`,
+                    t2.pCode AS p_description,
+                    t3.code AS a_code,
+                    status FROM forstudents t1
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 }
 
             }
@@ -62,7 +74,19 @@
                     $updateUser = "UPDATE forstudents SET status = '$selected'
                     WHERE id =$updateid";
                     mysqli_query($conn, $updateUser);
-                    $sched = $conn->query("SELECT * from forstudents WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+                    $sched = $conn->query("SELECT `id`,
+                    `studNum`,
+                    `lastName`,
+                    `firstName`,
+                    `middleName`,
+                    `Section`,
+                    `Address`,
+                    `Gender`,
+                    t2.pCode AS p_description,
+                    t3.code AS a_code,
+                    status FROM forstudents t1
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 }
 
             }
@@ -75,7 +99,19 @@
         $deleted = 'Deleted';
         $deleteUsers = "UPDATE forstudents SET `status` = '$deleted' WHERE `status` ='$disable'";
         mysqli_query($conn, $deleteUsers);
-        $sched = $conn->query("SELECT * from forstudents WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+        $sched = $conn->query("SELECT `id`,
+        `studNum`,
+        `lastName`,
+        `firstName`,
+        `middleName`,
+        `Section`,
+        `Address`,
+        `Gender`,
+        t2.pCode AS p_description,
+        t3.code AS a_code,
+        status FROM forstudents t1
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.codeWHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 
            
     }
