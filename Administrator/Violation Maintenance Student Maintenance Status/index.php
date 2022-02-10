@@ -283,7 +283,7 @@
                                 $id = $row['id'];
                                 $studNum = $row['studNum'];
                                 $progCode = $row['p_description'];
-                                $section = $row['Section'];
+                                $section = $row['Section']; 
                                 $status = $row['status'];
 				        ?>
                         <tr>
