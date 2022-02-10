@@ -247,7 +247,7 @@
                             while($row = $sched->fetch_array()){
                                 $id = $row['id'];
                                 $studNum = $row['studNum'];
-                                $progCode = $row['pCode'];
+                                $progCode = $row['p_description'];
                                 $section = $row['Section'];
                                 $status = $row['status'];
 				        ?>

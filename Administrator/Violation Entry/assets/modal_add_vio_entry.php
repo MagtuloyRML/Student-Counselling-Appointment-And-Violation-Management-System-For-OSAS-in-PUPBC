@@ -45,9 +45,7 @@ if(isset($_POST['submit'])){
         '$ayCode')";
 
         $insert_run = mysqli_query($conn, $insert);
-        if($insert_run){
-            header('../index.php');
-        }
+        
     }
 
     }else{
