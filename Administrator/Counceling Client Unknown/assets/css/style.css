@@ -25,6 +25,7 @@
 *::before, ::after{
     box-sizing: border-box;
 }
+
 .content{
     display: flex;
     justify-content: center;
@@ -121,5 +122,22 @@
 .display_client .client_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
+    font-size: var(--small-font-size);
+}
+.content_statement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statement{
+    padding: 50px 0 50px;
+    text-align: center;
+    color: var(--button-hover-color-font-icon);
+    width: 50%;
+}
+.statement .fas{
+    font-size: 35px;
+}
+.statement p{
     font-size: var(--small-font-size);
 }

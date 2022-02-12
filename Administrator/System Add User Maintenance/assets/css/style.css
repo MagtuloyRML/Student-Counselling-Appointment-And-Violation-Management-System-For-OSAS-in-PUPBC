@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.body_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    background-color: var(--color-content0-bg);
+    margin-top: 10px;
+    padding: 30px 5% 30px;
+    width: 70%;
+    height: auto;
+}
+.content .title{
+    width: 270px;
+}
+.content .title h1{
+    font-size: 1.5rem;
+    color: var(--button-color-font-icon);
+    display: inline-block;
+}
+.content .title hr{
+    border-bottom: 2px solid var(--maroong-content-bg);
+}
+.content .subcontent .title{
+    width: 210px;
+}
+.content .subcontent .title h1{
+    font-size: 1.2rem;
+    color: var(--button-color-font-icon);
+    display: inline-block;
+}
+.content .subcontent .title hr{
+    border-bottom: 2px solid var(--maroong-content-bg);
+}
+
+
+
+.subtitle{
+    padding-top: 10px;
+    padding-left: 10px;
+    color: var(--button-hover-color-font-icon);
+}
+
+.input_group{
+    padding: 10px 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.input_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    margin-bottom: 15px;
+    font-size: var(--small-font-size);
+    text-align: center;
+}
+.input_container .label{
+    color: var(--button-hover-color-font-icon);
+    margin-right: 5px;
+    width: 100px;
+}
+.input_container .input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: .25rem;
+}
+  
+.input_container .input-field {
+    color: var(--button-hover-color-font-icon);
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.input .fas{
+    padding: .5rem;
+    font-size: 18px;
+    color: var(--maroong-content-bg);
+}
+
+.input-error{
+    box-shadow: 5px solid var(--maroong-content-bg);
+    border: 2px solid var(--maroong-content-bg);
+}
+
+.action_content {
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 0px 30px 0 0;
+}
+
+.action_content .bttn {
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.action_content .bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+
+.list{
+    padding-top: 25px;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+}
+.list .list_title{
+    padding: 5px 30px 3px;
+    width: auto;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.list .display{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.display .table_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-hover);
+}
+.display .data{
+    border: 1px solid #ddd;
+    padding: 2px 5px 2px;
+    font-size: var(--small-font-size);
+}
+.data a{
+    text-decoration: none;
+    font-size: 15px;
+}
+.input_fieldselect{
+    background-color: transparent;
+    color: var(--button-hover-color-font-icon);
+    border: none;
+    width: 100%;
+}

@@ -44,41 +44,11 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <link href="assets/css/client_profile_info.css" rel="stylesheet">
-
-    <link href="assets/css/dashboard_style.css" rel="stylesheet">
-
-    <link href="assets/css/violation_entry.css" rel="stylesheet">
-
-    <link href="assets/css/violation_records.css" rel="stylesheet">
-
-    <link href="assets/css/reg_style.css" rel="stylesheet">
-
-    <!--counceling-->
-    <link href="assets/css/approval.css" rel="stylesheet">
-
-    <link href="assets/css/client_table.css" rel="stylesheet">
-
-    <link href="assets/css/client_info.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/css/calendar.css">
-    
-    
-
-    <!--violation maintenance-->
-    <link rel="stylesheet" href="assets/css/curriculum.css">
-
-    <link rel="stylesheet" href="assets/css/violation.css">
-
-    <link rel="stylesheet" href="assets/css/academic_year.css">
-
-    <link rel="stylesheet" href="assets/css/stud_details.css">
-
-    <link rel="stylesheet" href="assets/css/update_student.css">
-
     <link rel="stylesheet" href="../includes/css/modal_placement.css">
 
     <link rel="stylesheet" href="../includes/css/modal_upload_placement.css">
+
+    <?php if ($page == 'ca_appoint_sched'){ echo '<link rel="stylesheet" href="assets/css/calendar.css">';}?>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -142,7 +112,7 @@
                         <ul class="collapse_menu">
                             <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counceling</a>
                             <a href="../Violation Maintenance Program/" class="collapse_link">Violation</a>
-                            <a href="../Administrator Registration/" class="collapse_link">Add Admin</a>
+                            <a href="../System User Maintenance/" class="collapse_link">Maintenance</a>
                         </ul>
                     </div>
                 </div>

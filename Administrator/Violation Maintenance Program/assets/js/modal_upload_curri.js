@@ -3,6 +3,8 @@ let excelfilename = document.getElementById('file-name');
 let inputSelectFile = document.getElementById('uploadExcelFile');
 var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
 
+newtableNum = '';
+
 inputexcel.addEventListener('change', function(event){
     if (regex.test(inputexcel.value.toLowerCase())) {
         let uploadFileName = event.target.files[0].name;

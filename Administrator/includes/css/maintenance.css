@@ -92,3 +92,35 @@
 .subcontent .title hr{
     border-bottom: 2px solid var(--maroong-content-bg);
 }
+
+.sub_content_nav{
+    margin-top: 10px;
+    display: flex;
+    padding: 5px 5px 0;
+}
+.sub_content_nav .sub_nav_bttn{
+    padding: 5px 10px 5px;
+    background-color: var(--button-color-font-icon);
+    color: var(--color-content0-bg);
+    margin: 0 2px 0;
+    font-size: var(--small-font-size);
+    border-radius: .25rem;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.sub_content_nav .sub_nav_bttn:hover,
+.sub_content_nav .active_bttn,
+.sub_content_nav .sub_nav_bttn_active{
+    padding: 5px 10px 5px;
+    background-color: var(--maroong-content-bg);
+    color: var(--color-content0-bg);
+    margin: 0 2px 0;
+    font-size: var(--small-font-size);
+    border-radius: .25rem;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

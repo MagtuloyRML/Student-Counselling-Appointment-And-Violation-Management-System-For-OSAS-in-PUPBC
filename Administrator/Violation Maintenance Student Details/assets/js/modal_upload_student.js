@@ -2,6 +2,7 @@ let inputexcel = document.getElementById('file_path');
 let excelfilename = document.getElementById('file-name');
 let inputSelectFile = document.getElementById('uploadExcelFile');
 var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xls|.xlsx)$/;
+newtableNum = '';
 
 document.getElementById('upload_student_bttn').addEventListener('click', function() {
     document.querySelector('#modal_upload_student').style.display = 'flex';
