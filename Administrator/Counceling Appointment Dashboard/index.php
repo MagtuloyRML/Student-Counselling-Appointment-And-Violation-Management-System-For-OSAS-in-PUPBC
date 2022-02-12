@@ -12,7 +12,7 @@
 <?php 
         include('../../assets/connection/DBconnection.php');
         // para magather yung data
-        $query = $conn->query("SELECT * FROM schedules ORDER BY id");
+        $query = $conn->query("SELECT * FROM schedules WHERE stat = 'Pending' OR stat = 'Confirmed' ORDER BY id");
 ?>
 
     <script>

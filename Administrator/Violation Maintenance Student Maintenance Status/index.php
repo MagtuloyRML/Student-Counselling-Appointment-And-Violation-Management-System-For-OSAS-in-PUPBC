@@ -111,7 +111,7 @@
         t3.code AS a_code,
         status FROM forstudents t1
         INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
-        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.codeWHERE `status` = '$enrolled' OR `status` = '$disabled'");
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 
            
     }
