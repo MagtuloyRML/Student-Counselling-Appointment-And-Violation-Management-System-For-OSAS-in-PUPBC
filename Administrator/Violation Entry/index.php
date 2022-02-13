@@ -11,50 +11,16 @@
             </div>
             <!-- SEARCH BOX -->
             <div class="searchBar">
-                <form action="">
-                    <input class="srcinput" type="text" placeholder="Search" class="search">
-                    <button class="srcbttn" type="submit"><i class="fa fa-search"></i></button>
+                <form action=""  method="POST">
+                    <input class="srcinput" type="text" placeholder="Enter Student No." class="search" name="search" id="search">
                 </form>
             </div>
             <!-- STUDENT INFO -->
             <div class="studentInfo">
-                <form action="" method="">
-                    <div class="stud_content">
-                        <div class="input_container">
-                            <label for="#">Student Name: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
-                        <div class="input_container">
-                            <label for="#">Student Course: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
-                        <div class="input_container">
-                            <label for="#">Student Section: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
-                        <div class="input_container">
-                            <label for="#">Aycode: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
-                        <div class="input_container">
-                            <label for="#">Violation: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
-                        <div class="input_container">
-                            <label for="#">Sanction: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
-                        <div class="input_container">
-                            <label for="#">Date: </label>
-                            <br>
-                            <input type="text" id="#" name="name" value="">
-                        </div>
+                <form action="">
+                    <div class="list_stud_violation" id="output">
+                    
+                   
                     </div>
                     <!-- DATA MANIPULATION BUTTONS -->
                     <div class="action_content">
@@ -109,7 +75,8 @@
                         INNER JOIN forthesanctions t6 ON t1.Sanctions = t6.s_id
                         WHERE
                         Date >= '2013-12-12'
-                        ORDER BY entry_id DESC");
+                        ORDER BY entry_id DESC
+                        LIMIT 10");
 
                         if ($SQL->num_rows > 0) {
                             while ($row = $SQL->fetch_assoc()) {
@@ -141,7 +108,27 @@
         include_once('assets/modal_add_vio_entry.php');
     ?>
 
-
+    <script>
+        $(document).ready(function(){
+            $("#search").keyup(function(){
+                var input = $(this).val();
+                
+                if(input != ""){
+                $.ajax({
+                    method: 'POST',
+                    url: 'search.php',
+                    data:{input:input},
+                    success: function(data){
+                        $("#output").html(data);
+                        $("#output").css("display", "block");
+                    }
+                });
+                }else{
+                    $("#output").css("display", "none");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
