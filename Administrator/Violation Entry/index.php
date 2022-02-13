@@ -18,10 +18,6 @@
             <!-- STUDENT INFO -->
             <div class="studentInfo">
                 <form action="">
-                    <div class="list_stud_violation" id="output">
-                    
-                   
-                    </div>
                     <!-- DATA MANIPULATION BUTTONS -->
                     <div class="action_content">
                         <div class="action_bttn">
@@ -41,9 +37,10 @@
             </div>
             
             <!-- LIST / TABLE -->
-            <div class="list_student_violation">
+            <div class="list_student_violation" >
                 <h3 class="list_title">List</h3>
-                <table class="display_violation_record">
+                <table class="display_violation_record" id = "table_data">
+                    <thead>
                     <tr> 
                         <th class="violation_title">Student Number</th>
                         <th class="violation_title">Name</th>
@@ -54,6 +51,8 @@
                         <th class="violation_title">Sanction</th>
                         <th class="violation_title">Date</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php
                         include_once 'assets/dbconnection.php';
                         
@@ -76,13 +75,13 @@
                         WHERE
                         Date >= '2013-12-12'
                         ORDER BY entry_id DESC
-                        LIMIT 10");
+                        ");
 
                         if ($SQL->num_rows > 0) {
                             while ($row = $SQL->fetch_assoc()) {
                         ?>
                         <tr>
-                    <tr>
+
                         <td class="violation_data"><?php echo $row['studNum']; ?> </td>
                         <td class="violation_data"><?php echo $row['fullName']; ?> </td>
                         <td class="violation_data"><?php echo $row['p_description']; ?> </td>
@@ -95,6 +94,7 @@
                        echo $date; ?> 
                         </td>
                     </tr>
+                            </tbody>
                     <?php
                             }
                         }
@@ -112,20 +112,14 @@
         $(document).ready(function(){
             $("#search").keyup(function(){
                 var input = $(this).val();
-                
-                if(input != ""){
                 $.ajax({
                     method: 'POST',
                     url: 'search.php',
                     data:{input:input},
                     success: function(data){
-                        $("#output").html(data);
-                        $("#output").css("display", "block");
+                        $("#table_data").html(data);
                     }
                 });
-                }else{
-                    $("#output").css("display", "none");
-                }
             });
         });
     </script>
