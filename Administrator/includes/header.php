@@ -15,11 +15,20 @@
 
     $id = $_SESSION['AdminID'];
 
-    $sql_fetch = mysqli_query($conn, "SELECT AdminFirstName from adminaccountinfo WHERE AdminAccountID = '$id'");
+    //$sql_fetch = mysqli_query($conn, "SELECT AdminFirstName, AdminUserRoleID from adminaccountinfo WHERE AdminAccountID = '$id'");
+    $sql_fetch = mysqli_query($conn, 
+    "SELECT adminAccount.AdminFirstName, adminAccount.AdminUserRoleID, userRole.AdminPageStudentCounceling, 
+    userRole.AdminPageViolation, userRole.AdminMaintenance, userRole.StatusID
+    FROM adminaccountinfo AS adminAccount 
+    INNER JOIN adminuserrole AS userRole 
+    ON adminAccount.AdminUserRoleID = userRole.AdminUserRoleID WHERE adminAccount.AdminAccountID = '$id' ");
     $name = "";
+    $userRole = "";
     while($row = mysqli_fetch_assoc($sql_fetch))
     {
-        $name = $row['AdminFirstName'];
+        $name = $row['AdminFirstName']; $userRoleID = $row['AdminUserRoleID']; 
+        $studCounceling = $row['AdminPageStudentCounceling']; $studViol = $row['AdminPageViolation']; 
+        $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
 ?>
 <!DOCTYPE html>

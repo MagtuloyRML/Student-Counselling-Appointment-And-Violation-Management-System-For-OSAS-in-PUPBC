@@ -1,100 +1,3 @@
-<?php
-    $title = 'User Maintenance';
-    $page = 'maintenance';
-    include_once('../includes/header.php');
-
-    $result1 = mysqli_query($conn, "SELECT * from genderrole");
-    $options = "";
-    while($row2 = mysqli_fetch_array($result1))
-    {
-        $options = $options."<option value='$row2[0]'>$row2[1]</option>";
-    }
-
-    $result2 = mysqli_query($conn, "SELECT AdminUserRoleID, AdminUserRole from adminuserrole");
-    $role = "";
-    while($row3 = mysqli_fetch_array($result2))
-    {
-        $role = $role."<option value='$row3[0]'>$row3[1]</option>";
-    }
-?>
-    <div class="body_container">
-        <div class="content">
-            <div class="title">
-                <h1>System Maintenance</h1>
-                <hr>
-            </div>
-            <div class="subcontent">
-                <?php
-                    $sub_page = 'role_admin';
-                    include '../includes/main_sub_nav.php';
-
-                ?>
-                <h3 class="subtitle">User's Role</h3>
-
-                <form id="addRole"  method = "POST">
-                    <div class="input_group">
-                        <div class="input_container">
-                            <label for="#" class="label">Role Name: </label>
-                            <div class="input " id="input_roleName">
-                                <input class="input-field" type="text" placeholder="Insert Role Name" name="roleNameCheck" id="roleNameCheck">
-                                <i class="fa-solid fa-asterisk"></i>
-                                <i id="i_roleName" class="fa-solid "></i>
-                            </div>
-                        </div>
-                        <div class="input_container">
-                            <label for="studCouncheck" class="labelcheck">Student Counceling </label>
-                            <select class="input_fieldselectAdd" name="studCouncheck" id="studCouncheck">
-                                <option value = '' >Status</option>
-                                    <?php 
-                                    $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                    while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                        $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                        ?>
-                                    <option value = "<?php echo $statsID ?>" > <?php echo $statsName?>  </option>
-                                <?php }?>
-                            </select>
-                            <i class="fa-solid fa-asterisk"></i>
-                            <i id="i_studCouncheck" class="fa-solid "></i>
-                        </div>
-                        <div class="input_container">
-                            <label for="studViolationcheck" class="labelcheck">Student Violation </label>
-                            <select class="input_fieldselectAdd" name="studViolationcheck" id="studViolationcheck">
-                                <option value = '' >Status</option>
-                                    <?php 
-                                    $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                    while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                        $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                        ?>
-                                    <option value = "<?php echo $statsID ?>" > <?php echo $statsName?>  </option>
-                                <?php }?>
-                            </select>
-                            <i class="fa-solid fa-asterisk"></i>
-                            <i id="i_studViolationcheck" class="fa-solid "></i>
-                        </div>
-                        <div class="input_container">
-                            <label for="sysMainsCheck" class="labelcheck">System Maintenance </label>
-                            <select class="input_fieldselectAdd" name="sysMainsCheck" id="sysMainsCheck">
-                                <option value = '' >Status</option>
-                                    <?php 
-                                    $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                    while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                        $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                        ?>
-                                    <option value = "<?php echo $statsID ?>" > <?php echo $statsName?>  </option>
-                                <?php }?>
-                            </select>
-                            <i class="fa-solid fa-asterisk"></i>
-                            <i id="i_sysMainsCheck" class="fa-solid "></i>
-                        </div>
-                    </div> 
-
-                    <div class="action_content">
-                        <button class= "bttn" type="submit" name="submit" id="submitRole">
-                        <i class="fa-solid fa-check-to-slot"></i>  Add Role</button>
-                    </div>
-                </form>
-
-                <div class="list" id="tableRoles">
                     <form method ="POST" id="updateRoles">
                     <h3 class="list_title">Role List</h3>
                         <table class="display">
@@ -107,6 +10,7 @@
                                 <th class="table_title" style="width: 15%;">Status</th>
                             </tr>
                             <?php
+                                include_once '../../../assets/connection/DBconnection.php';
                                 
                                 $userRole = $conn->query("SELECT * FROM adminuserrole");
                                 while($row = $userRole->fetch_assoc()){
@@ -175,15 +79,3 @@
                             <i class="fa-solid fa-floppy-disk"></i> Save Status</button>
                         </div>
                     </form>
-                </div>
-                
-                
-            </div>
-
-        </div>
-    </div>
-
-    <script src="assets/js/main.js"></script>
-
-</body>
-</html>

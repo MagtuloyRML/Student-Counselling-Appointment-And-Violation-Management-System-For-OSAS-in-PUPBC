@@ -10,6 +10,7 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -116,34 +117,16 @@
     border: none;
     background-color: transparent;
 }
-
-.input_container .input-fieldcheck {
-    content: "\2714";
-    color: var(--button-hover-color-font-icon);
-    font-size: 30px;
-    padding: 9px;
-    border: 2px solid var(--maroong-content-bg);
-    background-color: transparent;
-    cursor: pointer;
+.input_container .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
 }
-.input_container .input-fieldcheck:checked{
-    background-color: var(--maroong-content-bg);
-    color: var(--color-content0-bg);
-}
-
-.input-fieldchecktable{
-    display: none;
-}
-.labelcheckData{
-    font-size: 1rem;
+.input_container .fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
     color: var(--maroong-content-bg);
-    cursor: pointer;
-    background-color: transparent;
 }
-.labelcheckData:hover{
-    color: var(--maroong-content-hover);
-}
-
 .input .fas{
     padding: .5rem;
     font-size: 18px;
@@ -177,6 +160,22 @@
     cursor: pointer;
     outline: none;
 }
+.action_content .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+.action_content .disable:hover{
+    background-color: var(--button-hover-bg);
+}
+
 .action_content .bttn:hover{
     background-color: var(--maroong-content-hover);
 }
@@ -223,3 +222,38 @@
     border: none;
     width: 100%;
 }
+
+.input_fieldselectAdd{
+    background-color: transparent;
+    color: var(--button-hover-color-font-icon);
+    border: none;
+    width: 100%;
+}
+
+.table_content {
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 10px 30px 0 0;
+}
+
+.table_content .bttn {
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.table_content .bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+
+
