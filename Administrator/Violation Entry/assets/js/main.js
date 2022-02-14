@@ -112,7 +112,7 @@ $(document).ready(function(){
             $("#i_date").addClass('fa-circle-exclamation');
         }
 
-        if(studError == false && vioaltionError == false && sanctionError == false && dateError == true ){
+        if(studError == false && vioaltionError == false && sanctionError == false && dateError == false ){
                 $.ajax({
                     url: "assets/insertViolationEntry.php",
                     type: 'POST',
