@@ -37,7 +37,7 @@
                         <!-- DISPLAYING THE DATA TO WEB PAGE FROM DATA BASE -->
                         <?php
                         include_once 'assets/dbconnection.php';
-                        $SQL = $conn->query("SELECT * FROM forprogram");
+                        $SQL = $conn->query("SELECT pCode, pDescription FROM forprogram");
 
                         if ($SQL->num_rows > 0) {
                             while ($row = $SQL->fetch_assoc()) {
@@ -45,8 +45,8 @@
                             <tr id="editRows">
                                 <td class="curriculum_data" ><?php echo $row['pCode'] . "<br>"; ?></td>
                                 <td class="curriculum_data"> <?php echo $row['pDescription'] . "<br>"; ?> </td>
-                                <td class="curriculum_data"> <a href="assets/delete_program.php?delete=<?php echo $row['pID']; ?>" class="c_data_bttn"><i class="fas fa-trash-alt"></i></a></td>
-                                <td class="curriculum_data"> <a href="assets/modal_edit_curriculum.php?edit=<?php echo $row['pID']; ?>" class="c_data_bttn" id="modal_editBTTN"><i class="fas fa-edit"></i></a></td>
+                                <td class="curriculum_data"> <a href="assets/delete_program.php?delete=<?php echo $row['pCode']; ?>" class="c_data_bttn"><i class="fas fa-trash-alt"></i></a></td>
+                                <td class="curriculum_data"> <a href="index.php?edit=<?php echo $row['pCode']; ?>" class="c_data_bttn" id="modal_editBTTN"><i class="fas fa-edit"></i></a></td>
                             </tr>
                         <?php
                             }
@@ -63,7 +63,6 @@
     <?php
         include('assets/modal_add_curriculum.php');
         include('assets/modal_upload_curri.php');
-        include('assets/modal_edit_curriculum.php');
 
     ?>
     

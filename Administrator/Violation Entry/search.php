@@ -14,7 +14,7 @@
         t2.pDescription AS p_description,
         t3.code AS a_code,
         status FROM forviolationentries t1
-        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
+        INNER JOIN forprogram t2 ON t1.pCode = t2.pCode
         INNER JOIN foracademicyear t3 ON t1.code = t3.code
         INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
         INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
@@ -32,7 +32,7 @@
         t2.pDescription AS p_description,
         t3.code AS a_code,
         status FROM forviolationentries t1
-        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
+        INNER JOIN forprogram t2 ON t1.pCode = t2.pCode
         INNER JOIN foracademicyear t3 ON t1.code = t3.code
         INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
         INNER JOIN forstudents t5 ON t1.studNum = t5.studNum

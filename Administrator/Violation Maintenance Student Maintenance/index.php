@@ -22,11 +22,10 @@
     `Section`,
     `Address`,
     `Gender`,
-    `progCode`,
     t2.pCode AS p_description,
     t3.code AS a_code,
     status FROM forstudents t1
-    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
     
     WHERE `status` = '$enrolled' OR `status` = '$disabled'");
@@ -48,13 +47,13 @@
         t2.pCode AS p_description,
         t3.code AS a_code,
         status FROM forstudents t1
-        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
         INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
         
 
         WHERE lastName = '{$searched}' 
         OR firstName = '{$searched}'
-        OR  progCode ='{$searched2}'");
+        OR  pCode ='{$searched2}'");
 
 
     }
@@ -98,7 +97,7 @@
                     t2.pCode AS p_description,
                     t3.code AS a_code,
                     status FROM forstudents t1
-                    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
                     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 }else{
                     $updateUser = "UPDATE forstudents SET fullName = '$fullName', 
@@ -122,7 +121,7 @@
                     t2.pCode AS p_description,
                     t3.code AS a_code,
                     status FROM forstudents t1
-                    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
                     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 }
 
@@ -168,7 +167,7 @@
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))
                                 {?>
-                                <option value="<?php echo $row2["pID"];?>"
+                                <option value="<?php echo $row2["pCode"];?>"
                                 ><?php echo $row2['pCode']; ?></option>
                                 <?php } ?>
                                 
@@ -210,8 +209,7 @@
                             $lastName = $row['lastName'];
                             $firstName = $row['firstName'];
                             $middleName = $row['middleName'];
-                            $curri = $row['progCode'];
-                            $curri2 = $row['p_description'];
+                            $curri = $row['p_description'];
                             $section = $row['Section'];
                             $address = $row['Address'];
 				        ?>
@@ -224,14 +222,14 @@
                             <td class="stud_data">  <input type="hidden" name =  "curri2_<?= $id ?>" value='<?= $curri ?>'>
                                 <select class="curri_selection" name = "curri_<?= $id ?>">
                             
-                            <option disabled value="<?= $curri ?>" selected ="selected"><?php echo $curri2?></option>
+                            <option disabled value="<?= $curri ?>" selected ="selected"><?php echo $curri?></option>
                                 <?php 
                                 
                                 $query = "SELECT * from forprogram";
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))
                                 {?>
-                                <option value="<?php echo $row2["pID"];?>"
+                                <option value="<?php echo $row2["pCode"];?>"
                                 ><?php echo $row2['pCode']; ?></option>
                                 <?php } ?>
                                 

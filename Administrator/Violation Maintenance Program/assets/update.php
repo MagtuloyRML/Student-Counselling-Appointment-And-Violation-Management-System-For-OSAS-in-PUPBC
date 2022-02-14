@@ -1,6 +1,6 @@
 <?php
 include_once 'dbconnection.php';
-
+$pID = 0;
 
 if (isset($_POST['submit'])) {
     $pID = $_POST['pCode'];
@@ -9,9 +9,9 @@ if (isset($_POST['submit'])) {
     $progDescription = $_POST['pd'];
 
 
-    $update = "UPDATE forprogram SET pCode = '$progCode' , pDescription = '$progDescription' WHERE pID ='$pID' ";
+    $update = "UPDATE forprogram SET pCode = '$progCode' , pDescription = '$progDescription' WHERE pCode ='$pID' ";
     $results = mysqli_query($conn, $update);
-    if (!$results) {
+    if (!$result) {
         echo "Something is wrong" . $update . $conn->error;
     }
 }
