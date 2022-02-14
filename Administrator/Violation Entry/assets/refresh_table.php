@@ -1,4 +1,4 @@
-                <thead>
+<thead>
                     <tr> 
                         <th class="violation_title">Student Number</th>
                         <th class="violation_title">Name</th>
@@ -8,11 +8,12 @@
                         <th class="violation_title">Violation</th>
                         <th class="violation_title">Sanction</th>
                         <th class="violation_title">Date</th>
+                        <th class="violation_title">Edit</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                        include_once 'dbconnection.php';
+                        include_once 'assets/dbconnection.php';
                         
                         $SQL = $conn->query("SELECT 
                         `entry_id`,
@@ -25,7 +26,7 @@
                         t2.pDescription AS p_description,
                         t3.code AS a_code,
                         status FROM forviolationentries t1
-                        INNER JOIN forprogram t2 ON t1.pCode = t2.pCode
+                        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
                         INNER JOIN foracademicyear t3 ON t1.code = t3.code
                         INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
                         INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
@@ -51,6 +52,7 @@
                        $date =  date("d/m/Y", strtotime($row['Date'])); 
                        echo $date; ?> 
                         </td>
+                        <td class="violation_data"><a href="assets/modal_edit_curriculum.php?edit=<?php echo $id; ?>" class="c_data_bttn" id="modal_editBTTN"><i class="fas fa-edit"></i></a></td>
                     </tr>
                             </tbody>
                     <?php

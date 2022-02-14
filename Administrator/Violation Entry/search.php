@@ -14,7 +14,7 @@
         t2.pDescription AS p_description,
         t3.code AS a_code,
         status FROM forviolationentries t1
-        INNER JOIN forprogram t2 ON t1.pCode = t2.pCode
+        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
         INNER JOIN foracademicyear t3 ON t1.code = t3.code
         INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
         INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
@@ -32,7 +32,7 @@
         t2.pDescription AS p_description,
         t3.code AS a_code,
         status FROM forviolationentries t1
-        INNER JOIN forprogram t2 ON t1.pCode = t2.pCode
+        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
         INNER JOIN foracademicyear t3 ON t1.code = t3.code
         INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
         INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
@@ -57,11 +57,13 @@
             <th class='violation_title'>Violation</th>
             <th class='violation_title'>Sanction</th>
             <th class='violation_title'>Date</th>
+            <th class='violation_title'>Edit</th>
         </tr>
         </thead>
         <tbody>";
 
         while ($row = $result->fetch_assoc()){
+            $id = $row['entry_id'];
             $output .="<tr>
             <td class='violation_data'>".$row['studNum']."</td>
             <td class='violation_data'>".$row['fullName']."</td>
@@ -71,6 +73,7 @@
             <td class='violation_data'>".$row['Violations']." </td>
             <td class='violation_data'>".$row['Sanctions']."</td>
             <td class='violation_data'>".$row['Date']."</td>
+            <td class='violation_data'><a href='assets/modal_edit_curriculum.php?edit=".$id."' class='c_data_bttn' id='modal_editBTTN'><i class='fas fa-edit'></i></a></td>
             </tr>";
         }
         $output .="</tbody>";
@@ -79,4 +82,4 @@
         echo "No Data Found";
     }
 ?>
-       
+        
