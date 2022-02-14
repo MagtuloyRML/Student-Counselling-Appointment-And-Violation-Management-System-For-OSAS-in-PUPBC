@@ -57,11 +57,13 @@
             <th class='violation_title'>Violation</th>
             <th class='violation_title'>Sanction</th>
             <th class='violation_title'>Date</th>
+            <th class='violation_title'>Edit</th>
         </tr>
         </thead>
         <tbody>";
 
         while ($row = $result->fetch_assoc()){
+            $id = $row['entry_id'];
             $output .="<tr>
             <td class='violation_data'>".$row['studNum']."</td>
             <td class='violation_data'>".$row['fullName']."</td>
@@ -71,6 +73,7 @@
             <td class='violation_data'>".$row['Violations']." </td>
             <td class='violation_data'>".$row['Sanctions']."</td>
             <td class='violation_data'>".$row['Date']."</td>
+            <td class='violation_data'><a href='assets/modal_edit_curriculum.php?edit=".$id."' class='c_data_bttn' id='modal_editBTTN'><i class='fas fa-edit'></i></a></td>
             </tr>";
         }
         $output .="</tbody>";
@@ -79,4 +82,4 @@
         echo "No Data Found";
     }
 ?>
-       
+        
