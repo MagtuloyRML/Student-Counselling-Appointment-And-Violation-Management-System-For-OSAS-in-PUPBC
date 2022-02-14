@@ -66,6 +66,7 @@
                 $fn = $_POST['firstName_'.$updateid];
                 $mn = $_POST['middleName_'.$updateid];
                 $curriculum = $_POST['curri_'.$updateid];
+                $curriculum2 = $_POST['curri2_'.$updateid];
                 $sec = $_POST['section_'.$updateid];
                 $add = $_POST['address_'.$updateid];
                 $fullName = $ln . ", " . $fn . " " . $mn;
@@ -218,7 +219,8 @@
                             <td class="stud_data"> <input type ='text' name ='lastName_<?= $id ?>' value='<?= $lastName ?>'></td>
                             <td class="stud_data"> <input type ='text' name ='firstName_<?= $id ?>' value='<?= $firstName ?>'> </td>
                             <td class="stud_data"> <input type ='text' name ='middleName_<?= $id ?>' value='<?= $middleName ?>'>  </td>
-                            <td class="stud_data">  <select class="curri_selection" name = "curri_<?= $id ?>">
+                            <td class="stud_data">  <input type="hidden" name =  "curri2_<?= $id ?>" value='<?= $curri ?>'>
+                                <select class="curri_selection" name = "curri_<?= $id ?>">
                             
                             <option disabled value="<?= $curri ?>" selected ="selected"><?php echo $curri?></option>
                                 <?php 
