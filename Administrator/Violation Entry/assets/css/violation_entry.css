@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+
+.body_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    background-color: var(--color-content0-bg);
+    margin-top: 10px;
+    padding: 30px 5% 30px;
+    width: 70%;
+}
+.content .title{
+    width: 182px;
+}
+.title h1{
+    font-size: 1.5rem;
+    color: var(--button-color-font-icon);
+    display: inline-block;
+}
+.title hr{
+    border-bottom: 2px solid var(--maroong-content-bg);
+}
+
+.searchBar{
+    margin-top: 1.20rem;
+    height: 25px;
+}
+.searchBar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+}
+  
+.searchBar button {
+    padding: 6px 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    height: 37px;
+    position: fixed;
+    background: #ddd;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+.searchBar button i{
+    color: rgb(136, 136, 136);
+}
+.searchBar button:hover{
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-color-font-icon);
+}
+
+.content .studentInfo{
+    display: flex;
+    justify-content: center;
+}
+.studentInfo .stud_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 30px 30px 10px;
+}
+.stud_content .input_container{
+    display: block;
+}
+
+.stud_content .input_container label{
+    margin-right: 5px;
+    font-size: var(--meduim-font-size);
+    color: var(--button-color-font-icon);
+}
+.stud_content .input_container input{
+    width: 350px;
+    padding: 0 5px 0;
+    font-size: var(--meduim-font-size);
+    color: var(--button-color-font-icon);
+    height: 25px;
+    border: 1px solid #ddd;
+}
+.studentInfo .action_content{
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 0px 30px 0 0;
+}
+.action_content .action_bttn{
+    margin: 0 5px 0;
+}
+.action_content .action_bttn .bttn{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.action_content .action_bttn .bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+
+.list_student_violation{
+    padding-top: 25px;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+}
+.list_student_violation .list_title{
+    padding: 5px 30px 3px;
+    width: auto;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.list_student_violation .display_violation_record{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.display_violation_record .violation_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-hover);
+}
+.display_violation_record .violation_data{
+    border: 1px solid #ddd;
+    padding: 2px 5px 2px;
+    font-size: var(--small-font-size);
+}
+
+/*modal/pop up*/
+.modal_bg .modal{
+    width: 45.5%;
+}
+.modal_studDetails_input_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.modal_studDetails_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+.modal_studDetails_input .label{
+    width: 40%;
+    font-size: 15px;
+    color: var(--button-hover-color-font-icon);
+    letter-spacing: .5px;
+}
+.modal_studDetails_input .input_field{
+    width: 60%;
+    padding: 2px;
+    text-align: center;
+  
+}

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content .subcontent{
+    width: 100%;
+}
+.subcontent .sub_nav{
+    margin-top: 10px;
+    display: flex;
+    padding: 5px 5px 0;
+}
+.sub_nav .sub_nav_bttn{
+    padding: 5px 10px 5px;
+    background-color: var(--button-color-font-icon);
+    color: var(--color-content0-bg);
+    margin: 0 2px 0;
+    font-size: var(--small-font-size);
+    border-radius: .25rem;
+    text-decoration: none;
+}
+.sub_nav .sub_nav_bttn:hover,
+.sub_nav .sub_nav_bttn_active{
+    padding: 5px 10px 5px;
+    background-color: var(--maroong-content-bg);
+    color: var(--color-content0-bg);
+    margin: 0 2px 0;
+    font-size: var(--small-font-size);
+    border-radius: .25rem;
+    text-decoration: none;
+}
+.sub_top_content{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sub_top_content .student_input_group .student_input{
+    display: flex;
+    padding-bottom: 10px;
+}
+.sub_top_content .student_input_group .student_input .label{
+    font-weight: bold;
+    width: 110px;
+    color: var(--button-color-font-icon);
+}
+.sub_top_content .student_input_group .student_input .input_field{
+    width: 220px;
+    color: var(--button-color-font-icon);
+}
+
+.sub_top_content .student_input_group .student_select{
+    display: flex;
+}
+.sub_top_content .student_input_group .student_select .label{
+    font-weight: bold;
+    width: 110px;
+    color: var(--button-color-font-icon);
+}
+.sub_top_content .student_input_group .student_select .curri_selection{
+    width: 220px;
+    color: var(--button-color-font-icon);
+}
+
+.student_main_bttn_group .stud_bttn{
+    margin: 0 5px 0;
+    padding: 7px 15px 7px;
+    text-decoration: none;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-radius: .5rem;
+}
+.stud_bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+
+.subcontent .stud_table_content{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.stud_table_content .stud_table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+}
+.stud_table .stud_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    font-size: 12px;
+    padding: 1px;
+}
+.stud_table .stud_data{
+    border: 1px solid #ddd;
+    padding: 2px 3px 2px;
+    font-size: 11px;
+}
+
+/*modal*/
+.modal_bg .modal{
+    width: 35%;
+}
+
+.modal_curri_input_container{
+    width: 100%;
+}
+.modal_curri_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+.modal_curri_input .label{
+    width: 100px;
+}
+.modal_curri_input .input_field{
+    width: 200px;
+}

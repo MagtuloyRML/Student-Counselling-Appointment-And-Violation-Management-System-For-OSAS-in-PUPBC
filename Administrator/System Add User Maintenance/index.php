@@ -54,30 +54,28 @@
                                 <label for="#" class="label">First Name: </label>
                                 <div class="input " id="input_fst_name">
                                     <input class="input-field" type="text" placeholder="Ex: Juan" name="fst_name" id="fst_name">
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_fst_name" class="fa-solid "></i>
+                                    <i id="i_fst_name" ></i>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Middle Name: </label>
                                 <div class="input " id="input_mid_name">
                                     <input class="input-field" type="text" placeholder="Leave if None" name="mid_name" id="mid_name">
-                                    <i id="i_mid_name" class="fa-solid "></i>
+                                    <i id="i_mid_name" ></i>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Last Name: </label>
                                 <div class="input " id="input_last_name">
                                     <input class="input-field" type="text" placeholder="Ex: Dela Cruz" name="last_name" id="last_name">
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_last_name" class="fa-solid "></i>
+                                    <i id="i_last_name" ></i>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Suffix Name: </label>
                                 <div class="input " id="input_suf_name">
                                     <input class="input-field" type="text" placeholder="Ex: Jr. (Leave if None)" name="suf_name" id="suf_name">
-                                    <i id="i_suf_name" class="fa-solid "></i>
+                                    <i id="i_suf_name" ></i>
                                 </div>
                             </div>
 
@@ -88,8 +86,7 @@
                                         <option value = '' >Select User Role</option>
                                         <?php echo $optionsRole; ?>
                                     </select>
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_userRole" class="fa-solid "></i>
+                                    <i id="i_userRole" ></i>
                                 </div>
                             </div>
 
@@ -97,8 +94,7 @@
                                 <label for="#" class="label">Email: </label>
                                 <div class="input " id="input_admin_email">
                                     <input class="input-field" type="text" placeholder="Ex: dcJuan@gmail.com" name="admin_email" id="admin_email">
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_admin_email" class="fa-solid "></i>
+                                    <i id="i_admin_email" ></i>
                                 </div>
                             </div>
                             
@@ -106,8 +102,7 @@
                                 <label for="#" class="label">Username: </label>
                                 <div class="input " id="input_username">
                                     <input class="input-field" type="text" placeholder="Ex: dcJuan1234" name="username" id="username">
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_username" class="fa-solid "></i>
+                                    <i id="i_username" ></i>
                                 </div>
                             </div>
                             
@@ -115,8 +110,7 @@
                                 <label for="#" class="label">Address: </label>
                                 <div class="input " id="input_add">
                                     <input class="input-field " type="" placeholder="Address" name="add" id="add">
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_add" class="fa-solid "></i>
+                                    <i id="i_add" ></i>
                                 </div>
                                 
                             </div>
@@ -127,8 +121,7 @@
                                         <option value = '' >Select Gender</option>
                                         <?php echo $options; ?>
                                     </select>
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_gender" class="fa-solid "></i>
+                                    <i id="i_gender" ></i>
                                 </div>
                             </div>
                             
@@ -136,8 +129,7 @@
                                 <label for="#" class="label">Contact Number: </label>
                                 <div class="input " id="input_admin_contact">
                                     <input class="input-field" type="text" placeholder="Ex: 09*********" name="admin_contact" id="admin_contact">
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_admin_contact" class="fa-solid "></i>
+                                    <i id="i_admin_contact" ></i>
                                 </div>
                                 
                             </div>

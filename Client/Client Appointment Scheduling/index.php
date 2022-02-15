@@ -29,7 +29,7 @@
                         <div class="input_container">
                             <label class="label" for="#">Email Address(Required): </label>
                             <br>
-                            <input class="input" type="text" id="#" required name="email_add">
+                            <input class="input" type="text" id="#" name="email_add">
                         </div>
                         <div class="input_container">
                         <?php 
@@ -42,7 +42,7 @@
                             ?>
                             <label class="label" for="#">Date of Appointment: </label>
                             <br>
-                            <input class="input" type="date" required id="start_app_date" name="start_app_date" min = "<?php echo $row['start_date']; ?>" max = "<?php echo $row['end_date']; ?>">
+                            <input class="input" type="date" id="#" name="start_app_date" min = "<?php echo $row['start_date']; ?>" max = "<?php echo $row['end_date']; ?>">
                             <?php
                             }
                           ?>
@@ -59,7 +59,7 @@
                             ?>
                             <label class="label" for="#">Time of Appointment: </label>
                             <br>
-                            <input class="input" type="time" required id="start_app_time" name="start_app_time" step="3600" min ="<?php echo $row['start_time'];?>" max="<?php echo $row['end_time']; ?>" >
+                            <input class="input" type="time" id="start_app_time" name="start_app_time" step="3600" min ="<?php echo $row['start_time'];?>" max="<?php echo $row['end_time']; ?>" >
                             <?php
                             }
                         

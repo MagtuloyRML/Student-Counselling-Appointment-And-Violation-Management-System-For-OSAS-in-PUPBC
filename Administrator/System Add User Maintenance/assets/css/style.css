@@ -10,7 +10,6 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
-    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -107,16 +106,6 @@
     border: none;
     background-color: transparent;
 }
-.input_container .fa-asterisk{
-    padding: .5rem;
-    font-size: 15px;
-    color: var(--pink);
-}
-.input_container .fa-circle-exclamation{
-    padding: .5rem;
-    font-size: 15px;
-    color: var(--maroong-content-bg);
-}
 .input .fas{
     padding: .5rem;
     font-size: 18px;
@@ -152,21 +141,6 @@
 }
 .action_content .bttn:hover{
     background-color: var(--maroong-content-hover);
-}
-.action_content .disable{
-    width: max-content;
-    height: auto;
-    padding: 6px 10px 6px;
-    font-size: var(--normal-font-size);
-    font-weight: 600;
-    color: var(--color-content0-bg);
-    background-color: var(--body-color);
-    border: none;
-    border-radius: 0.5rem;
-    outline: none;
-}
-.action_content .disable:hover{
-    background-color: var(--button-hover-bg);
 }
 
 .list{

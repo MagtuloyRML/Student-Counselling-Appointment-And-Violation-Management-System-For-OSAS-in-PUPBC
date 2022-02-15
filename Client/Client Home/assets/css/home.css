@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .25rem;
+}
+
+.home_content{
+    margin-top: 10px;
+    background-color: var(--color-content0-bg);
+    padding: 30px 5%;
+    width: 70%;
+}
+
+.bttn_appoint_list{
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.appointment_bttn{
+    text-align: center;
+    text-decoration: none;
+    border-radius: .5rem;
+    color: var(--button-hover-color-font-icon);
+    padding: 25px;
+    cursor: pointer;
+    transition: ease .5s;
+}
+
+.appointment_bttn i{
+    font-size: 60px;
+}
+.appointment_bttn span{
+    padding-top: 5px;
+    font-size: var(--small-font-size);
+    display: block;
+}
+.appointment_bttn:hover{
+    background-color: var(--button-hover-color-font-icon);
+    color: var(--color-content0-bg);
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2022 at 08:01 AM
+-- Generation Time: Feb 11, 2022 at 02:16 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `accountstatus` (
 --
 
 INSERT INTO `accountstatus` (`AccountStatusID`, `StatusDescription`) VALUES
-(1, 'ACTIVE'),
-(2, 'UNACTIVE');
+(1, 'Active'),
+(2, 'Unactive');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
   KEY `adminUserRole_adminInfo` (`AdminUserRoleID`),
   KEY `genderRole_adminInfo` (`GenderID`),
   KEY `accountstat_adminInfo` (`AccountStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminaccountinfo`
@@ -75,8 +75,7 @@ CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
 
 INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddleName`, `AdminLastName`, `AdminSufifx`, `AdminUserRoleID`, `AdminContactNo`, `AdminUsername`, `AdminPassword`, `AdminEmailAdd`, `AdminAddress`, `GenderID`, `AccountStatusID`) VALUES
 (1, 'Joseph', 'Blakis', 'kolorpul', '', 1, '09010102030', 'Sample', 'memapig009', 'Sample@gmail.com', 'Sample Address', 1, 1),
-(2, 'Juana', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'dcjuana1234', 'L3zM6FdJQm', 'dcjuan@gmail.com', 'Sample address Binan, Laguna', 1, 1),
-(3, 'Vanessa', 'Catalan', 'Cortez', '', 13, '09080706050', 'vCortez', 'Xg0GiYwdjm', 'vCortez@gmail.com', 'Sample address Binan, Laguna', 2, 1);
+(2, 'Juana', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'dcjuana1234', 'L3zM6FdJQm', 'dcjuan@gmail.com', 'Sample address Binan, Laguna', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -93,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `adminprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`AdminProfilePictureID`),
   KEY `appInfo_Admin` (`AdminAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminprofilepictureinfo`
@@ -104,8 +103,7 @@ INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`
 (2, 1, 'pbcscvs1202202091644412996.jpg', '2022-02-09 13:23:16', 0),
 (3, 1, 'pbcscvs1202202091644413268.jpg', '2022-02-09 13:27:48', 0),
 (4, 1, 'pbcscvs1202202101644452348.jpg', '2022-02-10 00:19:08', 1),
-(5, 2, 'default_user.jpg', '2022-02-11 11:55:21', 1),
-(6, 3, 'default_user.jpg', '2022-02-13 07:13:57', 1);
+(5, 2, 'default_user.jpg', '2022-02-11 11:55:21', 1);
 
 -- --------------------------------------------------------
 
@@ -117,28 +115,20 @@ DROP TABLE IF EXISTS `adminuserrole`;
 CREATE TABLE IF NOT EXISTS `adminuserrole` (
   `AdminUserRoleID` int NOT NULL AUTO_INCREMENT,
   `AdminUserRole` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `AdminPageStudentCounceling` int NOT NULL,
-  `AdminPageViolation` int NOT NULL,
-  `AdminMaintenance` int NOT NULL,
+  `AdminPageStudentCounceling` tinyint(1) NOT NULL,
+  `AdminPageViolation` tinyint(1) NOT NULL,
+  `AdminMaintenance` tinyint(1) NOT NULL,
   `StatusID` int NOT NULL,
   PRIMARY KEY (`AdminUserRoleID`),
-  KEY `roleStatus_stats` (`StatusID`),
-  KEY `counceStatus_stats` (`AdminPageStudentCounceling`),
-  KEY `violaStatus_stats` (`AdminPageViolation`),
-  KEY `adminMainStatus_stats` (`AdminMaintenance`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  KEY `accountStatus_rolestats` (`StatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminuserrole`
 --
 
 INSERT INTO `adminuserrole` (`AdminUserRoleID`, `AdminUserRole`, `AdminPageStudentCounceling`, `AdminPageViolation`, `AdminMaintenance`, `StatusID`) VALUES
-(1, 'ADMINISTRATOR', 1, 1, 1, 1),
-(2, 'EVAULATOR', 1, 2, 1, 1),
-(13, 'GUIDANCE COUNCILOR', 1, 2, 2, 1),
-(14, 'GUARD', 2, 1, 2, 1),
-(15, 'LADY GUARD', 2, 1, 2, 1),
-(16, 'VIOLATOR', 2, 1, 2, 1);
+(1, 'Administrator', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -258,8 +248,8 @@ CREATE TABLE IF NOT EXISTS `genderrole` (
 --
 
 INSERT INTO `genderrole` (`GenderID`, `Description`) VALUES
-(1, 'MALE'),
-(2, 'FEMALE');
+(1, 'Male'),
+(2, 'Female');
 
 -- --------------------------------------------------------
 
@@ -397,10 +387,7 @@ ALTER TABLE `adminprofilepictureinfo`
 -- Constraints for table `adminuserrole`
 --
 ALTER TABLE `adminuserrole`
-  ADD CONSTRAINT `adminMainStatus_stats` FOREIGN KEY (`AdminMaintenance`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `counceStatus_stats` FOREIGN KEY (`AdminPageStudentCounceling`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `roleStatus_stats` FOREIGN KEY (`StatusID`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `violaStatus_stats` FOREIGN KEY (`AdminPageViolation`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `accountStatus_rolestats` FOREIGN KEY (`StatusID`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `clientaccountinfo`

@@ -31,72 +31,47 @@
                 ?>
                 <h3 class="subtitle">User's Role</h3>
 
-                <form id="addRole"  method = "POST">
+                <form id="addUser"  method = "POST">
                     <div class="input_group">
                         <div class="input_container">
                             <label for="#" class="label">Role Name: </label>
                             <div class="input " id="input_roleName">
-                                <input class="input-field" type="text" placeholder="Insert Role Name" name="roleNameCheck" id="roleNameCheck">
-                                <i class="fa-solid fa-asterisk"></i>
-                                <i id="i_roleName" class="fa-solid "></i>
+                                <input class="input-field" type="text" placeholder="Insert Role Name" name="roleName" id="roleName">
+                                <i id="i_roleName" ></i>
                             </div>
                         </div>
                         <div class="input_container">
-                            <label for="studCouncheck" class="labelcheck">Student Counceling </label>
-                            <select class="input_fieldselectAdd" name="studCouncheck" id="studCouncheck">
-                                <option value = '' >Status</option>
-                                    <?php 
-                                    $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                    while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                        $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                        ?>
-                                    <option value = "<?php echo $statsID ?>" > <?php echo $statsName?>  </option>
-                                <?php }?>
-                            </select>
-                            <i class="fa-solid fa-asterisk"></i>
-                            <i id="i_studCouncheck" class="fa-solid "></i>
+                            <label for="studCounce" class="labelcheck">Student Counceling </label>
+                            <div class="input " id="input_roleName">
+                                <input class="input-fieldcheck" type="checkbox" placeholder="Insert Role Name" name="studCounce" id="studCounce">
+                                <i id="i_roleName" ></i>
+                            </div>
                         </div>
                         <div class="input_container">
-                            <label for="studViolationcheck" class="labelcheck">Student Violation </label>
-                            <select class="input_fieldselectAdd" name="studViolationcheck" id="studViolationcheck">
-                                <option value = '' >Status</option>
-                                    <?php 
-                                    $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                    while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                        $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                        ?>
-                                    <option value = "<?php echo $statsID ?>" > <?php echo $statsName?>  </option>
-                                <?php }?>
-                            </select>
-                            <i class="fa-solid fa-asterisk"></i>
-                            <i id="i_studViolationcheck" class="fa-solid "></i>
+                            <label for="studViolation" class="labelcheck">Student Violation </label>
+                            <div class="input " id="input_roleName">
+                                <input class="input-fieldcheck" type="checkbox" placeholder="Insert Role Name" name="studViolation" id="studViolation">
+                                <i id="i_roleName" ></i>
+                            </div>
                         </div>
                         <div class="input_container">
-                            <label for="sysMainsCheck" class="labelcheck">System Maintenance </label>
-                            <select class="input_fieldselectAdd" name="sysMainsCheck" id="sysMainsCheck">
-                                <option value = '' >Status</option>
-                                    <?php 
-                                    $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                    while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                        $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                        ?>
-                                    <option value = "<?php echo $statsID ?>" > <?php echo $statsName?>  </option>
-                                <?php }?>
-                            </select>
-                            <i class="fa-solid fa-asterisk"></i>
-                            <i id="i_sysMainsCheck" class="fa-solid "></i>
+                            <label for="sysMain" class="labelcheck">System Maintenance </label>
+                            <div class="input " id="input_roleName">
+                                <input class="input-fieldcheck" type="checkbox" placeholder="Insert Role Name" name="sysMain" id="sysMain">
+                                <i id="i_roleName" ></i>
+                            </div>
                         </div>
+                        
                     </div> 
-
                     <div class="action_content">
-                        <button class= "bttn" type="submit" name="submit" id="submitRole">
-                        <i class="fa-solid fa-check-to-slot"></i>  Add Role</button>
+                        <button class= "bttn" type="submit" name="submit" id="submit">
+                        <i class="fa-solid fa-book-user"></i> Add Role</button>
                     </div>
                 </form>
 
-                <div class="list" id="tableRoles">
-                    <form method ="POST" id="updateRoles">
-                    <h3 class="list_title">Role List</h3>
+                <div class="list">
+                    <form method ="POST">
+                    <h3 class="list_title">List</h3>
                         <table class="display">
                             <tr> 
                                 <th class="table_title" style="width: 50px;">ID</th>
@@ -112,48 +87,19 @@
                                 while($row = $userRole->fetch_assoc()){
                                     $id = $row['AdminUserRoleID']; $roleName = $row['AdminUserRole']; $studentCounc = $row['AdminPageStudentCounceling']; $studentViolation = $row['AdminPageViolation'];
                                     $sysMain = $row['AdminMaintenance']; $status = $row['StatusID'];
+                                
                             ?>
                             <tr>
                                 <td class="data"><?php echo $id?></td>
                                 <td class="data"><?php echo $roleName ?></td>
+                                <td class="data"><input class="input-fieldcheck" type="checkbox" placeholder="Insert Role Name" name="studCounce" id="studCounce" value= 1 
+                                    <?php if($studentCounc > 0 )echo "checked" ?>></td>
+                                <td class="data"><input class="input-fieldcheck" type="checkbox" placeholder="Insert Role Name" name="studCounce" id="studCounce" value= 1 
+                                    <?php if($studentViolation > 0 )echo "checked" ?>></td>
+                                <td class="data"><input class="input-fieldcheck" type="checkbox" placeholder="Insert Role Name" name="studCounce" id="studCounce" value= 1 
+                                    <?php if($sysMain > 0 )echo "checked" ?>></td>
                                 <td class="data">
-                                    <select class="input_fieldselect" name="studentCounc" id="studentCounc">
-                                        <option value = '' >Status</option>
-                                        <?php 
-                                            $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                            while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                                $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                                ?>
-                                            <option value = "<?php echo $statsID ?>" <?php if($statsID == $studentCounc )echo "selected" ?>> <?php echo $statsName?>  </option>
-                                        <?php }?>
-                                    </select>
-                                </td>
-                                <td class="data">
-                                    <select class="input_fieldselect" name="studentViolation" id="studentViolation">
-                                        <option value = '' >Status</option>
-                                        <?php 
-                                            $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                            while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                                $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                                ?>
-                                            <option value = "<?php echo $statsID ?>" <?php if($statsID == $studentViolation )echo "selected" ?>> <?php echo $statsName?>  </option>
-                                        <?php }?>
-                                    </select>
-                                </td>
-                                <td class="data">
-                                    <select class="input_fieldselect" name="sysMain" id="sysMain">
-                                        <option value = '' >Status</option>
-                                        <?php 
-                                            $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
-                                            while($row3 = mysqli_fetch_assoc($statuscheck)){
-                                                $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
-                                                ?>
-                                            <option value = "<?php echo $statsID ?>" <?php if($statsID == $sysMain )echo "selected" ?>> <?php echo $statsName?>  </option>
-                                        <?php }?>
-                                    </select>
-                                </td>
-                                <td class="data">
-                                    <select class="input_fieldselect" name="status" id="status">
+                                    <select class="input_fieldselect" name="gender" id="gender">
                                         <option value = '' >Status</option>
                                         <?php 
                                             $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
@@ -168,12 +114,8 @@
                             <?php
                                 }
                             ?>
+                            
                         </table>
-
-                        <div class="table_content">
-                            <button class= "bttn" type="submit" name="submit" id="submit">
-                            <i class="fa-solid fa-floppy-disk"></i> Save Status</button>
-                        </div>
                     </form>
                 </div>
                 

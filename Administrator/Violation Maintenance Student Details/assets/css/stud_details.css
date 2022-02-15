@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content .subcontent{
+    width: 100%;
+}
+.subcontent .title{
+    width: 150px;
+}
+.subcontent .sd_bttn_group{
+    float: right;
+    padding-top: 20px;
+    display: flex;
+}
+.sd_bttn_group .sd_bttn{
+    margin: 0 5px 0;
+    padding: 7px 15px 7px;
+    text-decoration: none;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-radius: .5rem;
+}
+.sd_bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+
+.subcontent .sd_table_content{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.sd_table_content .sd_table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+}
+.sd_table .stud_details_title{
+    padding: 1px;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    font-size: 12px;
+}
+.sd_table .stud_details_data{
+    border: 1px solid #ddd;
+    padding: 2px 3px 2px;
+    font-size: 11px;
+}
+
+/*modal/pop up*/
+.modal_bg .modal{
+    width: 45.5%;
+}
+.modal_studDetails_input_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.modal_studDetails_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+.modal_studDetails_input .label{
+    width: 40%;
+    font-size: 15px;
+    color: var(--button-hover-color-font-icon);
+    letter-spacing: .5px;
+}
+.modal_studDetails_input .input_field{
+    width: 60%;
+    padding: 2px;
+    text-align: center;
+  
+}

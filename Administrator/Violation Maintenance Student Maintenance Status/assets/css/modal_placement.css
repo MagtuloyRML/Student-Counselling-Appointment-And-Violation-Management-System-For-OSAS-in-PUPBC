@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+
+.modal_bg{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_bg .modal{
+    background-color: var(--color-content0-bg);
+    border-radius: .5rem;
+}
+.modal .title_bar{
+    padding: 8px 17px 5px;
+    color: var(--button-color-font-icon);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal .title_bar .modal_title_bttn{
+    color: var(--maroong-content-bg);
+    font-size: 22px;
+}
+.modal .title_bar .modal_title_bttn:hover{
+    color: var(--maroong-content-hover);
+}
+
+.modal .modal_content{
+    width: 100%;
+    padding: 15px 22px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--button-color-font-icon);
+    border-bottom: 1px solid var(--button-color-font-icon);
+}
+.modal .footer_modal_bttn{
+    padding: 5px 17px 8px;
+    color: var(--button-color-font-icon);
+    display: flex;
+    align-items: center;
+    float: right;
+}
+.footer_modal_bttn .modal_foot_bttn{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    font-size: .875rem;
+    border-radius: .5rem;
+    padding: 5px 10px 5px;
+    margin: 8px;
+    text-decoration: none;
+}
+.footer_modal_bttn .modal_foot_bttn:hover{
+    background-color: var(--maroong-content-hover);
+}

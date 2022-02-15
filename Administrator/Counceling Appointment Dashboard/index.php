@@ -12,15 +12,7 @@
 <?php 
         include('../../assets/connection/DBconnection.php');
         // para magather yung data
-        date_default_timezone_set("Asia/Manila");
-        $query = $conn->query("SELECT * FROM schedules WHERE stat = 'Pending' OR stat = 'Confirmed' OR stat = 'Done' ORDER BY id");
-        //$today = date("Y-m-d H:i:s");
-        $check = $conn->query("SELECT * FROM schedules WHERE end_app < NOW() AND stat = 'Confirmed' ORDER BY id");
-        if(mysqli_num_rows($check) > 0){
-            $expire = "UPDATE schedules SET stat = 'Done' WHERE end_app < NOW() AND stat = 'Confirmed' ";
-            $run = mysqli_query($conn,$expire);
-        }
-
+        $query = $conn->query("SELECT * FROM schedules ORDER BY id");
 ?>
 
     <script>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --green-content-bg: #519259;
+    --green-content-hover: #064635;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.approv_content{
+    width: 70%;
+    border-radius: .5rem;
+    background-color: var(--color-content0-bg);
+    padding: 20px 30px 20px;
+    margin-top: 30px;
+}
+.approv_content .title{
+    width: 235px;
+}
+.title h1{
+    font-size: 1.5rem;
+    color: var(--button-color-font-icon);
+    display: inline-block;
+}
+.title hr{
+    border-bottom: 2px solid var(--maroong-content-bg);
+}
+
+.list_approv{
+    padding-top: 25px;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+}
+.list_approv .list_title{
+    padding: 5px 30px 3px;
+    width: auto;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.list_approv .display_approv{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.display_approv .approv_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-hover);
+}
+.display_approv .approv_data{
+    border: 1px solid #ddd;
+    padding: 2px 5px 2px;
+    font-size: var(--small-font-size);
+}
+.approv_data a{
+    text-decoration: none;
+    font-size: 15px;
+}
+.approv_data .fa-thumbs-up{
+    color: var(--green-content-bg);
+}
+.approv_data .fa-thumbs-up:hover{
+    color: var(--green-content-hover);
+}
+.approv_data .fa-times-circle{
+    color: var(--maroong-content-bg);
+}
+.approv_data .fa-times-circle:hover{
+    color: var(--maroong-content-hover);
+}
