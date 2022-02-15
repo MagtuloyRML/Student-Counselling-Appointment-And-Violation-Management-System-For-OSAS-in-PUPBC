@@ -53,6 +53,10 @@
 .modal .title_bar .modal_title_bttn{
     color: var(--maroong-content-bg);
     font-size: 22px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
 .modal .title_bar .modal_title_bttn:hover{
     color: var(--maroong-content-hover);

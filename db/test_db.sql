@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 11, 2022 at 02:16 PM
+-- Generation Time: Feb 15, 2022 at 01:40 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
   KEY `adminUserRole_adminInfo` (`AdminUserRoleID`),
   KEY `genderRole_adminInfo` (`GenderID`),
   KEY `accountstat_adminInfo` (`AccountStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminaccountinfo`
@@ -75,7 +75,9 @@ CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
 
 INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddleName`, `AdminLastName`, `AdminSufifx`, `AdminUserRoleID`, `AdminContactNo`, `AdminUsername`, `AdminPassword`, `AdminEmailAdd`, `AdminAddress`, `GenderID`, `AccountStatusID`) VALUES
 (1, 'Joseph', 'Blakis', 'kolorpul', '', 1, '09010102030', 'Sample', 'memapig009', 'Sample@gmail.com', 'Sample Address', 1, 1),
-(2, 'Juana', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'dcjuana1234', 'L3zM6FdJQm', 'dcjuan@gmail.com', 'Sample address Binan, Laguna', 1, 1);
+(2, 'Juana', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'dcjuana1234', 'L3zM6FdJQm', 'dcjuan@gmail.com', 'Sample address Binan, Laguna', 1, 1),
+(3, 'Deigo', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'Sample', 'rioPdjZsQS', 'dcjuan@gmail.com', 'qweqwe', 2, 1),
+(4, 'Juan', 'qewqwe', 'De la Cruz', '', 1, '09080706050', 'admin', 'oxiNsOy08h', 'dcjuan@gmail.com', 'Sample address', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `adminprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`AdminProfilePictureID`),
   KEY `appInfo_Admin` (`AdminAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminprofilepictureinfo`
@@ -102,8 +104,15 @@ INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`
 (1, 1, 'default_user.jpg', '2022-02-07 06:05:52', 0),
 (2, 1, 'pbcscvs1202202091644412996.jpg', '2022-02-09 13:23:16', 0),
 (3, 1, 'pbcscvs1202202091644413268.jpg', '2022-02-09 13:27:48', 0),
-(4, 1, 'pbcscvs1202202101644452348.jpg', '2022-02-10 00:19:08', 1),
-(5, 2, 'default_user.jpg', '2022-02-11 11:55:21', 1);
+(4, 1, 'pbcscvs1202202101644452348.jpg', '2022-02-10 00:19:08', 0),
+(5, 2, 'default_user.jpg', '2022-02-11 11:55:21', 1),
+(6, 3, 'default_user.jpg', '2022-02-15 05:09:23', 1),
+(7, 1, 'pbcscvs1202202151644914554.jpg', '2022-02-15 08:42:34', 0),
+(8, 1, 'pbcscvs1202202151644914567.jpg', '2022-02-15 08:42:47', 0),
+(9, 1, 'pbcscvs1202202151644914573.jpg', '2022-02-15 08:42:53', 0),
+(10, 1, 'pbcscvs1202202151644914581.jpg', '2022-02-15 08:43:01', 0),
+(11, 1, 'pbcscvs1202202151644914597.jpg', '2022-02-15 08:43:17', 1),
+(12, 4, 'default_user.jpg', '2022-02-15 09:08:22', 1);
 
 -- --------------------------------------------------------
 
@@ -115,20 +124,25 @@ DROP TABLE IF EXISTS `adminuserrole`;
 CREATE TABLE IF NOT EXISTS `adminuserrole` (
   `AdminUserRoleID` int NOT NULL AUTO_INCREMENT,
   `AdminUserRole` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `AdminPageStudentCounceling` tinyint(1) NOT NULL,
-  `AdminPageViolation` tinyint(1) NOT NULL,
-  `AdminMaintenance` tinyint(1) NOT NULL,
+  `AdminPageStudentCounceling` int NOT NULL,
+  `AdminPageViolation` int NOT NULL,
+  `AdminMaintenance` int NOT NULL,
   `StatusID` int NOT NULL,
   PRIMARY KEY (`AdminUserRoleID`),
-  KEY `accountStatus_rolestats` (`StatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `accountStatus_rolestats` (`StatusID`),
+  KEY `studCounceling_status` (`AdminPageStudentCounceling`),
+  KEY `studViolation_status` (`AdminPageViolation`),
+  KEY `sysMain_status` (`AdminMaintenance`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminuserrole`
 --
 
 INSERT INTO `adminuserrole` (`AdminUserRoleID`, `AdminUserRole`, `AdminPageStudentCounceling`, `AdminPageViolation`, `AdminMaintenance`, `StatusID`) VALUES
-(1, 'Administrator', 1, 1, 1, 1);
+(1, 'ADMINISTRATOR', 1, 1, 1, 1),
+(2, 'GUIDANCE COUNCELOR', 1, 2, 2, 1),
+(3, 'GUARD', 2, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -204,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`ClientProfilePictureID`),
   KEY `cppInfo_Client` (`ClientAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientprofilepictureinfo`
@@ -228,7 +242,15 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (21, 34, '2019-00001-BN-0202202091644398074.jpg', '2022-02-09 09:14:34', 1),
 (22, 46, 'default_user.jpg', '2022-02-09 09:31:47', 0),
 (24, 46, '2014-00005-BN-0202202091644448697.jpg', '2022-02-09 23:18:17', 0),
-(25, 46, '2014-00005-BN-0202202101644493032.jpg', '2022-02-10 11:37:12', 1);
+(25, 46, '2014-00005-BN-0202202101644493032.jpg', '2022-02-10 11:37:12', 0),
+(26, 46, '2014-00005-BN-0202202151644893964.jpg', '2022-02-15 02:59:24', 0),
+(27, 46, '2014-00005-BN-0202202151644893983.jpg', '2022-02-15 02:59:43', 0),
+(28, 46, '2014-00005-BN-0202202151644894223.jpg', '2022-02-15 03:03:43', 0),
+(29, 46, '2014-00005-BN-0202202151644894230.jpg', '2022-02-15 03:03:50', 0),
+(30, 46, '2014-00005-BN-0202202151644901624.jpg', '2022-02-15 05:07:04', 0),
+(31, 46, '2014-00005-BN-0202202151644901633.jpg', '2022-02-15 05:07:13', 0),
+(32, 46, '2014-00005-BN-0202202151644901642.jpg', '2022-02-15 05:07:22', 0),
+(33, 46, '2014-00005-BN-0202202151644901663.jpg', '2022-02-15 05:07:43', 1);
 
 -- --------------------------------------------------------
 
@@ -295,6 +317,27 @@ INSERT INTO `schedules` (`id`, `title`, `email_add`, `start_app`, `end_app`, `st
 (31, 'Brian', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2022-02-08', '2022-02-08', '10:00:00', '11:00:00', '', ''),
 (32, '', '', '2022-02-10 13:00:00', '2022-02-10 14:00:00', '2022-02-10', '2022-02-10', '13:00:00', '14:00:00', 'Confirmed', ' '),
 (33, 'Ermil', 'dalmerer09@gmail.com', '2022-02-11 15:00:00', '2022-02-11 16:00:00', '2022-02-11', '2022-02-11', '15:00:00', '16:00:00', 'Confirmed', ' ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `statuscontent`
+--
+
+DROP TABLE IF EXISTS `statuscontent`;
+CREATE TABLE IF NOT EXISTS `statuscontent` (
+  `StatusID` int NOT NULL AUTO_INCREMENT,
+  `StatusDescription` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`StatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `statuscontent`
+--
+
+INSERT INTO `statuscontent` (`StatusID`, `StatusDescription`) VALUES
+(1, 'ACTIVATE'),
+(2, 'DEACTIVATE');
 
 -- --------------------------------------------------------
 
@@ -387,7 +430,10 @@ ALTER TABLE `adminprofilepictureinfo`
 -- Constraints for table `adminuserrole`
 --
 ALTER TABLE `adminuserrole`
-  ADD CONSTRAINT `accountStatus_rolestats` FOREIGN KEY (`StatusID`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `accountStatus_rolestats` FOREIGN KEY (`StatusID`) REFERENCES `accountstatus` (`AccountStatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `studCounceling_status` FOREIGN KEY (`AdminPageStudentCounceling`) REFERENCES `statuscontent` (`StatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `studViolation_status` FOREIGN KEY (`AdminPageViolation`) REFERENCES `statuscontent` (`StatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `sysMain_status` FOREIGN KEY (`AdminMaintenance`) REFERENCES `statuscontent` (`StatusID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `clientaccountinfo`

@@ -25,8 +25,11 @@
             <a href="../Client Edit Personal Information/" class="acc_bttn" ><i class="fas fa-user-cog"></i></a>
             <p>Profile Info</p>
             <div class="profile_info">
-                <div class="profile_pic" id="prof_pic_div">
-                    <img class="prof_pic" id="prof_pic" src="<?php echo $directory, $stud_ID,'/', $prof_pic?>" alt="Profile Pic">
+                <div class="profile_pic" >
+                    <div id="prof_pic_div">
+                        <img class="prof_pic" id="prof_pic" src="<?php echo $directory, $stud_ID,'/', $prof_pic?>" alt="Profile Pic">
+                    </div>
+                    
                     <div class="upload_pic">
                         <input class="upload_pic_hidden" id="pic_filename" type="file" name="pic_filename" accept="image/*" visbility="hidden">
                         <label class="pic_bttn" for="pic_filename"><i class="fas fa-camera"></i> Edit Profile Picture</label>

@@ -1,45 +1,4 @@
-<?php
-    $title = 'Violation Entry';
-    $page = 'v_entry';
-    include_once('../includes/header.php');
-?>
-    <div class="body_container">
-        <div class="content">
-            <div class="title">
-                <h1>Violation Entry</h1>
-                <hr>
-            </div>
-            <!-- SEARCH BOX -->
-            <div class="searchBar">
-                <form action="">
-                    <input class="srcinput" type="text" placeholder="Search" class="search">
-                    <button class="srcbttn" type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-            <!-- STUDENT INFO -->
-            <div class="studentInfo">
-                    <!-- DATA MANIPULATION BUTTONS -->
-                    <div class="action_content">
-                        <div class="action_bttn">
-                            <button class="bttn" id="bttnModalEntry"> Create Entry</button>
-                        </div>
-                        <div class="action_bttn">
-                            <button class="bttn" >Delete</button>
-                        </div>
-                        <div class="action_bttn">
-                            <button class="bttn" >Update</button>
-                        </div>
-                        <div class="action_bttn">
-                            <button class="bttn" >Clear</button>
-                        </div>
-                    </div>
-            </div>
-            
-            <!-- LIST / TABLE -->
-            <div class="list_student_violation">
-                <h3 class="list_title">List</h3>
-                <table class="display_violation_record" id = "table_data">
-                    <tr> 
+<tr> 
                         <th class="violation_title">Student Number</th>
                         <th class="violation_title">Name</th>
                         <th class="violation_title">Course</th>
@@ -50,7 +9,7 @@
                         <th class="violation_title">Date</th>
                     </tr>
                     <?php
-                        include_once 'assets/dbconnection.php';
+                        include_once 'dbconnection.php';
                         
                         $SQL = $conn->query("SELECT 
                         `entry_id`,
@@ -92,18 +51,3 @@
                             }
                         }
                         ?>
-                </table>
-            </div>
-        </div>
-    </div>
-    
-    <?php
-        include_once('assets/modal_add_vio_entry.php');
-    ?>
-
-    <script src="assets/js/main.js"></script>
-
-
-</body>
-
-</html>

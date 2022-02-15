@@ -43,6 +43,7 @@
                             <label for="#" class="label">First Name: </label>
                             <div class="input " id="input_fst_name">
                                 <input class="input-field" type="text" placeholder="Ex: Juan" name="fst_name" id="fst_name">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_fst_name" ></i>
                             </div>
                         </div>
@@ -57,6 +58,7 @@
                             <label for="#" class="label">Last Name: </label>
                             <div class="input " id="input_last_name">
                                 <input class="input-field" type="text" placeholder="Ex: Dela Cruz" name="last_name" id="last_name">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_last_name" ></i>
                             </div>
                         </div>
@@ -72,6 +74,7 @@
                             <label for="#" class="label">Student No.: </label>
                             <div class="input " id="input_stud_num">
                                 <input class="input-field" type="text" placeholder="Ex: 2010-00000-BN-0" name="stud_num" id="stud_num">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_stud_num" ></i>
                             </div>
                         </div>
@@ -79,6 +82,7 @@
                             <label for="#" class="label">Email: </label>
                             <div class="input " id="input_client_email">
                                 <input class="input-field" type="text" placeholder="Ex: dcJuan@gmail.com" name="client_email" id="client_email">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_client_email" ></i>
                             </div>
                         </div>
@@ -87,6 +91,7 @@
                             <div class="input " id="input_password">
                                 <input class="input-field" type="password" placeholder="Password" name="password" id="password">
                                 <i class="fas fa-eye" id="viewPass"></i>
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_password" ></i>
                             </div>
                         </div>
@@ -95,6 +100,7 @@
                             <div class="input " id="input_cpassword">
                                 <input class="input-field" type="password" placeholder="Confirm Password" name="cpassword" id="cpassword">
                                 <i class="fas fa-eye" id="viewCPass"></i>
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_cpassword" ></i>
                             </div>
                         </div>
@@ -103,6 +109,7 @@
                             <label for="#" class="label">Birthdate: </label>
                             <div class="input " id="input_bday">
                                 <input class="input-field" type="date" name="bday" id="bday">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_bday" ></i>
                             </div>
                         </div>
@@ -111,6 +118,7 @@
                             <label for="#" class="label">Address: </label>
                             <div class="input " id="input_add">
                                 <input class="input-field " type="" placeholder="Address" name="add" id="add">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_add" ></i>
                             </div>
                             
@@ -122,6 +130,7 @@
                                     <option value = '' >Select Gender</option>
                                     <?php echo $options; ?>
                                 </select>
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_gender" ></i>
                             </div>
                         </div>
@@ -130,6 +139,7 @@
                             <label for="#" class="label">Contact Number: </label>
                             <div class="input " id="input_client_contact">
                                 <input class="input-field" type="text" placeholder="Ex: 09*********" name="client_contact" id="client_contact">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_client_contact" ></i>
                             </div>
                             
@@ -139,6 +149,7 @@
                             <label for="#" class="label">Guardian: </label>
                             <div class="input " id="input_guar_name">
                                 <input class="input-field" type="text" placeholder="Guardian's Name" name="guar_name" id="guar_name">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_guar_name" ></i>
                             </div>
                         </div>
@@ -146,6 +157,7 @@
                             <label for="#" class="label">Guardian Contact Number: </label>
                             <div class="input " id="input_guardian_contact">
                                 <input class="input-field" type="text" placeholder="Ex: 09*********" name="guardian_contact" id="guardian_contact">
+                                <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_guardian_contact" ></i>
                             </div>
                         </div>

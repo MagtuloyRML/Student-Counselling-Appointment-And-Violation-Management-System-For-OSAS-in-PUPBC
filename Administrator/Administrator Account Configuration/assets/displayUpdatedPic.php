@@ -10,10 +10,6 @@
         $directory = "../../assets/user_profile_pic/admin/";
         ?>
             <img class="prof_pic" id="prof_pic" src="<?php echo $directory,'pbcscvs',$id,'/', $prof_pic?>" alt="Profile Pic">
-            <div class="upload_pic">
-                <input class="upload_pic_hidden" id="pic_filename" type="file" name="pic_filename" accept="image/*" visbility="hidden">
-                <label class="pic_bttn" for="pic_filename"><i class="fas fa-camera"></i> Edit Profile Picture</label>
-            </div>
         <?php
     }
     

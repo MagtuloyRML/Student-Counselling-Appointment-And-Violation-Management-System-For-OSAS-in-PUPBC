@@ -11,6 +11,7 @@
     --maroong-content-hover: #630000;
     --maroong-opacity-content : rgba(255, 0, 0, 0.2);
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -115,6 +116,11 @@ body{
     padding: .5rem;
     font-size: 18px;
     color: var(--maroong-content-bg);
+}
+.input_container .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
 }
 
 .input-error{
