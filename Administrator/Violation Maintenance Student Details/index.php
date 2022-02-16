@@ -58,7 +58,7 @@
                         t2.pCode AS p_description,
                         t3.code AS a_code,
                         status FROM forstudents t1
-                        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+                        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
                         INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
 
                         if ($SQL->num_rows > 0) {

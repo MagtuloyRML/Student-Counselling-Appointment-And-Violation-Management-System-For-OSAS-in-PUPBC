@@ -25,7 +25,7 @@
     t2.pCode AS p_description,
     t3.code AS a_code,
     status FROM forstudents t1
-    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
     
     
@@ -53,7 +53,7 @@
                     t2.pCode AS p_description,
                     t3.code AS a_code,
                     status FROM forstudents t1
-                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
                     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 }
 
@@ -85,7 +85,7 @@
                     t2.pCode AS p_description,
                     t3.code AS a_code,
                     status FROM forstudents t1
-                    INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+                    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
                     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 }
 
@@ -110,8 +110,8 @@
         t2.pCode AS p_description,
         t3.code AS a_code,
         status FROM forstudents t1
-        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
-        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.codeWHERE `status` = '$enrolled' OR `status` = '$disabled'");
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
                 
            
     }
@@ -121,7 +121,8 @@
         $searched = $_POST['curri'];
         $searched2 = $_POST['section'];
 
-        $sched = $conn->query("SELECT `id`,
+        if(!$searched){
+            $sched = $conn->query("SELECT `id`,
         `studNum`,
         `lastName`,
         `firstName`,
@@ -132,13 +133,46 @@
         t2.pCode AS p_description,
         t3.code AS a_code,
         status FROM forstudents t1
-        INNER JOIN forprogram t2 ON t1.progCode = t2.pCode
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+
+        WHERE ayCode ='{$searched2}'");
+
+        }elseif(!$searched2){
+            $sched = $conn->query("SELECT `id`,
+        `studNum`,
+        `lastName`,
+        `firstName`,
+        `middleName`,
+        `Section`,
+        `Address`,
+        `Gender`,
+        t2.pCode AS p_description,
+        t3.code AS a_code,
+        status FROM forstudents t1
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+
+        WHERE progCode ='{$searched}'");
+
+        }else{
+            $sched = $conn->query("SELECT `id`,
+        `studNum`,
+        `lastName`,
+        `firstName`,
+        `middleName`,
+        `Section`,
+        `Address`,
+        `Gender`,
+        t2.pCode AS p_description,
+        t3.code AS a_code,
+        status FROM forstudents t1
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
         INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
 
         WHERE ayCode ='{$searched2}'
-        AND pCode ='{$searched}'");
-        
-            
+        AND progCode ='{$searched}'");
+        }
     }
 ?>
 
@@ -192,7 +226,7 @@
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))
                                 {?>
-                                <option value="<?php echo $row2["pCode"];?>"
+                                <option value="<?php echo $row2["pID"];?>"
                                 ><?php echo $row2['pCode']; ?></option>
                                 <?php } ?>
                                 

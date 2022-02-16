@@ -9,11 +9,7 @@
             <form id="saveAcadYear" action="assets/save_aycode_details.php" method="POST" oninput="res.value=parseYear(yearFrom.value) + '-' +parseYear(yearTo.value);" >
                 <div class="modal_content" >
                     <div class="modal_acyr_input_container">
-                        <div class="modal_acyr_input">
-                            <p class="label">AY CODE: </p>
-                            <input type="varchar" maxlength="50" class="input_field" id="ayCode" name="ayCode" value="">
-                            <output id ="aycodeOutput" name="res"></output> 
-                        </div>
+                        
                         <div class="modal_acyr_input">
                             <p class="label">Year From: </p>
                             <input type="year" class="input_field" id="yearFrom" name="yearFrom" value="">
