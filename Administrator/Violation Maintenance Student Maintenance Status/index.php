@@ -270,7 +270,7 @@
                     <table class="stud_table">
                     <tr> 
     
-                            <th class="stud_title"><input type='checkbox' id='checkAll'>All</th>
+                            <th class="stud_title" style="width: 50px"><input type='checkbox' class="all" id='checkAll'>All</th>
                             <th class="stud_title">Student #</th>
                             <th class="stud_title">Curriculum</th>
                             <th class="stud_title">Section</th>
@@ -286,11 +286,11 @@
                                 $status = $row['status'];
 				        ?>
                         <tr>
-                            <td class="stud_data"> <input type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
+                            <td class="stud_data"> <input type ='checkbox' class="cbox" name ='update[]' value='<?= $id ?>'></td>
                             <td class="stud_data"> <?php echo $studNum ?>  </td>
                             <td class="stud_data"> <?php echo $progCode ?> </td>
                             <td class="stud_data"> <?php echo $section ?> </td>
-                            <td class="stud_data"> <input type ='text' name ='status_<?= $id ?>' value='<?= $status ?>' readonly></td>
+                            <td class="stud_data"> <input type ='text' class="inputTable" name ='status_<?= $id ?>' value='<?= $status ?>' readonly></td>
                         </tr>
                         <?php
 							}

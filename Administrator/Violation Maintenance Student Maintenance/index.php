@@ -192,15 +192,15 @@
                 <div class="stud_table_content">
                     <table class="stud_table">
                         <tr> 
-                            <th class="stud_title" style="width: 40px" ><input type='checkbox' id='checkAll'>All</th>
+                            <th class="stud_title" style="width: 50px" ><input type='checkbox' class="all" id='checkAll'>All</th>
                             <th class="stud_title">Student Num</th>
                             <th class="stud_title">Last Name</th>
                             <th class="stud_title">First Name</th>
                             <th class="stud_title">Middle Name</th>
                             <th class="stud_title">Curriculum</th>
                             <th class="stud_title">Section</th>
-                            <th class="stud_title">Address</th>
-                            <th class="stud_title">Gender</th>
+                            <th class="stud_title" style="width: 28%;">Address</th>
+                            <th class="stud_title" style="width: 10%;">Gender</th>
                             
                         </tr>
                         <?php
@@ -216,13 +216,13 @@
                             $address = $row['Address'];
 				        ?>
                         <tr>
-                            <td class="stud_data"> <input type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
+                            <td class="stud_data"> <input class="cbox" type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
                             <td class="stud_data"> <?php echo $row['studNum']?> </td>
-                            <td class="stud_data"> <input type ='text' name ='lastName_<?= $id ?>' value='<?= $lastName ?>'></td>
-                            <td class="stud_data"> <input type ='text' name ='firstName_<?= $id ?>' value='<?= $firstName ?>'> </td>
-                            <td class="stud_data"> <input type ='text' name ='middleName_<?= $id ?>' value='<?= $middleName ?>'>  </td>
-                            <td class="stud_data">  <input type="hidden" name =  "curri2_<?= $id ?>" value='<?= $curri ?>'>
-                                <select class="curri_selection" name = "curri_<?= $id ?>">
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='lastName_<?= $id ?>' value='<?= $lastName ?>'></td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='firstName_<?= $id ?>' value='<?= $firstName ?>'> </td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='middleName_<?= $id ?>' value='<?= $middleName ?>'>  </td>
+                            <td class="stud_data">  <input class="inputTable" type="hidden" name =  "curri2_<?= $id ?>" value='<?= $curri ?>'>
+                                <select class="inputTable" name = "curri_<?= $id ?>">
                             
                             <option disabled value="<?= $curri ?>" selected ="selected"><?php echo $curri2?></option>
                                 <?php 
@@ -237,8 +237,8 @@
                                 
                             </select> </td>
                             
-                            <td class="stud_data"> <input type ='text' name ='section_<?= $id ?>' value='<?= $section ?>'> </td>
-                            <td class="stud_data" style="width: 33%;"> <input type ='text' name ='address_<?= $id ?>' value='<?= $address ?>'> </td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='section_<?= $id ?>' value='<?= $section ?>'> </td>
+                            <td class="stud_data" style="width: 33%;"> <input class="inputTable" type ='text' name ='address_<?= $id ?>' value='<?= $address ?>'> </td>
                             <td class="stud_data"> <?php echo $row['Gender']?> </td>
                             
                         </tr>

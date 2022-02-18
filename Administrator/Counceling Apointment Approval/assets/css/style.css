@@ -35,7 +35,7 @@
 }
 
 .approv_content .title{
-    width: 235px;
+    width: 180px;
 }
 .title h1{
     font-size: 1.5rem;
@@ -69,11 +69,14 @@
 .display_approv .approv_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-hover);
+    font-size: 13px;
+    padding: 5px 0 5px;
 }
 .display_approv .approv_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
+    text-align: center;
 }
 .approv_data a{
     text-decoration: none;

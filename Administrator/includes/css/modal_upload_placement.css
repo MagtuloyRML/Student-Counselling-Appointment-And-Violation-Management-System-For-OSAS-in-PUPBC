@@ -85,16 +85,19 @@
 .preview_table_content .preview_table{
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 
 }
 .preview_table .preview_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    font-size: 12px;
 }
 .preview_table .preview_data{
     border: 1px solid #ddd;
     padding: 2px 3px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
+    text-align: center;
 }
 
 .footer_modal_input{

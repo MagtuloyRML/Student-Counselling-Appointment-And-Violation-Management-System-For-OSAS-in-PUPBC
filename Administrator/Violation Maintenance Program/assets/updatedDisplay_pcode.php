@@ -8,10 +8,10 @@
     if ($resultchecker > 0) {
         ?>
         <tr>
-            <th class="curriculum_title">PCODE</th>
+            <th class="curriculum_title" style="width: 12%;">PCODE</th>
             <th class="curriculum_title">Description</th>
-            <th class="curriculum_title"> </th>
-            <th class="curriculum_title"> </th>
+            <th class="curriculum_title" style="width: 12%;"> </th>
+            <th class="curriculum_title" style="width: 12%;"> </th>
         </tr>
         <?php
         while ($row = mysqli_fetch_assoc($RESULT)) {

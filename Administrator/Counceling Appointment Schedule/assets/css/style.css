@@ -41,7 +41,7 @@
 
 
 .approv_content .title{
-    width: 235px;
+    width: 180px;
 }
 .title h1{
     font-size: 1.5rem;
@@ -51,9 +51,13 @@
 .title hr{
     border-bottom: 2px solid var(--maroong-content-bg);
 }
+.subtitle{
+    padding-left: 10px;
+    color: var(--button-hover-color-font-icon);
+}
 
 .list_approv{
-    padding-top: 25px;
+    padding-top: 15px;
     width: 100%;
     display: inline-block;
     justify-content: center;
@@ -75,11 +79,13 @@
 .display_approv .approv_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-hover);
+    font-size: 15px;
 }
 .display_approv .approv_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
+    text-align: center;
 }
 .approv_data a{
     text-decoration: none;

@@ -35,12 +35,10 @@
                             <th class="stud_details_title">First Name</th>
                             <th class="stud_details_title">Middle Name</th>
                             <th class="stud_details_title">Section</th>
-                            <th class="stud_details_title" style="width: 33%;">Address</th>
+                            <th class="stud_details_title" style="width: 28%;">Address</th>
                             <th class="stud_details_title">Gender</th>
                             <th class="stud_details_title">Program</th>
                             <th class="stud_details_title">Batch / Year</th>
-
-                            
                         </tr>
                         <?php
                         include_once 'assets/dbconnection.php';

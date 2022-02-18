@@ -33,6 +33,7 @@
 .back_bttn{
     display: flex;
     align-items: center;
+    float: left;
     color: var(--button-color-font-icon);
     font-size: 1.25rem;
     text-decoration: none;
@@ -43,14 +44,15 @@
 }
 
 .client_content{
-    width: 70%;
-    padding: 20px 30px 20px;
+    width: 100%;
     background-color: var(--color-content0-bg);
     border-radius: .5rem;
-    margin-top: 30px;
 }
 .client_content .title{
     width: 150px;
+}
+.client_info{
+    margin-top: 10px;
 }
 .client_content .title h1{
     font-size: 1.5rem;
@@ -64,7 +66,7 @@
 .searchBar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    float: right;
     padding: 30px 30px 20px;
     height: 25px;
 }
@@ -112,6 +114,7 @@
 .list_client .display_client{
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .display_client .client_title{
@@ -122,4 +125,45 @@
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
     font-size: var(--small-font-size);
+}
+.profile_info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.profile_pic .prof_pic{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-image: none;
+    padding: 5px;
+}
+
+.profile_content_info{
+    width: 70%;
+}
+.profile_content_info .input-container{
+    width: 100%;
+    font-size: 14px;
+    color: var(--button-hover-color-font-icon);
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-container .label{
+    width: 40%;
+    padding-right: 2px;
+}
+.input-container .input-field{
+    font-size: var(--small-font-size);
+    width: 80%;
+    padding: 0 2px 0;
+    color: var(--button-hover-color-font-icon);
+    border-bottom: 1px solid var(--button-hover-color-font-icon);
+    
 }

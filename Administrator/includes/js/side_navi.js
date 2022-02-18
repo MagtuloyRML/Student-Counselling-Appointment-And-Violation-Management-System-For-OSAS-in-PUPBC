@@ -47,4 +47,7 @@ const showMenubttn = (toggleID, navbarID, bodyID)=>{
         })
     }
 }
-showMenu('app_list','sideNavbar', 'body-pd')
+showMenu('main_list','sideNavbar', 'body-pd')
+
+
+

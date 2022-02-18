@@ -130,12 +130,32 @@
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
     font-size: 12px;
-    padding: 1px;
+    padding: 5px;
 }
 .stud_table .stud_data{
     border: 1px solid #ddd;
     padding: 2px 3px 2px;
     font-size: 11px;
+    text-align: center;
+}
+.inputTable{
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 11px;
+    border-bottom: 1px solid var(--maroong-content-bg);
+}
+.inputTable:focus{
+    border-radius: 1px solid var(--maroong-content-hover);
+}
+.cbox{
+    width: 15px;
+    height: 15px;
+}
+.all{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
 }
 
 /*modal*/

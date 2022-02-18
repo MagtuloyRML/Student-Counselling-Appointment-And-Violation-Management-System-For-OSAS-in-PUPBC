@@ -30,8 +30,8 @@
                     <div class="upload_pic">
                         <input class="upload_pic_hidden" id="pic_filename" type="file" name="pic_filename" accept="image/*" visbility="hidden">
                         <label class="pic_bttn" for="pic_filename"><i class="fas fa-camera"></i> Edit Profile Picture</label>
-                     </div>
                     </div>
+                </div>
                 <div class="profile_content_info">
                     <div class="input-container">
                         <label class="label" for="#">Full Name: </label>

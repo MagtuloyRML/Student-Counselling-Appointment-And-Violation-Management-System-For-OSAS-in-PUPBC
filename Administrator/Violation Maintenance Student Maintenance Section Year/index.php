@@ -165,7 +165,7 @@ if(isset($_POST['submit'])){
                 <div class="stud_table_content">
                     <table class="stud_table">
                         <tr> 
-                        <th class="stud_title"><input type='checkbox' id='checkAll'>All</th>
+                            <th class="stud_title" style="width: 50px"><input class="all" type='checkbox' id='checkAll'>All</th>
                             <th class="stud_title">Student #</th>
                             <th class="stud_title">Curriculum</th>
                             <th class="stud_title">Section</th>
@@ -181,11 +181,11 @@ if(isset($_POST['submit'])){
                                 $ayCode = $row['a_code'];
 				        ?>
                         <tr>
-                        <td class="stud_data"> <input type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
+                            <td class="stud_data"> <input type ='checkbox' class="cbox" name ='update[]' value='<?= $id ?>'></td>
                             <td class="stud_data"> <?php echo $studNum ?>  </td>
                             <td class="stud_data"> <?php echo $progCode ?> </td>
-                            <td class="stud_data"> <input type ='text' name ='section_<?= $id ?>' value='<?= $section ?>' readonly> </td>
-                            <td class="stud_data"> <input type ='text' name ='ayCode_<?= $id ?>' value='<?= $ayCode ?>' readonly></td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='section_<?= $id ?>' value='<?= $section ?>' readonly> </td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='ayCode_<?= $id ?>' value='<?= $ayCode ?>' readonly></td>
                         </tr>
                         <?php
 							}

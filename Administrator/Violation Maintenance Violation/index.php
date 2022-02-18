@@ -15,13 +15,6 @@
                     <hr>
                 </div>
 
-                <div class="v_bttn_group">
-                    <a href="#" class="v_bttn" id="upload_violation_bttn">
-                        <i class="fas fa-upload"></i>
-                        Upload
-                    </a>
-                </div>
-
                 <div class="violation_content_tables">
                     
                     <div class="v_table_content">
@@ -123,9 +116,6 @@
 
     <?php
         include_once('assets/modal_violation_add_vio_sanc.php');
-    ?>
-    <?php
-        include_once('assets/modal_upload_violation.php');
     ?>
 
 </body>

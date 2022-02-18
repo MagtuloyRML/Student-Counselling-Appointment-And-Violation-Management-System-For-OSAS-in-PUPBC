@@ -47,6 +47,7 @@
 
     <link href="../includes/css/side_nav.css" rel="stylesheet">
     <script src="../includes/js/acc_dropdown_notif_dropdown.js" defer></script>
+    <script src="../includes/js/notif_admin.js" defer></script>
     <link href="../includes/css/admin_navbar.css" rel="stylesheet">
     <script src="../includes/js/side_navi.js" defer></script>
     <link href="../includes/css/maintenance.css" rel="stylesheet">
@@ -79,17 +80,10 @@
                         <span class="navi_name">DashBoard</span>
                     </a>
                     
-                    <div class="navi_link <?php if ($page == 'ca_appoint_sched'){ echo 'active_side';}?> collapse" >
-                        <i class="fas fa-calendar-alt" id="app_list"></i>
+                    <a href="../Counceling Appointment Dashboard/" class="navi_link <?php if ($page == 'ca_appoint_sched' || $page == 'ca_appoint_sched_approve' || $page == 'ca_appoint_sched_view'){ echo 'active_side';}?>" >
+                        <i class="fas fa-calendar-alt"></i>
                         <span class="navi_name">Appointment</span>
-                        <i class="fas fa-chevron-down" id="drop_bttn"></i>
-
-                        <ul class="collapse_menu">
-                            <a href="../Counceling Appointment Dashboard/" class="collapse_link">Dashboard</a>
-                            <a href="../Counceling Appointment Schedule/" class="collapse_link">Schedule</a>
-                            <a href="../Counceling Apointment Approval/" class="collapse_link">Approval</a>
-                        </ul>
-                    </div>
+                    </a>
                     <a href="../Counceling Client Page/" class="navi_link <?php if ($page == 'ca_client'){ echo 'active_side';}?>">
                         <i class="fas fa-users"></i>
                         <span class="navi_name">Client</span>
@@ -113,8 +107,8 @@
                 </div>
                 <br>
                 <div class="navi_list">
-                    <div class="navi_link <?php if ($page == 'maintenance'){ echo 'active_side';}?> collapse">
-                        <i class="fas fa-tools"></i>
+                    <div class="navi_link <?php if ($page == 'maintenance'){ echo 'active_side';}?> collapse" >
+                        <i class="fas fa-tools" id="main_list"></i>
                         <span class="navi_name">Maintenance</span>
                         <i class="fas fa-chevron-down" id="drop_bttn"></i>
 
@@ -125,7 +119,6 @@
                         </ul>
                     </div>
                 </div>
-                
             </div>
         </nav>
     </div>
@@ -141,15 +134,13 @@
             <div class="menu">
                 <!--- Notifcation drop down content-->
                 <div class="dropdown1" notif-dropdown>
-                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i></button>
+                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i><span class="badge" id="notifCount"></span></button>
                     <div class="notif_content">
                         <!---Content for Notif--->
                         <p><i class="fas fa-bell"></i> Notification</p>
                         <hr class="notif-line">
-                        <div class="notif-content">
-                            <p>
-                                No Available Content
-                            </p>
+                        <div class="notif-content" id="notif_content">
+                            
                         </div>
                     </div>
                 </div>

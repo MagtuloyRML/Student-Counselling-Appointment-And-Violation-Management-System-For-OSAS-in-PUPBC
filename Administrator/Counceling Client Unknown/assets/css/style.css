@@ -44,11 +44,9 @@
 }
 
 .client_content{
-    width: 70%;
-    padding: 20px 30px 20px;
+    width: 100%;
     background-color: var(--color-content0-bg);
     border-radius: .5rem;
-    margin-top: 30px;
 }
 .client_content .title{
     width: 150px;
@@ -137,6 +135,11 @@
 }
 .statement .fas{
     font-size: 35px;
+    color: var(--button-hover-color-font-icon);
+}
+.statement .fa-solid{
+    font-size: 35px;
+    color: var(--button-hover-color-font-icon);
 }
 .statement p{
     font-size: var(--small-font-size);

@@ -65,11 +65,14 @@
 .ac_table .acadYear_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    font-size: 15px;
+    text-align: center;
 }
 .ac_table .acadYear_data{
     border: 1px solid #ddd;
     padding: 2px 3px 2px;
-    font-size: var(--small-font-size);
+    font-size: 13px;
+    text-align: center;
 }
 
 /*modal*/

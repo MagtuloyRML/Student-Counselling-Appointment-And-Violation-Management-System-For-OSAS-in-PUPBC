@@ -61,16 +61,25 @@
                 });
             });
         </script>
-    <div class="container1">
+    <div class="body_container">
         <div class="content">
             <div class="title">
-                <h1>Appointment Scheduling Calendar</h1>
+                <h1>Appointment</h1>
                 <hr>
             </div>
-            <div class="calendar" id="calendar">
+            <div class="subcontent">
+                <?php
+                    $sub_page = 'dash_app';
+                    include '../includes/appoitment_sub_nav.php';
+                ?>
+                <h3 class="subtitle">Scheduling Calendar</h3>
+                <div class="calendar" id="calendar">
+
+                </div>
+
             </div>
+
         </div>
-        
         
     </div>
 </body>

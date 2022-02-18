@@ -25,6 +25,12 @@
 *::before, ::after{
     box-sizing: border-box;
 }
+.body_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
 .content{
     display: flex;
     justify-content: center;

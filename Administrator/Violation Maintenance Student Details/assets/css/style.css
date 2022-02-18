@@ -66,16 +66,18 @@
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
     font-size: 12px;
+    text-align: center;
 }
 .sd_table .stud_details_data{
     border: 1px solid #ddd;
     padding: 2px 3px 2px;
     font-size: 11px;
+    text-align: center;
 }
 
 /*modal/pop up*/
 .modal_bg .modal{
-    width: 45.5%;
+    width: 60%;
 }
 .modal_studDetails_input_container{
     width: 100%;
