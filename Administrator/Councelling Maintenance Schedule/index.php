@@ -2,6 +2,15 @@
     $title = 'Maintenance Counceling Schedule';
     $page = 'maintenance';
     include_once('../includes/header.php');
+
+    $id = $_SESSION['AdminID'];
+    $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
+    $name = "";
+    while($row = mysqli_fetch_assoc($sql_fetch))
+    {
+        $name = $row['AdminAccountID'];
+    }
+
 ?>
     <div class="body_container">
         <div class="content">
@@ -20,7 +29,7 @@
                 </div>
                 <form id="evaulAvailSched" action ="assets/insertAvail_sched.php" method = "POST">
                     <?php            
-                        $query = "SELECT * from avail_sched";
+                        $query = "SELECT * from avail_sched where meta_field = '$name'";
                         $result = mysqli_query($conn, $query);
                         while($row = mysqli_fetch_assoc($result))
                         {
@@ -30,6 +39,7 @@
                         
                     <div class="input_group">
                         <div class="input_container">
+                        <input class="input" type="hidden" id="id" name="id" value="<?= $name ?>">
                             <label for="#" class="label">Start Time: </label>
                             <div class="input " id="input_fst_name">
                                 <input class="input-field" type ="time" id = "start_time" name = "start_time" value="<?php echo $row['start_time'];?>">
