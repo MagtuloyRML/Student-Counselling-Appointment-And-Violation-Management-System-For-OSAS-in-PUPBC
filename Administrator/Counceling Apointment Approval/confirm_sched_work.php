@@ -3,15 +3,18 @@
 include "../../assets/connection/DBconnection.php"; // Using database connection file here
 require ('../../assets/PHPMailer/src/PHPMailer.php');
 require ('../../assets/PHPMailer/src/SMTP.php');
+include('../includes/header.php');
 
-    
+$id = $_GET['id'];
+
+
 $appointmentID = $_GET['a_id']; // get id through query string
 $stat ='Confirmed';
-$query = "UPDATE schedules SET stat ='$stat' WHERE id = '$appointmentID'";
+$query = "UPDATE schedules SET stat ='$stat', remarks ='$id' WHERE id = '$appointmentID'";
 $get = "SELECT * FROM schedules WHERE id = '$appointmentID'";
 $data2=mysqli_query($conn, $get);
 $data=mysqli_query($conn, $query);
-
+/*
 if($data && $data2)
 {
             while($row = $data2->fetch_array()){
@@ -67,5 +70,6 @@ else
 {
     echo "Error confirming record"; // display error message if not delete
 }
-
+*/
+exit();
 ?>
