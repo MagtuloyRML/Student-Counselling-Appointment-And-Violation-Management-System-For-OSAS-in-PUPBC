@@ -17,41 +17,21 @@
         $prof_pic = $detailpic['PictureFilename'];
     }
     $directory = "../../assets/user_profile_pic/admin/";
-
-    $id = $_SESSION['AdminID'];
-    $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
-    $name = "";
-    while($row = mysqli_fetch_assoc($sql_fetch))
-    {
-        $name = $row['AdminAccountID'];
-    }
-
-    include '../../assets/connection/dbconnection.php';
-    $sched = $conn->query("SELECT`id`,
-    `title`,
-    `end_app`,
-    `stat`,
-    t2.AdminAccountID as AdminAccountID,
-    t2.AdminFirstName as firstName,
-    t2.AdminLastName as lastName
-    FROM schedules t1
-    INNER JOIN adminaccountinfo t2 ON t1.remarks = t2.AdminAccountID 
-    
-    WHERE `stat` = 'Done' AND AdminAccountID = '$name'
-    LIMIT 5");
 ?>
     <div class="body_container">
         <div class="content">
             <a href="../Administrator Edit Personal Info" class="acc_bttn" ><i class="fas fa-user-cog"></i></a>
             <p>Profile Info</p>
             <div class="profile_info">
-                <div class="profile_pic" id="prof_pic_div">
-                    <img class="prof_pic" id="prof_pic" src="<?php echo $directory,'pbcscvs',$id,'/', $prof_pic?>" alt="Profile Pic">
+                <div class="profile_pic">
+                    <div id="prof_pic_div">
+                        <img class="prof_pic" id="prof_pic" src="<?php echo $directory,'pbcscvs',$id,'/', $prof_pic?>" alt="Profile Pic">
+                    </div>
                     <div class="upload_pic">
                         <input class="upload_pic_hidden" id="pic_filename" type="file" name="pic_filename" accept="image/*" visbility="hidden">
                         <label class="pic_bttn" for="pic_filename"><i class="fas fa-camera"></i> Edit Profile Picture</label>
-                     </div>
                     </div>
+                </div>
                 <div class="profile_content_info">
                     <div class="input-container">
                         <label class="label" for="#">Full Name: </label>
@@ -82,23 +62,13 @@
                         <th class="cr_title">Monitored by:</th>
                         <th class="cr_title">Status</th>
                     </tr>
-                    <?php while($row = $sched->fetch_array()){
-                                $id = $row['id'];
-                            $title = $row['title'];
-                            $dateFormat = date("d/m/Y", strtotime($row['end_app']));
-                            $status = $row['stat'];
-                            $nameFormat = $row['lastName'].', '.$row['firstName'];
-                            
-                            ?>
                     <tr>
-                        <td class="cr_data"><?= $id ?></td>
-                        <td class="cr_data"><?= $title ?></td>
-                        <td class="cr_data"><?= $dateFormat ?></td>
-                        <td class="cr_data"><?= $nameFormat ?></td> 
-                        <td class="cr_data">
-                    <?= $status ?></td>
+                        <td class="cr_data">NO DATA AVAILABLE</td>
+                        <td class="cr_data">NO DATA AVAILABLE</td>
+                        <td class="cr_data">NO DATA AVAILABLE</td>
+                        <td class="cr_data">NO DATA AVAILABLE</td> 
+                        <td class="cr_data">NO DATA AVAILABLE</td>
                     </tr>
-                    <?php } ?>
                 </table>
             </div>
         

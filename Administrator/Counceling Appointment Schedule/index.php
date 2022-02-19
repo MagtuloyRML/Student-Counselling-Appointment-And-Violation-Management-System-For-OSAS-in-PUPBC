@@ -2,13 +2,6 @@
     $title = 'Counceling Apointment Dashboard';
     $page = 'ca_appoint_sched_view';
     include_once('../includes/header.php');
-    $id = $_SESSION['AdminID'];
-    $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
-    $name = "";
-    while($row = mysqli_fetch_assoc($sql_fetch))
-    {
-        $name = $row['AdminAccountID'];
-    }
 ?>
     <div class="body_container">
         <div class="content">
@@ -25,53 +18,39 @@
                     <div class="list_approv">
                         <h3 class="subtitle">Approved Appointment</h3>
                         <form method ="POST">
-                    <h3 class="list_title">List</h3>
-                    <table class="display_approv">
-                        <tr> 
-                            <th class="approv_title">Appointment ID</th>
-                            <th class="approv_title">Name</th>
-                            <th class="approv_title">Email Address</th>
-                            <th class="approv_title">Appointment Date</th>
-                            <th class="approv_title">Status</th>
-                            <th class="approv_title">Confirmed By</th>
-                        </tr>
-                        <?php
-                        include '../../assets/connection/DBconnection.php';
-                        $sched = $conn->query("SELECT `id`,
-                        `title`,         
-                        `ClientEmailAdd` as email_add,
-                        `stat`,
-                        `AdminFirstName` as a_firstName,
-                        `AdminLastName` as a_lastName
-                        FROM schedules
-                        INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
-                        INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
-                            
-                        WHERE `stat` = 'Confirmed' AND `remarks` = '$name'       
-                        ");
-                            while($row = $sched->fetch_array()){
-                        ?>
-                        <tr>
-                            <td class="approv_data"><?php echo $row['id']?></td>
-                            <td class="approv_data"><?php echo $row['title']?></td>
-                            <td class="approv_data"><?php echo $row['email_add']?></td>
-                            <td class="approv_data"><?php 
-                                $start_date = date("d/m/Y", strtotime($row['start_app_date']));
-                                $start_time = date("h:i A", strtotime($row['start_app_time']));
-                                $end_time = date("h:i A", strtotime($row['end_app_time']));
-                                
-                                $final = $start_date.' '. $start_time. ' - '. $end_time;
-                                echo $final;
-                                
-                                ?></td>
-                            <td class="approv_data"><?php echo $row['stat'] ?></td>
-                            <td class="approv_data"><?php echo $row['a_lastName'].', '.$row['a_firstName'] ?></td>
-                        </tr>
-                        <?php
-                                        }
-                    ?>
-                    </table>
-                    </form>
+                            <h3 class="list_title">List</h3>
+                            <table class="display_approv">
+                                <tr> 
+                                    <th class="approv_title">Appointment ID</th>
+                                    <th class="approv_title">Name</th>
+                                    <th class="approv_title">Appointment Date</th>
+                                    <th class="approv_title" style="width: 15%;">Status</th>
+                                </tr>
+                                <?php
+                                include '../../assets/connection/DBconnection.php';
+                                $sched = $conn->query("SELECT id, title, start_app_date, start_app_time, end_app_date, end_app_time, stat FROM `schedules`
+                                WHERE stat = 'Confirmed'");
+                                    while($row = $sched->fetch_array()){
+                                ?>
+                                <tr>
+                                    <td class="approv_data"><?php echo $row['id']?></td>
+                                    <td class="approv_data"><?php echo $row['title']?></td>
+                                    <td class="approv_data"><?php 
+                                        $start_date = date("d/m/Y", strtotime($row['start_app_date']));
+                                        $start_time = date("h:i A", strtotime($row['start_app_time']));
+                                        $end_time = date("h:i A", strtotime($row['end_app_time']));
+                                        
+                                        $final = $start_date.' '. $start_time. ' - '. $end_time;
+                                        echo $final;
+                                        
+                                        ?></td>
+                                    <td class="approv_data"><?php echo $row['stat'] ?></td>
+                                </tr>
+                                <?php
+                                                }
+                            ?>
+                            </table>
+                        </form>
                     </div>
 
                     <!-- Cancelled Appointments -->
@@ -79,53 +58,39 @@
                     <div class="list_approv">
                         <h3 class="subtitle">Cancelled Appointment</h3>
                         <form method ="POST">
-                    <h3 class="list_title">List</h3>
-                    <table class="display_approv">
-                        <tr> 
-                            <th class="approv_title">Appointment ID</th>
-                            <th class="approv_title">Name</th>
-                            <th class="approv_title">Email Address</th>
-                            <th class="approv_title">Appointment Date</th>
-                            <th class="approv_title">Status</th>
-                            <th class="approv_title">Cancelled By</th>
-                        </tr>
-                        <?php
-                        include '../../assets/connection/DBconnection.php';
-                        $sched = $conn->query("SELECT `id`,
-                        `title`,         
-                        `ClientEmailAdd` as email_add,
-                        `stat`,
-                        `AdminFirstName` as a_firstName,
-                        `AdminLastName` as a_lastName
-                        FROM schedules
-                        INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
-                        INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
-                            
-                        WHERE `stat` = 'Cancelled' AND `remarks` = '$name'       
-                        ");
-                            while($row = $sched->fetch_array()){
-                        ?>
-                        <tr>
-                            <td class="approv_data"><?php echo $row['id']?></td>
-                            <td class="approv_data"><?php echo $row['title']?></td>
-                            <td class="approv_data"><?php echo $row['email_add']?></td>
-                            <td class="approv_data"><?php 
-                                $start_date = date("d/m/Y", strtotime($row['start_app_date']));
-                                $start_time = date("h:i A", strtotime($row['start_app_time']));
-                                $end_time = date("h:i A", strtotime($row['end_app_time']));
-                                
-                                $final = $start_date.' '. $start_time. ' - '. $end_time;
-                                echo $final;
-                                
-                                ?></td>
-                            <td class="approv_data"><?php echo $row['stat'] ?></td>
-                            <td class="approv_data"><?php echo $row['a_lastName'].', '.$row['a_firstName'] ?></td>
-                        </tr>
-                        <?php
-                                        }
-                    ?>
-                    </table>
-                    </form>
+                            <h3 class="list_title">List</h3>
+                            <table class="display_approv">
+                                <tr> 
+                                    <th class="approv_title">Appointment ID</th>
+                                    <th class="approv_title">Name</th>
+                                    <th class="approv_title">Appointment Date</th>
+                                    <th class="approv_title" style="width: 15%;">Status</th>
+                                </tr>
+                                <?php
+                                include '../../assets/connection/DBconnection.php';
+                                $sched = $conn->query("SELECT id, title, start_app_date, start_app_time, end_app_date, end_app_time, stat FROM `schedules`
+                                WHERE stat = 'Cancelled'");
+                                    while($row = $sched->fetch_array()){
+                                ?>
+                                <tr>
+                                    <td class="approv_data"><?php echo $row['id']?></td>
+                                    <td class="approv_data"><?php echo $row['title']?></td>
+                                    <td class="approv_data"><?php 
+                                        $start_date = date("d/m/Y", strtotime($row['start_app_date']));
+                                        $start_time = date("h:i A", strtotime($row['start_app_time']));
+                                        $end_time = date("h:i A", strtotime($row['end_app_time']));
+                                        
+                                        $final = $start_date.' '. $start_time. ' - '. $end_time;
+                                        echo $final;
+                                        
+                                        ?></td>
+                                    <td class="approv_data"><?php echo $row['stat'] ?></td>
+                                </tr>
+                                <?php
+                                                }
+                            ?>
+                            </table>
+                        </form>
                     </div>
 
 
