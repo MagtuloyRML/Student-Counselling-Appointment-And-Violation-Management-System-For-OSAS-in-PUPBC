@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2022 at 03:20 AM
+-- Generation Time: Feb 20, 2022 at 04:33 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.1
 
@@ -71,7 +71,8 @@ INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddle
 (2, 'Juana Miguels', 'Mendezs', 'De la Cruzs', '', 1, '09080706051', 'dcjuana1234', 'admin123', 'dcjuan@gmail.com', 'Sample address Binan, Lagunas', 1, 1),
 (3, 'Deigo', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'Sample', 'rioPdjZsQS', 'dcjuan@gmail.com', 'qweqwe', 2, 1),
 (4, 'Juan', 'qewqwe', 'De la Cruz', '', 1, '09080706050', 'admin', 'oxiNsOy08h', 'dcjuan@gmail.com', 'Sample address', 2, 1),
-(5, 'Brian', 'Buendia', 'Pachecas', 'S', 2, '12345678910', 'admin', 'AdVoJclw7G', 'brianpacheca123@gmail.com', 'Munti', 1, 1);
+(5, 'Brian', 'Buendia', 'Pachecas', 'S', 2, '12345678910', 'admin', 'AdVoJclw7G', 'brianpacheca123@gmail.com', 'Munti', 1, 1),
+(6, 'Brian', 'Buendia', 'Pacheca', '', 1, '09123123123', 'admin', 'KnBRpTU5dv', 'brianpacheca123@gmail.com', 'Munti', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -134,7 +135,8 @@ INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`
 (19, 2, 'pbcscvs2202202191645240136.jpg', '2022-02-19 04:08:56', 0),
 (20, 2, 'pbcscvs2202202191645240144.jpg', '2022-02-19 04:09:04', 1),
 (21, 1, 'pbcscvs1202202191645240168.jpg', '2022-02-19 04:09:28', 0),
-(22, 1, 'pbcscvs1202202191645240198.jpg', '2022-02-19 04:09:58', 1);
+(22, 1, 'pbcscvs1202202191645240198.jpg', '2022-02-19 04:09:58', 1),
+(23, 6, 'default_user.jpg', '2022-02-20 03:34:22', 1);
 
 -- --------------------------------------------------------
 
@@ -184,7 +186,8 @@ INSERT INTO `avail_sched` (`avail_id`, `meta_field`, `start_date`, `end_date`, `
 (1, '1', '2022-02-13', '2022-02-19', '07:00:00', '18:00:00'),
 (2, '2', '2022-02-19', '2022-02-20', '08:00:00', '09:00:00'),
 (3, '3', '2022-02-27', '2022-03-05', '07:00:00', '18:00:00'),
-(4, '4', '2022-03-06', '2022-03-12', '07:00:00', '18:00:00');
+(4, '4', '2022-03-06', '2022-03-12', '07:00:00', '18:00:00'),
+(5, '6', '2022-01-01', '2023-01-01', '00:00:00', '23:00:00');
 
 -- --------------------------------------------------------
 
@@ -220,7 +223,8 @@ INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMi
 (46, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2),
 (70, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2),
 (89, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
-(90, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1);
+(90, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1),
+(91, 'Brian', '', 'Pacheca', '', '2018-01154-BN-0', 1, '2022-02-22', 'asdasd', '09123456789', 'Mother', '09123456789', 'brianpacheca123@gmail.com', 'asdasdasdasd', 1);
 
 -- --------------------------------------------------------
 
@@ -255,7 +259,7 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (18, 45, '2010-00001-BN-0202202081644309514.jpg', '2022-02-08 08:38:34', 0),
 (19, 45, '2010-00001-BN-0202202081644312537.jpg', '2022-02-08 09:28:57', 0),
 (20, 45, '2010-00001-BN-0202202081644312551.jpg', '2022-02-08 09:29:11', 0),
-(21, 34, '2019-00001-BN-0202202091644398074.jpg', '2022-02-09 09:14:34', 1),
+(21, 34, '2019-00001-BN-0202202091644398074.jpg', '2022-02-09 09:14:34', 0),
 (22, 46, 'default_user.jpg', '2022-02-09 09:31:47', 0),
 (24, 46, '2014-00005-BN-0202202091644448697.jpg', '2022-02-09 23:18:17', 0),
 (25, 46, '2014-00005-BN-0202202101644493032.jpg', '2022-02-10 11:37:12', 0),
@@ -267,7 +271,29 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (31, 46, '2014-00005-BN-0202202151644901633.jpg', '2022-02-15 05:07:13', 0),
 (32, 46, '2014-00005-BN-0202202151644901642.jpg', '2022-02-15 05:07:22', 0),
 (33, 46, '2014-00005-BN-0202202151644901663.jpg', '2022-02-15 05:07:43', 1),
-(34, 45, '2010-00001-BN-0202202181645180651.jpg', '2022-02-18 11:37:31', 1);
+(34, 45, '2010-00001-BN-0202202181645180651.jpg', '2022-02-18 11:37:31', 1),
+(35, 34, '2019-00001-BN-0202202201645323811.jpg', '2022-02-20 03:23:31', 1),
+(36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forevaluation`
+--
+
+CREATE TABLE `forevaluation` (
+  `eval_id` int(11) NOT NULL,
+  `appointment_id` int(11) NOT NULL,
+  `evaluation` text NOT NULL,
+  `recommendation` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `forevaluation`
+--
+
+INSERT INTO `forevaluation` (`eval_id`, `appointment_id`, `evaluation`, `recommendation`) VALUES
+(1, 60, 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -331,7 +357,8 @@ CREATE TABLE `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `start_app`, `end_app`, `stat`, `remarks`, `reason`) VALUES
-(59, 'Yes', '', 'mema@gamil.com', 34, '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Confirmed', '2', '');
+(59, 'Yes', '', 'mema@gamil.com', 34, '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', '2', ''),
+(60, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Done', '6', 'Ikaw');
 
 -- --------------------------------------------------------
 
@@ -481,6 +508,12 @@ ALTER TABLE `clientprofilepictureinfo`
   ADD KEY `cppInfo_Client` (`ClientAccountID`);
 
 --
+-- Indexes for table `forevaluation`
+--
+ALTER TABLE `forevaluation`
+  ADD PRIMARY KEY (`eval_id`);
+
+--
 -- Indexes for table `genderrole`
 --
 ALTER TABLE `genderrole`
@@ -536,7 +569,7 @@ ALTER TABLE `accountstatus`
 -- AUTO_INCREMENT for table `adminaccountinfo`
 --
 ALTER TABLE `adminaccountinfo`
-  MODIFY `AdminAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `AdminAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `adminnotification`
@@ -548,7 +581,7 @@ ALTER TABLE `adminnotification`
 -- AUTO_INCREMENT for table `adminprofilepictureinfo`
 --
 ALTER TABLE `adminprofilepictureinfo`
-  MODIFY `AdminProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `AdminProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `adminuserrole`
@@ -560,19 +593,25 @@ ALTER TABLE `adminuserrole`
 -- AUTO_INCREMENT for table `avail_sched`
 --
 ALTER TABLE `avail_sched`
-  MODIFY `avail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `avail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `clientaccountinfo`
 --
 ALTER TABLE `clientaccountinfo`
-  MODIFY `ClientAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `ClientAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `clientprofilepictureinfo`
 --
 ALTER TABLE `clientprofilepictureinfo`
-  MODIFY `ClientProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `ClientProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `forevaluation`
+--
+ALTER TABLE `forevaluation`
+  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `genderrole`
@@ -590,7 +629,7 @@ ALTER TABLE `notificationstatus`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `statuscontent`

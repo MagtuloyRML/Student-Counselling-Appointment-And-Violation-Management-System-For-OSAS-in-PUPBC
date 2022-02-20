@@ -3,18 +3,20 @@
 include "../../assets/connection/DBconnection.php"; // Using database connection file here
 require ('../../assets/PHPMailer/src/PHPMailer.php');
 require ('../../assets/PHPMailer/src/SMTP.php');
-include('../includes/header.php');
+
 
 $id = $_GET['id'];
 
-
+$find = $conn->query("SELECT * FROM adminaccountinfo WHERE AdminAccountID = '$id'");
+$row = mysqli_fetch_array($find);
+$finalNameFormat = $row['AdminFirstName'] . ' ' . $row['AdminLastName'];
 $appointmentID = $_GET['a_id']; // get id through query string
 $stat ='Confirmed';
 $query = "UPDATE schedules SET stat ='$stat', remarks ='$id' WHERE id = '$appointmentID'";
 $get = "SELECT * FROM schedules WHERE id = '$appointmentID'";
 $data2=mysqli_query($conn, $get);
 $data=mysqli_query($conn, $query);
-/*
+
 if($data && $data2)
 {
             while($row = $data2->fetch_array()){
@@ -22,8 +24,16 @@ if($data && $data2)
             $mailTo = $row['email_add'];
             //Message to recipient
             $start = date("d/m/Y h:i A", strtotime($row['start_app']));
-			$end = date("d/m/Y h:i A", strtotime($row['end_app']));
-            $body ="Your appointment on". " " . $start . "-" . $end . " " . "is confirmed";
+			$end = date("h:i A", strtotime($row['end_app']));
+            $body ="
+            <h1>Your appointment is confirmed!</h1>
+            <p>Your appointment of <u>".$start." - ".$end."</u> "." is confirmed by Counselor <u>".$finalNameFormat."</u>. <br>
+                Please be in the waiting room <u>15 minutes earlier</u> than the scheduled time.</p>
+                <a href='https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1' target='_blank' class='btn'>Link here</a>
+
+                <hr />
+
+                <p id='contact'>© All rights reserved</p>"; //Body
         
             $mail = new PHPMailer\PHPMailer\PHPMailer();
         
@@ -35,8 +45,8 @@ if($data && $data2)
         
             $mail -> SMTPAuth = true;
         
-            $mail -> Username = "appointmentsched";
-            $mail -> Password = "MHB6a3h0aHhwaW5h";
+            $mail -> Username = "iskolarngbayan.pup.edu.ph";
+            $mail -> Password = "bMadDrTrXEnCpjkf";
         
             $mail -> SMTPSecure = "tls";
         
@@ -49,7 +59,7 @@ if($data && $data2)
         
             $mail -> isHTML(true);
         
-            $mail -> Subject = "Test Notification";
+            $mail -> Subject = "Test Email Notification";
         
             $mail -> Body = $body;
             
@@ -61,15 +71,13 @@ if($data && $data2)
                 echo "Message has been sent";
             }
         }
-    
-    mysqli_close($conn); // Close connection
-    header("location:index.php"); // redirects to scheduling page
-    exit;	
+        echo "<script>window.location.href='index.php?success=Appointment Confirmed'</script>";
+        exit();
 }
 else
 {
     echo "Error confirming record"; // display error message if not delete
 }
-*/
+
 exit();
 ?>

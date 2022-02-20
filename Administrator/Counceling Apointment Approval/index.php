@@ -2,6 +2,7 @@
     $title = 'Counceling Approval Schedule';
     $page = 'ca_appoint_sched_approve';
     include_once('../includes/header.php');
+
     $id = $_SESSION['AdminID'];
     $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
     $name = "";
@@ -16,6 +17,13 @@
         <div class="content">
             <div class="approv_content">
                 <div class="title">
+                <?php if (isset($_GET['error'])) { ?>
+                                    <p class="error"><?php echo $_GET['error']; ?></p>
+                                <?php } ?>
+
+                                <?php if (isset($_GET['success'])) { ?>
+                                    <p class="success"><?php echo $_GET['success']; ?></p>
+                                <?php } ?>
                     <h1>Appointment</h1>
                     <hr>
                 </div>
@@ -30,6 +38,7 @@
                     <h3 class="list_title">List</h3>
                     <table class="display_approv">
                         <tr> 
+                        
                             <th class="approv_title">Appointment ID
                             <input type="hidden" name="id" id="id" value="<?= $name ?>">
                             </th>
