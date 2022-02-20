@@ -12,15 +12,15 @@
                         
                         <div class="modal_acyr_input">
                             <p class="label">Year From: </p>
-                            <input type="year" class="input_field" id="yearFrom" name="yearFrom" value="">
+                            <input type="year" class="input_field" required id="yearFrom" name="yearFrom" value="">
                         </div>
                         <div class="modal_acyr_input">
                             <p class="label">Year To: </p>
-                            <input type="year"  class="input_field" id="yearTo" name="yearTo" value="">
+                            <input type="year"  class="input_field" required id="yearTo" name="yearTo" value="">
                         </div>
                         <div class="modal_acyr_input">
                             <p class="label">Semester: </p>
-                            <input type="varchar" maxlength="50" class="input_field" id="semester" name="semester" value="">
+                            <input type="varchar" maxlength="50" required class="input_field" id="semester" name="semester" value="">
                         </div>
                     </div>
                     

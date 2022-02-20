@@ -49,7 +49,7 @@ include('dbconnection.php');
                                     $sql = mysqli_query($conn, "SELECT * FROM foracademicyear ");
 
                                     while ($row = mysqli_fetch_array($sql)) {
-                                        echo "<option value='" . $row['code'] . "'>" . $row['code'] . ' - ' . $row['Semester']. "</option>";
+                                        echo "<option value='" . $row['code'] . "'>" . $row['code'] . " Semester </option>";
                                     }
                                     ?>
 
@@ -84,7 +84,7 @@ include('dbconnection.php');
                                 $result1 = mysqli_query($conn, "SELECT * FROM forprogram");
                                 $options = "";
                                 while ($row2 = mysqli_fetch_array($result1)) { ?>
-                                    <option value="<?php echo $row2['pCode']; ?>"><?php echo $row2['pDescription']; ?> </option>
+                                    <option value="<?php echo $row2['pID']; ?>"><?php echo $row2['pDescription']; ?> </option>
                                 <?php
                                 }
                                 ?>

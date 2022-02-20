@@ -6,6 +6,7 @@ include ("../../../assets/PHPSpreedsheet/vendor/autoload.php");
 
 $connect = new PDO("mysql:host=localhost;dbname=studentviolation_db", "root", "");
 
+
 if($_FILES["file_path"]["name"] != '')
 {
     $allowed_extension = array('xls', 'xlsx');
@@ -36,7 +37,8 @@ if($_FILES["file_path"]["name"] != '')
                 ':sec'  => $row[4],
                 ':add'  => $row[5],
                 ':gen'  => $row[6],
-                ':progID'  => $row[7]
+                ':progID'  => $row[7],
+                ':ayCode'  => $row[8]
             );
             $pstudNUM = $row[0];
             $plastNAME  = $row[1];
@@ -46,6 +48,7 @@ if($_FILES["file_path"]["name"] != '')
             $padd  = $row[5];
             $pgen  = $row[6];
             $pprogID  = $row[7];
+            $payCode  = $row[8];
 
 
             $checkExistingCode = "SELECT studNum, lastName, firstName, middleName, Section, Address, Gender , progCode FROM forstudents WHERE studNum = :studNUM ";
@@ -56,19 +59,41 @@ if($_FILES["file_path"]["name"] != '')
 
 
             if ($rowResult) {
+                //Para makapag generate ng auto incremented id
+                $query9 = "SELECT * FROM forstudents order by id desc limit 1";
+                $res = mysqli_query($conn, $query9);
+                $row = mysqli_fetch_array($res);
+                $lastid = $row['id'];
+
+                $stud_id = substr($lastid, 0);
+                $stud_id = intval($stud_id);
+                $stud_id = ($stud_id + 1);
+
+                //Update data if Existing na yung studentNumber
                 $update_data = "
                 UPDATE forstudents SET studNum =:studNUM, 
                 lastName = :lastNAME, firstName = :firstNAME, middleName = :midNAME,
-                Section = :sec , Address = :add, Gender = :gen, progCode = :progID
+                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, id = '$stud_id'
                 WHERE studNum =:studNUM";
                 $updatestatement = $connect->prepare($update_data);
                 $updatestatement->execute($insert_data);
             }
             else{
+                //Para makapag generate ng auto incremented id
+                $query10 = "SELECT * FROM forstudents order by id desc limit 1";
+                $res = mysqli_query($conn, $query10);
+                $row = mysqli_fetch_array($res);
+                $lastid = $row['id'];
+
+                $stud_id = substr($lastid, 0);
+                $stud_id = intval($stud_id);
+                $stud_id = ($stud_id + 1);
+
+                //inserting data if walang kaparehas na studentnumber
                 $query = "
                 INSERT INTO forstudents
-                (studNum, lastName, firstName, middleName, Section, Address, Gender , progCode) 
-                VALUES (:studNUM, :lastNAME, :firstNAME, :midNAME, :sec , :add, :gen, :progID)
+                (studNum, lastName, firstName, middleName, Section, Address, Gender , progCode, ayCode, id) 
+                VALUES (:studNUM, :lastNAME, :firstNAME, :midNAME, :sec , :add, :gen, :progID, :ayCode, '$stud_id')
                 ";
 
                 $statement = $connect->prepare($query);

@@ -56,11 +56,11 @@
                             <td class="approv_data"><?php echo $row['title']?></td>
                             <td class="approv_data"><?php echo $row['email_add']?></td>
                             <td class="approv_data"><?php 
-                                $start_date = date("d/m/Y", strtotime($row['start_app_date']));
-                                $start_time = date("h:i A", strtotime($row['start_app_time']));
-                                $end_time = date("h:i A", strtotime($row['end_app_time']));
+                                $start_date = date("d/m/Y", strtotime($row['start_app']));
                                 
-                                $final = $start_date.' '. $start_time. ' - '. $end_time;
+                                $end_time = date("h:i A", strtotime($row['end_app']));
+                                
+                                $final = $start_date.' - '. $end_time;
                                 echo $final;
                                 
                                 ?></td>
@@ -110,14 +110,13 @@
                             <td class="approv_data"><?php echo $row['title']?></td>
                             <td class="approv_data"><?php echo $row['email_add']?></td>
                             <td class="approv_data"><?php 
-                                $start_date = date("d/m/Y", strtotime($row['start_app_date']));
-                                $start_time = date("h:i A", strtotime($row['start_app_time']));
-                                $end_time = date("h:i A", strtotime($row['end_app_time']));
+                                $start_date = date("d/m/Y", strtotime($row['start_app']));
                                 
-                                $final = $start_date.' '. $start_time. ' - '. $end_time;
-                                echo $final;
+                                $end_time = date("h:i A", strtotime($row['end_app']));
                                 
-                                ?></td>
+                                $final = $start_date.' - '. $end_time;
+                                echo $final; ?>
+                                </td>
                             <td class="approv_data"><?php echo $row['stat'] ?></td>
                             <td class="approv_data"><?php echo $row['a_lastName'].', '.$row['a_firstName'] ?></td>
                         </tr>

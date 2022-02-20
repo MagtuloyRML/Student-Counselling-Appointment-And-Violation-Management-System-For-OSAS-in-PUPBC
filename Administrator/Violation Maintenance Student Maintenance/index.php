@@ -35,7 +35,7 @@
     if(isset($_POST['submit'])){
         $searched = $_POST['search_box'];
         $searched2 = $_POST['fetchval'];
-
+        
         $sched = $conn->query("SELECT 
         `id`,
         `studNum`,
@@ -54,6 +54,7 @@
 
         WHERE lastName = '{$searched}' 
         OR firstName = '{$searched}'
+        OR studNum = '{$searched}'
         OR  progCode ='{$searched2}'");
 
 

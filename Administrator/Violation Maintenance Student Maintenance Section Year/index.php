@@ -86,6 +86,57 @@ if(isset($_POST['submit'])){
     }
 }
 
+if (isset($_POST['but_update'])){
+    if(isset($_POST['update'])){
+        foreach ($_POST['update'] as $updateid){
+            
+            $section = $_POST['section_'.$updateid];
+            $aycode = $_POST['aycode_'.$updateid];
+            $aycode2 = $_POST['aycode2_'.$updateid];
+            
+            
+
+            if(!$aycode){
+
+                $updateUser = "UPDATE forstudents SET ayCode = '$aycode2', Section = '$section'
+                WHERE id =$updateid";
+                mysqli_query($conn, $updateUser);
+                $sched = $conn->query("SELECT `id`,
+                `studNum`,
+                `lastName`,
+                `firstName`,
+                `middleName`,
+                `Section`,
+                `Address`,
+                `Gender`,
+                t2.pCode AS p_description,
+                t3.code AS a_code,
+                status FROM forstudents t1
+                INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+                INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+            }else{
+                $updateUser = "UPDATE forstudents SET ayCode = '$aycode', Section = '$section'
+                WHERE id =$updateid";
+                mysqli_query($conn, $updateUser);
+                $sched = $conn->query("SELECT `id`,
+                `studNum`,
+                `lastName`,
+                `firstName`,
+                `middleName`,
+                `Section`,
+                `Address`,
+                `Gender`,
+                t2.pCode AS p_description,
+                t3.code AS a_code,
+                status FROM forstudents t1
+                INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+                INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+            }
+
+        }
+        
+    }
+}
 ?>
 
             <div class="subcontent">
@@ -149,13 +200,10 @@ if(isset($_POST['submit'])){
                     </form>
                     <form method = "POST">
                     <div class="student_main_bttn_group">
-                        <div class="student_input">
-                            <label for="#" class="label">New Section and Year:</label>
-                            <input type="text" class="input_field" id="#" name="#" class="">
-                        </div>
-                        <button type="submit" name="submit2" class="stud_bttn">
+                        
+                        <button type="submit" name="but_update" class="stud_bttn">
                             <i class="fas fa-save"></i>
-                            Change
+                            Update
                                 </button>
                     </div>
                     
@@ -184,8 +232,22 @@ if(isset($_POST['submit'])){
                             <td class="stud_data"> <input type ='checkbox' class="cbox" name ='update[]' value='<?= $id ?>'></td>
                             <td class="stud_data"> <?php echo $studNum ?>  </td>
                             <td class="stud_data"> <?php echo $progCode ?> </td>
-                            <td class="stud_data"> <input class="inputTable" type ='text' name ='section_<?= $id ?>' value='<?= $section ?>' readonly> </td>
-                            <td class="stud_data"> <input class="inputTable" type ='text' name ='ayCode_<?= $id ?>' value='<?= $ayCode ?>' readonly></td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='section_<?= $id ?>' value='<?= $section ?>' ></td>
+                            <td class="stud_data"> <input class="inputTable" type="hidden" name =  "aycode2_<?= $id ?>" value='<?= $ayCode ?>'>
+                                <select class="inputTable" name = "aycode_<?= $id ?>">
+                            
+                            <option disabled value="<?= $ayCode ?>" selected ="selected"><?php echo $ayCode?></option>
+                                <?php 
+                                
+                                $query = "SELECT * from foracademicyear";
+                                $result1 = mysqli_query($conn, $query);
+                                while($row2 = mysqli_fetch_assoc($result1))
+                                {?>
+                                <option value="<?php echo $row2["code"];?>"
+                                ><?php echo $row2['code']; ?></option>
+                                <?php } ?>
+                                
+                            </select></td>
                         </tr>
                         <?php
 							}

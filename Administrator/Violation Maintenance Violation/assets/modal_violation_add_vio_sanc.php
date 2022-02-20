@@ -33,20 +33,14 @@
                 <P>Creating Violation</P>
                 <a href="#" class="modal_title_bttn" id="close_modal1"><i class="fas fa-times-circle"></i></a>
             </div>
-            <!--<form>-->
+            <form id="saveSanction" action="assets/save_sanction.php" method="POST">
                 <div class="modal_content">
                     <div class="modal_add_sanction">
-                        <div class="violation_select">
-                            <label for="#">Violation:</label>
-                            <select class="violation_selection" name="#" id="#">
-                                <option value="#"> </option>
-                                <option value="#"> </option>
-                            </select>
-                        </div>
+                        
                         
                         <div class="sanction_input">
                             <label for="#">Sanction:</label>
-                            <input type="text" class="input_field" id="#" name="#" class="">
+                            <input type="text" class="input_field" id="Sanctions" name="Sanctions" class="">
                         </div>
                         
                     </div>
@@ -54,11 +48,11 @@
                 </div>
 
                 <div class="footer_modal_bttn">
-                    <a href="#" class="modal_foot_bttn"><i class="fas fa-save"></i> Save</a>
+                <a  class="modal_foot_bttn" type="submit" onclick="document.getElementById('saveSanction').submit()"></i> Save</a>
                     <a href="#" id="close_modal3" class="modal_foot_bttn"><i class="fas fa-sign-out-alt"></i> Exit</a>
                 </div>
 
-            <!--</form>-->
+            </form>
             
         </div>
     </div>

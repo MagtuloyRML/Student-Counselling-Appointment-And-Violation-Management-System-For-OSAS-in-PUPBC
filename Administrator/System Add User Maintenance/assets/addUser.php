@@ -16,6 +16,8 @@
     $passletter = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $passgen = substr(str_shuffle($passletter),0, 10);
 
+
+
     //insert sa database
     $insert="INSERT INTO adminaccountinfo (AdminFirstName, AdminMiddleName, AdminLastName,
     AdminSufifx, AdminUserRoleID, AdminContactNo, AdminUsername, AdminPassword, AdminEmailAdd, AdminAddress, GenderID,
@@ -46,6 +48,8 @@
 
         $insert="INSERT INTO adminprofilepictureinfo (AdminAccountID, PictureFilename, UploadDate, UsedStatus) VALUES ('$id','$imgFileName', '$now', TRUE)";
         mysqli_query($conn, $insert);
+
+        $insert2 = $conn->query("INSERT into avail_sched(meta_field, start_date, end_date, start_time, end_time) VALUES ('$id','2022-01-01', '2023-01-01', '00:00:00', '23:00:00')");
 
         echo "Data Inserted";
         
