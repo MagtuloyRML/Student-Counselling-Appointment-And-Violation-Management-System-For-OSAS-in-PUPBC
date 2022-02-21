@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 21, 2022 at 09:57 AM
+-- Generation Time: Feb 21, 2022 at 04:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.1
 
@@ -72,7 +72,7 @@ INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddle
 (3, 'Deigo', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'Sample', 'rioPdjZsQS', 'dcjuan@gmail.com', 'qweqwe', 2, 1),
 (4, 'Juan', 'qewqwe', 'De la Cruz', '', 1, '09080706050', 'admin', 'oxiNsOy08h', 'dcjuan@gmail.com', 'Sample address', 2, 1),
 (5, 'Brian', 'Buendia', 'Pachecas', 'S', 2, '12345678910', 'admin', 'AdVoJclw7G', 'brianpacheca123@gmail.com', 'Munti', 1, 1),
-(6, 'Brian', 'Buendia', 'Pacheca', '', 1, '09123123123', 'admin', 'KnBRpTU5dv', 'brianpacheca123@gmail.com', 'Munti', 1, 1);
+(6, 'Brian', 'Buendia', 'Pacheca', '', 1, '09123123123', 'admin', 'admin1234', 'brianpacheca123@gmail.com', 'Munti', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -210,21 +210,22 @@ CREATE TABLE `clientaccountinfo` (
   `ClientGuardianNo` varchar(25) CHARACTER SET latin1 NOT NULL,
   `ClientEmailAdd` varchar(255) CHARACTER SET latin1 NOT NULL,
   `ClientPassword` varchar(32) CHARACTER SET latin1 NOT NULL,
-  `ClientGenderID` int(11) NOT NULL
+  `ClientGenderID` int(11) NOT NULL,
+  `code` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `clientaccountinfo`
 --
 
-INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`) VALUES
-(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
-(45, 'Juans', 'Mendezs', 'De la Cruzs', 's', '2010-00002-BN-0', 1, '2000-01-10', 'Sample address Binan, Lagunas', '09090909091', 'Sample Guardians', '09080706051', 'juans@gmail.com', 'mema1234', 1),
-(46, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2),
-(70, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2),
-(89, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1),
-(90, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1),
-(91, 'Brian', '', 'Pacheca', '', '2018-01154-BN-0', 1, '2022-02-22', 'asdasd', '09123456789', 'Mother', '09123456789', 'brianpacheca123@gmail.com', 'asdasdasdasd', 1);
+INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`, `code`) VALUES
+(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, NULL),
+(45, 'Juans', 'Mendezs', 'De la Cruzs', 's', '2010-00002-BN-0', 1, '2000-01-10', 'Sample address Binan, Lagunas', '09090909091', 'Sample Guardians', '09080706051', 'juans@gmail.com', 'mema1234', 1, NULL),
+(46, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2, NULL),
+(70, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2, NULL),
+(89, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, NULL),
+(90, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1, NULL),
+(91, 'Brian', '', 'Pacheca', '', '2018-01154-BN-0', 1, '2022-02-22', 'asdasd', '09123456789', 'Mother', '09123456789', 'brianpacheca123@gmail.com', 'client123', 1, '');
 
 -- --------------------------------------------------------
 
@@ -273,7 +274,8 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (33, 46, '2014-00005-BN-0202202151644901663.jpg', '2022-02-15 05:07:43', 1),
 (34, 45, '2010-00001-BN-0202202181645180651.jpg', '2022-02-18 11:37:31', 1),
 (35, 34, '2019-00001-BN-0202202201645323811.jpg', '2022-02-20 03:23:31', 1),
-(36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 1);
+(36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 1),
+(37, 92, 'default_user.jpg', '2022-02-21 14:18:22', 1);
 
 -- --------------------------------------------------------
 
@@ -361,7 +363,8 @@ CREATE TABLE `schedules` (
 INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `start_app`, `end_app`, `stat`, `remarks`, `reason`, `cancel_id`, `cancel_reason`) VALUES
 (59, 'Yes', '', 'mema@gamil.com', 34, '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', '2', '', 0, NULL),
 (60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Cancelled', '6', 'Ikaw', 6, 'Conflicting schedule'),
-(61, 'Yes', '', 'mema@gamil.com', 34, '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Pending', '6', 'Nothing', NULL, NULL);
+(61, 'Yes', '', 'mema@gamil.com', 34, '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Pending', '6', 'Nothing', NULL, NULL),
+(62, 'Yes', '', 'mema@gamil.com', 34, '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', '3', 'Ikaw', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -602,13 +605,13 @@ ALTER TABLE `avail_sched`
 -- AUTO_INCREMENT for table `clientaccountinfo`
 --
 ALTER TABLE `clientaccountinfo`
-  MODIFY `ClientAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `ClientAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `clientprofilepictureinfo`
 --
 ALTER TABLE `clientprofilepictureinfo`
-  MODIFY `ClientProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `ClientProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `forevaluation`
@@ -632,7 +635,7 @@ ALTER TABLE `notificationstatus`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `statuscontent`

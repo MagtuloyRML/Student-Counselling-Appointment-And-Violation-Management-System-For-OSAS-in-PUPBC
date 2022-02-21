@@ -9,12 +9,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     
-    <link href="assets/css/login_style.css" rel="stylesheet">
+    <link href="css/login_style.css" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgot Password</title>
+    <title>New Password</title>
 </head>
 <body>
     <div class="body_content">
@@ -23,31 +23,37 @@
 
         <div class="login_form">
             <div class="welcome_text">
-                <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
+                <img class="logo" src="img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Aenean fringilla nec ante vel vestibulum.
                 </p>
-                <br>
-                <br>
-                <?php if (isset($_GET['error'])) { ?>
+            </div>
+            <?php if (isset($_GET['error'])) { ?>
                                     <p class="error"><?php echo $_GET['error']; ?></p>
                                 <?php } ?>
 
                                 <?php if (isset($_GET['success'])) { ?>
                                     <p class="success"><?php echo $_GET['success']; ?></p>
                                 <?php } ?>
-            </div>
-            
-            <form id="loginForm" action="assets/email_check.php" method="POST">
+            <form id="loginForm" action="pass_insert.php" method="POST">
                 <div class="input_group">
                     <div class="input_container " >
                         <div class="input " id="input_username">
-                            <input class="input-field" type="text" required placeholder="Enter Email Address" name="email" id="email">
+                            <input class="input-field" type="password" required placeholder="Enter New Password" name="password" id="password">
+                            <input type="hidden" name="email" id="email" value="<?= $_GET['email'] ?>">
                             <i id="i_username" ></i>
                             <i class="fas fa-user-tie"></i>
                         </div>
-</div>
+                    </div>
+                    <div class="input_group">
+                    <div class="input_container " >
+                        <div class="input " id="input_username">
+                            <input class="input-field" type="password" required placeholder="Confirm Password" name="con_password" id="con_password">
+                            <i id="i_username" ></i>
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
                 
                 <div class="bttn_group">
                     <div class="login_bttn">
@@ -59,6 +65,6 @@
         </div>
 
     </div>
-    
+   
 </body>
 </html>

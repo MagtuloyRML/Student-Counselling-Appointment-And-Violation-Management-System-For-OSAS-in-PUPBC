@@ -32,11 +32,18 @@
         <a class="back_bttn" href="../Client Login/"><i class="fas fa-arrow-left"></i></a>
         <div class="selection">
             <div class="reg_form">
+            <?php if (isset($_GET['error'])) { ?>
+                                    <p class="error"><?php echo $_GET['error']; ?></p>
+                                <?php } ?>
+
+                                <?php if (isset($_GET['success'])) { ?>
+                                    <p class="success"><?php echo $_GET['success']; ?></p>
+                                <?php } ?>
                 <div class="title">
                     <h1>Client Registration</h1>
                     <hr>
                 </div>
-
+        
                 <form id="registration" action="assets/client_registration_process.php" method="POST">
                     <div class="input_group">
                         <div class="input_container">
