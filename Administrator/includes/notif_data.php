@@ -5,7 +5,10 @@
     if(isset($id)){
         $sql = "SELECT * FROM adminnotification WHERE AdminAccountID = '$id' AND AdminNotificationStatusID = 2";
         $result = $conn->query($sql);
-        echo $result->num_rows;
+        $fetch = $result->num_rows;
+        if($fetch > 0){
+            echo '<span class="badge" id="notifCount">'.$fetch.'</span>';
+        }
         $conn->close();
     }
     

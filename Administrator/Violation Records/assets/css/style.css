@@ -95,16 +95,18 @@
 .display_violation_record .violation_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    font-size: 13px;
 }
 .display_violation_record .violation_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
 }
 
 /*Modal Print*/
 .modal_bg .modal{
     width: 80%;
+    height: 80%;
 }
 
 .modal_content{
@@ -142,6 +144,7 @@
 .list_records_print{
     padding-top: 5px;
     width: 100%;
+    height: 80%;
     display: inline-block;
     justify-content: center;
 }
@@ -152,16 +155,22 @@
     table-layout: fixed;
 }
 
-.display_records_print .records_title{
+.display_records_print .violation_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    font-size: 13px;
 }
-.display_records_print .records_data{
+.display_records_print .violation_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
 }
 @media print {
+    @page {
+        size: 210mm 297mm; 
+        /* Chrome sets own margins, we change these printer settings */
+        margin: 20mm 16mm 20mm 16mm; 
+    }
     body * {
         visibility:hidden; 
     }
@@ -173,5 +182,9 @@
         left:0px;
         top: 0px; 
     }
+    table { page-break-inside:auto }
+    tr    { page-break-inside:avoid; page-break-after:auto }
+    thead { display:table-header-group; }
+    tfoot { display:table-footer-group; }
 }
     

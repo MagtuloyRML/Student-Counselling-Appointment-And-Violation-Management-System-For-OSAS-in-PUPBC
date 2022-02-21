@@ -62,7 +62,7 @@
                         <th class="violation_title">Student Number</th>
                         <th class="violation_title">Name</th>
                         <th class="violation_title">Program</th>
-                        <th class="violation_title">Section</th>
+                        <th class="violation_title" style="width: 8%;">Section</th>
                         <th class="violation_title">Violations</th>
                         <th class="violation_title">Sanctions</th>
                         <th class="violation_title">A.Y. Code</th>

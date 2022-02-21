@@ -36,3 +36,7 @@ function updateClock(){
     updateClock();
     window.setInterval("updateClock()", 1);
   };
+
+  $(document).ready(function () {
+    $('#vdash').addClass('active_side');
+  });

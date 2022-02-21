@@ -15,3 +15,7 @@ window.onclick = function(event) {
         document.querySelector('#modal_print_records').style.display = "none";
     }
   };
+
+$(document).ready(function () {
+    $('#vRec').addClass('active_side');
+});

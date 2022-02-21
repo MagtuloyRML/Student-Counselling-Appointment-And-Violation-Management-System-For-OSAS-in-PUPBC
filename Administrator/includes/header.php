@@ -66,46 +66,46 @@
     <title><?php echo $title?></title>
 </head>
 <body id="body-pd" <?php if ($page == 'v_home'){ echo 'onload="initClock()"';}?>>
-    <div class="side_navbar" id="sideNavbar">
+<div class="side_navbar" id="sideNavbar">
         <nav class="navi">
             <div class="navi_selection">
                 <div class="navi_brand">
                     <i class="fas fa-bars" id="nav-toggle"></i>
                     <a href="#" class="navi_logo">PUPBC Website</a>
                 </div>
-                <div class="navi_list">
+<?php if ($studCounceling == '1'){ echo '                <div class="navi_list">
                     <h3 class="sub_title"><i class="fas fa-hospital-user"></i>Counceling</h3>
-                    <a href="../Counceling Dashboard/" class="navi_link <?php if ($page == 'ca_home'){ echo 'active_side';}?>">
+                    <a href="../Counceling Dashboard/" id="cdash" class="navi_link ">
                         <i class="fas fa-chart-line"></i>
                         <span class="navi_name">DashBoard</span>
                     </a>
                     
-                    <a href="../Counceling Appointment Dashboard/" class="navi_link <?php if ($page == 'ca_appoint_sched' || $page == 'ca_appoint_sched_approve' || $page == 'ca_appoint_sched_view'){ echo 'active_side';}?>" >
+                    <a href="../Counceling Appointment Dashboard/" id="cappoint" class="navi_link " >
                         <i class="fas fa-calendar-alt"></i>
                         <span class="navi_name">Appointment</span>
                     </a>
-                    <a href="../Counceling Client Page/" class="navi_link <?php if ($page == 'ca_client'){ echo 'active_side';}?>">
+                    <a href="../Counceling Client Page/" id="cClient" class="navi_link ">
                         <i class="fas fa-users"></i>
                         <span class="navi_name">Client</span>
                     </a>
                 </div>
-                <br>
-                <div class="navi_list">
+                <br> ';}?>
+<?php if ($studViol == '1'){ echo '                <div class="navi_list">
                     <h3 class="sub_title"><i class="fas fa-house-user"></i>Violation</h3>
-                    <a href="../Violation Dashboard/" class="navi_link <?php if ($page == 'v_home'){ echo 'active_side';}?>">
+                    <a href="../Violation Dashboard/" id="vdash" class="navi_link ">
                         <i class="fas fa-chart-line"></i>
                         <span class="navi_name">DashBoard</span>
                     </a>
-                    <a href="../Violation Entry/" class="navi_link <?php if ($page == 'v_entry'){ echo 'active_side';}?>">
+                    <a href="../Violation Entry/" id="vEntry" class="navi_link ">
                         <i class="fas fa-bullhorn"></i>
                         <span class="navi_name">Violation Entry</span>
                     </a>
-                    <a href="../Violation Records/" class="navi_link <?php if ($page == 'v_rec'){ echo 'active_side';}?>">
+                    <a href="../Violation Records/" id="vRec" class="navi_link ">
                         <i class="fas fa-address-card"></i>
                         <span class="navi_name">Records</span>
                     </a>
                 </div>
-                <br>
+                <br> ';}?>
                 <div class="navi_list">
                     <div class="navi_link <?php if ($page == 'maintenance'){ echo 'active_side';}?> collapse" >
                         <i class="fas fa-tools" id="main_list"></i>
@@ -113,9 +113,9 @@
                         <i class="fas fa-chevron-down" id="drop_bttn"></i>
 
                         <ul class="collapse_menu">
-                            <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counceling</a>
-                            <a href="../Violation Maintenance Program/" class="collapse_link">Violation</a>
-                            <a href="../System User Maintenance/" class="collapse_link">Maintenance</a>
+<?php if ($studCounceling == '1'){ echo '                            <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counceling</a> ';}?>
+<?php if ($studViol == '1'){ echo '                            <a href="../Violation Maintenance Program/" class="collapse_link">Violation</a> ';}?>
+<?php if ($systemMaintenance == '1'){ echo '                            <a href="../System User Maintenance/" class="collapse_link">Maintenance</a> ';}?>
                         </ul>
                     </div>
                 </div>
@@ -125,22 +125,20 @@
 
     <div class="top_nav_bar">
         <div class="navi-bar">
-            <div class="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+            
             <div class="menu">
                 <!--- Notifcation drop down content-->
                 <div class="dropdown1" notif-dropdown>
-                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i><span class="badge" id="notifCount"></span></button>
+                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i><span id="notifCount"></span></button>
                     <div class="notif_content">
                         <!---Content for Notif--->
                         <p><i class="fas fa-bell"></i> Notification</p>
                         <hr class="notif-line">
                         <div class="notif-content" id="notif_content">
                             
+                        </div>
+                        <div class="notif-content">
+                            <a href="#" class="notif_bttn">See More</a>
                         </div>
                     </div>
                 </div>

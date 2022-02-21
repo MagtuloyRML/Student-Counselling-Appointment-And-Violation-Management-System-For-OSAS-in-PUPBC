@@ -7,17 +7,20 @@
         FROM adminnotification AS adminNotif
         INNER JOIN notificationstatus AS nStatus 
         ON adminNotif.AdminNotificationStatusID = nStatus.NotificationStatusID 
-        WHERE adminNotif.AdminAccountID = '$id' AND adminNotif.AdminNotificationStatusID = '2' ");
+        WHERE adminNotif.AdminAccountID = '$id' ");
         
         while ($row = mysqli_fetch_array( $sql )) {
             $nTitle = $row["NotificationTitle"]; $nMSG = $row["NotificationMessage"]; $nStatus = $row["NotificationStatusDescription"]; 
         ?>
+        <a class="notif_tiles" href="">
             <h5 class="notif_title"><?php echo $nTitle ?></h5>
-            <div class="notif_text">
+            <div class="notif_text <?php echo $nStatus ?>">
                 <p class="notif_txt"><?php echo $nMSG ?></p>
-                <a href="#" class="notif_bttn"><?php echo $nStatus ?></a>
+                <p class="notif_txt"><?php echo $nStatus ?></p>
             </div>
             <hr class="notif-line">
+        </a>
+            
         <?php 
         }
 

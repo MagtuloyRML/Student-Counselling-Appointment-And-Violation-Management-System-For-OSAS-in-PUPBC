@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $('#cClient').addClass('active_side');
+
     $("#submit").attr("disabled", true);
     $("#submit").removeClass('bttn');
     $("#submit").addClass('disable');

@@ -24,7 +24,7 @@
         <div class="modal">
             <div class="title_bar">
                 <p>Print Records</p>
-                <a href="#" class="modal_title_bttn" id="close_modal"><i class="fas fa-times-circle"></i></a>
+                <a href="" class="modal_title_bttn" id="close_modal"><i class="fas fa-times-circle"></i></a>
             </div>
             
                 <div class="modal_content print-container">
@@ -37,7 +37,7 @@
                                 <th class="violation_title">Student Number</th>
                                 <th class="violation_title">Name</th>
                                 <th class="violation_title">Program</th>
-                                <th class="violation_title">Section</th>
+                                <th class="violation_title" style="width: 8%;">Section</th>
                                 <th class="violation_title">Violations</th>
                                 <th class="violation_title">Sanctions</th>
                                 <th class="violation_title">A.Y. Code</th>
@@ -60,7 +60,7 @@
 
                         ?>
                                 <tr>
-                                <td class="violation_data"><?= $studNum ?> </td>
+                            <td class="violation_data"><?= $studNum ?> </td>
                             <td class="violation_data"><?= $fullName ?> </td>
                             <td class="violation_data"><?= $pCode ?> </td>
                             <td class="violation_data"><?= $Section ?> </td>
@@ -74,19 +74,17 @@
                                 </tr>
                                 <?php
                                 }
-                ?>
+                    ?>
                             </tbody>
                         </table>
 
                 </div>
-
-
             </div>
 
             <div class="footer_modal_bttn">
                 <a href="#" class="modal_foot_bttn" onclick="document.getElementById('printRec');window.print();">
                     <i class="fas fa-print"></i> Print</a>
-                <a href="#" id="close_modal2" class="modal_foot_bttn"><i class="fas fa-sign-out-alt"></i> Exit</a>
+                <a href="" id="close_modal2" class="modal_foot_bttn"><i class="fas fa-sign-out-alt"></i> Exit</a>
             </div>
             <!--</form>-->
             </form>
@@ -95,4 +93,4 @@
     </div>
    
     <script src="assets/js/modal_print_records.js"></script>
-    <script src="assets/js/main.js"></script>
+    

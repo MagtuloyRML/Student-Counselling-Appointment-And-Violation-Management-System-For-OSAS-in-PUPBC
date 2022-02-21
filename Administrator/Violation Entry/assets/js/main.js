@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    $('#vEntry').addClass('active_side');
+    
     $("#entrysubmit").attr("disabled", true);
     $("#entrysubmit").removeClass('modal_foot_bttn1');
     $("#entrysubmit").addClass('disable');
