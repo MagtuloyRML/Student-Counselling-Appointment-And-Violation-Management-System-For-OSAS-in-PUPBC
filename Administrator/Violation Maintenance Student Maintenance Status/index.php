@@ -118,11 +118,12 @@
         
 
     if(isset($_POST['submit'])){
-        $searched = $_POST['curri'];
-        $searched2 = $_POST['section'];
 
-        if(!$searched){
-            $sched = $conn->query("SELECT `id`,
+        if(isset($_POST['curri']) && isset($_POST['section'])){
+            
+            $searched2 = $_POST['section'];
+            $searched = $_POST['curri'];
+        $sched = $conn->query("SELECT `id`,
         `studNum`,
         `lastName`,
         `firstName`,
@@ -136,9 +137,11 @@
         INNER JOIN forprogram t2 ON t1.progCode = t2.pID
         INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
 
-        WHERE ayCode ='{$searched2}'");
-
-        }elseif(!$searched2){
+        WHERE progCode ='{$searched}' AND
+        ayCode ='{$searched2}'");
+        
+    }elseif(isset($_POST['curri'])){
+            $searched = $_POST['curri'];
             $sched = $conn->query("SELECT `id`,
         `studNum`,
         `lastName`,
@@ -155,7 +158,8 @@
 
         WHERE progCode ='{$searched}'");
 
-        }else{
+        }elseif(isset($_POST['section'])){
+            $searched2 = $_POST['section'];
             $sched = $conn->query("SELECT `id`,
         `studNum`,
         `lastName`,
@@ -170,8 +174,8 @@
         INNER JOIN forprogram t2 ON t1.progCode = t2.pID
         INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
 
-        WHERE ayCode ='{$searched2}'
-        AND progCode ='{$searched}'");
+        WHERE ayCode ='{$searched2}'");
+
         }
     }
 ?>
@@ -207,7 +211,7 @@
                                 {?>
                                 <option value="<?php echo $row1["code"];?>">
                                 <?php 
-                                $output = $row1['yearFrom'] ." - ". $row1['yearTo'].",". $row1['Semester'] ."Semester";
+                                $output = $row1['code'];
                                 echo $output; ?>
                                 </option>
                                 <?php } ?>

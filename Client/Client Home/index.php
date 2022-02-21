@@ -6,30 +6,19 @@
     <div class="content">
         <div class="home_content">
             <div class="bttn_appoint_list">
-                <a href="#" class="appointment_bttn">
+                <a href="../Client Appointment Scheduling/index.php" class="appointment_bttn">
                     <i class="fas fa-calendar-check"></i>
                     <span>
-                        Appointment
+                        Book Appointment
                     </span>
                 </a>
-                <a href="#" class="appointment_bttn">
+                <a href="../Client Manage Appointment/index.php" class="appointment_bttn">
                     <i class="fas fa-calendar-check"></i>
                     <span>
-                        Appointment
+                        Manage Appointment
                     </span>
                 </a>
-                <a href="#" class="appointment_bttn">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>
-                        Appointment
-                    </span>
-                </a>
-                <a href="#" class="appointment_bttn">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>
-                        Appointment
-                    </span>
-                </a>
+               
 
             </div>
         </div>

@@ -29,10 +29,48 @@
     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
 
 if(isset($_POST['submit'])){
-    $searched = $_POST['curri'];
-    $searched2 = $_POST['section'];
 
-    if(!$searched){
+    if(isset($_POST['curri']) && isset($_POST['section'])){
+        
+        $searched2 = $_POST['section'];
+        $searched = $_POST['curri'];
+    $sched = $conn->query("SELECT `id`,
+    `studNum`,
+    `lastName`,
+    `firstName`,
+    `middleName`,
+    `Section`,
+    `Address`,
+    `Gender`,
+    t2.pCode AS p_description,
+    t3.code AS a_code,
+    status FROM forstudents t1
+    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+
+    WHERE progCode ='{$searched}' AND
+    ayCode ='{$searched2}'");
+    
+}elseif(isset($_POST['curri'])){
+        $searched = $_POST['curri'];
+        $sched = $conn->query("SELECT `id`,
+    `studNum`,
+    `lastName`,
+    `firstName`,
+    `middleName`,
+    `Section`,
+    `Address`,
+    `Gender`,
+    t2.pCode AS p_description,
+    t3.code AS a_code,
+    status FROM forstudents t1
+    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+
+    WHERE progCode ='{$searched}'");
+
+    }elseif(isset($_POST['section'])){
+        $searched2 = $_POST['section'];
         $sched = $conn->query("SELECT `id`,
     `studNum`,
     `lastName`,
@@ -49,40 +87,6 @@ if(isset($_POST['submit'])){
 
     WHERE ayCode ='{$searched2}'");
 
-    }elseif(!$searched2){
-        $sched = $conn->query("SELECT `id`,
-    `studNum`,
-    `lastName`,
-    `firstName`,
-    `middleName`,
-    `Section`,
-    `Address`,
-    `Gender`,
-    t2.pCode AS p_description,
-    t3.code AS a_code,
-    status FROM forstudents t1
-    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
-    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
-
-    WHERE pID ='{$searched}'");
-
-    }else{
-        $sched = $conn->query("SELECT `id`,
-    `studNum`,
-    `lastName`,
-    `firstName`,
-    `middleName`,
-    `Section`,
-    `Address`,
-    `Gender`,
-    t2.pCode AS p_description,
-    t3.code AS a_code,
-    status FROM forstudents t1
-    INNER JOIN forprogram t2 ON t1.progCode = t2.pID
-    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
-
-    WHERE ayCode ='{$searched2}'
-    AND pID ='{$searched}'");
     }
 }
 
@@ -170,7 +174,7 @@ if (isset($_POST['but_update'])){
                                 {?>
                                 <option value="<?php echo $row1["code"];?>">
                                 <?php 
-                                $output = $row1['yearFrom'] ." - ". $row1['yearTo'].",". $row1['Semester'] ."Semester";
+                                $output = $row1['code'];
                                 echo $output; ?>
                                 </option>
                                 <?php } ?>
@@ -236,15 +240,15 @@ if (isset($_POST['but_update'])){
                             <td class="stud_data"> <input class="inputTable" type="hidden" name =  "aycode2_<?= $id ?>" value='<?= $ayCode ?>'>
                                 <select class="inputTable" name = "aycode_<?= $id ?>">
                             
-                            <option disabled value="<?= $ayCode ?>" selected ="selected"><?php echo $ayCode?></option>
+                            
                                 <?php 
                                 
                                 $query = "SELECT * from foracademicyear";
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))
                                 {?>
-                                <option value="<?php echo $row2["code"];?>"
-                                ><?php echo $row2['code']; ?></option>
+                                <option value="<?php echo $row2["code"];?>" <?php if($row2['code'] == $ayCode) echo "selected" ?>>  
+                                <?php echo $row2['code']; ?></option>
                                 <?php } ?>
                                 
                             </select></td>

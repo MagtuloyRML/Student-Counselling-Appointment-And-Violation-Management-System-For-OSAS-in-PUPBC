@@ -4,15 +4,15 @@ include "../../assets/connection/DBconnection.php"; // Using database connection
 require ('../../assets/PHPMailer/src/PHPMailer.php');
 require ('../../assets/PHPMailer/src/SMTP.php');
 
-
-$id = $_GET['id'];
-
+if(isset($_POST['submit'])){
+$id = $_POST['id'];
+$cancel_reason = $_POST['cancel_reason'];
 $find = $conn->query("SELECT * FROM adminaccountinfo WHERE AdminAccountID = '$id'");
 $row = mysqli_fetch_array($find);
 $finalNameFormat = $row['AdminFirstName'] . ' ' . $row['AdminLastName'];
-$appointmentID = $_GET['a_id']; // get id through query string
+$appointmentID = $_POST['a_id']; // get id through query string
 $stat ='Cancelled';
-$query = "UPDATE schedules SET stat ='$stat', remarks ='$id' WHERE id = '$appointmentID'";
+$query = "UPDATE schedules SET stat ='$stat', remarks ='$id', cancel_id ='$id', cancel_reason = '$cancel_reason' WHERE id = '$appointmentID'";
 $get = "SELECT * FROM schedules WHERE id = '$appointmentID'";
 $data2=mysqli_query($conn, $get);
 $data=mysqli_query($conn, $query);
@@ -27,7 +27,7 @@ if($data && $data2)
 			$end = date("h:i A", strtotime($row['end_app']));
             $body ="
             <h1>Sorry, your appointment got cancelled</h1>
-            <p>Your appointment on". " <u>" . $start . " - " . $end . "</u> " . "is cancelled by <u>". $finalNameFormat ."</u>. <br>
+            <p>Your appointment on". " <u>" . $start . " - " . $end . "</u> " . "is cancelled by <u>". $finalNameFormat ."</u> because of ".$cancel_reason.". <br>
             Please book another schedule again.</p>
             <hr />
 
@@ -78,4 +78,5 @@ else
 }
 
 exit();
+}
 ?>

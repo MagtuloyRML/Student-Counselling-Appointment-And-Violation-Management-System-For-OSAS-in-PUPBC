@@ -29,7 +29,7 @@
                     <table class="display_approv">
                         <tr> 
                             <th class="approv_title">Appointment ID</th>
-                            <th class="approv_title">Name</th>
+                            <th class="approv_title">Title</th>
                             <th class="approv_title">Email Address</th>
                             <th class="approv_title">Appointment Date</th>
                             <th class="approv_title">Status</th>
@@ -41,6 +41,8 @@
                         `title`,         
                         `ClientEmailAdd` as email_add,
                         `stat`,
+                        `start_app`,
+                        `end_app`,
                         `AdminFirstName` as a_firstName,
                         `AdminLastName` as a_lastName
                         FROM schedules
@@ -56,7 +58,7 @@
                             <td class="approv_data"><?php echo $row['title']?></td>
                             <td class="approv_data"><?php echo $row['email_add']?></td>
                             <td class="approv_data"><?php 
-                                $start_date = date("d/m/Y", strtotime($row['start_app']));
+                                $start_date = date("d/m/Y h:i A", strtotime($row['start_app']));
                                 
                                 $end_time = date("h:i A", strtotime($row['end_app']));
                                 
@@ -83,11 +85,11 @@
                     <table class="display_approv">
                         <tr> 
                             <th class="approv_title">Appointment ID</th>
-                            <th class="approv_title">Name</th>
+                            <th class="approv_title">Title</th>
                             <th class="approv_title">Email Address</th>
                             <th class="approv_title">Appointment Date</th>
                             <th class="approv_title">Status</th>
-                            <th class="approv_title">Cancelled By</th>
+                            <th class="approv_title">Remarks</th>
                         </tr>
                         <?php
                         include '../../assets/connection/DBconnection.php';
@@ -95,6 +97,9 @@
                         `title`,         
                         `ClientEmailAdd` as email_add,
                         `stat`,
+                        `start_app`,
+                        `end_app`,
+                        `cancel_reason`,
                         `AdminFirstName` as a_firstName,
                         `AdminLastName` as a_lastName
                         FROM schedules
@@ -110,7 +115,7 @@
                             <td class="approv_data"><?php echo $row['title']?></td>
                             <td class="approv_data"><?php echo $row['email_add']?></td>
                             <td class="approv_data"><?php 
-                                $start_date = date("d/m/Y", strtotime($row['start_app']));
+                                $start_date = date("d/m/Y h:i A", strtotime($row['start_app']));
                                 
                                 $end_time = date("h:i A", strtotime($row['end_app']));
                                 
@@ -118,7 +123,7 @@
                                 echo $final; ?>
                                 </td>
                             <td class="approv_data"><?php echo $row['stat'] ?></td>
-                            <td class="approv_data"><?php echo $row['a_lastName'].', '.$row['a_firstName'] ?></td>
+                            <td class="approv_data"><?php echo $row['cancel_reason'] ?></td>
                         </tr>
                         <?php
                                         }

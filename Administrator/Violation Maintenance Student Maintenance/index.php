@@ -32,9 +32,9 @@
     WHERE `status` = '$enrolled' OR `status` = '$disabled'");
 
     //search button and drop down button
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit1'])){
         $searched = $_POST['search_box'];
-        $searched2 = $_POST['fetchval'];
+        
         
         $sched = $conn->query("SELECT 
         `id`,
@@ -44,6 +44,7 @@
         `middleName`,
         `Section`,
         `Address`,
+        `progCode`,
         `Gender`,
         t2.pCode AS p_description,
         t3.code AS a_code,
@@ -54,8 +55,32 @@
 
         WHERE lastName = '{$searched}' 
         OR firstName = '{$searched}'
-        OR studNum = '{$searched}'
-        OR  progCode ='{$searched2}'");
+        OR studNum = '{$searched}'");
+
+
+    }
+    if(isset($_POST['submit2'])){
+       
+        $searched2 = $_POST['fetchval'];
+        
+        $sched = $conn->query("SELECT 
+        `id`,
+        `studNum`,
+        `lastName`,
+        `firstName`,
+        `middleName`,
+        `Section`,
+        `Address`,
+        `progCode`,
+        `Gender`,
+        t2.pCode AS p_description,
+        t3.code AS a_code,
+        status FROM forstudents t1
+        INNER JOIN forprogram t2 ON t1.progCode = t2.pID
+        INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
+        
+
+        WHERE progCode ='{$searched2}'");
 
 
     }
@@ -95,6 +120,7 @@
                     `middleName`,
                     `Section`,
                     `Address`,
+                    `progCode`,
                     `Gender`,
                     t2.pCode AS p_description,
                     t3.code AS a_code,
@@ -118,6 +144,7 @@
                     `firstName`,
                     `middleName`,
                     `Section`,
+                    `progCode`,
                     `Address`,
                     `Gender`,
                     t2.pCode AS p_description,
@@ -154,7 +181,7 @@
                         <div class="student_input">
                             <label for="#" class="label">Search:</label>
                             <input type="text" class="input_field" id="search_box" name="search_box" class="">
-                            <button type="submit" name="submit" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button>
+                            <button type="submit" name="submit1" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button>
                         </div>
                         
                         <div class="student_select">
@@ -174,7 +201,7 @@
                                 <?php } ?>
                                 
                             </select>
-                            <button type="submit" name="submit" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button>
+                            <button type="submit" name="submit2" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button>
                         </div>
                         
                     </div>
@@ -225,14 +252,13 @@
                             <td class="stud_data">  <input class="inputTable" type="hidden" name =  "curri2_<?= $id ?>" value='<?= $curri ?>'>
                                 <select class="inputTable" name = "curri_<?= $id ?>">
                             
-                            <option disabled value="<?= $curri ?>" selected ="selected"><?php echo $curri2?></option>
                                 <?php 
                                 
                                 $query = "SELECT * from forprogram";
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))
                                 {?>
-                                <option value="<?php echo $row2["pID"];?>"
+                                <option value="<?php echo $row2["pID"];?>" <?php if($row2['pID'] == $curri) echo "selected" ?>
                                 ><?php echo $row2['pCode']; ?></option>
                                 <?php } ?>
                                 
