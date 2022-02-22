@@ -1,10 +1,7 @@
 <?php
 include_once 'dbconnection.php';
 
-
-if (isset($_POST['submit'])) {
     $pID = $_POST['pCode'];
-
     $progCode = $_POST['pc'];
     $progDescription = $_POST['pd'];
 
@@ -14,5 +11,8 @@ if (isset($_POST['submit'])) {
     if (!$results) {
         echo "Something is wrong" . $update . $conn->error;
     }
-}
-header("Location: ../index.php?Updated=success");
+    else{
+        echo "success";
+    }
+
+?>

@@ -66,8 +66,10 @@
                         $('#uploadFunction').attr('disabled', false);
                         $('#uploadFunction').text('Upload');
                         $("#table").load("assets/updatedDisplay_pcode.php");
-                        
+                        $('#modal_upload_curri').css('display', 'none');
+                        window.location.href = '../Violation Maintenance Program/';
 
+                        
                     }
                 })
             });

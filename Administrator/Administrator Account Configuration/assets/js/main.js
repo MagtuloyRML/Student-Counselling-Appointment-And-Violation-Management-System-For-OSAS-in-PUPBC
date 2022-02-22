@@ -70,15 +70,15 @@ $(document).ready(function(){
     $('#saveInfo').attr('disabled', 'disabled');
     $('#saveInfo').addClass('disable');
 
-    $('#prepass').blur(function(){
+    $('#prepass').keyup(function(){
         if($('#prepass').val().length > 0){
             errorpass = false;
             $('#prepass').removeClass('input-error');
-            $('#i_prepass').removeClass('fas fa-exclamation-circle');
+            $('#i_prepass').removeClass(' fa-exclamation-circle');
         } else {
             errorpass = true;
             $('#prepass').addClass('input-error');
-            $('#i_prepass').addClass('fas fa-exclamation-circle');
+            $('#i_prepass').addClass(' fa-exclamation-circle');
         }
         $('#saveInfo').removeAttr('disabled');
         $('#saveInfo').removeClass('disable');
@@ -89,11 +89,11 @@ $(document).ready(function(){
         if(regexp.test($('#npass').val())) {
             errorpassword = false;
             $('#npass').removeClass('input-error');
-            $('#i_npass').removeClass('fas fa-exclamation-circle');
+            $('#i_npass').removeClass(' fa-exclamation-circle');
         } else {
             errorpassword = true;
             $('#npass').addClass('input-error');
-            $('#i_npass').addClass('fas fa-exclamation-circle');
+            $('#i_npass').addClass(' fa-exclamation-circle');
         }
         $('#saveInfo').removeAttr('disabled');
         $('#saveInfo').removeClass('disable');
@@ -105,16 +105,16 @@ $(document).ready(function(){
             if($('#conpass').val() == $('#npass').val()) {
                 errorCpassword = false;
                 $('#conpass').removeClass('input-error');
-                $('#i_conpass').removeClass('fas fa-exclamation-circle');
+                $('#i_conpass').removeClass(' fa-exclamation-circle');
             } else {
                 errorCpassword = true;
                 $('#conpass').addClass('input-error');
-                $('#i_conpass').addClass('fas fa-exclamation-circle');
+                $('#i_conpass').addClass(' fa-exclamation-circle');
             }
         } else {
             errorCpassword = true;
             $('#conpass').addClass('input-error');
-            $('#i_conpass').addClass('fas fa-exclamation-circle');
+            $('#i_conpass').addClass(' fa-exclamation-circle');
         }
         $('#saveInfo').removeAttr('disabled');
         $('#saveInfo').removeClass('disable');
@@ -160,6 +160,18 @@ $(document).ready(function(){
     
     $("#editInfo").submit(function(event){
         event.preventDefault();
+        if(errorpass == true){
+            $('#prepass').addClass('input-error');
+            $('#i_prepass').addClass(' fa-exclamation-circle');
+        }
+        if(errorpassword == true){
+            $('#npass').addClass('input-error');
+            $('#i_npass').addClass(' fa-exclamation-circle');
+        }
+        if(errorCpassword == true){
+            $('#conpass').addClass('input-error');
+            $('#i_conpass').addClass(' fa-exclamation-circle');
+        }
 
         if(errorpass == false && errorpassword == false && errorCpassword == false){
             $.ajax({
@@ -169,11 +181,28 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if( result == "Data Inserted"){
-                        window.location='../Administrator Account Configuration/';
+                    
+                    if( $.trim(result) == 'updateSucces'){
+                        $("#editInfo")[0].reset();
+                        errorpass = true;
+                        errorpassword = true;
+                        errorCpassword = true;
                     }
-                    else if( result == "something is wrong"){
-                        alert ("mali");
+                    else if( $.trim(result) == 'something is wrong'){
+                        alert ("Error Connection");
+                    }
+                    else if( $.trim(result) == 'errorPrePass'){
+                        errorpass = true
+                        $('#prepass').addClass('input-error');
+                        $('#i_prepass').addClass(' fa-exclamation-circle');
+                    }
+                    else if( $.trim(result) == 'errorConPass'){
+                        errorpassword = true;
+                        errorCpassword = true;
+                        $('#conpass').addClass('input-error');
+                        $('#i_conpass').addClass(' fa-exclamation-circle');
+                        $('#npass').addClass('input-error');
+                        $('#i_npass').addClass(' fa-exclamation-circle');
                     }
                 }
             });

@@ -97,6 +97,7 @@ ul{
     align-items: center;
     margin-bottom: 1rem;
     color: var(--button-color-font-icon);
+    cursor: pointer;
 }
 .sub_title .fas{
     font-size: 1.25rem;

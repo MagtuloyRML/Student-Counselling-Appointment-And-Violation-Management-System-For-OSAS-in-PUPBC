@@ -20,14 +20,14 @@
                 $updateInfo="UPDATE adminaccountinfo SET AdminPassword = '$npass' WHERE AdminAccountID = '$id'";
                 $query_run = mysqli_query($conn, $updateInfo);
                 if($query_run){
-                echo "Data Inserted";
+                echo "updateSucces";
                 header ("Location: ../../Administrator Account Configuration/");
                 }else{
                 echo "something is wrong" . $updateInfo . $conn->error;
                 }
             }
             else{
-                echo "errorPrePass";
+                echo "errorConPass";
             }
         }
         else{

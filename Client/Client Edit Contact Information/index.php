@@ -49,7 +49,7 @@
                             <div class="input_container stud_id">
                                 <label for="#" class="label">Student Number: </label>
                                 <div class="input " id="input_stud_num">
-                                    <input type="text" class="input-field" name="stud_num" id="stud_num" value="<?php echo $stud_ID?>">
+                                    <input type="text" class="input-field" name="stud_num" id="stud_num" value="<?php echo $stud_ID?>" readonly>
                                     <i id="i_stud_num" class="fas"></i>
                                 </div>
                             </div>

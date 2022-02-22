@@ -33,6 +33,7 @@
     margin-top: 10px;
     padding: 30px 5% 30px;
     width: 70%;
+    margin-bottom: 10px;
 }
 .container .title{
     width: 138px;
@@ -83,5 +84,11 @@
     font-size: 30px;
     font-weight: bold;
 }
-
-
+.calen_holder{
+    max-height: 100%;
+    width: 100%;
+}
+.calendar{
+    height: 100%;
+    width: 100%;
+}

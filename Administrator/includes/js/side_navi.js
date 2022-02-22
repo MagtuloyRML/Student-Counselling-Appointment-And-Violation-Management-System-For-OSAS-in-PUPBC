@@ -47,7 +47,35 @@ const showMenubttn = (toggleID, navbarID, bodyID)=>{
         })
     }
 }
-showMenu('main_list','sideNavbar', 'body-pd')
+showMenubttn('main_list','sideNavbar', 'body-pd')
+
+const showMenubttn1 = (toggleID, navbarID, bodyID)=>{
+    const togglebttn = document.getElementById(toggleID), 
+    sidenavbar = document.getElementById(navbarID), 
+    bodypadding = document.getElementById(bodyID)
+
+    if (togglebttn && sidenavbar){
+        togglebttn.addEventListener('click', function(){
+            sidenavbar.classList.toggle('expander')
+            bodypadding.classList.toggle('body-pd')
+        })
+    }
+}
+showMenubttn1('nav-toggle1','sideNavbar', 'body-pd')
+
+const showMenubttn2 = (toggleID, navbarID, bodyID)=>{
+    const togglebttn = document.getElementById(toggleID), 
+    sidenavbar = document.getElementById(navbarID), 
+    bodypadding = document.getElementById(bodyID)
+
+    if (togglebttn && sidenavbar){
+        togglebttn.addEventListener('click', function(){
+            sidenavbar.classList.toggle('expander')
+            bodypadding.classList.toggle('body-pd')
+        })
+    }
+}
+showMenubttn2('nav-toggle2','sideNavbar', 'body-pd')
 
 
 

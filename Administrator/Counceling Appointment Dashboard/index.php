@@ -88,8 +88,8 @@
                     include '../includes/appoitment_sub_nav.php';
                 ?>
                 <h3 class="subtitle">Scheduling Calendar</h3>
-                <div class="calendar" id="calendar">
-
+                <div class="calen_holder">
+                    <div class="calendar" id="calendar"></div>
                 </div>
 
             </div>

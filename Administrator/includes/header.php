@@ -42,6 +42,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" 
+    integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css">
 
@@ -65,8 +69,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title?></title>
 </head>
-<body id="body-pd" <?php if ($page == 'v_home'){ echo 'onload="initClock()"';}?>>
-<div class="side_navbar" id="sideNavbar">
+<body id="body-pd" <?php if ($page == 'v_home'||$page == 'ca_home' ){ echo 'onload="initClock()"';}?>>
+    <div class="loader" scroll="no">
+        <div></div>
+    </div>
+    
+    <div class="side_navbar" id="sideNavbar">
         <nav class="navi">
             <div class="navi_selection">
                 <div class="navi_brand">
@@ -74,7 +82,7 @@
                     <a href="#" class="navi_logo">PUPBC Website</a>
                 </div>
 <?php if ($studCounceling == '1'){ echo '                <div class="navi_list">
-                    <h3 class="sub_title"><i class="fas fa-hospital-user"></i>Counceling</h3>
+                    <h3 class="sub_title"><i class="fas fa-hospital-user" id="nav-toggle1"></i>Counceling</h3>
                     <a href="../Counceling Dashboard/" id="cdash" class="navi_link ">
                         <i class="fas fa-chart-line"></i>
                         <span class="navi_name">DashBoard</span>
@@ -91,7 +99,7 @@
                 </div>
                 <br> ';}?>
 <?php if ($studViol == '1'){ echo '                <div class="navi_list">
-                    <h3 class="sub_title"><i class="fas fa-house-user"></i>Violation</h3>
+                    <h3 class="sub_title"><i class="fas fa-house-user" id="nav-toggle2"></i>Violation</h3>
                     <a href="../Violation Dashboard/" id="vdash" class="navi_link ">
                         <i class="fas fa-chart-line"></i>
                         <span class="navi_name">DashBoard</span>
@@ -153,3 +161,4 @@
             </div>
         </div>
     </div>
+    

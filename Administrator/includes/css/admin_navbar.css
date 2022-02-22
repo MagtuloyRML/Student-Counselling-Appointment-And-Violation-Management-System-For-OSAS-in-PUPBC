@@ -16,6 +16,8 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --dark--color: #45474b;
+    --blue-color: #2a88e6;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -354,4 +356,37 @@ nav{
 .active_bttn{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+}
+
+
+.loader{
+    z-index: 1000;
+    margin-top: 50px;
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-color);
+}
+.loader div{
+    height: 150px;
+    width: 150px;
+    border: 30px solid var(--dark--color);
+    border-top-color: var(--maroong-content-bg);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 1.5s infinite linear;
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
 }

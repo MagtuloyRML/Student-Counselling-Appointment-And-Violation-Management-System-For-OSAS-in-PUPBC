@@ -9,12 +9,14 @@
         $sql = "INSERT INTO forprogram (pCode, pDescription) VALUES ('$pCode', '$Description')";
         $result = mysqli_query($conn, $sql);
     
-        header("Location: ../index.php?save=success");
-    
         if(!$result){
     
             echo "Failed";
         }
+        else{
+            echo "successAdd";
+        }
+?>
             
 
         

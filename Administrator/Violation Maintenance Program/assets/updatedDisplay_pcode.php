@@ -16,10 +16,10 @@
         while ($row = mysqli_fetch_assoc($RESULT)) {
             ?>
             <tr id="editRows">
-                <td class="curriculum_data"><?php echo $row['pCode'] . "<br>"; ?></td>
-                <td class="curriculum_data"> <?php echo $row['pDescription'] . "<br>"; ?> </td>
-                <td class="curriculum_data"> <a href="index.php?edit=<?php echo $row['pID']; ?>" class="c_data_bttn"><i class="fas fa-edit"></i></a></td>
-            </tr>        
+                <td class="curriculum_data pCode<?php echo $row['pID']; ?>" id="<?php echo $row['pCode']; ?>" ><?php echo $row['pCode'] . "<br>"; ?></td>
+                <td class="curriculum_data pDescription<?php echo $row['pID']; ?>" id="<?php echo $row['pDescription']; ?>"> <?php echo $row['pDescription'] . "<br>"; ?> </td>
+                <td class="curriculum_data"> <a class="c_data_bttn editBttn" id="<?php echo $row['pID']; ?>"><i class="fas fa-edit"></i></a></td>
+            </tr>     
             <?php
         }
             

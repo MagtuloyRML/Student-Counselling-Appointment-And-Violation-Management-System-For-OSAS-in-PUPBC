@@ -43,9 +43,9 @@
                             while ($row = $SQL->fetch_assoc()) {
                         ?>
                             <tr id="editRows">
-                                <td class="curriculum_data" ><?php echo $row['pCode'] . "<br>"; ?></td>
-                                <td class="curriculum_data"> <?php echo $row['pDescription'] . "<br>"; ?> </td>
-                                <td class="curriculum_data"> <a id="modal_editBTTN" class="c_data_bttn" id="modal_editBTTN"><i class="fas fa-edit"></i></a></td>
+                                <td class="curriculum_data pCode<?php echo $row['pID']; ?>" id="<?php echo $row['pCode']; ?>" ><?php echo $row['pCode'] . "<br>"; ?></td>
+                                <td class="curriculum_data pDescription<?php echo $row['pID']; ?>" id="<?php echo $row['pDescription']; ?>"> <?php echo $row['pDescription'] . "<br>"; ?> </td>
+                                <td class="curriculum_data"> <a class="c_data_bttn editBttn" id="<?php echo $row['pID']; ?>"><i class="fas fa-edit"></i></a></td>
                             </tr>
                         <?php
                             }
@@ -62,8 +62,10 @@
     <?php
         include('assets/modal_add_curriculum.php');
         include('assets/modal_upload_curri.php');
+        include('assets/modal_edit_curriculum.php');
 
     ?>
+    <script src="assets/js/main.js"></script>
     
 </body>
 
