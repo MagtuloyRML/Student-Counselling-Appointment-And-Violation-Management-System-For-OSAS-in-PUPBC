@@ -62,8 +62,9 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                 <div class="title">
                     <h1>Client Page</h1>
                     <hr>
+                    
                 </div>
-
+                <p>This is the list of all the appointments that you still haven't evaluated.</p>
                 <div class="searchBar">
                     <form action="">
                         <input type="text" placeholder="Search" class="search">
@@ -72,9 +73,10 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                 </div>
 
                 <div class="list_client">
-                    <h3 class="list_title">Monitored Client</h3>
+                    <h3 class="list_title">Previous Clients</h3>
                     <table class="display_client">
                         <tr> 
+                            
                         <th class="client_title">Appointment ID</th>
                             <th class="client_title">Name</th>
                             <th class="client_title">Student Number</th>
@@ -85,6 +87,7 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                             <th class="client_title">Date of Appointment</th>
                             <th class="client_title">Monitored By:</th>
                             <th class="client_title">Status</th>
+                            <th class="client_title"></th>
                         </tr>
                         <?php while($row = $sched->fetch_array()){
                             $c_nameFormat = $row['lastName'].', '.$row['firstName'].' '.$row['middleName'];
@@ -110,13 +113,14 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                             <td class="client_data"><?= $dateFormat ?></td>
                             <td class="client_data"><?= $a_nameFormat ?></td>
                             <td class="client_data"><?= $status ?></td>
+                            <td class="client_data"><a href="../Counceling Client Evaulation Form/index.php?a_id=<?php echo $row['id']; ?>"><i class="fas fa-thumbs-up"></i>Evaluate</a></td>
                         </tr>
                         <?php } ?>
                     </table>
                 </div>
                 
                 <div class="list_client">
-                    <h3 class="list_title">Monitored Client(Anonymous)</h3>
+                    <h3 class="list_title">Previous Clients(Anonymous)</h3>
                     <table class="display_client">
                         <tr> 
                         <th class="client_title">Appointment ID</th>

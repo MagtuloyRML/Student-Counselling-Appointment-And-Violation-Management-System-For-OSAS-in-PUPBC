@@ -10,7 +10,7 @@
     {
         $name = $row['AdminAccountID'];
     }
-    $id = '60';
+    $a_id = $_GET['a_id'];
     $query = $conn->query("SELECT 
     t1.id,
     t1.email_add,
@@ -25,15 +25,15 @@
      from schedules as t1 
      INNER JOIN clientaccountinfo as t2 ON t1.client_id = t2.ClientAccountID
      INNER JOIN genderrole as t3 ON t2.ClientGenderID = t3.GenderID
-     WHERE t1.id = '$id'");
+     WHERE t1.id = '$a_id'");
     $row2 = mysqli_fetch_array($query);
     $appointmentID = $row2['id'];
     $email_add = $row2['email_add'];
-    $name = $row2['firstName'].' '.$row2['middleName'].' '.$row2['lastName'];
+    $fname = $row2['firstName'].' '.$row2['middleName'].' '.$row2['lastName'];
     $gender = $row2['gender'];
     $address = $row2['client_address'];
     $birthday = $row2['birthdate'];
-    $contactnum = $row2['contact_num']
+    $contactnum = $row2['contact_num'];
     
 
     
@@ -65,8 +65,9 @@
                             <div class="input_container">
                                 <label for="#" class="label">Full Name: </label>
                                 <div class="input " id="input_fst_name">
-                                    <input class="input-field" type="text" placeholder="<?= $name ?>" name="fst_name" id="fst_name" readonly>
-                                    <input class="input-field" type="hidden" value="<?= $appointmentID ?>" name="id" id="id" readonly>
+                                    <input class="input-field" type="text" placeholder="<?= $fname ?>" name="fst_name" id="fst_name" readonly>
+                                    <input class="input-field" type="hidden" value="<?= $appointmentID ?>" name="a_id" id="a_id" readonly>
+                                    <input class="input-field" type="hidden" value="<?= $name ?>" name="id" id="id" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
@@ -132,7 +133,6 @@
         </div>
     </div>
 
-    <script src="assets/js/main.js"></script>
 
 </body>
 </html>

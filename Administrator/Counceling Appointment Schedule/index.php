@@ -23,7 +23,7 @@
                         include '../includes/appoitment_sub_nav.php';
                     ?>
                     <div class="list_approv">
-                        <h3 class="subtitle">Approved Appointment</h3>
+                        <h3 class="subtitle">Upcoming Appointments</h3>
                         <form method ="POST">
                     <h3 class="list_title">List</h3>
                     <table class="display_approv">
@@ -79,7 +79,7 @@
                     <!-- Cancelled Appointments -->
 
                     <div class="list_approv">
-                        <h3 class="subtitle">Cancelled Appointment</h3>
+                        <h3 class="subtitle">Cancelled Appointments</h3>
                         <form method ="POST">
                     <h3 class="list_title">List</h3>
                     <table class="display_approv">

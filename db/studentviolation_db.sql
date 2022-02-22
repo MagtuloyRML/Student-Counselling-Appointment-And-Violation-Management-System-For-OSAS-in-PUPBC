@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2022 at 03:19 AM
+-- Generation Time: Feb 22, 2022 at 08:21 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.1
 
@@ -42,7 +42,9 @@ INSERT INTO `foracademicyear` (`code`, `yearFrom`, `yearTo`, `Semester`) VALUES
 ('2018', 2018, 2019, '1st'),
 ('2019, 2020', 2019, 2020, '1st'),
 ('2021, 2022 ', 2021, 2022, '1st'),
-('2022, 2023 ', 2022, 2023, '1st');
+('2022, 2023 ', 2022, 2023, '1st'),
+('2022, 2023 - 1st', 2022, 2023, '1st'),
+('2022, 2023 - 2nd', 2022, 2023, '2nd');
 
 -- --------------------------------------------------------
 
@@ -95,13 +97,14 @@ CREATE TABLE `forstudents` (
 --
 
 INSERT INTO `forstudents` (`studNum`, `id`, `fullName`, `lastName`, `firstName`, `middleName`, `Section`, `Address`, `Gender`, `progCode`, `ayCode`, `status`) VALUES
-('2018-00154-BN-0', '1', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 6, '2021, 2022 ', 'Enrolled'),
+('2018-00154-BN-0', '1', 'PACHECA sa, BRIAN JOSHUA BUENDIA', 'PACHECA sa', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 6, '2022, 2023 - 1st', 'Enrolled'),
 ('2019-00001-BN-0', '2', 'bolbol as, kils uas', 'bolbol as', 'kils', 'uas', '1', 'Muntianlupa', 'Female', 2, '2018', 'Enrolled'),
-('2019-00002-BN-0', '3', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 4, '2021, 2022 ', 'Enrolled'),
+('2019-00002-BN-0', '3', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 4, '2018', 'Enrolled'),
 ('2019-00003-BN-0', '4', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 5, '2021, 2022 ', 'Enrolled'),
 ('2019-00004-BN-0', '5', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 6, '2021, 2022 ', 'Enrolled'),
 ('2019-00021-BN-0', '6', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 3, '2021, 2022 ', 'Enrolled'),
-('2019-00026-BN-0', '7', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 2, '2021, 2022 ', 'Enrolled');
+('2019-00026-BN-0', '7', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 2, '2021, 2022 ', 'Enrolled'),
+('2019-00502-BN-0', '8', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 2, '2022, 2023 - 2nd', 'Enrolled');
 
 -- --------------------------------------------------------
 

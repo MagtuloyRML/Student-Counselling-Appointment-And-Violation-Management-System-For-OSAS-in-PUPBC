@@ -2,6 +2,58 @@
     $title = 'Violation Entry';
     $page = 'v_entry';
     include_once('../includes/header.php');
+    include 'assets/dbconnection.php';
+
+
+    $SQL = $conn->query("SELECT 
+    `entry_id`,
+    t1.studNum,
+    `Date`,
+    t5.fullName as fullName,
+    t5.Section as Section,
+    t4.Violations as Violations,
+    t6.Sanctions as Sanctions,
+    t2.pDescription AS p_description,
+    t3.code AS a_code,
+    status FROM forviolationentries t1
+    INNER JOIN forprogram t2 ON t1.pCode = t2.pID
+    INNER JOIN foracademicyear t3 ON t1.code = t3.code
+    INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
+    INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
+    INNER JOIN forthesanctions t6 ON t1.Sanctions = t6.s_id
+    WHERE
+    Date >= '2013-12-12'
+    ORDER BY entry_id DESC
+    ");
+
+    if(isset($_POST['submit'])){
+
+        if(isset($_POST['search'])){
+            $searched = $_POST['search'];
+            $SQL = $conn->query("SELECT 
+                        `entry_id`,
+                        t1.studNum,
+                        `Date`,
+                        t5.fullName as fullName,
+                        t5.Section as Section,
+                        t4.Violations as Violations,
+                        t6.Sanctions as Sanctions,
+                        t2.pDescription AS p_description,
+                        t3.code AS a_code,
+                        status FROM forviolationentries t1
+                        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
+                        INNER JOIN foracademicyear t3 ON t1.code = t3.code
+                        INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
+                        INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
+                        INNER JOIN forthesanctions t6 ON t1.Sanctions = t6.s_id
+                        WHERE
+                        t1.studNum = '$searched'
+                        ORDER BY entry_id DESC");
+
+        }
+
+
+    }
 ?>
     <div class="body_container">
         <div class="content">
@@ -11,9 +63,9 @@
             </div>
             <!-- SEARCH BOX -->
             <div class="searchBar">
-                <form action="">
-                    <input class="srcinput" type="text" placeholder="Search" class="search">
-                    <button class="srcbttn" type="submit"><i class="fa fa-search"></i></button>
+                <form action="" method="POST">
+                    <input class="srcinput" type="text" placeholder="Search Student No" name="search" id="search" class="search">
+                    <button class="srcbttn" type="submit" name='submit'><i class="fa fa-search"></i></button>
                 </form>
             </div>
             <!-- STUDENT INFO -->
@@ -53,28 +105,8 @@
                     </tr>
                     
                     <?php
-                        include_once 'assets/dbconnection.php';
                         
-                        $SQL = $conn->query("SELECT 
-                        `entry_id`,
-                        t1.studNum,
-                        `Date`,
-                        t5.fullName as fullName,
-                        t5.Section as Section,
-                        t4.Violations as Violations,
-                        t6.Sanctions as Sanctions,
-                        t2.pDescription AS p_description,
-                        t3.code AS a_code,
-                        status FROM forviolationentries t1
-                        INNER JOIN forprogram t2 ON t1.pCode = t2.pID
-                        INNER JOIN foracademicyear t3 ON t1.code = t3.code
-                        INNER JOIN fortheviolations t4 ON t1.Violations = t4.v_code
-                        INNER JOIN forstudents t5 ON t1.studNum = t5.studNum
-                        INNER JOIN forthesanctions t6 ON t1.Sanctions = t6.s_id
-                        WHERE
-                        Date >= '2013-12-12'
-                        ORDER BY entry_id DESC
-                        ");
+                        
 
                         if ($SQL->num_rows > 0) {
                             while ($row = $SQL->fetch_assoc()) {
@@ -108,8 +140,6 @@
         include ('assets/modal_edit_vio_entry.php');
     ?>
 
-    <script src="assets/js/main.js"></script>
-    
 
 
 </body>
