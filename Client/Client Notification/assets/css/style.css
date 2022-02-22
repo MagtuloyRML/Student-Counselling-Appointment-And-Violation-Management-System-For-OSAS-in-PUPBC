@@ -34,9 +34,11 @@
     border-radius: .25rem;
 }
 
-.home_content .title_content h3{
+.home_content .title_content{
     color: var(--button-hover-color-font-icon);
-    padding-bottom: 20px;
+}
+.home_content .title_content hr{
+    border-bottom: 2px solid var(--button-hover-color-font-icon);
 }
 
 .home_content{
@@ -46,34 +48,29 @@
     width: 70%;
 }
 
-.bttn_appoint_list{
-    padding-top: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-flow: wrap;
-}
-
-.appointment_bttn{
-    text-align: center;
+.bttn_appoint_list .notif_bttntiles{
     text-decoration: none;
     border-radius: .5rem;
-    color: var(--button-hover-color-font-icon);
-    padding: 25px;
-    cursor: pointer;
-    transition: ease .5s;
+    width: 100%;
+    color: var(--button-color-font-icon);
+    background-color: transparent;
+    padding: 10px;
 }
 
-.appointment_bttn i{
-    font-size: 60px;
+.bttn_appoint_list .notif_bttntiles:hover{
+    color: var(--button-hover-color-font-icon);
 }
-.appointment_bttn span{
-    padding-top: 5px;
-    font-size: var(--small-font-size);
-    display: block;
+
+.notif_bttntext{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px 0;
+    font-size: 12px;
+    background-color: transparent;
 }
-.appointment_bttn:hover{
-    background-color: var(--button-hover-color-font-icon);
-    color: var(--color-content0-bg);
+.notif_bttnline{
+    border-bottom: 1px solid var(--button-hover-color-font-icon);
+    margin-top: 3px;
 }

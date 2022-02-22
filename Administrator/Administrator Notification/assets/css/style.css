@@ -46,3 +46,30 @@
     border-bottom: 2px solid var(--maroong-content-bg);
 }
 
+.bttn_appoint_list .notif_bttntiles{
+    text-decoration: none;
+    border-radius: .5rem;
+    width: 100%;
+    color: var(--button-color-font-icon);
+    background-color: transparent;
+    padding: 10px;
+}
+
+.bttn_appoint_list .notif_bttntiles:hover{
+    color: var(--button-hover-color-font-icon);
+}
+
+.notif_bttntext{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px 0;
+    font-size: 12px;
+    background-color: transparent;
+}
+.notif_bttnline{
+    border-bottom: 1px solid var(--button-hover-color-font-icon);
+    margin-top: 3px;
+}
+

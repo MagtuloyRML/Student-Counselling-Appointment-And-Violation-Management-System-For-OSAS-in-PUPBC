@@ -25,60 +25,22 @@
 *::before, ::after{
     box-sizing: border-box;
 }
-.body_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 50px;
-}
 .content{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-.client_content .title{
-    width: 150px;
+.profile{
+    margin-top: 10px;
+    background-color: white;
+    padding: 30px 5%;
+    width: 70%;
 }
-.client_content .title h1{
-    font-size: 1.5rem;
-    color: var(--button-color-font-icon);
-    display: inline-block;
-}
-.client_content .title hr{
-    border-bottom: 2px solid var(--maroong-content-bg);
-}
-
-.searchBar{
-    padding-right: 30px;
-    float: right;
-    height: 25px;
-}
-.searchBar input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 15px;
-    border: 1px solid #ddd;
-    width: 250px;
-}
-  
-.searchBar button {
-    padding: 6px 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    height: 37px;
-    position: fixed;
-    background: #ddd;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-}
-.searchBar button i{
-    color: rgb(136, 136, 136);
-}
-.searchBar button:hover{
-    background-color: var(--button-hover-bg);
+.content_title{
     color: var(--button-hover-color-font-icon);
+    padding-bottom: 20px;
+
 }
 
 .list_client{
@@ -104,9 +66,21 @@
 .display_client .client_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-hover);
+    font-size: var(--small-font-size);
+    padding: 5px;
 }
 .display_client .client_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
+    font-size: 13px;
+    text-align: center;
+}
+.bttn_table{
+    text-decoration: none;
+    font-weight: 600;
     font-size: var(--small-font-size);
+    color: var(--maroong-content-bg);
+}
+.bttn_table:hover{
+    color: var(--maroong-content-hover);
 }

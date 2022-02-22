@@ -5,17 +5,20 @@
 ?>
     <div class="content">
         <div class="home_content">
+            <div class="title_content">
+                <h3>Home</h3>
+            </div>
             <div class="bttn_appoint_list">
-                <a href="../Client Appointment Scheduling/index.php" class="appointment_bttn">
+                <a href="../Client Appointment Scheduling/" class="appointment_bttn">
                     <i class="fas fa-calendar-check"></i>
                     <span>
                         Book Appointment
                     </span>
                 </a>
-                <a href="../Client Manage Appointment/index.php" class="appointment_bttn">
-                    <i class="fas fa-calendar-check"></i>
+                <a href="../Client Manage Appointment/" class="appointment_bttn">
+                    <i class="fa-solid fa-calendar-days"></i>
                     <span>
-                        Manage Appointment
+                        Manage Schedule
                     </span>
                 </a>
                

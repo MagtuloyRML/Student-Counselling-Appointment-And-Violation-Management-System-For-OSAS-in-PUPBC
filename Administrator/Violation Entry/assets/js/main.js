@@ -128,7 +128,7 @@ $(document).ready(function(){
                         $("#entrysubmit").removeClass('modal_foot_bttn1');
                         $("#entrysubmit").addClass('disable');
                         $('#modal_add_entry').css('display', 'none');
-                       // window.location.href = '../Violation Entry/';
+                        window.location.href = '../Violation Entry/';
                     }
                      
                 }
@@ -292,7 +292,7 @@ $(document).ready(function(){
                         $("#editsubmit").removeClass('modal_foot_bttn1');
                         $("#editsubmit").addClass('disable');
                         $('#modal_edit_entry').css('display', 'none');
-                      //  window.location.href = '../Violation Entry/';
+                        window.location.href = '../Violation Entry/';
                     }
                      
                 }

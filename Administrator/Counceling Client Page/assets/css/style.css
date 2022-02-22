@@ -104,9 +104,11 @@
 .display_client .client_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-hover);
+    font-size: 11px;
 }
 .display_client .client_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
+    text-align: center;
 }

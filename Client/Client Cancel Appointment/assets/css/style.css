@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(136, 136, 136);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --meduim-font-size: 15px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc_bttn{
+    font-size: 20px;
+    background-color: transparent;
+    color: rgb(136, 136, 136);
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+.acc_bttn:hover{
+    color: rgb(84, 83, 87);
+}
+
+.profile{
+    margin-top: 10px;
+    background-color: white;
+    padding: 30px 5%;
+    width: 70%;
+}
+.content_title{
+    color: var(--button-hover-color-font-icon);
+    padding-bottom: 20px;
+
+}
+.content_appoint{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    font-size: var(--normal-font-size);
+    padding: 10px;
+}
+.label{
+    font-size: var(--normal-font-size);
+    color: var(--button-hover-color-font-icon);
+    font-weight: 600;
+    padding: 10px;
+}
+.fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+}
+.fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.input_container .fas{
+    padding: .5rem;
+    font-size: 18px;
+    color: var(--maroong-content-bg);
+}
+.input-field{
+    resize: none;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    min-width: 200px;
+    color: var(--button-hover-color-font-icon);
+    border-radius: .25rem;
+    border: 1px solid var(--button-hover-color-font-icon);
+}
+.action_content {
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 10px 30px 0 0;
+}
+
+.action_content .bttn {
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.action_content .bttn:hover{
+    background-color: var(--maroong-content-hover);
+}
+.action_content .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    cursor: default;
+}
+.action_content .disable:hover{
+    background-color: var(--button-hover-bg);
+    cursor: default;
+}
+
+
+.cancelMSG{
+    width: 40%;
+}
+

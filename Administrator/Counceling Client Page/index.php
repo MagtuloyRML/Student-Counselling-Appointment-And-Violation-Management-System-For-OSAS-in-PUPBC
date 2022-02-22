@@ -114,6 +114,7 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                         <?php } ?>
                     </table>
                 </div>
+                
                 <div class="list_client">
                     <h3 class="list_title">Monitored Client(Anonymous)</h3>
                     <table class="display_client">

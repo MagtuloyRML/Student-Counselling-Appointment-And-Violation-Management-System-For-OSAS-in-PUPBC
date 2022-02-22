@@ -99,6 +99,19 @@ body{
     position: relative;
 }
 
+.btndrop_notif .badge {
+    font-weight: 900;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: -5px;
+    right: -5px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--maroong-content-bg);
+    color: var(--color-content0-bg);
+}
+
 .notif_content{
     position: absolute;
     right: 20%;
@@ -124,16 +137,51 @@ body{
     width: 100%;
     height: auto;
 }
+.notif_title{
+    font-size: var(--small-font-size);
+    color: var(--button-hover-color-font-icon);
+}
+.notif_text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px 0;
+}
+.notif_tiles{
+    outline: none;
+    text-decoration: none;
+}
+.notif_tiles:hover{
+    color: var(--button-hover-bg);
+}
+
 .notif_content p{
     color: rgb(136, 136, 136);
     right: 0px;
-    margin: 10px
+    margin: 0 10px 0;
 }
 .notif-line{
     border-radius: 1px;
+    border-bottom: .5px solid var(--button-hover-bg);
 }
-.notif_content .notif-content p{
+
+.notif_content .notif-content .notif_text{
     font-size: 13px;
+}
+
+.notif_content .notif-content .notif_bttn{
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--button-color-font-icon);
+    float: right;
+}
+.notif_content .notif-content .notif_bttn:hover{
+    color: var(--button-hover-color-font-icon);
+}
+
+.UNREAD{
+    font-weight: 900;
 }
 .dropdown{
     position: relative;

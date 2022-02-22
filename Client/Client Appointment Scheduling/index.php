@@ -28,7 +28,7 @@
                                     <p class="success"><?php echo $_GET['success']; ?></p>
                                 <?php } ?>
 
-                        <p>Fill up the following to appoint a Sched</p>
+                        <p>Fill up the following to appoint a Schedule: </p>
                         <div class="input_container">
                             <label class="label" for="#">Student Name: </label>
                             <br>
@@ -57,14 +57,14 @@
                             <br>
                             <input class="input" type="text" id="#" name="reason">
                         </div>
+                        
                         <div class="input_container">
-                            <br>
-                        <div class="input_container">
-                            <select class="label" required name = "counselor_id" id="counselor_id">
+                            <label class="label" for="#">Councelor: </label>
+                            <select class="input" required name = "counselor_id" id="counselor_id">
                             <br>
                             <option disabled value="" selected ="selected">Select a Counselor</option>
                             <?php 
-                                
+            
                                 $query = "SELECT * from adminaccountinfo";
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))

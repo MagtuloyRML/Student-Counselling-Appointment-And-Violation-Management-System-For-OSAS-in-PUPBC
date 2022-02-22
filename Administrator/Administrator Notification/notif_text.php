@@ -11,17 +11,15 @@
         
         while ($row = mysqli_fetch_array( $sql )) {
             $nTitle = $row["NotificationTitle"]; $nMSG = $row["NotificationMessage"]; $nStatus = $row["NotificationStatusDescription"]; 
-            $nNMSG = mb_strimwidth($nMSG, 0, 25, "...");
         ?>
-        <a class="notif_tiles" href="">
-            <h5 class="notif_title"><?php echo $nTitle ?></h5>
-            <div class="notif_text <?php echo $nStatus ?>">
-                <p class="notif_txt"><?php echo $nNMSG ?></p>
-                <p class="notif_txt"><?php echo $nStatus ?></p>
-            </div>
-            <hr class="notif-line">
-        </a>
-            
+            <a class="notif_bttntiles" href="">
+                <h4 class="notif_bttntitle"><?php echo $nTitle ?></h4>
+                <div class="notif_bttntext <?php echo $nStatus ?>">
+                    <span class="notif_bttntxt"><?php echo $nMSG ?></span>
+                    <span class="notif_bttntxt"><?php echo $nStatus ?></span>
+                </div>
+                <hr class="notif_bttnline">
+            </a>
         <?php 
         }
 

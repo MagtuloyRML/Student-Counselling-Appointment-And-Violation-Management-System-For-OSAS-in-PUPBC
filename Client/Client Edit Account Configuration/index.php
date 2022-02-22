@@ -73,10 +73,6 @@
                     <button type="sumbit" class="config_bttn" id="saveInfo" ><i class="fas fa-save"></i> Save</button>
                 </div>
             </form>
-                
-
-            
-            
         </div>
 
     </div>

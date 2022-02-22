@@ -163,6 +163,7 @@ h4{
     background-color: transparent;
 }
 .input .fas{
+    width: 50px;
     padding: .5rem;
     font-size: 18px;
     color: var(--maroong-content-bg);

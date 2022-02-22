@@ -30,6 +30,10 @@ $(document).ready(function(){
             errorstud_num = true;
             errorTextStudNum = 1;
         }
+        $('#input_stud_num').removeClass('input-error');
+        $('#i_stud_num').removeClass('fas fa-exclamation-circle');
+        $('#input_password').removeClass('input-error');
+        $('#i_password').removeClass('fas fa-exclamation-circle');
     })
 
     $('#password').keyup(function(){
@@ -54,6 +58,11 @@ $(document).ready(function(){
             errorTextPass = 1;
             
         }
+        $('#input_stud_num').removeClass('input-error');
+        $('#i_stud_num').removeClass('fas fa-exclamation-circle');
+        $('#input_password').removeClass('input-error');
+        $('#i_password').removeClass('fas fa-exclamation-circle');
+    
     })
 
     

@@ -138,7 +138,7 @@
                             
                         </div>
                         <div class="notif-content">
-                            <a href="#" class="notif_bttn">See More</a>
+                            <a href="../Administrator Notification/" class="notif_bttn">See More</a>
                         </div>
                     </div>
                 </div>

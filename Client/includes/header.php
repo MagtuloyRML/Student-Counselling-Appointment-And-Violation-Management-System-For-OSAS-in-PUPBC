@@ -36,7 +36,7 @@
 
     <link href="../includes/css/stud_nav_bar.css" rel="stylesheet">
     <script src="../includes/js/acc_dropdown_notif_dropdown.js" defer></script>
-
+    <script src="../includes/js/notif_client.js" defer></script>
     <link href="../includes/css/modal_placement.css" rel="stylesheet">
     <link href="../includes/css/modal_upload_placement.css" rel="stylesheet">
 
@@ -61,15 +61,16 @@
             <div class="menu">
                 <!--- Notifcation drop down content-->
                 <div class="dropdown1" notif-dropdown>
-                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i></button>
+                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i><span id="notifCount"></span></button>
                     <div class="notif_content">
                         <!---Content for Notif--->
                         <p><i class="fas fa-bell"></i> Notification</p>
                         <hr class="notif-line">
+                        <div class="notif-content" id="notif_content">
+                            
+                        </div>
                         <div class="notif-content">
-                            <p>
-                                No Content Availble
-                            </p>
+                            <a href="../Client Notification/" class="notif_bttn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -79,7 +80,7 @@
                     <div class="user_menu">
                         <ul></ul>
                             <a href="../Client Profile/" class="bttn<?php if ($page == 'client_profile' || $page == 'client_edit_profile'){ echo '_active';}?>"><i class="fa fa-user icon"></i><?php echo $name ?></a>
-                            <a href="#" class="bttn<?php if ($page == ''){ echo '_active';}?>"><i class="fas fa-calendar-alt"></i>Schedule</a>
+                            <a href="../Client Manage Appointment/" class="bttn<?php if ($page == 'client_manage_appointment'){ echo '_active';}?>"><i class="fas fa-calendar-alt"></i>Manage Sched</a>
                             <a href="../includes/logout.php" class="bttn<?php if ($page == ''){ echo '_active';}?>"><i class="fas fa-sign-out-alt"></i>Log out</a>
                         </ul>
                     </div>

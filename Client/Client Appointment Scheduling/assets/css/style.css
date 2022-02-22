@@ -43,13 +43,18 @@
     padding-bottom: 20px;
 }
 .appoint_form .content_appoint{
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+.form_content{
+    width: 100%;
+    
 }
 .content_appoint .input_container{
     width: 100%;
+    padding-bottom: 5px;
 }
 .input_container .label{
     color: var(--button-hover-color-font-icon);
@@ -57,7 +62,7 @@
     font-weight: 600;
 }
 .input_container .input{
-    width: 300px;
+    width: 100%;
     padding: 2px 5px 2px;
     border: 1px solid var(--button-hover-color-font-icon);
     color: var(--button-hover-color-font-icon);
@@ -77,6 +82,9 @@
     padding: 10px 20px 10px;
     text-align: center;
     font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 .form_action .form_bttn:hover{
     background-color: var(--maroong-content-hover);

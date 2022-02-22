@@ -15,20 +15,22 @@
     {
         $pass = $detail['ClientPassword']; 
         if($prepass == $pass){
+
             if($npass == $conpass){
                 //insert sa database
                 $updateInfo="UPDATE clientaccountinfo SET ClientPassword = '$npass' WHERE ClientAccountID = '$stud_ID'";
                 $query_run = mysqli_query($conn, $updateInfo);
                 if($query_run){
-                echo "Data Inserted";
+                echo "updateSucces";
                 header ("Location: ../../Client Edit Account Configuration/");
                 }else{
                 echo "something is wrong" . $updateInfo . $conn->error;
                 }
             }
             else{
-                echo "errorPrePass";
+                echo "errorConPass";
             }
+            
         }
         else{
             echo "errorPrePass";
