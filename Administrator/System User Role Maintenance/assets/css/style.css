@@ -222,6 +222,7 @@
     border: none;
     width: 100%;
     appearance: none;
+    text-align: center;
 }
 .data .bttn_table{
     font-weight: 600;

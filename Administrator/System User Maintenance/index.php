@@ -38,10 +38,10 @@
                     <h3 class="list_title">List</h3>
                         <table class="display">
                             <tr> 
-                                <th class="table_title" style="width: 50px;">ID</th>
                                 <th class="table_title" >Name</th>
                                 <th class="table_title" style="width: 25%;">Role</th>
                                 <th class="table_title" style="width: 25%;">Status</th>
+                                <th class="table_title" style="width: 15%;"> </th>
                             </tr>
                             <?php
                                 
@@ -53,31 +53,33 @@
                                 
                             ?>
                             <tr>
-                                <td class="data"><?php echo $id?></td>
                                 <td class="data"><?php echo $lname.', '.$fname.' '.$mname.' '.$sname ?></td>
                                 <td class="data">
-                                    <select class="input_fieldselect" name="gender" id="gender">
+                                    <select class="input_fieldselect" name="gender" id="gender" disabled>
                                         <option value = '' >Role User</option>
                                         <?php 
                                             $userRole = mysqli_query($conn, "SELECT AdminUserRoleID, AdminUserRole FROM `adminuserrole`");
                                             while($row2 = mysqli_fetch_assoc($userRole)){
                                                 $roleID = $row2['AdminUserRoleID']; $roleName = $row2['AdminUserRole'];
                                                 ?>
-                                            <option value = "<?php echo $roleID ?>" <?php if($roleID == $role )echo "selected" ?>> <?php echo $roleName?>  </option>
+                                            <option value = "<?php echo $roleID ?>" <?php if($roleID == $role ){echo "selected";}else{echo "disabled";} ?>> <?php echo $roleName?>  </option>
                                         <?php }?>
                                     </select>
                                 </td>
                                 <td class="data">
-                                    <select class="input_fieldselect" name="gender" id="gender">
+                                    <select class="input_fieldselect" name="gender" id="gender" disabled>
                                         <option value = '' >Status</option>
                                         <?php 
                                             $statuscheck = mysqli_query($conn, "SELECT AccountStatusID, StatusDescription FROM `accountstatus`");
                                             while($row3 = mysqli_fetch_assoc($statuscheck)){
                                                 $statsID = $row3['AccountStatusID']; $statsName = $row3['StatusDescription'];
                                                 ?>
-                                            <option value = "<?php echo $statsID ?>" <?php if($statsID == $status )echo "selected" ?>> <?php echo $statsName?>  </option>
+                                            <option value = "<?php echo $statsID ?>" <?php if($statsID == $status ){echo "selected";}else{echo "disabled";} ?>> <?php echo $statsName?>  </option>
                                         <?php }?>
                                     </select>
+                                </td>
+                                <td class="data"><a href="../System Edit User Maintenance/?acc_id=<?php echo $id ?>" class="bttn_table">
+                                    <i class="fa-solid fa-user-pen"></i> Edit</a>
                                 </td>
                             </tr>
                             <?php
