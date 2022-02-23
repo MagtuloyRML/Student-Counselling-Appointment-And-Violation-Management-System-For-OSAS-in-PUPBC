@@ -4,10 +4,11 @@ $(document).ready(function(){
     $("#submitRole").removeClass('bttn');
     $("#submitRole").addClass('disable');
 
-    roleNameCheckError = true;
-    studCouncheckError = true;
-    studViolationcheckError = true;
-    sysMainsCheckError = true;
+    roleNameCheckError = false;
+    studCouncheckError = false;
+    studViolationcheckError = false;
+    sysMainsCheckError = false;
+    statusCheckError = false;
 
     $("#roleNameCheck").keyup(function(){ 
         if($("#roleNameCheck").val() == 0){
@@ -61,7 +62,20 @@ $(document).ready(function(){
         $("#submitRole").addClass('bttn');
     });
 
-    $("#addRole").submit(function(event){
+    $("#status").change(function(){ 
+        if($("#status").val() == 0){
+            statusCheckError = true;
+            $("#i_status").addClass('fa-circle-exclamation');
+        }else{
+            statusCheckError = false;
+            $("#i_status").removeClass('fa-circle-exclamation');
+        }
+        $("#submitRole").attr("disabled", false);
+        $("#submitRole").removeClass('disable');
+        $("#submitRole").addClass('bttn');
+    });
+
+    $("#editRole").submit(function(event){
         event.preventDefault();
         if(roleNameCheckError == true){
             $("#i_roleName").addClass('fa-circle-exclamation');
@@ -75,20 +89,23 @@ $(document).ready(function(){
         if(sysMainsCheckError == true){
             $("#i_sysMainsCheck").addClass('fa-circle-exclamation');
         }
+        if(statusCheckError == true){
+            $("#i_status").addClass('fa-circle-exclamation');
+        }
         if(roleNameCheckError == false &&
             studCouncheckError == false &&
             studViolationcheckError == false &&
-            sysMainsCheckError == false){
+            sysMainsCheckError == false &&
+            statusCheckError == false){
             $.ajax({
                 url: "assets/addRole.php",
                 type: 'POST',
-                data: $('#addRole').serialize(),
+                data: $('#editRole').serialize(),
                 datatype: "text",
                 cache:false,
                 success:function(result){
                     if($.trim(result) == "success"){
-                        $("#addRole")[0].reset();
-                        $("#tableRoles").load("updateRoleTable.php");
+                        window.location.href = '../System User Role Maintenance/';
                     }
                 }
             });

@@ -36,6 +36,7 @@ body{
     display: inline-block;
     align-content: center;
     justify-content: center;
+    width: 100%;
 }
 .body_content .back_bttn{
     top: 0;
@@ -61,6 +62,7 @@ body{
     padding: 0 5% 10px;
 }
 .login_form{
+    
     margin: 0 10% 0;
     background-color: var(--color-content0-bg);
     padding: 10px 10% 10px;

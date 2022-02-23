@@ -19,8 +19,6 @@
 <body>
     <div class="body_content">
         <a class="back_bttn" href="../index.php"><i class="fas fa-arrow-left"></i></a>
-        
-
         <div class="login_form">
             <div class="welcome_text">
                 <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
@@ -28,7 +26,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Aenean fringilla nec ante vel vestibulum.
                 </p>
-                <br>
                 <br>
                 <?php if (isset($_GET['error'])) { ?>
                                     <p class="error"><?php echo $_GET['error']; ?></p>
@@ -47,7 +44,8 @@
                             <i id="i_username" ></i>
                             <i class="fas fa-user-tie"></i>
                         </div>
-</div>
+                    </div>
+                </div>
                 
                 <div class="bttn_group">
                     <div class="login_bttn">

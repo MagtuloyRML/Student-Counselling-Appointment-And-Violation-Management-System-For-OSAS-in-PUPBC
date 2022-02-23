@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 22, 2022 at 04:37 PM
+-- Generation Time: Feb 23, 2022 at 08:17 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `adminprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`AdminProfilePictureID`),
   KEY `appInfo_Admin` (`AdminAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminprofilepictureinfo`
@@ -150,8 +150,9 @@ INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`
 (19, 2, 'pbcscvs2202202191645240136.jpg', '2022-02-19 04:08:56', 0),
 (20, 2, 'pbcscvs2202202191645240144.jpg', '2022-02-19 04:09:04', 1),
 (21, 1, 'pbcscvs1202202191645240168.jpg', '2022-02-19 04:09:28', 0),
-(22, 1, 'pbcscvs1202202191645240198.jpg', '2022-02-19 04:09:58', 1),
-(23, 6, 'default_user.jpg', '2022-02-20 03:34:22', 1);
+(22, 1, 'pbcscvs1202202191645240198.jpg', '2022-02-19 04:09:58', 0),
+(23, 6, 'default_user.jpg', '2022-02-20 03:34:22', 1),
+(24, 1, 'pbcscvs1202202231645588047.jpg', '2022-02-23 03:47:27', 1);
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `adminuserrole` (
   KEY `studCounceling_status` (`AdminPageStudentCounceling`),
   KEY `studViolation_status` (`AdminPageViolation`),
   KEY `sysMain_status` (`AdminMaintenance`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminuserrole`
@@ -182,7 +183,10 @@ INSERT INTO `adminuserrole` (`AdminUserRoleID`, `AdminUserRole`, `AdminPageStude
 (1, 'ADMINISTRATOR', 1, 1, 1, 1),
 (2, 'GUIDANCE COUNCELOR', 1, 2, 2, 1),
 (3, 'GUARD', 2, 1, 2, 1),
-(4, 'PROF', 2, 1, 1, 1);
+(4, 'PROFESSOR', 1, 2, 2, 1),
+(5, 'LADY GUARD', 2, 1, 2, 1),
+(6, 'CASHIER', 2, 1, 2, 1),
+(7, 'JANITOR', 2, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -246,11 +250,11 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
 --
 
 INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`, `code`) VALUES
-(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, NULL),
-(45, 'Juans', 'Mendezs', 'De la Cruzs', 's', '2010-00002-BN-0', 1, '2000-01-10', 'Sample address Binan, Lagunas', '09090909091', 'Sample Guardians', '09080706051', 'juans@gmail.com', 'mema1234', 1, NULL),
+(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, '730126'),
+(45, 'Juans', 'Mendezs', 'De la Cruzs', 's', '2010-00002-BN-0', 1, '2000-01-10', 'Sample address Binan, Lagunas', '09090909091', 'Sample Guardians', '09080706051', 'juans@gmail.com', 'mema1234', 1, '187789'),
 (46, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2, NULL),
 (70, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2, NULL),
-(89, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, NULL),
+(89, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, '730126'),
 (90, 'Juan', 'Mendez', 'De la Cruz', '', '2010-00001-BN-0', 1, '2000-01-08', 'Sample address Binan, Laguna', '09090909090', 'Sample Guardian', '09080706050', 'juan@gmail.com', 'mema1234', 1, NULL),
 (91, 'Brian', '', 'Pacheca', '', '2018-01154-BN-0', 1, '2022-02-22', 'asdasd', '09123456789', 'Mother', '09123456789', 'brianpacheca123@gmail.com', 'client123', 1, '212906');
 
@@ -296,7 +300,7 @@ CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`ClientProfilePictureID`),
   KEY `cppInfo_Client` (`ClientAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientprofilepictureinfo`
@@ -330,9 +334,10 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (32, 46, '2014-00005-BN-0202202151644901642.jpg', '2022-02-15 05:07:22', 0),
 (33, 46, '2014-00005-BN-0202202151644901663.jpg', '2022-02-15 05:07:43', 1),
 (34, 45, '2010-00001-BN-0202202181645180651.jpg', '2022-02-18 11:37:31', 1),
-(35, 34, '2019-00001-BN-0202202201645323811.jpg', '2022-02-20 03:23:31', 1),
+(35, 34, '2019-00001-BN-0202202201645323811.jpg', '2022-02-20 03:23:31', 0),
 (36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 1),
-(37, 92, 'default_user.jpg', '2022-02-21 14:18:22', 1);
+(37, 92, 'default_user.jpg', '2022-02-21 14:18:22', 1),
+(38, 34, '2019-00001-BN-0202202231645595175.jpg', '2022-02-23 05:46:15', 1);
 
 -- --------------------------------------------------------
 
@@ -430,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `schedules` (
 
 INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `start_app`, `end_app`, `stat`, `remarks`, `reason`, `cancel_id`, `cancel_reason`) VALUES
 (59, 'Yes', '', 'mema@gamil.com', 34, '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', '2', '', 0, NULL),
-(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Confirmed', '1', 'Ikaw', 6, 'Conflicting schedule'),
+(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Done', '1', 'Ikaw', 6, 'Conflicting schedule'),
 (61, 'No', '', 'mema@gamil.com', 34, '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', '6', 'Nothing', NULL, NULL),
 (62, 'Yes', '', 'mema@gamil.com', 34, '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', '3', 'Ikaw', NULL, NULL);
 

@@ -37,9 +37,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <div class="body_content">
-        <a class="back_bttn" href="../index.php"><i class="fas fa-arrow-left"></i></a>
-        
-
+        <a class="back_bttn" href="../../Client Forgot Password/"><i class="fas fa-arrow-left"></i></a>
         <div class="login_form">
             <div class="welcome_text">
                 <img class="logo" src="img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
@@ -63,7 +61,8 @@ if(isset($_POST['submit'])){
                             <i id="i_username" ></i>
                             <i class="fas fa-user-tie"></i>
                         </div>
-</div>
+                    </div>
+                </div>
                 
                 <div class="bttn_group">
                     <div class="login_bttn">

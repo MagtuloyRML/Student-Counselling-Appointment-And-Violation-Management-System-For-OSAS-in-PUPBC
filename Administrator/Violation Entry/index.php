@@ -139,6 +139,7 @@
         include ('assets/modal_add_vio_entry.php');
         include ('assets/modal_edit_vio_entry.php');
     ?>
+    <script src="assets/js/main.js"></script>
 
 
 

@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="body_content">
-        <a class="back_bttn" href="../index.php"><i class="fas fa-arrow-left"></i></a>
+        <a class="back_bttn" href="../../Client Forgot Password/"><i class="fas fa-arrow-left"></i></a>
         
 
         <div class="login_form">
@@ -46,7 +46,7 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                     </div>
-                    <div class="input_group">
+                    
                     <div class="input_container " >
                         <div class="input " id="input_username">
                             <input class="input-field" type="password" required placeholder="Confirm Password" name="con_password" id="con_password">
@@ -54,6 +54,7 @@
                             <i class="fas fa-user-tie"></i>
                         </div>
                     </div>
+                </div>
                 
                 <div class="bttn_group">
                     <div class="login_bttn">

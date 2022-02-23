@@ -121,7 +121,7 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if(result = "success"){
+                    if($.trim(result) == "success"){
                         $("#studDetails")[0].reset();
                         $("#table_data").append("assets/refresh_table.php");
                         $("#entrysubmit").attr("disabled", true);
@@ -285,7 +285,7 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if(result = "success"){
+                    if($.trim(result) == "success"){
                         $("#editDetails")[0].reset();
                         $("#table_data").append("assets/refresh_table.php");
                         $("#editsubmit").attr("disabled", true);
@@ -293,6 +293,9 @@ $(document).ready(function(){
                         $("#editsubmit").addClass('disable');
                         $('#modal_edit_entry').css('display', 'none');
                         window.location.href = '../Violation Entry/';
+                    }
+                    else if ($.trim(result) == "unknownStudent"){
+                        $("#i_studNumEdit").addClass('fa-circle-exclamation');
                     }
                      
                 }
