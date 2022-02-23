@@ -70,7 +70,7 @@
                                 ?></td>
                             <td class="approv_data"><?php echo $row['stat'] ?></td>
                             <td class="approv_data"><a href="confirm_sched_work.php?a_id=<?php echo $row['id']; ?>&id=<?= $name ?>"><i class="fas fa-thumbs-up"></i></a>
-                            <a href="cancel_sched_reason.php?a_id=<?php echo $row['id']; ?>&id=<?= $name ?>"><i class="fas fa-times-circle"></i></a></td>
+                            <a href="../Counceling Apointment Cancel/?php echo $row['id']; ?>&id=<?= $name ?>"><i class="fas fa-times-circle"></i></a></td>
                         </tr>
                         <?php
                                         }

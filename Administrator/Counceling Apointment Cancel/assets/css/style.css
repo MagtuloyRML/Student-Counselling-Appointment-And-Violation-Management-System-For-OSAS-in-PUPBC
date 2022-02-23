@@ -9,6 +9,8 @@
     --color-content0-bg: white;
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
+    --green-content-bg: #519259;
+    --green-content-hover: #064635;
     --body-color: rgb(209, 209, 209);
     --pink: #f42c38;
 
@@ -27,39 +29,35 @@
     box-sizing: border-box;
 }
 .content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: var(--color-content0-bg);
+    margin-top: 10px;
+    padding: 30px 5% 30px;
+    width: 70%;
 }
-
 .acc_bttn{
     font-size: 20px;
     background-color: transparent;
     color: rgb(136, 136, 136);
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
 }
 .acc_bttn:hover{
     color: rgb(84, 83, 87);
 }
 
-.profile{
-    margin-top: 10px;
-    background-color: white;
-    padding: 30px 5%;
-    width: 70%;
+.approv_content .title{
+    width: 180px;
 }
-.content_title{
-    color: var(--button-hover-color-font-icon);
-    padding-bottom: 20px;
+.title h1{
+    font-size: 1.5rem;
+    color: var(--button-color-font-icon);
+    display: inline-block;
+}
+.title hr{
+    border-bottom: 2px solid var(--maroong-content-bg);
+}
 
-}
-.content_appoint{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .text{
     font-size: var(--normal-font-size);
     padding: 10px;
@@ -142,4 +140,3 @@
 .cancelMSG{
     width: 40%;
 }
-
