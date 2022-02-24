@@ -53,8 +53,8 @@
                                 <?php if (isset($_GET['success'])) { ?>
                                     <p class="success"><?php echo $_GET['success']; ?></p>
                                 <?php } ?>
-                <form method ="POST" action="assets/insert_eval.php">
-                <h3 class="subtitle">Evaluation Form</h3>
+                    <form method ="POST" action="assets/insert_eval.php">
+                    <h3 class="subtitle">Evaluation Form</h3>
                         <div class="profile_pic">
                             <div id="prof_pic_div">
                                 <img class="prof_pic" id="prof_pic" src="../../assets/user_profile_pic/default_user.jpg" alt="Profile Pic">
@@ -93,7 +93,6 @@
                                 <div class="input " id="input_add">
                                     <input class="input-field " type="" placeholder="<?= $address ?>" name="add" id="add" readonly>
                                 </div>
-                                
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Contact Number: </label>
@@ -102,22 +101,23 @@
                                 </div>
                             </div>
                         </div>
-                    <form id="evaluate"  method = "POST">
+                    
                         <div class="input_group">
-                            <div class="input_container eval">
-                                <label for="#" class="label">Evaluation: </label>
-                                <div class="input " id="input_fname">
-                                    <input type="text" class="input-field" name="evaluation" id="evaluation" >
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_gender" class="fa-solid "></i>
+                            <div class="eval">
+                                <label for="#" class="label">Cancellation Reason: </label>
+                                <i class="fa-solid fa-asterisk"></i>
+                                <i id="i_reason" class="fa-solid "></i>
+                                <div class="input " id="input_fst_name">
+                                    <textarea class="input-field evalInput" placeholder="Evaluation of this Apppointment" name="evaluation" id="evaluation"></textarea>
                                 </div>
                             </div>
-                            <div class="input_container eval">
-                                <label for="#" class="label">Recommendation: </label>
-                                <div class="input " id="input_fname">
-                                    <input type="text" class="input-field" name="recommendation" id="recommendation" >
-                                    <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_gender" class="fa-solid "></i>
+                            <div class="eval">
+                                <label for="#" class="label">Cancellation Reason: </label>
+                                <i class="fa-solid fa-asterisk"></i>
+                                <i id="i_reason" class="fa-solid "></i>
+                                <div class="input " id="input_fst_name">
+                                    
+                                    <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation"></textarea>
                                 </div>
                             </div>
                         </div>                 

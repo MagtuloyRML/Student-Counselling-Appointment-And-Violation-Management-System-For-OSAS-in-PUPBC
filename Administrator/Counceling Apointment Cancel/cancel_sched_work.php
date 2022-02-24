@@ -69,10 +69,10 @@ if($data && $data2)
                 if(!$mail->send()){
                     echo "Mailer Error: " . $mail->ErrorInfo;
                 }else{
-                    echo "Message has been sent";
+                    echo "success";
                 }
             }
-            echo "<script>window.location.href='index.php?success=Appointment Cancelled'</script>";
+            echo "success";
             exit();
 }
 else
