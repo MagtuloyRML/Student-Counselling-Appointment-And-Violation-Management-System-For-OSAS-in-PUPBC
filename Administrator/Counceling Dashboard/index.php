@@ -530,38 +530,38 @@ if(isset($_POST['submit'])){
 
                         <!-- FOR UPCOMING APPOINTMENTS, NEED DESIGN-->
                         <?php 
-                        $upcoming = $conn->query("SELECT * FROM schedules WHERE remarks = '$name' AND start_app > NOW() AND stat = 'Confirmed' ORDER BY start_app ASC");
-                        $row_upcoming = mysqli_fetch_array($upcoming);
+                        //$upcoming = $conn->query("SELECT * FROM schedules WHERE remarks = '$name' AND start_app > NOW() AND stat = 'Confirmed' ORDER BY start_app ASC");
+                        //$row_upcoming = mysqli_fetch_array($upcoming);
 
                         //for the day
-                        $day = date("l", strtotime($row_upcoming['start_app']));
+                        //$day = date("l", strtotime($row_upcoming['start_app']));
 
                         //for the month
-                        $month = date("F", strtotime($row_upcoming['start_app']));
+                        //$month = date("F", strtotime($row_upcoming['start_app']));
 
                         //for the date num
-                        $dateNum = date("j", strtotime($row_upcoming['start_app']));
+                        //$dateNum = date("j", strtotime($row_upcoming['start_app']));
                         
                         //for the year
-                        $year = date("Y", strtotime($row_upcoming['start_app']));
+                        //$year = date("Y", strtotime($row_upcoming['start_app']));
 
                         //for the hour
-                        $hour = date("g", strtotime($row_upcoming['start_app']));
+                        //$hour = date("g", strtotime($row_upcoming['start_app']));
 
                         //for the minute
-                        $minute = date("i", strtotime($row_upcoming['start_app']));
+                        //$minute = date("i", strtotime($row_upcoming['start_app']));
                         ?>
                         <div class="date">
-                            <span id="dayname"><?= $day ?></span>,
-                            <span id="month"><?= $month ?></span>
-                            <span id="daynum"><?= $dateNum ?></span>,
-                            <span id="year"><?= $year ?></span>
+                            <span id="dayname"></span>
+                            <span id="month"></span>
+                            <span id="daynum"></span>
+                            <span id="year"></span>
                         </div>
                         <div class="time">
-                            <span id="hour"><?= $hour ?></span>:
-                            <span id="minutes"><?= $minute ?></span>:
-                            <span id="seconds">00</span>
-                            <span id="period">AM</span>
+                            <span id="hour"></span>
+                            <span id="minutes"></span>
+                            <span id="seconds"></span>
+                            <span id="period"></span>
                         </div>
                         <p class="chart_label">Pie Chart</p>
                         <div class="canvas_holder ">

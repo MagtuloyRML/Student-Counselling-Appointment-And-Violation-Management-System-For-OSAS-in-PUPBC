@@ -69,8 +69,10 @@ if (isset($_POST['submit'])) {
 				//if ever  walang kaparehas, papasok na yung nilagay sa form sa db.
 				
 				else{
-					$sql2 = "INSERT INTO schedules(title, email_add, client_id, anonymity, start_app, end_app, stat, remarks, reason)
-				VALUES('$name', '$email2', '$id', '$anonymous', '$start_app', '$end_app', '$stat', '$remarks', '$reason')";
+					$sql2 = "INSERT INTO schedules(title, email_add, client_id, app_date, anonymity, start_app, end_app, stat, remarks, reason)
+				VALUES('$name', '$email2', '$id', '$date_edited', '$anonymous', '$start_app', '$end_app', '$stat', '$remarks', '$reason')";
+				$notification = $conn->query("INSERT INTO adminnotification(AdminAccountID, NotificationTitle, NotificationMessage, AdminNotificationStatusID, DateTimeStamp)
+				VALUES('$remarks', 'New Appointment', 'You have a new appointment, check appointment approval page.', '2', NOW())");
 						$result2 = mysqli_query($conn, $sql2);
 						if ($result2){
 							header("Location: index.php?success=Recorded successfully");
@@ -98,8 +100,10 @@ if (isset($_POST['submit'])) {
 				//if ever  walang kaparehas, papasok na yung nilagay sa form sa db.
 				
 				else{
-					$sql2 = "INSERT INTO schedules(title, email_add, client_id, anonymity, start_app, end_app, stat, remarks, reason)
-					VALUES('$name', '$email2', '$id', '$anonymous', '$start_app', '$end_app', '$stat', '$remarks', '$reason')";
+					$sql2 = "INSERT INTO schedules(title, email_add, client_id, app_date, anonymity, start_app, end_app, stat, remarks, reason)
+				VALUES('$name', '$email2', '$id', '$date_edited', '$anonymous', '$start_app', '$end_app', '$stat', '$remarks', '$reason')";
+				$notification = $conn->query("INSERT INTO adminnotification(AdminAccountID, NotificationTitle, NotificationMessage, AdminNotificationStatusID, DateTimeStamp)
+				VALUES('$remarks', 'New Appointment', 'You have a new appointment, check appointment approval page.', '2', NOW())");
 						$result2 = mysqli_query($conn, $sql2);
 						if ($result2){
 							header("Location: index.php?success=Recorded successfully");

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 23, 2022 at 05:10 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.1
+-- Host: 127.0.0.1:3306
+-- Generation Time: Feb 24, 2022 at 10:27 AM
+-- Server version: 8.0.21
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,10 +27,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `accountstatus`
 --
 
-CREATE TABLE `accountstatus` (
-  `AccountStatusID` int(11) NOT NULL,
-  `StatusDescription` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `accountstatus`;
+CREATE TABLE IF NOT EXISTS `accountstatus` (
+  `AccountStatusID` int NOT NULL AUTO_INCREMENT,
+  `StatusDescription` varchar(50) NOT NULL,
+  PRIMARY KEY (`AccountStatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accountstatus`
@@ -46,33 +48,39 @@ INSERT INTO `accountstatus` (`AccountStatusID`, `StatusDescription`) VALUES
 -- Table structure for table `adminaccountinfo`
 --
 
-CREATE TABLE `adminaccountinfo` (
-  `AdminAccountID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `adminaccountinfo`;
+CREATE TABLE IF NOT EXISTS `adminaccountinfo` (
+  `AdminAccountID` int NOT NULL AUTO_INCREMENT,
   `AdminFirstName` varchar(255) NOT NULL,
   `AdminMiddleName` varchar(255) DEFAULT NULL,
   `AdminLastName` varchar(255) NOT NULL,
   `AdminSufifx` varchar(15) DEFAULT NULL,
-  `AdminUserRoleID` int(11) NOT NULL,
+  `AdminUserRoleID` int NOT NULL,
   `AdminContactNo` varchar(11) NOT NULL,
   `AdminUsername` varchar(255) NOT NULL,
   `AdminPassword` varchar(32) NOT NULL,
   `AdminEmailAdd` varchar(255) NOT NULL,
   `AdminAddress` text NOT NULL,
-  `GenderID` int(11) NOT NULL,
-  `AccountStatusID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `GenderID` int NOT NULL,
+  `AccountStatusID` int NOT NULL,
+  PRIMARY KEY (`AdminAccountID`),
+  KEY `adminUserRole_adminInfo` (`AdminUserRoleID`),
+  KEY `genderRole_adminInfo` (`GenderID`),
+  KEY `accountstat_adminInfo` (`AccountStatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminaccountinfo`
 --
 
 INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddleName`, `AdminLastName`, `AdminSufifx`, `AdminUserRoleID`, `AdminContactNo`, `AdminUsername`, `AdminPassword`, `AdminEmailAdd`, `AdminAddress`, `GenderID`, `AccountStatusID`) VALUES
-(1, 'Joseph', 'Blakis', 'kolorpul', '', 1, '09010102030', 'Sample', 'memapig009', 'Sample@gmail.com', 'Sample Address', 1, 1),
+(1, 'Joyce', '', 'Jurado', '', 1, '09010102030', 'Sample', 'admin1234', 'Sample@gmail.com', 'Sample Address', 2, 1),
 (2, 'Juana Miguels', 'Mendezs', 'De la Cruzs', '', 1, '09080706051', 'dcjuana1234', 'admin123', 'dcjuan@gmail.com', 'Sample address Binan, Lagunas', 1, 1),
 (3, 'Deigo', 'Mendez', 'De la Cruz', '', 1, '09080706050', 'Sample', 'rioPdjZsQS', 'dcjuan@gmail.com', 'qweqwe', 2, 1),
 (4, 'Juan', 'qewqwe', 'De la Cruz', '', 1, '09080706050', 'admin', 'oxiNsOy08h', 'dcjuan@gmail.com', 'Sample address', 2, 1),
 (5, 'Brian', 'Buendia', 'Pachecas', 'S', 2, '12345678910', 'admin', 'AdVoJclw7G', 'brianpacheca123@gmail.com', 'Munti', 1, 1),
-(6, 'Brian', 'Buendia', 'Pacheca', '', 1, '09123123123', 'admin', 'admin1234', 'brianpacheca123@gmail.com', 'Munti', 1, 1);
+(6, 'Brian', 'Buendia', 'Pacheca', '', 1, '09123123123', 'admin', 'admin1234', 'brianpacheca123@gmail.com', 'Munti', 1, 1),
+(7, 'Sample', '', 'Sample', '', 2, '09080706050', 'admin', 'dVh0IxBexR', 'dcjuan@gmail.com', 'Sample address', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -80,21 +88,27 @@ INSERT INTO `adminaccountinfo` (`AdminAccountID`, `AdminFirstName`, `AdminMiddle
 -- Table structure for table `adminnotification`
 --
 
-CREATE TABLE `adminnotification` (
-  `AdminNotification` int(11) NOT NULL,
-  `AdminAccountID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `adminnotification`;
+CREATE TABLE IF NOT EXISTS `adminnotification` (
+  `AdminNotification` int NOT NULL AUTO_INCREMENT,
+  `AdminAccountID` int NOT NULL,
   `NotificationTitle` varchar(255) NOT NULL,
   `NotificationMessage` text NOT NULL,
-  `AdminNotificationStatusID` int(11) NOT NULL,
-  `DateTimeStamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `AdminNotificationStatusID` int NOT NULL,
+  `DateTimeStamp` datetime NOT NULL,
+  PRIMARY KEY (`AdminNotification`),
+  KEY `adminNotif_adminAcc` (`AdminAccountID`),
+  KEY `adminNotif_Status` (`AdminNotificationStatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminnotification`
 --
 
 INSERT INTO `adminnotification` (`AdminNotification`, `AdminAccountID`, `NotificationTitle`, `NotificationMessage`, `AdminNotificationStatusID`, `DateTimeStamp`) VALUES
-(1, 1, 'Request Appointment', 'memaadasdasdasd', 2, '0000-00-00 00:00:00');
+(1, 1, 'Request Appointment', 'memaadasdasdasd', 2, '0000-00-00 00:00:00'),
+(3, 6, 'New Appointment', 'You have a new appointment, check appointment approval page.', 2, '2022-02-24 12:21:50'),
+(4, 1, 'New Appointment', 'You have a new appointment, check appointment approval page.', 2, '2022-02-24 13:49:46');
 
 -- --------------------------------------------------------
 
@@ -102,13 +116,16 @@ INSERT INTO `adminnotification` (`AdminNotification`, `AdminAccountID`, `Notific
 -- Table structure for table `adminprofilepictureinfo`
 --
 
-CREATE TABLE `adminprofilepictureinfo` (
-  `AdminProfilePictureID` int(11) NOT NULL,
-  `AdminAccountID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `adminprofilepictureinfo`;
+CREATE TABLE IF NOT EXISTS `adminprofilepictureinfo` (
+  `AdminProfilePictureID` int NOT NULL AUTO_INCREMENT,
+  `AdminAccountID` int NOT NULL,
   `PictureFilename` varchar(255) NOT NULL,
   `UploadDate` datetime NOT NULL,
-  `UsedStatus` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `UsedStatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`AdminProfilePictureID`),
+  KEY `appInfo_Admin` (`AdminAccountID`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminprofilepictureinfo`
@@ -138,9 +155,11 @@ INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`
 (21, 1, 'pbcscvs1202202191645240168.jpg', '2022-02-19 04:09:28', 0),
 (22, 1, 'pbcscvs1202202191645240198.jpg', '2022-02-19 04:09:58', 0),
 (23, 6, 'default_user.jpg', '2022-02-20 03:34:22', 0),
-(24, 1, 'pbcscvs1202202231645588047.jpg', '2022-02-23 03:47:27', 1),
+(24, 1, 'pbcscvs1202202231645588047.jpg', '2022-02-23 03:47:27', 0),
 (25, 6, 'pbcscvs6202202231645623875.jpg', '2022-02-23 14:44:35', 0),
-(26, 6, 'pbcscvs6202202231645623891.jpg', '2022-02-23 14:44:51', 1);
+(26, 6, 'pbcscvs6202202231645623891.jpg', '2022-02-23 14:44:51', 1),
+(27, 7, 'default_user.jpg', '2022-02-24 05:58:49', 1),
+(28, 1, 'pbcscvs1202202241645682789.jpg', '2022-02-24 06:06:29', 1);
 
 -- --------------------------------------------------------
 
@@ -148,14 +167,20 @@ INSERT INTO `adminprofilepictureinfo` (`AdminProfilePictureID`, `AdminAccountID`
 -- Table structure for table `adminuserrole`
 --
 
-CREATE TABLE `adminuserrole` (
-  `AdminUserRoleID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `adminuserrole`;
+CREATE TABLE IF NOT EXISTS `adminuserrole` (
+  `AdminUserRoleID` int NOT NULL AUTO_INCREMENT,
   `AdminUserRole` varchar(255) NOT NULL,
-  `AdminPageStudentCounceling` int(11) NOT NULL,
-  `AdminPageViolation` int(11) NOT NULL,
-  `AdminMaintenance` int(11) NOT NULL,
-  `StatusID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `AdminPageStudentCounceling` int NOT NULL,
+  `AdminPageViolation` int NOT NULL,
+  `AdminMaintenance` int NOT NULL,
+  `StatusID` int NOT NULL,
+  PRIMARY KEY (`AdminUserRoleID`),
+  KEY `accountStatus_rolestats` (`StatusID`),
+  KEY `studCounceling_status` (`AdminPageStudentCounceling`),
+  KEY `studViolation_status` (`AdminPageViolation`),
+  KEY `sysMain_status` (`AdminMaintenance`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminuserrole`
@@ -176,25 +201,28 @@ INSERT INTO `adminuserrole` (`AdminUserRoleID`, `AdminUserRole`, `AdminPageStude
 -- Table structure for table `avail_sched`
 --
 
-CREATE TABLE `avail_sched` (
-  `avail_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `avail_sched`;
+CREATE TABLE IF NOT EXISTS `avail_sched` (
+  `avail_id` int NOT NULL AUTO_INCREMENT,
   `meta_field` varchar(255) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `start_time` time NOT NULL,
-  `end_time` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `end_time` time NOT NULL,
+  PRIMARY KEY (`avail_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `avail_sched`
 --
 
 INSERT INTO `avail_sched` (`avail_id`, `meta_field`, `start_date`, `end_date`, `start_time`, `end_time`) VALUES
-(1, '1', '2022-02-13', '2022-02-19', '07:00:00', '18:00:00'),
+(1, '1', '2022-02-27', '2022-03-05', '07:00:00', '18:00:00'),
 (2, '2', '2022-02-19', '2022-02-20', '08:00:00', '09:00:00'),
 (3, '3', '2022-02-27', '2022-03-05', '07:00:00', '18:00:00'),
 (4, '4', '2022-03-06', '2022-03-12', '07:00:00', '18:00:00'),
-(5, '6', '2022-01-01', '2023-01-01', '00:00:00', '23:00:00');
+(5, '6', '2022-01-01', '2023-01-01', '00:00:00', '23:00:00'),
+(6, '7', '2022-01-01', '2023-01-01', '00:00:00', '23:00:00');
 
 -- --------------------------------------------------------
 
@@ -202,14 +230,15 @@ INSERT INTO `avail_sched` (`avail_id`, `meta_field`, `start_date`, `end_date`, `
 -- Table structure for table `clientaccountinfo`
 --
 
-CREATE TABLE `clientaccountinfo` (
-  `ClientAccountID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `clientaccountinfo`;
+CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
+  `ClientAccountID` int NOT NULL AUTO_INCREMENT,
   `ClientFirstName` varchar(255) NOT NULL,
   `ClientMiddleName` varchar(255) DEFAULT NULL,
   `ClientLastName` varchar(255) NOT NULL,
   `ClientSuffix` varchar(50) DEFAULT NULL,
   `ClientStudentNo` varchar(15) NOT NULL,
-  `RoleID` int(11) NOT NULL,
+  `RoleID` int NOT NULL,
   `ClientBDay` date NOT NULL,
   `ClientAddress` text NOT NULL,
   `ClientContactNo` varchar(25) NOT NULL,
@@ -217,9 +246,12 @@ CREATE TABLE `clientaccountinfo` (
   `ClientGuardianNo` varchar(25) NOT NULL,
   `ClientEmailAdd` varchar(255) NOT NULL,
   `ClientPassword` varchar(32) NOT NULL,
-  `ClientGenderID` int(11) NOT NULL,
-  `code` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ClientGenderID` int NOT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ClientAccountID`),
+  KEY `gender_role` (`ClientGenderID`),
+  KEY `user_role` (`RoleID`)
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientaccountinfo`
@@ -240,14 +272,18 @@ INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMi
 -- Table structure for table `clientnotification`
 --
 
-CREATE TABLE `clientnotification` (
-  `ClientNotification` int(11) NOT NULL,
-  `ClientAccountID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `clientnotification`;
+CREATE TABLE IF NOT EXISTS `clientnotification` (
+  `ClientNotification` int NOT NULL AUTO_INCREMENT,
+  `ClientAccountID` int NOT NULL,
   `NotificationTitle` varchar(255) NOT NULL,
   `NotificationMessage` text NOT NULL,
-  `ClientNotificationStatusID` int(11) NOT NULL,
-  `DateTimeStamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ClientNotificationStatusID` int NOT NULL,
+  `DateTimeStamp` datetime NOT NULL,
+  PRIMARY KEY (`ClientNotification`),
+  KEY `clientNotif_clientAcc` (`ClientAccountID`),
+  KEY `clientNotif_Status` (`ClientNotificationStatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientnotification`
@@ -255,7 +291,9 @@ CREATE TABLE `clientnotification` (
 
 INSERT INTO `clientnotification` (`ClientNotification`, `ClientAccountID`, `NotificationTitle`, `NotificationMessage`, `ClientNotificationStatusID`, `DateTimeStamp`) VALUES
 (1, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31'),
-(2, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31');
+(2, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31'),
+(3, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 12:23:07'),
+(4, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 13:50:27');
 
 -- --------------------------------------------------------
 
@@ -263,13 +301,16 @@ INSERT INTO `clientnotification` (`ClientNotification`, `ClientAccountID`, `Noti
 -- Table structure for table `clientprofilepictureinfo`
 --
 
-CREATE TABLE `clientprofilepictureinfo` (
-  `ClientProfilePictureID` int(11) NOT NULL,
-  `ClientAccountID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `clientprofilepictureinfo`;
+CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
+  `ClientProfilePictureID` int NOT NULL AUTO_INCREMENT,
+  `ClientAccountID` int NOT NULL,
   `PictureFilename` varchar(255) NOT NULL,
   `UploadDate` datetime NOT NULL,
-  `UsedStatus` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `UsedStatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`ClientProfilePictureID`),
+  KEY `cppInfo_Client` (`ClientAccountID`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientprofilepictureinfo`
@@ -304,9 +345,10 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (33, 46, '2014-00005-BN-0202202151644901663.jpg', '2022-02-15 05:07:43', 1),
 (34, 45, '2010-00001-BN-0202202181645180651.jpg', '2022-02-18 11:37:31', 1),
 (35, 34, '2019-00001-BN-0202202201645323811.jpg', '2022-02-20 03:23:31', 0),
-(36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 1),
+(36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 0),
 (37, 92, 'default_user.jpg', '2022-02-21 14:18:22', 1),
-(38, 34, '2019-00001-BN-0202202231645595175.jpg', '2022-02-23 05:46:15', 1);
+(38, 34, '2019-00001-BN-0202202231645595175.jpg', '2022-02-23 05:46:15', 1),
+(39, 91, '2018-01154-BN-0202202241645682759.jpg', '2022-02-24 06:05:59', 1);
 
 -- --------------------------------------------------------
 
@@ -314,13 +356,15 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 -- Table structure for table `forevaluation`
 --
 
-CREATE TABLE `forevaluation` (
-  `eval_id` int(11) NOT NULL,
-  `evaluator_id` int(11) NOT NULL,
-  `appointment_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `forevaluation`;
+CREATE TABLE IF NOT EXISTS `forevaluation` (
+  `eval_id` int NOT NULL AUTO_INCREMENT,
+  `evaluator_id` int NOT NULL,
+  `appointment_id` int NOT NULL,
   `evaluation` text NOT NULL,
-  `recommendation` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `recommendation` text NOT NULL,
+  PRIMARY KEY (`eval_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `forevaluation`
@@ -339,10 +383,12 @@ INSERT INTO `forevaluation` (`eval_id`, `evaluator_id`, `appointment_id`, `evalu
 -- Table structure for table `genderrole`
 --
 
-CREATE TABLE `genderrole` (
-  `GenderID` int(11) NOT NULL,
-  `Description` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `genderrole`;
+CREATE TABLE IF NOT EXISTS `genderrole` (
+  `GenderID` int NOT NULL AUTO_INCREMENT,
+  `Description` varchar(25) NOT NULL,
+  PRIMARY KEY (`GenderID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `genderrole`
@@ -358,10 +404,12 @@ INSERT INTO `genderrole` (`GenderID`, `Description`) VALUES
 -- Table structure for table `notificationstatus`
 --
 
-CREATE TABLE `notificationstatus` (
-  `NotificationStatusID` int(11) NOT NULL,
-  `NotificationStatusDescription` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `notificationstatus`;
+CREATE TABLE IF NOT EXISTS `notificationstatus` (
+  `NotificationStatusID` int NOT NULL AUTO_INCREMENT,
+  `NotificationStatusDescription` varchar(50) NOT NULL,
+  PRIMARY KEY (`NotificationStatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notificationstatus`
@@ -377,34 +425,43 @@ INSERT INTO `notificationstatus` (`NotificationStatusID`, `NotificationStatusDes
 -- Table structure for table `schedules`
 --
 
-CREATE TABLE `schedules` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `schedules`;
+CREATE TABLE IF NOT EXISTS `schedules` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `anonymity` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `email_add` varchar(255) NOT NULL,
-  `client_id` int(11) NOT NULL,
+  `client_id` int NOT NULL,
   `app_date` date NOT NULL,
   `start_app` datetime NOT NULL,
   `end_app` datetime NOT NULL,
   `stat` varchar(255) NOT NULL,
   `remarks` varchar(255) NOT NULL,
-  `reason` text DEFAULT NULL,
-  `cancel_id` int(11) DEFAULT NULL,
-  `cancel_reason` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `reason` text,
+  `cancel_id` int DEFAULT NULL,
+  `cancel_reason` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedules`
 --
 
 INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `app_date`, `start_app`, `end_app`, `stat`, `remarks`, `reason`, `cancel_id`, `cancel_reason`) VALUES
-(59, 'Yes', '', 'mema@gamil.com', 34, '2022-02-22', '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', '2', '', 0, NULL),
-(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-02-25', '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Pending', '1', 'Ikaw', 6, 'Conflicting schedule'),
-(61, 'No', '', 'brianpacheca123@gmail.com', 34, '2022-02-21', '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', '6', 'Nothing', 6, 'Conflicting schedule'),
-(62, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', '3', 'Ikaw', NULL, NULL),
-(63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', '6', 'Ermil', 6, 'Si ermil po kase'),
-(64, 'No', '', 'mema@gamil.com', 34, '2022-02-21', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', '6', 'Ikaw', 91, 'Wala lang'),
-(65, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-21', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Pending', '6', '', NULL, NULL);
+(59, 'Yes', '', 'mema@gamil.com', 34, '2022-01-22', '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', '1', '', 0, NULL),
+(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-01-25', '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Cancelled', '1', 'Ikaw', 1, 'dahil walang net'),
+(61, 'No', '', 'brianpacheca123@gmail.com', 34, '2022-01-21', '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', '1', 'Nothing', 6, 'Conflicting schedule'),
+(62, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', '1', 'Ikaw', NULL, NULL),
+(63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', '1', 'Ermil', 6, 'Si ermil po kase'),
+(64, 'No', '', 'mema@gamil.com', 34, '2022-02-28', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', '1', 'Ikaw', 91, 'Wala lang'),
+(65, 'No', '', 'brianpacheca123@gmail.com', 91, '2022-02-12', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Done', '1', '', NULL, NULL),
+(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', '1', 'zczczxczxczczxczxc', NULL, NULL),
+(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Pending', '1', 'Sample Reason', NULL, NULL),
+(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
+(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
+(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
+(71, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-28 12:00:00', '2022-02-28 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
+(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Pending', '1', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -412,10 +469,12 @@ INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `
 -- Table structure for table `statuscontent`
 --
 
-CREATE TABLE `statuscontent` (
-  `StatusID` int(11) NOT NULL,
-  `StatusDescription` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `statuscontent`;
+CREATE TABLE IF NOT EXISTS `statuscontent` (
+  `StatusID` int NOT NULL AUTO_INCREMENT,
+  `StatusDescription` varchar(20) NOT NULL,
+  PRIMARY KEY (`StatusID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `statuscontent`
@@ -431,11 +490,13 @@ INSERT INTO `statuscontent` (`StatusID`, `StatusDescription`) VALUES
 -- Table structure for table `tbl_admins`
 --
 
-CREATE TABLE `tbl_admins` (
-  `admin_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_admins`;
+CREATE TABLE IF NOT EXISTS `tbl_admins` (
+  `admin_id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -443,16 +504,18 @@ CREATE TABLE `tbl_admins` (
 -- Table structure for table `tbl_clients`
 --
 
-CREATE TABLE `tbl_clients` (
-  `stud_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_clients`;
+CREATE TABLE IF NOT EXISTS `tbl_clients` (
+  `stud_id` int NOT NULL AUTO_INCREMENT,
   `stud_num` varchar(255) NOT NULL,
   `stud_pass` varchar(255) NOT NULL,
   `stud_name` varchar(255) NOT NULL,
   `stud_email` varchar(255) NOT NULL,
   `stud_contact` varchar(255) NOT NULL,
   `stud_guardian` varchar(255) NOT NULL,
-  `guardian_contact` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `guardian_contact` varchar(255) NOT NULL,
+  PRIMARY KEY (`stud_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_clients`
@@ -467,11 +530,13 @@ INSERT INTO `tbl_clients` (`stud_id`, `stud_num`, `stud_pass`, `stud_name`, `stu
 -- Table structure for table `userrole`
 --
 
-CREATE TABLE `userrole` (
-  `RoleID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `userrole`;
+CREATE TABLE IF NOT EXISTS `userrole` (
+  `RoleID` int NOT NULL AUTO_INCREMENT,
   `Description` varchar(25) NOT NULL,
-  `ForPage` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ForPage` varchar(50) NOT NULL,
+  PRIMARY KEY (`RoleID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userrole`
@@ -480,233 +545,6 @@ CREATE TABLE `userrole` (
 INSERT INTO `userrole` (`RoleID`, `Description`, `ForPage`) VALUES
 (1, 'Student', 'Client'),
 (2, 'Administrator', 'Administrator');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `accountstatus`
---
-ALTER TABLE `accountstatus`
-  ADD PRIMARY KEY (`AccountStatusID`);
-
---
--- Indexes for table `adminaccountinfo`
---
-ALTER TABLE `adminaccountinfo`
-  ADD PRIMARY KEY (`AdminAccountID`),
-  ADD KEY `adminUserRole_adminInfo` (`AdminUserRoleID`),
-  ADD KEY `genderRole_adminInfo` (`GenderID`),
-  ADD KEY `accountstat_adminInfo` (`AccountStatusID`);
-
---
--- Indexes for table `adminnotification`
---
-ALTER TABLE `adminnotification`
-  ADD PRIMARY KEY (`AdminNotification`),
-  ADD KEY `adminNotif_adminAcc` (`AdminAccountID`),
-  ADD KEY `adminNotif_Status` (`AdminNotificationStatusID`);
-
---
--- Indexes for table `adminprofilepictureinfo`
---
-ALTER TABLE `adminprofilepictureinfo`
-  ADD PRIMARY KEY (`AdminProfilePictureID`),
-  ADD KEY `appInfo_Admin` (`AdminAccountID`);
-
---
--- Indexes for table `adminuserrole`
---
-ALTER TABLE `adminuserrole`
-  ADD PRIMARY KEY (`AdminUserRoleID`),
-  ADD KEY `accountStatus_rolestats` (`StatusID`),
-  ADD KEY `studCounceling_status` (`AdminPageStudentCounceling`),
-  ADD KEY `studViolation_status` (`AdminPageViolation`),
-  ADD KEY `sysMain_status` (`AdminMaintenance`);
-
---
--- Indexes for table `avail_sched`
---
-ALTER TABLE `avail_sched`
-  ADD PRIMARY KEY (`avail_id`);
-
---
--- Indexes for table `clientaccountinfo`
---
-ALTER TABLE `clientaccountinfo`
-  ADD PRIMARY KEY (`ClientAccountID`),
-  ADD KEY `gender_role` (`ClientGenderID`),
-  ADD KEY `user_role` (`RoleID`);
-
---
--- Indexes for table `clientnotification`
---
-ALTER TABLE `clientnotification`
-  ADD PRIMARY KEY (`ClientNotification`),
-  ADD KEY `clientNotif_clientAcc` (`ClientAccountID`),
-  ADD KEY `clientNotif_Status` (`ClientNotificationStatusID`);
-
---
--- Indexes for table `clientprofilepictureinfo`
---
-ALTER TABLE `clientprofilepictureinfo`
-  ADD PRIMARY KEY (`ClientProfilePictureID`),
-  ADD KEY `cppInfo_Client` (`ClientAccountID`);
-
---
--- Indexes for table `forevaluation`
---
-ALTER TABLE `forevaluation`
-  ADD PRIMARY KEY (`eval_id`);
-
---
--- Indexes for table `genderrole`
---
-ALTER TABLE `genderrole`
-  ADD PRIMARY KEY (`GenderID`);
-
---
--- Indexes for table `notificationstatus`
---
-ALTER TABLE `notificationstatus`
-  ADD PRIMARY KEY (`NotificationStatusID`);
-
---
--- Indexes for table `schedules`
---
-ALTER TABLE `schedules`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `statuscontent`
---
-ALTER TABLE `statuscontent`
-  ADD PRIMARY KEY (`StatusID`);
-
---
--- Indexes for table `tbl_admins`
---
-ALTER TABLE `tbl_admins`
-  ADD PRIMARY KEY (`admin_id`);
-
---
--- Indexes for table `tbl_clients`
---
-ALTER TABLE `tbl_clients`
-  ADD PRIMARY KEY (`stud_id`);
-
---
--- Indexes for table `userrole`
---
-ALTER TABLE `userrole`
-  ADD PRIMARY KEY (`RoleID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `accountstatus`
---
-ALTER TABLE `accountstatus`
-  MODIFY `AccountStatusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `adminaccountinfo`
---
-ALTER TABLE `adminaccountinfo`
-  MODIFY `AdminAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `adminnotification`
---
-ALTER TABLE `adminnotification`
-  MODIFY `AdminNotification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `adminprofilepictureinfo`
---
-ALTER TABLE `adminprofilepictureinfo`
-  MODIFY `AdminProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `adminuserrole`
---
-ALTER TABLE `adminuserrole`
-  MODIFY `AdminUserRoleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `avail_sched`
---
-ALTER TABLE `avail_sched`
-  MODIFY `avail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `clientaccountinfo`
---
-ALTER TABLE `clientaccountinfo`
-  MODIFY `ClientAccountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
-
---
--- AUTO_INCREMENT for table `clientnotification`
---
-ALTER TABLE `clientnotification`
-  MODIFY `ClientNotification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `clientprofilepictureinfo`
---
-ALTER TABLE `clientprofilepictureinfo`
-  MODIFY `ClientProfilePictureID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT for table `forevaluation`
---
-ALTER TABLE `forevaluation`
-  MODIFY `eval_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `genderrole`
---
-ALTER TABLE `genderrole`
-  MODIFY `GenderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `notificationstatus`
---
-ALTER TABLE `notificationstatus`
-  MODIFY `NotificationStatusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `schedules`
---
-ALTER TABLE `schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
-
---
--- AUTO_INCREMENT for table `statuscontent`
---
-ALTER TABLE `statuscontent`
-  MODIFY `StatusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tbl_admins`
---
-ALTER TABLE `tbl_admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `tbl_clients`
---
-ALTER TABLE `tbl_clients`
-  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `userrole`
---
-ALTER TABLE `userrole`
-  MODIFY `RoleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -724,8 +562,8 @@ ALTER TABLE `adminaccountinfo`
 -- Constraints for table `adminnotification`
 --
 ALTER TABLE `adminnotification`
-  ADD CONSTRAINT `adminNotif_Status` FOREIGN KEY (`AdminNotificationStatusID`) REFERENCES `notificationstatus` (`NotificationStatusID`),
-  ADD CONSTRAINT `adminNotif_adminAcc` FOREIGN KEY (`AdminAccountID`) REFERENCES `adminaccountinfo` (`AdminAccountID`);
+  ADD CONSTRAINT `adminNotif_adminAcc` FOREIGN KEY (`AdminAccountID`) REFERENCES `adminaccountinfo` (`AdminAccountID`),
+  ADD CONSTRAINT `adminNotif_Status` FOREIGN KEY (`AdminNotificationStatusID`) REFERENCES `notificationstatus` (`NotificationStatusID`);
 
 --
 -- Constraints for table `adminprofilepictureinfo`
@@ -743,11 +581,18 @@ ALTER TABLE `adminuserrole`
   ADD CONSTRAINT `sysMain_status` FOREIGN KEY (`AdminMaintenance`) REFERENCES `statuscontent` (`StatusID`);
 
 --
+-- Constraints for table `clientaccountinfo`
+--
+ALTER TABLE `clientaccountinfo`
+  ADD CONSTRAINT `gender_role` FOREIGN KEY (`ClientGenderID`) REFERENCES `genderrole` (`GenderID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `user_role` FOREIGN KEY (`RoleID`) REFERENCES `userrole` (`RoleID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `clientnotification`
 --
 ALTER TABLE `clientnotification`
-  ADD CONSTRAINT `clientNotif_Status` FOREIGN KEY (`ClientNotificationStatusID`) REFERENCES `notificationstatus` (`NotificationStatusID`),
-  ADD CONSTRAINT `clientNotif_clientAcc` FOREIGN KEY (`ClientAccountID`) REFERENCES `clientaccountinfo` (`ClientAccountID`);
+  ADD CONSTRAINT `clientNotif_clientAcc` FOREIGN KEY (`ClientAccountID`) REFERENCES `clientaccountinfo` (`ClientAccountID`),
+  ADD CONSTRAINT `clientNotif_Status` FOREIGN KEY (`ClientNotificationStatusID`) REFERENCES `notificationstatus` (`NotificationStatusID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
