@@ -39,7 +39,6 @@
     width: 70%;
 }
 
-
 .approv_content .title{
     width: 180px;
 }
@@ -79,7 +78,7 @@
 .display_approv .approv_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-hover);
-    font-size: 15px;
+    font-size: 13px;
 }
 .display_approv .approv_data{
     border: 1px solid #ddd;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 24, 2022 at 10:27 AM
+-- Generation Time: Feb 24, 2022 at 06:43 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `clientnotification` (
   PRIMARY KEY (`ClientNotification`),
   KEY `clientNotif_clientAcc` (`ClientAccountID`),
   KEY `clientNotif_Status` (`ClientNotificationStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientnotification`
@@ -293,7 +293,9 @@ INSERT INTO `clientnotification` (`ClientNotification`, `ClientAccountID`, `Noti
 (1, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31'),
 (2, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31'),
 (3, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 12:23:07'),
-(4, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 13:50:27');
+(4, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 13:50:27'),
+(5, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of Walang net.', 2, '2022-02-24 21:55:23'),
+(6, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of May trabaho.', 2, '2022-02-24 21:58:59');
 
 -- --------------------------------------------------------
 
@@ -310,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `clientprofilepictureinfo` (
   `UsedStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`ClientProfilePictureID`),
   KEY `cppInfo_Client` (`ClientAccountID`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientprofilepictureinfo`
@@ -347,8 +349,38 @@ INSERT INTO `clientprofilepictureinfo` (`ClientProfilePictureID`, `ClientAccount
 (35, 34, '2019-00001-BN-0202202201645323811.jpg', '2022-02-20 03:23:31', 0),
 (36, 91, 'default_user.jpg', '2022-02-20 13:38:31', 0),
 (37, 92, 'default_user.jpg', '2022-02-21 14:18:22', 1),
-(38, 34, '2019-00001-BN-0202202231645595175.jpg', '2022-02-23 05:46:15', 1),
-(39, 91, '2018-01154-BN-0202202241645682759.jpg', '2022-02-24 06:05:59', 1);
+(38, 34, '2019-00001-BN-0202202231645595175.jpg', '2022-02-23 05:46:15', 0),
+(39, 91, '2018-01154-BN-0202202241645682759.jpg', '2022-02-24 06:05:59', 1),
+(40, 34, '2019-00001-BN-0202202241645706085.jpg', '2022-02-24 12:34:45', 0),
+(41, 34, '2019-00001-BN-0202202241645706241.jpg', '2022-02-24 12:37:21', 0),
+(42, 34, '2019-00001-BN-0202202241645706368.jpg', '2022-02-24 12:39:28', 0),
+(43, 34, '2019-00001-BN-0202202241645706392.jpg', '2022-02-24 12:39:52', 0),
+(44, 34, '2019-00001-BN-0202202241645706405.jpg', '2022-02-24 12:40:05', 0),
+(45, 34, '2019-00001-BN-0202202241645706428.jpg', '2022-02-24 12:40:28', 0),
+(46, 34, '2019-00001-BN-0202202241645706437.jpg', '2022-02-24 12:40:37', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `counsellingzoomlink`
+--
+
+DROP TABLE IF EXISTS `counsellingzoomlink`;
+CREATE TABLE IF NOT EXISTS `counsellingzoomlink` (
+  `CounseZLinkID` int NOT NULL AUTO_INCREMENT,
+  `AdminAccountID` int NOT NULL,
+  `CounseZLink` text NOT NULL,
+  `DateTimeStamp` datetime NOT NULL,
+  PRIMARY KEY (`CounseZLinkID`),
+  KEY `zoomlink_adminAcc` (`AdminAccountID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `counsellingzoomlink`
+--
+
+INSERT INTO `counsellingzoomlink` (`CounseZLinkID`, `AdminAccountID`, `CounseZLink`, `DateTimeStamp`) VALUES
+(1, 1, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1', '2022-02-24 17:02:04');
 
 -- --------------------------------------------------------
 
@@ -363,8 +395,10 @@ CREATE TABLE IF NOT EXISTS `forevaluation` (
   `appointment_id` int NOT NULL,
   `evaluation` text NOT NULL,
   `recommendation` text NOT NULL,
-  PRIMARY KEY (`eval_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`eval_id`),
+  KEY `evaluator_AdminAcc` (`evaluator_id`),
+  KEY `appointSched_ForEvaluation` (`appointment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `forevaluation`
@@ -375,7 +409,8 @@ INSERT INTO `forevaluation` (`eval_id`, `evaluator_id`, `appointment_id`, `evalu
 (2, 6, 61, 'test', 'test'),
 (3, 6, 61, 'test', 'test'),
 (4, 6, 61, 'test', 'test'),
-(5, 6, 64, 'test', 'test');
+(5, 6, 64, 'test', 'test'),
+(6, 1, 65, 'Okay naman sya', 'Gawa ng bagong reseta');
 
 -- --------------------------------------------------------
 
@@ -436,11 +471,13 @@ CREATE TABLE IF NOT EXISTS `schedules` (
   `start_app` datetime NOT NULL,
   `end_app` datetime NOT NULL,
   `stat` varchar(255) NOT NULL,
-  `remarks` varchar(255) NOT NULL,
+  `remarks` int NOT NULL,
   `reason` text,
   `cancel_id` int DEFAULT NULL,
   `cancel_reason` text,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `appointSched_clientID` (`client_id`),
+  KEY `appointSched_evaluator` (`remarks`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
 
 --
@@ -448,20 +485,20 @@ CREATE TABLE IF NOT EXISTS `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `app_date`, `start_app`, `end_app`, `stat`, `remarks`, `reason`, `cancel_id`, `cancel_reason`) VALUES
-(59, 'Yes', '', 'mema@gamil.com', 34, '2022-01-22', '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', '1', '', 0, NULL),
-(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-01-25', '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Cancelled', '1', 'Ikaw', 1, 'dahil walang net'),
-(61, 'No', '', 'brianpacheca123@gmail.com', 34, '2022-01-21', '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', '1', 'Nothing', 6, 'Conflicting schedule'),
-(62, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', '1', 'Ikaw', NULL, NULL),
-(63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', '1', 'Ermil', 6, 'Si ermil po kase'),
-(64, 'No', '', 'mema@gamil.com', 34, '2022-02-28', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', '1', 'Ikaw', 91, 'Wala lang'),
-(65, 'No', '', 'brianpacheca123@gmail.com', 91, '2022-02-12', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Done', '1', '', NULL, NULL),
-(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', '1', 'zczczxczxczczxczxc', NULL, NULL),
-(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Pending', '1', 'Sample Reason', NULL, NULL),
-(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
-(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
-(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
-(71, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-28 12:00:00', '2022-02-28 13:00:00', 'Pending', '1', 'Anxiety Attack', NULL, NULL),
-(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Pending', '1', '', NULL, NULL);
+(59, 'Yes', '', 'mema@gamil.com', 34, '2022-01-22', '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', 1, '', 0, NULL),
+(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-01-25', '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Cancelled', 1, 'Ikaw', 1, 'dahil walang net'),
+(61, 'No', '', 'brianpacheca123@gmail.com', 34, '2022-01-21', '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', 1, 'Nothing', 6, 'Conflicting schedule'),
+(62, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', 1, 'Ikaw', NULL, NULL),
+(63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', 1, 'Ermil', 6, 'Si ermil po kase'),
+(64, 'No', '', 'mema@gamil.com', 34, '2022-02-28', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', 1, 'Ikaw', 91, 'Wala lang'),
+(65, 'No', '', 'brianpacheca123@gmail.com', 91, '2022-02-12', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Evaluated', 1, '', NULL, NULL),
+(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', 1, 'zczczxczxczczxczxc', NULL, NULL),
+(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Cancelled', 1, 'Sample Reason', 1, 'Walang net'),
+(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
+(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
+(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
+(71, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-28 12:00:00', '2022-02-28 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
+(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Cancelled', 1, '', 1, 'May trabaho');
 
 -- --------------------------------------------------------
 
@@ -593,6 +630,26 @@ ALTER TABLE `clientaccountinfo`
 ALTER TABLE `clientnotification`
   ADD CONSTRAINT `clientNotif_clientAcc` FOREIGN KEY (`ClientAccountID`) REFERENCES `clientaccountinfo` (`ClientAccountID`),
   ADD CONSTRAINT `clientNotif_Status` FOREIGN KEY (`ClientNotificationStatusID`) REFERENCES `notificationstatus` (`NotificationStatusID`);
+
+--
+-- Constraints for table `counsellingzoomlink`
+--
+ALTER TABLE `counsellingzoomlink`
+  ADD CONSTRAINT `zoomlink_adminAcc` FOREIGN KEY (`AdminAccountID`) REFERENCES `adminaccountinfo` (`AdminAccountID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `forevaluation`
+--
+ALTER TABLE `forevaluation`
+  ADD CONSTRAINT `appointSched_ForEvaluation` FOREIGN KEY (`appointment_id`) REFERENCES `schedules` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `evaluator_AdminAcc` FOREIGN KEY (`evaluator_id`) REFERENCES `adminaccountinfo` (`AdminAccountID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `schedules`
+--
+ALTER TABLE `schedules`
+  ADD CONSTRAINT `appointSched_clientID` FOREIGN KEY (`client_id`) REFERENCES `clientaccountinfo` (`ClientAccountID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `appointSched_evaluator` FOREIGN KEY (`remarks`) REFERENCES `adminaccountinfo` (`AdminAccountID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

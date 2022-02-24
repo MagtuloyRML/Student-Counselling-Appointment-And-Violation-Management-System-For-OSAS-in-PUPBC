@@ -112,3 +112,13 @@
     font-size: 11px;
     text-align: center;
 }
+.client_data .bttn_table{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--maroong-content-bg);
+    cursor: pointer;
+}
+.client_data .bttn_table:hover{
+    color: var(--maroong-content-hover);
+}

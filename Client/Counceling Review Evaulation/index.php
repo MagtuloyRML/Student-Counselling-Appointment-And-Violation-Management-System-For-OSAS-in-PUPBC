@@ -1,9 +1,8 @@
 <?php
-    $title = 'Evaulation Form';
-    $page = ' ';
+    $title = 'Review Evaulation';
+    $page = 'client_profile';
     include_once('../includes/header.php');
     
-    $id = $_SESSION['AdminID'];
     $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
     $name = "";
     while($row = mysqli_fetch_assoc($sql_fetch))
@@ -62,6 +61,12 @@
 
         $profile_pic = "<img class='prof_pic' id='prof_pic' src='../../assets/user_profile_pic/default_user.jpg' alt='Profile Pic'>";
     }
+
+    $sql_fetch44 = mysqli_query($conn, "SELECT * from forevaluation WHERE appointment_id = '$a_id'");
+    while($row44 = mysqli_fetch_assoc($sql_fetch44))
+    {
+        $recom = $row44['recommendation'];
+    }
     
 ?>
     <div class="body_container">
@@ -80,7 +85,7 @@
                                 <?php } ?>
                     <form id="evalEntry" method ="POST" action="assets/insert_eval.php">
                     <h3 class="subtitle">Evaluation Form</h3>
-                        <a href="../Counceling Client Page/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
+                        <a href="../Client Profile/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
                         <div class="profile_pic">
                             <div id="prof_pic_div">
                                 <?php echo $profile_pic; ?>
@@ -136,26 +141,14 @@
                     
                         <div class="input_group">
                             <div class="eval">
-                                <label for="#" class="label">Evaluation: </label>
-                                <i class="fa-solid fa-asterisk"></i>
-                                <i id="i_evaluation" class="fa-solid "></i>
-                                <div class="input " id="input_fst_name">
-                                    <textarea class="input-field evalInput" placeholder="Evaluation of this Apppointment" name="evaluation" id="evaluation"></textarea>
-                                </div>
-                            </div>
-                            <div class="eval">
                                 <label for="#" class="label">Recommendation: </label>
                                 <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_recommendation" class="fa-solid "></i>
                                 <div class="input " id="input_fst_name">
-                                    <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation"></textarea>
+                                    <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation" readonly><?= $recom ?></textarea>
                                 </div>
                             </div>
                         </div>                 
-                        <div class="action_content">
-                            <button class= "bttn" type="submit" name="submit" id="submit">
-                            <i class="fa-solid fa-address-card"></i>  Sumbit Form</button>
-                        </div>
                     </form>
             </div>
 

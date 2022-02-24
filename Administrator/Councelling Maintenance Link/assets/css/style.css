@@ -10,6 +10,7 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -38,7 +39,7 @@
     height: auto;
 }
 .content .title{
-    width: 270px;
+    width: 219px;
 }
 .content .title h1{
     font-size: 1.5rem;
@@ -49,7 +50,7 @@
     border-bottom: 2px solid var(--maroong-content-bg);
 }
 .content .subcontent .title{
-    width: 210px;
+    width: 230px;
 }
 .content .subcontent .title h1{
     font-size: 1.2rem;
@@ -60,14 +61,8 @@
     border-bottom: 2px solid var(--maroong-content-bg);
 }
 
-.subtitle{
-    padding-top: 10px;
-    padding-left: 10px;
-    color: var(--button-hover-color-font-icon);
-}
-
 .input_group{
-    padding: 10px 0 10px;
+    padding: 25px 5% 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -78,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 350px;
+    width: 100%;
     margin-bottom: 15px;
     font-size: var(--small-font-size);
     text-align: center;
@@ -87,6 +82,8 @@
     color: var(--button-hover-color-font-icon);
     margin-right: 5px;
     width: 100px;
+    font-weight: 600;
+    font-size: var(--normal-font-size);
 }
 .input_container .input{
     display: flex;
@@ -94,6 +91,7 @@
     justify-content: center;
     width: 100%;
     border-radius: .25rem;
+    font-size: var(--normal-font-size);
 }
   
 .input_container .input-field {
@@ -107,6 +105,16 @@
 .input .fas{
     padding: .5rem;
     font-size: 18px;
+    color: var(--maroong-content-bg);
+}
+.input_container .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.input_container .fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
     color: var(--maroong-content-bg);
 }
 
@@ -137,60 +145,22 @@
     cursor: pointer;
     outline: none;
 }
+.action_content .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+.action_content .disable:hover{
+    background-color: var(--button-hover-bg);
+}
+
 .action_content .bttn:hover{
     background-color: var(--maroong-content-hover);
-}
-
-.list{
-    padding-top: 25px;
-    width: 100%;
-    display: inline-block;
-    justify-content: center;
-}
-.list .list_title{
-    padding: 5px 30px 3px;
-    width: auto;
-    color: var(--color-content0-bg);
-    background-color: var(--maroong-content-bg);
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
-}
-.list .display{
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-}
-
-.display .table_title{
-    color: var(--color-content0-bg);
-    background-color: var(--maroong-content-hover);
-    font-size: 13px;
-}
-.display .data{
-    border: 1px solid #ddd;
-    padding: 2px 5px 2px;
-    font-size: var(--small-font-size);
-    font-size: 11px;
-    text-align: center;
-}
-.data a{
-    text-decoration: none;
-    font-size: 15px;
-}
-.input_fieldselect{
-    text-align: center;
-    background-color: transparent;
-    color: var(--button-hover-color-font-icon);
-    border: none;
-    width: 100%;
-    appearance: none;
-}
-.data .bttn_table{
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--maroong-content-bg);
-    cursor: pointer;
-}
-.data .bttn_table:hover{
-    color: var(--maroong-content-hover);
 }

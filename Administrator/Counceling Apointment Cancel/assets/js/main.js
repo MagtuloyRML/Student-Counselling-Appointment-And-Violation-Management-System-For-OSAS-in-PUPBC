@@ -35,15 +35,13 @@ $(document).ready(function () {
 
     $("#cancelAppoint").submit(function (e) { 
         e.preventDefault();
-
         if(errorReasonInput == true){
             $("#i_reason").removeClass('fa-circle-exclamation');
         }
-
         if(errorReasonInput == false  ){
             $.ajax({
                 url: "cancel_sched_work.php",
-                 type: 'POST',
+                type: 'POST',
                 data: $('#cancelAppoint').serialize(),
                 datatype: "text",
                 cache:false,

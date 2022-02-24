@@ -28,12 +28,12 @@
                     <h3 class="list_title">List</h3>
                     <table class="display_approv">
                         <tr> 
-                            <th class="approv_title">Appointment ID</th>
-                            <th class="approv_title">Title</th>
+                            <th class="approv_title" style="width: 12%;">Appointment ID</th>
+                            <th class="approv_title" style="width: 12%;">Title</th>
                             <th class="approv_title">Email Address</th>
                             <th class="approv_title">Appointment Date</th>
-                            <th class="approv_title">Status</th>
-                            <th class="approv_title">Confirmed By</th>
+                            <th class="approv_title" style="width: 12%;">Status</th>
+                            <th class="approv_title" >Confirmed By</th>
                         </tr>
                         <?php
                         include '../../assets/connection/DBconnection.php';
@@ -84,12 +84,12 @@
                     <h3 class="list_title">List</h3>
                     <table class="display_approv">
                         <tr> 
-                            <th class="approv_title">Appointment ID</th>
-                            <th class="approv_title">Title</th>
+                            <th class="approv_title" style="width: 12%;">Appointment ID</th>
+                            <th class="approv_title" style="width: 12%;">Title</th>
                             <th class="approv_title">Email Address</th>
                             <th class="approv_title">Appointment Date</th>
-                            <th class="approv_title">Status</th>
-                            <th class="approv_title">Remarks</th>
+                            <th class="approv_title" style="width: 12%;">Status</th>
+                            <th class="approv_title" >Remarks</th>
                         </tr>
                         <?php
                         include '../../assets/connection/DBconnection.php';

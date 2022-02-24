@@ -4,7 +4,7 @@ include "../../assets/connection/DBconnection.php"; // Using database connection
 require ('../../assets/PHPMailer/src/PHPMailer.php');
 require ('../../assets/PHPMailer/src/SMTP.php');
 
-if(isset($_POST['submit'])){
+
 $id = $_POST['id'];
 $client_id = $_POST['client_id'];
 $cancel_reason = $_POST['cancel_reason'];
@@ -81,5 +81,5 @@ else
 }
 
 exit();
-}
+
 ?>

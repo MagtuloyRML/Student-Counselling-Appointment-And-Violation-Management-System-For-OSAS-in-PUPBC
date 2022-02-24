@@ -127,12 +127,23 @@
 .cr_record .cr_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
-    font-size: 12px;
+    font-size: 13px;
 }
 .cr_record .cr_data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
     font-size: 11px;
+    text-align: center;
+}
+.cr_data .bttn_table{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--maroong-content-bg);
+    cursor: pointer;
+}
+.cr_data .bttn_table:hover{
+    color: var(--maroong-content-hover);
 }
 
 .upload_pic .upload_pic_hidden{

@@ -75,21 +75,49 @@
             <div class="counceling_records_content">
                 <h4>Counceling Records</h4>
                 <table class="cr_record">
-                    <tr> 
-                        <th class="cr_title">Counceling Num.</th>
-                        <th class="cr_title">Title Counceling</th>
-                        <th class="cr_title">Date</th>
+                     <tr> 
+                        <th class="cr_title">Appointment Num.</th>
+                        <th class="cr_title">Date and Time</th>
+                        <th class="cr_title">Anonymity</th>
                         <th class="cr_title">Monitored by:</th>
-                        <th class="cr_title">Status</th>
                     </tr>
+                <?php 
+                $id = $_SESSION['StudID'];
+
+                $sql_fetch = mysqli_query($conn, 
+                "SELECT eval.appointment_id, appointSched.start_app, appointSched.end_app, 
+                appointSched.anonymity, appointSched.client_id, client.ClientFirstName,
+                client.ClientMiddleName, client.ClientLastName, client.ClientSuffix
+                FROM forevaluation AS eval 
+                INNER JOIN schedules AS appointSched 
+                ON eval.appointment_id = appointSched.id 
+                INNER JOIN clientaccountinfo AS client 
+                ON appointSched.client_id = client.ClientAccountID WHERE appointSched.client_id = '$id' ");
+                while($row = mysqli_fetch_assoc($sql_fetch))
+                {
+                    $app_id = $row['appointment_id']; $dateTime = $row['start_app'].",".$row['end_app']; 
+                    $anonymity = $row['anonymity']; $client_id = $row['client_id'];
+                    if($anonymity == 'Yes'){
+                        $ano = 'Anonymous'; 
+                    }
+                    else{
+                        $ano = 'Not Anonymous'; 
+                    }
+                ?>
+                
                     <tr>
-                        <td class="cr_data">NO DATA AVAILABLE</td>
-                        <td class="cr_data">NO DATA AVAILABLE</td>
-                        <td class="cr_data">NO DATA AVAILABLE</td>
-                        <td class="cr_data">NO DATA AVAILABLE</td> 
-                        <td class="cr_data">NO DATA AVAILABLE</td>
+                        <td class="cr_data"><?= $app_id ?></td>
+                        <td class="cr_data"><?= $dateTime ?></td>
+                        <td class="cr_data"><?= $ano ?></td>
+                        <td class="cr_data">
+                            <a href="../Counceling Review Evaulation/?a_id=<?php echo $app_id; ?>" class="bttn_table">
+                            <i class="fa-solid fa-book-open"></i>  Review</a>
+                        </td> 
+                        
                     </tr>
+                    <?php }?>
                 </table>
+               
             </div>
 
             <div id="memapic">

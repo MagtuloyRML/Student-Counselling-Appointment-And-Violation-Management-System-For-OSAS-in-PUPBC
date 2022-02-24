@@ -34,26 +34,26 @@
     
     WHERE `anonymity` = 'No' AND `stat` = 'Done' AND `remarks` = '$name'");
 
-$query = $conn->query("SELECT 
-`id`,
-`ClientFirstName` as firstName,
-`ClientMiddleName` as middleName,
-`ClientLastName` as lastName,
-`ClientStudentNo` as studNum,
-`ClientAddress` as c_address,
-`ClientContactNo` as c_contact_num,
-`ClientGuardian` as guardian_name,
-`ClientGuardianNo` as guardian_num,
-`end_app`,
-`stat`,
-`anonymity`,
-`AdminFirstName` as a_firstName,
-`AdminLastName` as a_lastName
-FROM schedules
-INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
-INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
+    $query = $conn->query("SELECT 
+    `id`,
+    `ClientFirstName` as firstName,
+    `ClientMiddleName` as middleName,
+    `ClientLastName` as lastName,
+    `ClientStudentNo` as studNum,
+    `ClientAddress` as c_address,
+    `ClientContactNo` as c_contact_num,
+    `ClientGuardian` as guardian_name,
+    `ClientGuardianNo` as guardian_num,
+    `end_app`,
+    `stat`,
+    `anonymity`,
+    `AdminFirstName` as a_firstName,
+    `AdminLastName` as a_lastName
+    FROM schedules
+    INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
+    INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
 
-WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
+    WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
 
 ?>
     <div class="body_container">
@@ -76,18 +76,13 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                     <h3 class="list_title">Previous Clients</h3>
                     <table class="display_client">
                         <tr> 
-                            
-                        <th class="client_title">Appointment ID</th>
+                            <th class="client_title" style="width: 12%;">Appointment ID</th>
                             <th class="client_title">Name</th>
                             <th class="client_title">Student Number</th>
-                            <th class="client_title">Client Address</th>
-                            <th class="client_title">Client Contact Number</th>
-                            <th class="client_title">Guardian Name</th>
-                            <th class="client_title">Guardian Contact Number</th>
-                            <th class="client_title">Date of Appointment</th>
-                            <th class="client_title">Monitored By:</th>
-                            <th class="client_title">Status</th>
-                            <th class="client_title"></th>
+                            <th class="client_title" style="width: 12%;">Date of Appointment</th>
+                            <th class="client_title" style="width: 15%;">Monitored By:</th>
+                            <th class="client_title" style="width: 8%;">Status</th>
+                            <th class="client_title" style="width: 8%;"></th>
                         </tr>
                         <?php while($row = $sched->fetch_array()){
                             $c_nameFormat = $row['lastName'].', '.$row['firstName'].' '.$row['middleName'];
@@ -103,17 +98,13 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                             
                             ?>
                         <tr>
-                        <td class="client_data"><?= $id ?></td>
+                            <td class="client_data"><?= $id ?></td>
                             <td class="client_data"><?= $c_nameFormat ?></td>
                             <td class="client_data"><?= $studNum ?></td>
-                            <td class="client_data"><?= $address ?></td>
-                            <td class="client_data"><?= $contactNum ?></td>
-                            <td class="client_data"><?= $guardianName ?></td>
-                            <td class="client_data"><?= $guardianNum ?></td>
                             <td class="client_data"><?= $dateFormat ?></td>
                             <td class="client_data"><?= $a_nameFormat ?></td>
                             <td class="client_data"><?= $status ?></td>
-                            <td class="client_data"><a href="../Counceling Client Evaulation Form/index.php?a_id=<?php echo $row['id']; ?>"><i class="fas fa-thumbs-up"></i>Evaluate</a></td>
+                            <td class="client_data"><a href="../Counceling Client Evaulation Form/index.php?a_id=<?php echo $row['id']; ?>" class="bttn_table"><i class="fas fa-thumbs-up"></i>Evaluate</a></td>
                         </tr>
                         <?php } ?>
                     </table>
@@ -123,10 +114,13 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                     <h3 class="list_title">Previous Clients(Anonymous)</h3>
                     <table class="display_client">
                         <tr> 
-                        <th class="client_title">Appointment ID</th>
-                            <th class="client_title">Date of Appointment</th>
-                            <th class="client_title">Monitored By:</th>
-                            <th class="client_title">Status</th>
+                            <th class="client_title"style="width: 12%;">Appointment ID</th>
+                            <th class="client_title">Name</th>
+                            <th class="client_title">Student Number</th>
+                            <th class="client_title" style="width: 12%;">Date of Appointment</th>
+                            <th class="client_title" style="width: 15%;">Monitored By:</th>
+                            <th class="client_title" style="width: 8%;">Status</th>
+                            <th class="client_title" style="width: 8%;"></th>
                         </tr>
                         <?php while($row = $query->fetch_array()){
                             
@@ -137,10 +131,13 @@ WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
                             
                             ?>
                         <tr>
-                        <td class="client_data"><?= $id ?></td>
+                            <td class="client_data"><?= $id ?></td>
+                            <td class="client_data"> </td>
+                            <td class="client_data"> </td>
                             <td class="client_data"><?= $dateFormat ?></td>
                             <td class="client_data"><?= $a_nameFormat ?></td>
                             <td class="client_data"><?= $status ?></td>
+                            <td class="client_data"><a href="../Counceling Client Evaulation Form/index.php?a_id=<?php echo $row['id']; ?>" class="bttn_table"><i class="fas fa-thumbs-up"></i>Evaluate</a></td>
                         </tr>
                         <?php } ?>
                     </table>

@@ -39,14 +39,14 @@
                     <table class="display_approv">
                         <tr> 
                         
-                            <th class="approv_title">Appointment ID
+                            <th class="approv_title" style="width: 13%;">Appointment ID
                             <input type="hidden" name="id" id="id" value="<?= $name ?>">
                             </th>
-                            <th class="approv_title">Name</th>
+                            <th class="approv_title" style="width: auto;">Email</th>
                             <th class="approv_title">Ailment</th>
                             <th class="approv_title">Appointment Date</th>
-                            <th class="approv_title">Status</th>
-                            <th class="approv_title">Actions</th>
+                            <th class="approv_title" style="width: 10%;">Status</th>
+                            <th class="approv_title" style="width: 10%;">Actions</th>
                         </tr>
                         <?php
                         include '../../assets/connection/DBconnection.php';

@@ -10,6 +10,7 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -29,6 +30,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 50px;
+}
+.acc_bttn{
+    font-size: 20px;
+    background-color: transparent;
+    color: rgb(136, 136, 136);
+    border: none;
+    cursor: pointer;
+    padding: 0 15px 0;
+    margin-top: 10px;
+}
+.acc_bttn:hover{
+    color: rgb(84, 83, 87);
 }
 .content{
     background-color: var(--color-content0-bg);
@@ -58,6 +72,28 @@
 }
 .content .subcontent .title hr{
     border-bottom: 2px solid var(--maroong-content-bg);
+}
+
+.profile_pic{
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px 0 10px;
+}
+
+.profile_pic .prof_pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-image: none;
+}
+
+h4{
+    color: var(--button-hover-color-font-icon);
+    font-weight: 600;
+    padding: 10px 10px 10px;
 }
 
 .subtitle{
@@ -95,6 +131,9 @@
     width: 100%;
     border-radius: .25rem;
 }
+.eval{
+    width: 95%;
+}
   
 .input_container .input-field {
     color: var(--button-hover-color-font-icon);
@@ -103,6 +142,51 @@
     outline: none;
     border: none;
     background-color: transparent;
+}
+.evalInput{
+    resize: none;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    min-width: 200px;
+    color: var(--button-hover-color-font-icon);
+    border-radius: .25rem;
+    border: 1px solid var(--button-hover-color-font-icon);
+}
+
+.eval .label{
+    font-size: var(--normal-font-size);
+    color: var(--button-hover-color-font-icon);
+    font-weight: 600;
+    padding: 10px;
+}
+.fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+}
+.fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.input_container .fas{
+    padding: .5rem;
+    font-size: 18px;
+    color: var(--maroong-content-bg);
+}
+
+
+.input_container .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.input_container .fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
 }
 .input .fas{
     padding: .5rem;
@@ -140,6 +224,21 @@
 .action_content .bttn:hover{
     background-color: var(--maroong-content-hover);
 }
+.action_content .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+.action_content .disable:hover{
+    background-color: var(--button-hover-bg);
+}
 
 .list{
     padding-top: 25px;
@@ -164,33 +263,19 @@
 .display .table_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-hover);
-    font-size: 13px;
 }
 .display .data{
     border: 1px solid #ddd;
     padding: 2px 5px 2px;
     font-size: var(--small-font-size);
-    font-size: 11px;
-    text-align: center;
 }
 .data a{
     text-decoration: none;
     font-size: 15px;
 }
 .input_fieldselect{
-    text-align: center;
     background-color: transparent;
     color: var(--button-hover-color-font-icon);
     border: none;
     width: 100%;
-    appearance: none;
-}
-.data .bttn_table{
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--maroong-content-bg);
-    cursor: pointer;
-}
-.data .bttn_table:hover{
-    color: var(--maroong-content-hover);
 }
