@@ -12,7 +12,7 @@
     }
     $c_id = $_GET['id'];
     $a_id = $_GET['a_id'];
-
+    $cancel_id = $_GET['client_id'];
 ?>
     <form id="cancelAppoint" method ="POST" >
         <div class="body_container">
@@ -38,6 +38,7 @@
                                 <div class="input " id="input_fst_name">
                                     <input type="hidden" class="input_field" id="id" name="id" value ="<?= $c_id ?>">
                                     <input type="hidden" class="input_field" id="a_id" name="a_id" value ="<?= $a_id ?>">
+                                    <input type="hidden" class="input_field" id="client_id" name="client_id" value ="<?= $cancel_id ?>">
                                     <textarea class="input-field" placeholder="Reason to Cancel this Appointnment" name="cancel_reason" id="cancel_reason"></textarea>
                                 </div>
                             </div>

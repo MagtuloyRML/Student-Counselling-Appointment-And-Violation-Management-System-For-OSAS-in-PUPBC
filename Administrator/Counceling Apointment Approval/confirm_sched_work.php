@@ -6,7 +6,7 @@ require ('../../assets/PHPMailer/src/SMTP.php');
 
 
 $id = $_GET['id'];
-
+$client_id = $_GET['client_id'];
 $find = $conn->query("SELECT * FROM adminaccountinfo WHERE AdminAccountID = '$id'");
 $row = mysqli_fetch_array($find);
 $finalNameFormat = $row['AdminFirstName'] . ' ' . $row['AdminLastName'];
@@ -16,7 +16,8 @@ $query = "UPDATE schedules SET stat ='$stat', remarks ='$id' WHERE id = '$appoin
 $get = "SELECT * FROM schedules WHERE id = '$appointmentID'";
 $data2=mysqli_query($conn, $get);
 $data=mysqli_query($conn, $query);
-
+$notification = $conn->query("INSERT INTO clientnotification(ClientAccountID, NotificationTitle, NotificationMessage, ClientNotificationStatusID, DateTimeStamp)
+VALUES('$client_id', 'Appointment Confirmed', 'Your pending appointment has been approved.', '2', NOW())");
 if($data && $data2)
 {
             while($row = $data2->fetch_array()){
@@ -41,25 +42,25 @@ if($data && $data2)
         
             $mail -> isSMTP();
         
-            $mail -> Host = "mail.smtp2go.com";
+            $mail -> Host = "smtp.gmail.com";
         
             $mail -> SMTPAuth = true;
         
-            $mail -> Username = "iskolarngbayan.pup.edu.ph";
-            $mail -> Password = "bMadDrTrXEnCpjkf";
+            $mail -> Username = "godrel0422@gmail.com";
+            $mail -> Password = "SimplePassword123";
         
             $mail -> SMTPSecure = "tls";
         
-            $mail -> Port = "2525";
+            $mail -> Port = "587";
         
             $mail -> From = "godrel0422@gmail.com";
-            $mail -> FromName = "Test Code Scheduling";
+            $mail -> FromName = "Scheduling Appointment";
         
             $mail -> addAddress($mailTo, "Test");
         
             $mail -> isHTML(true);
         
-            $mail -> Subject = "Test Email Notification";
+            $mail -> Subject = "Appointment Confirmed";
         
             $mail -> Body = $body;
             
