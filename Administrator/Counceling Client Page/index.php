@@ -132,8 +132,8 @@
                             ?>
                         <tr>
                             <td class="client_data"><?= $id ?></td>
-                            <td class="client_data"> </td>
-                            <td class="client_data"> </td>
+                            <td class="client_data">None</td>
+                            <td class="client_data">None</td>
                             <td class="client_data"><?= $dateFormat ?></td>
                             <td class="client_data"><?= $a_nameFormat ?></td>
                             <td class="client_data"><?= $status ?></td>

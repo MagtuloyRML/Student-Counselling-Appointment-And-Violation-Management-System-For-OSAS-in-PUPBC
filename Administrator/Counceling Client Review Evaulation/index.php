@@ -16,6 +16,10 @@
     t1.anonymity,
     t1.email_add,
     t1.stat,
+    t1.app_date,
+    t1.start_app,
+    t1.end_app,
+    t1.CounseZLink,
     t2.ClientAccountID as cID,
     t2.ClientStudentNo as studNum,
     t2.ClientFirstName as firstName,
@@ -33,6 +37,13 @@
     $appointmentID = $row2['id'];
     $anonymity = $row2['anonymity'];
     $cID = $row2['cID'];
+    $contactnum = $row2['contact_num'];
+    $app_date = $row2['app_date'];
+    $start_app = $row2['start_app'];
+    $nstart_app = date("g:i a", strtotime($start_app));
+    $end_app = $row2['end_app'];
+    $nend_app = date("g:i a", strtotime($end_app));
+    $CounseZLink = $row2['CounseZLink'];
 
     if($anonymity != 'Yes'){
         $email_add = $row2['email_add'];
@@ -41,7 +52,7 @@
         $gender = $row2['gender'];
         $address = $row2['client_address'];
         $birthday = $row2['birthdate'];
-        $contactnum = $row2['contact_num'];
+        
 
         $sql_fetchpic = mysqli_query($conn, "SELECT PictureFilename from clientprofilepictureinfo WHERE ClientAccountID = '$cID' AND UsedStatus = TRUE ");
         while($detailpic = mysqli_fetch_assoc($sql_fetchpic))
@@ -58,7 +69,6 @@
         $gender = 'Unknown';
         $address = 'Unknown';
         $birthday = 'Unknown';
-        $contactnum = 'Unknown';
 
         $profile_pic = "<img class='prof_pic' id='prof_pic' src='../../assets/user_profile_pic/default_user.jpg' alt='Profile Pic'>";
     }
@@ -84,8 +94,7 @@
                                 <?php if (isset($_GET['success'])) { ?>
                                     <p class="success"><?php echo $_GET['success']; ?></p>
                                 <?php } ?>
-                    <form id="evalEntry" method ="POST" action="assets/insert_eval.php">
-                    <h3 class="subtitle">Evaluation Form</h3>
+                    <h3 class="subtitle">Review Evaluation Form</h3>
                         <a href="../Administrator Profile/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
                         <div class="profile_pic">
                             <div id="prof_pic_div">
@@ -97,7 +106,7 @@
                             <div class="input_container">
                                 <label for="#" class="label">Full Name: </label>
                                 <div class="input " id="input_fst_name">
-                                    <input class="input-field" type="text" placeholder="<?= $fname ?>" name="fst_name" id="fst_name" readonly>
+                                    <input class="input-field" type="text" value="<?= $fname ?>" name="fst_name" id="fst_name" readonly>
                                     <input class="input-field" type="hidden" value="<?= $appointmentID ?>" name="a_id" id="a_id" >
                                     <input class="input-field" type="hidden" value="<?= $name ?>" name="id" id="id" >
                                 </div>
@@ -105,40 +114,69 @@
                             <div class="input_container">
                                 <label for="#" class="label">Student Number: </label>
                                 <div class="input " id="input_mid_name">
-                                    <input class="input-field" type="text" placeholder="<?= $studNum ?>" name="mid_name" id="mid_name" readonly>
+                                    <input class="input-field" type="text" value="<?= $studNum ?>" name="mid_name" id="mid_name" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Birtdate: </label>
                                 <div class="input " id="input_mid_name">
-                                    <input class="input-field" type="text" placeholder="<?= $birthday ?>" name="mid_name" id="mid_name" readonly>
+                                    <input class="input-field" type="text" value="<?= $birthday ?>" name="mid_name" id="mid_name" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Gender: </label>
                                 <div class="input " id="input_last_name">
-                                    <input class="input-field" type="text" placeholder="<?= $gender ?>" name="last_name" id="last_name" readonly>
+                                    <input class="input-field" type="text" value="<?= $gender ?>" name="last_name" id="last_name" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Email: </label>
                                 <div class="input " id="input_admin_email">
-                                    <input class="input-field" type="text" placeholder="<?= $email_add ?>" name="admin_email" id="admin_email" readonly>
+                                    <input class="input-field" type="text" value="<?= $email_add ?>" name="admin_email" id="admin_email" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Address: </label>
                                 <div class="input " id="input_add">
-                                    <input class="input-field " type="" placeholder="<?= $address ?>" name="add" id="add" readonly>
+                                    <input class="input-field " type="" value="<?= $address ?>" name="add" id="add" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Contact Number: </label>
                                 <div class="input " id="input_admin_contact">
-                                    <input class="input-field" type="text" placeholder="<?= $contactnum ?>" name="admin_contact" id="admin_contact" readonly>
+                                    <input class="input-field" type="text" value="<?= $contactnum ?>" name="admin_contact" id="admin_contact" readonly>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Anonymity: </label>
+                                <div class="input " id="input_admin_contact">
+                                    <input class="input-field" type="text" value="<?= $anonymity ?>" name="admin_contact" id="admin_contact" readonly>
                                 </div>
                             </div>
                         </div>
+
+                        <h4>Apppointment Information:</h4>
+                        <div class="input_group">
+                            <div class="input_container">
+                                <label for="#" class="label">Apppointment Date: </label>
+                                <div class="input " id="input_mid_name">
+                                    <input class="input-field" type="text" value="<?php echo $app_date ?>" name="mid_name" id="mid_name" readonly>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Apppointment Time: </label>
+                                <div class="input " id="input_mid_name">
+                                    <input class="input-field" type="text" value="<?= $nstart_app.' - '.$nend_app ?>" name="mid_name" id="mid_name" readonly>
+                                </div>
+                            </div>
+                            <div class="input_container link">
+                                <label for="#" class="label">Zoom Link: </label>
+                                <div class="input " id="input_mid_name">
+                                    <input class="input-field" type="text" value="<?= $CounseZLink ?>" name="mid_name" id="mid_name" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        
                     
                         <div class="input_group">
                             <div class="eval">
@@ -157,8 +195,11 @@
                                     <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation" readonly><?= $recom ?></textarea>
                                 </div>
                             </div>
-                        </div>                 
-                    </form>
+                        </div>
+                        <div class="action_content">
+                            <a href="../Counceling Client Edit Evaulation/?a_id=<?php echo $appointmentID; ?>" class= "bttn" id="submit"> <i class="fa-solid fa-pen-to-square"></i> Edit Evaluation Form</a>
+                        </div>                
+                    
             </div>
 
         </div>

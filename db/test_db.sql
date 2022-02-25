@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 24, 2022 at 06:43 PM
+-- Generation Time: Feb 25, 2022 at 05:14 AM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `clientnotification` (
   PRIMARY KEY (`ClientNotification`),
   KEY `clientNotif_clientAcc` (`ClientAccountID`),
   KEY `clientNotif_Status` (`ClientNotificationStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientnotification`
@@ -295,7 +295,10 @@ INSERT INTO `clientnotification` (`ClientNotification`, `ClientAccountID`, `Noti
 (3, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 12:23:07'),
 (4, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 13:50:27'),
 (5, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of Walang net.', 2, '2022-02-24 21:55:23'),
-(6, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of May trabaho.', 2, '2022-02-24 21:58:59');
+(6, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of May trabaho.', 2, '2022-02-24 21:58:59'),
+(7, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:31:51'),
+(8, 34, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:39:48'),
+(9, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:41:16');
 
 -- --------------------------------------------------------
 
@@ -410,7 +413,7 @@ INSERT INTO `forevaluation` (`eval_id`, `evaluator_id`, `appointment_id`, `evalu
 (3, 6, 61, 'test', 'test'),
 (4, 6, 61, 'test', 'test'),
 (5, 6, 64, 'test', 'test'),
-(6, 1, 65, 'Okay naman sya', 'Gawa ng bagong reseta');
+(6, 1, 65, 'Okay naman sya masakit lang ulo nya', 'Uminom ng biogesic pati sarsi');
 
 -- --------------------------------------------------------
 
@@ -475,6 +478,7 @@ CREATE TABLE IF NOT EXISTS `schedules` (
   `reason` text,
   `cancel_id` int DEFAULT NULL,
   `cancel_reason` text,
+  `CounseZLink` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   PRIMARY KEY (`id`),
   KEY `appointSched_clientID` (`client_id`),
   KEY `appointSched_evaluator` (`remarks`)
@@ -484,21 +488,21 @@ CREATE TABLE IF NOT EXISTS `schedules` (
 -- Dumping data for table `schedules`
 --
 
-INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `app_date`, `start_app`, `end_app`, `stat`, `remarks`, `reason`, `cancel_id`, `cancel_reason`) VALUES
-(59, 'Yes', '', 'mema@gamil.com', 34, '2022-01-22', '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', 1, '', 0, NULL),
-(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-01-25', '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Cancelled', 1, 'Ikaw', 1, 'dahil walang net'),
-(61, 'No', '', 'brianpacheca123@gmail.com', 34, '2022-01-21', '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', 1, 'Nothing', 6, 'Conflicting schedule'),
-(62, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Pending', 1, 'Ikaw', NULL, NULL),
-(63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', 1, 'Ermil', 6, 'Si ermil po kase'),
-(64, 'No', '', 'mema@gamil.com', 34, '2022-02-28', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', 1, 'Ikaw', 91, 'Wala lang'),
-(65, 'No', '', 'brianpacheca123@gmail.com', 91, '2022-02-12', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Evaluated', 1, '', NULL, NULL),
-(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', 1, 'zczczxczxczczxczxc', NULL, NULL),
-(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Cancelled', 1, 'Sample Reason', 1, 'Walang net'),
-(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
-(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
-(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
-(71, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-28 12:00:00', '2022-02-28 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL),
-(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Cancelled', 1, '', 1, 'May trabaho');
+INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `app_date`, `start_app`, `end_app`, `stat`, `remarks`, `reason`, `cancel_id`, `cancel_reason`, `CounseZLink`) VALUES
+(59, 'Yes', '', 'mema@gamil.com', 34, '2022-01-22', '2022-02-20 09:00:00', '2022-02-20 10:00:00', 'Done', 1, '', 0, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(60, 'Yes', '', 'brianpacheca123@gmail.com', 34, '2022-01-25', '2022-02-22 22:00:00', '2022-02-22 23:00:00', 'Cancelled', 1, 'Ikaw', 1, 'dahil walang net', NULL),
+(61, 'No', '', 'brianpacheca123@gmail.com', 34, '2022-01-21', '2022-02-21 18:00:00', '2022-02-21 19:00:00', 'Evaluated', 1, 'Nothing', 6, 'Conflicting schedule', 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(62, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-03-01 10:00:00', '2022-03-01 11:00:00', 'Confirmed', 1, 'Ikaw', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', 1, 'Ermil', 6, 'Si ermil po kase', NULL),
+(64, 'No', '', 'mema@gamil.com', 34, '2022-02-28', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', 1, 'Ikaw', 91, 'Wala lang', 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(65, 'No', '', 'brianpacheca123@gmail.com', 91, '2022-02-12', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Evaluated', 1, '', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', 1, 'zczczxczxczczxczxc', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Cancelled', 1, 'Sample Reason', 1, 'Walang net', NULL),
+(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', 1, 'Anxiety Attack', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL, NULL),
+(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL, NULL),
+(71, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-28 12:00:00', '2022-02-28 13:00:00', 'Confirmed', 1, 'Anxiety Attack', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Cancelled', 1, '', 1, 'May trabaho', NULL);
 
 -- --------------------------------------------------------
 

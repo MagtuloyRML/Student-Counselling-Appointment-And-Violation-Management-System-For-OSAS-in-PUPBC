@@ -41,7 +41,6 @@
 
 .modal_upload_bg .modal_upload{
     overflow: auto;
-    width: 60%;
     background-color: var(--color-content0-bg);
     border-radius: .5rem;
 }

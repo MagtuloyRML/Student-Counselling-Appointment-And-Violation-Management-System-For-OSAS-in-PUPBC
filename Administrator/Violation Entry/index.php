@@ -75,15 +75,6 @@
                         <div class="action_bttn">
                             <button class="bttn" id="bttnModalEntry"> Create Entry</button>
                         </div>
-                        <div class="action_bttn">
-                            <button class="bttn" >Delete</button>
-                        </div>
-                        <div class="action_bttn">
-                            <button class="bttn" >Update</button>
-                        </div>
-                        <div class="action_bttn">
-                            <button class="bttn" >Clear</button>
-                        </div>
                     </div>
             </div>
             

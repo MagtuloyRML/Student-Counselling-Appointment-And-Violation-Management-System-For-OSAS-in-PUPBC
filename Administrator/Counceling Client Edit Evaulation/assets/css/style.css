@@ -143,7 +143,6 @@ h4{
 }
 .eval{
     width: 95%;
-    font-size: 11px;
 }
   
 .input_container .input-field {
@@ -157,7 +156,7 @@ h4{
 }
 .evalInput{
     resize: none;
-    font-size: 11px;
+    font-size: 14px;
     padding: 10px;
     width: 100%;
     height: 200px;
@@ -165,13 +164,14 @@ h4{
     color: var(--button-hover-color-font-icon);
     border-radius: .25rem;
     border: 1px solid var(--button-hover-color-font-icon);
+    font-size: 11px;
 }
 
 .eval .label{
-    font-size: 11px;
     color: var(--button-hover-color-font-icon);
     font-weight: 600;
     padding: 10px;
+    font-size: 11px;
 }
 .fa-circle-exclamation{
     padding: .5rem;

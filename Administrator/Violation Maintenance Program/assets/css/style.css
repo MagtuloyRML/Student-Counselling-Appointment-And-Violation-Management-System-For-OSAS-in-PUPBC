@@ -84,8 +84,8 @@
 }
 
 /*modal*/
-.modal_bg .modal{
-    width: 45%;
+.modal_upload_bg .modal_upload{
+    width: 80%;
 }
 .modal_content{
     display: flex;

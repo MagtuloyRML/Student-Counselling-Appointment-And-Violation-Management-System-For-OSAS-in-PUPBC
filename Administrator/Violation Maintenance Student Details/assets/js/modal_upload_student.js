@@ -150,6 +150,10 @@ window.onclick = function(event) {
           headerCell.innerHTML = "PROGRAM";
           row.appendChild(headerCell);
 
+          headerCell = document.createElement("TH");
+          headerCell.innerHTML = "BATCHYEAR";
+          row.appendChild(headerCell);
+
           //Add the data rows from Excel file.
           for (var i = 0; i < excelRows.length; i++) {
               //Add the data row.
@@ -180,6 +184,9 @@ window.onclick = function(event) {
 
               cell = row.insertCell(-1);
               cell.innerHTML = excelRows[i].PROGRAM;
+
+              cell = row.insertCell(-1);
+              cell.innerHTML = excelRows[i].BATCHYEAR;
   
           }
 
@@ -241,6 +248,10 @@ window.onclick = function(event) {
          headerCell.innerHTML = "PROGRAM";
          row.appendChild(headerCell);
 
+         headerCell = document.createElement("TH");
+         headerCell.innerHTML = "BATCHYEAR";
+         row.appendChild(headerCell);
+
          //Add the data rows from Excel file.
          for (var i = 0; i < excelRows.length; i++) {
              //Add the data row.
@@ -271,6 +282,9 @@ window.onclick = function(event) {
 
              cell = row.insertCell(-1);
              cell.innerHTML = excelRows[i].PROGRAM;
+
+             cell = row.insertCell(-1);
+             cell.innerHTML = excelRows[i].BATCHYEAR;
  
          }
 

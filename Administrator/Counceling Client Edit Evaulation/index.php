@@ -1,8 +1,9 @@
 <?php
-    $title = 'Review Evaulation';
-    $page = 'client_profile';
+    $title = 'Edit Evaulation Form';
+    $page = ' ';
     include_once('../includes/header.php');
     
+    $id = $_SESSION['AdminID'];
     $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
     $name = "";
     while($row = mysqli_fetch_assoc($sql_fetch))
@@ -31,7 +32,7 @@
      from schedules as t1 
      INNER JOIN clientaccountinfo as t2 ON t1.client_id = t2.ClientAccountID
      INNER JOIN genderrole as t3 ON t2.ClientGenderID = t3.GenderID
-     WHERE t1.id = '$a_id' ");
+     WHERE t1.id = '$a_id'");
     $row2 = mysqli_fetch_array($query);
     $appointmentID = $row2['id'];
     $anonymity = $row2['anonymity'];
@@ -51,7 +52,7 @@
         $gender = $row2['gender'];
         $address = $row2['client_address'];
         $birthday = $row2['birthdate'];
-        $contactnum = $row2['contact_num'];
+        
 
         $sql_fetchpic = mysqli_query($conn, "SELECT PictureFilename from clientprofilepictureinfo WHERE ClientAccountID = '$cID' AND UsedStatus = TRUE ");
         while($detailpic = mysqli_fetch_assoc($sql_fetchpic))
@@ -68,7 +69,6 @@
         $gender = 'Unknown';
         $address = 'Unknown';
         $birthday = 'Unknown';
-        $contactnum = 'Unknown';
 
         $profile_pic = "<img class='prof_pic' id='prof_pic' src='../../assets/user_profile_pic/default_user.jpg' alt='Profile Pic'>";
     }
@@ -76,7 +76,8 @@
     $sql_fetch44 = mysqli_query($conn, "SELECT * from forevaluation WHERE appointment_id = '$a_id'");
     while($row44 = mysqli_fetch_assoc($sql_fetch44))
     {
-        $recom = $row44['recommendation'];
+        $eval_id = $row44['eval_id'];
+        $eval = $row44['evaluation']; $recom = $row44['recommendation'];
     }
     
 ?>
@@ -95,8 +96,8 @@
                                     <p class="success"><?php echo $_GET['success']; ?></p>
                                 <?php } ?>
                     <form id="evalEntry" method ="POST" action="assets/insert_eval.php">
-                    <h3 class="subtitle">Evaluation Form</h3>
-                        <a href="../Client Profile/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
+                        <h3 class="subtitle">Edit Evaluation Form</h3>
+                        <a href="../Counceling Client Review Evaulation/?a_id=<?php echo $appointmentID; ?>" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
                         <div class="profile_pic">
                             <div id="prof_pic_div">
                                 <?php echo $profile_pic; ?>
@@ -110,6 +111,7 @@
                                     <input class="input-field" type="text" value="<?= $fname ?>" name="fst_name" id="fst_name" readonly>
                                     <input class="input-field" type="hidden" value="<?= $appointmentID ?>" name="a_id" id="a_id" >
                                     <input class="input-field" type="hidden" value="<?= $name ?>" name="id" id="id" >
+                                    <input class="input-field" type="hidden" value="<?= $eval_id ?>" name="eval_id" id="eval_id" >
                                 </div>
                             </div>
                             <div class="input_container">
@@ -161,7 +163,7 @@
                             <div class="input_container">
                                 <label for="#" class="label">Apppointment Date: </label>
                                 <div class="input " id="input_mid_name">
-                                    <input class="input-field" type="text" value="<?= $app_date ?>" name="mid_name" id="mid_name" readonly>
+                                    <input class="input-field" type="text" value="<?php echo $app_date ?>" name="mid_name" id="mid_name" readonly>
                                 </div>
                             </div>
                             <div class="input_container">
@@ -177,17 +179,30 @@
                                 </div>
                             </div>
                         </div>
+                        
                     
                         <div class="input_group">
+                            <div class="eval">
+                                <label for="#" class="label">Evaluation: </label>
+                                <i class="fa-solid fa-asterisk"></i>
+                                <i id="i_evaluation" class="fa-solid "></i>
+                                <div class="input " id="input_fst_name">
+                                    <textarea class="input-field evalInput" placeholder="Evaluation of this Apppointment" name="evaluation" id="evaluation" ><?= $eval ?></textarea>
+                                </div>
+                            </div>
                             <div class="eval">
                                 <label for="#" class="label">Recommendation: </label>
                                 <i class="fa-solid fa-asterisk"></i>
                                 <i id="i_recommendation" class="fa-solid "></i>
                                 <div class="input " id="input_fst_name">
-                                    <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation" readonly><?= $recom ?></textarea>
+                                    <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation" ><?= $recom ?></textarea>
                                 </div>
                             </div>
-                        </div>                 
+                        </div>
+                        <div class="action_content">
+                            <button class= "bttn" type="submit" name="submit" id="submit">
+                            <i class="fa-solid fa-floppy-disk"></i>  Save Evaluation Form</button>
+                        </div>             
                     </form>
             </div>
 
