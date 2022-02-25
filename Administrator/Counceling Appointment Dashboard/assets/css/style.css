@@ -87,8 +87,10 @@
 .calen_holder{
     max-height: 100%;
     width: 100%;
+    padding: 50px;
 }
 .calendar{
+    z-index: 0;
     height: 100%;
     width: 100%;
 }

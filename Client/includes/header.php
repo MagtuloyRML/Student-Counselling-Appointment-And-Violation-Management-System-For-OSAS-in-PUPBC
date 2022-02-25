@@ -47,10 +47,12 @@
 	<meta http-equiv="X-UA-Compatible" content="id=edge">
 
     <title><?php echo $title?></title>
-    
 </head>
 
 <body>
+    <div class="loader" scroll="no">
+        <div></div>
+    </div>
     <div class="page">
         <div class="navi-bar">
             <div class="topmenu">
@@ -61,7 +63,7 @@
             <div class="menu">
                 <!--- Notifcation drop down content-->
                 <div class="dropdown1" notif-dropdown>
-                    <button class="btndrop_notif" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i><span id="notifCount"></span></button>
+                    <button class="btndrop_notif" id="notif_bell" notif-dropdown-bttn><i class="fas fa-bell" notif-dropdown-bttn></i><span id="notifCount"></span></button>
                     <div class="notif_content">
                         <!---Content for Notif--->
                         <p><i class="fas fa-bell"></i> Notification</p>

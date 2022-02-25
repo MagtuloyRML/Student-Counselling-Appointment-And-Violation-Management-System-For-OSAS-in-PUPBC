@@ -2,6 +2,24 @@
     $title = 'Counceling Client Information';
     $page = 'ca_client';
     include_once('../includes/header.php');
+    
+    $id = $_SESSION['AdminID'];
+    $sql_fetchid = mysqli_query($conn, 
+    "SELECT adminAccount.AdminFirstName, adminAccount.AdminUserRoleID, userRole.AdminPageStudentCounceling, 
+    userRole.AdminPageViolation, userRole.AdminMaintenance, userRole.StatusID
+    FROM adminaccountinfo AS adminAccount 
+    INNER JOIN adminuserrole AS userRole 
+    ON adminAccount.AdminUserRoleID = userRole.AdminUserRoleID WHERE adminAccount.AdminAccountID = '$id' ");
+    
+    while($row = mysqli_fetch_assoc($sql_fetchid))
+    {
+        $userRoleID = $row['AdminUserRoleID']; 
+        $studCounceling = $row['AdminPageStudentCounceling']; $studViol = $row['AdminPageViolation']; 
+        $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
+    }
+    if ($studCounceling != '1'){
+        header('Location: ../Page 404/');
+    }
 ?>
     <div class="body_container">
         <div class="content">

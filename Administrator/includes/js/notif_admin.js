@@ -33,3 +33,16 @@ $(window).on('load',function(){
     $(".loader").fadeOut(2000);
     $(".content").fadeIn(1000);
 });
+
+
+$(document).ready(function () {
+    $('#notif_bell').click(function (e) { 
+        e.preventDefault();
+        $.ajax({
+            url: "../includes/notif_read.php",
+            success: function () {
+            }
+        });
+        
+    });
+});

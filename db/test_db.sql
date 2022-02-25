@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 25, 2022 at 05:14 AM
+-- Generation Time: Feb 25, 2022 at 03:26 PM
 -- Server version: 8.0.21
 -- PHP Version: 7.3.21
 
@@ -99,16 +99,17 @@ CREATE TABLE IF NOT EXISTS `adminnotification` (
   PRIMARY KEY (`AdminNotification`),
   KEY `adminNotif_adminAcc` (`AdminAccountID`),
   KEY `adminNotif_Status` (`AdminNotificationStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `adminnotification`
 --
 
 INSERT INTO `adminnotification` (`AdminNotification`, `AdminAccountID`, `NotificationTitle`, `NotificationMessage`, `AdminNotificationStatusID`, `DateTimeStamp`) VALUES
-(1, 1, 'Request Appointment', 'memaadasdasdasd', 2, '0000-00-00 00:00:00'),
+(1, 1, 'Request Appointment', 'memaadasdasdasd', 1, '0000-00-00 00:00:00'),
 (3, 6, 'New Appointment', 'You have a new appointment, check appointment approval page.', 2, '2022-02-24 12:21:50'),
-(4, 1, 'New Appointment', 'You have a new appointment, check appointment approval page.', 2, '2022-02-24 13:49:46');
+(4, 1, 'New Appointment', 'You have a new appointment, check appointment approval page.', 1, '2022-02-24 13:49:46'),
+(5, 1, 'New Appointment', 'You have a new appointment, check appointment approval page.', 1, '2022-02-25 15:58:41');
 
 -- --------------------------------------------------------
 
@@ -258,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `clientaccountinfo` (
 --
 
 INSERT INTO `clientaccountinfo` (`ClientAccountID`, `ClientFirstName`, `ClientMiddleName`, `ClientLastName`, `ClientSuffix`, `ClientStudentNo`, `RoleID`, `ClientBDay`, `ClientAddress`, `ClientContactNo`, `ClientGuardian`, `ClientGuardianNo`, `ClientEmailAdd`, `ClientPassword`, `ClientGenderID`, `code`) VALUES
-(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'mema@gamil.com', 'paramore222', 1, '730126'),
+(34, 'Ernesto', '', 'Ramos', '', '2019-00001-BN-0', 1, '2022-01-01', 'Sample address', '09090909090', 'Sample Guardian', '09090909090', 'dalmerer09@gmail.com', 'paramore222', 1, '730126'),
 (45, 'Juans', 'Mendezs', 'De la Cruzs', 's', '2010-00002-BN-0', 1, '2000-01-10', 'Sample address Binan, Lagunas', '09090909091', 'Sample Guardians', '09080706051', 'juans@gmail.com', 'mema1234', 1, '187789'),
 (46, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2, NULL),
 (70, 'Josefine', 'Donato', 'Cortez', 'Jr.', '2014-00005-BN-0', 1, '1999-02-13', 'Sample address Binan, Laguna', '09080706050', 'Ermaculit Cortez', '09080706050', 'jc@gmail.com', 'memapig009', 2, NULL),
@@ -283,22 +284,28 @@ CREATE TABLE IF NOT EXISTS `clientnotification` (
   PRIMARY KEY (`ClientNotification`),
   KEY `clientNotif_clientAcc` (`ClientAccountID`),
   KEY `clientNotif_Status` (`ClientNotificationStatusID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clientnotification`
 --
 
 INSERT INTO `clientnotification` (`ClientNotification`, `ClientAccountID`, `NotificationTitle`, `NotificationMessage`, `ClientNotificationStatusID`, `DateTimeStamp`) VALUES
-(1, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31'),
-(2, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 2, '2022-02-22 08:25:31'),
+(1, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 1, '2022-02-22 08:25:31'),
+(2, 34, 'Bibili ng Suka', 'Bibili ako ng suka sabi ni mama, nang makakita ng magandang chix', 1, '2022-02-22 08:25:31'),
 (3, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 12:23:07'),
 (4, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-24 13:50:27'),
 (5, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of Walang net.', 2, '2022-02-24 21:55:23'),
 (6, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of May trabaho.', 2, '2022-02-24 21:58:59'),
 (7, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:31:51'),
-(8, 34, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:39:48'),
-(9, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:41:16');
+(8, 34, 'Appointment Confirmed', 'Your pending appointment has been approved.', 1, '2022-02-25 12:39:48'),
+(9, 91, 'Appointment Confirmed', 'Your pending appointment has been approved.', 2, '2022-02-25 12:41:16'),
+(10, 34, 'Appointment Confirmed', 'Your pending appointment has been approved.', 1, '2022-02-25 16:04:08'),
+(11, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of walang net.', 2, '2022-02-25 17:14:39'),
+(12, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of walang net.', 2, '2022-02-25 17:15:06'),
+(13, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of mema tae lang.', 2, '2022-02-25 20:09:50'),
+(14, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of adsasdas.', 2, '2022-02-25 20:11:18'),
+(15, 91, 'Appointment Cancelled', 'Sorry, your pending appointment has been cancelled because of mema.', 2, '2022-02-25 20:43:22');
 
 -- --------------------------------------------------------
 
@@ -482,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `schedules` (
   PRIMARY KEY (`id`),
   KEY `appointSched_clientID` (`client_id`),
   KEY `appointSched_evaluator` (`remarks`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedules`
@@ -496,13 +503,14 @@ INSERT INTO `schedules` (`id`, `anonymity`, `title`, `email_add`, `client_id`, `
 (63, 'Yes', '', 'mema@gamil.com', 34, '2022-02-23', '2022-02-24 12:00:00', '2022-02-24 13:00:00', 'Cancelled', 1, 'Ermil', 6, 'Si ermil po kase', NULL),
 (64, 'No', '', 'mema@gamil.com', 34, '2022-02-28', '2022-02-24 23:00:00', '2022-02-24 00:00:00', 'Evaluated', 1, 'Ikaw', 91, 'Wala lang', 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
 (65, 'No', '', 'brianpacheca123@gmail.com', 91, '2022-02-12', '2022-02-23 23:00:00', '2022-02-23 00:00:00', 'Evaluated', 1, '', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
-(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', 1, 'zczczxczxczczxczxc', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
-(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Cancelled', 1, 'Sample Reason', 1, 'Walang net', NULL),
-(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Confirmed', 1, 'Anxiety Attack', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
-(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL, NULL),
-(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', NULL, NULL, NULL),
+(66, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-15', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Done', 1, 'zczczxczxczczxczxc', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(67, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 12:00:00', '2022-02-27 13:00:00', 'Cancelled', 1, 'Sample Reason', 1, 'mema', NULL),
+(68, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Done', 1, 'Anxiety Attack', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
+(69, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-26', '2022-02-26 12:00:00', '2022-02-26 13:00:00', 'Pending', 1, 'Anxiety Attack', 1, 'adsasdas', NULL),
+(70, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-25 12:00:00', '2022-02-25 13:00:00', 'Pending', 1, 'Anxiety Attack', 1, 'walang net', NULL),
 (71, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-25', '2022-02-28 12:00:00', '2022-02-28 13:00:00', 'Confirmed', 1, 'Anxiety Attack', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1'),
-(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Cancelled', 1, '', 1, 'May trabaho', NULL);
+(72, 'Yes', '', 'brianpacheca123@gmail.com', 91, '2022-02-27', '2022-02-27 10:00:00', '2022-02-27 11:00:00', 'Cancelled', 1, '', 1, 'May trabaho', NULL),
+(73, 'Yes', '', 'dalmerer09@gmail.com', 34, '2022-02-28', '2022-02-28 16:00:00', '2022-02-28 17:00:00', 'Confirmed', 1, 'si eabab ko iyakin', NULL, NULL, 'https://us04web.zoom.us/j/71714722555?pwd=sWrJtdcN0pdJHIDFgWovW2tYmA8zFz.1');
 
 -- --------------------------------------------------------
 

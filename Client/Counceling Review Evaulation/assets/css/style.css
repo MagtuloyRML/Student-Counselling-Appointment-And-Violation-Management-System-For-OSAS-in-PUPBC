@@ -44,7 +44,12 @@
 .acc_bttn:hover{
     color: rgb(84, 83, 87);
 }
-.content{
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile{
     background-color: var(--color-content0-bg);
     margin-top: 10px;
     padding: 30px 5% 30px;
@@ -119,7 +124,7 @@ h4{
     font-size: var(--small-font-size);
     text-align: center;
 }
-.link {
+.zlink {
     display: flex;
     align-items: center;
     justify-content: center;

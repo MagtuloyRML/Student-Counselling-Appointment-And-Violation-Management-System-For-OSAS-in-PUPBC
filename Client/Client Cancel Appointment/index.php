@@ -17,7 +17,7 @@
     $a_id = $_GET['a_id'];
 
 ?>
-    <form id="cancelAppoint" method ="POST" >
+    <form id="cancelAppoint" action="cancel_sched_work.php" method ="POST" >
         <div class="content">
             <div class="profile">
                 <a href="../Client Manage Appointment/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>

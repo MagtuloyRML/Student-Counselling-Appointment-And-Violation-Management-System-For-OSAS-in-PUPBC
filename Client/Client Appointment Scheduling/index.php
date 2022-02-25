@@ -29,42 +29,37 @@
                                 <?php } ?>
 
                         <p>Fill up the following to appoint a Schedule: </p>
-                        <div class="input_container">
-                            <label class="label" for="#">Student Name: </label>
-                            <br>
-                            <input class="input" type="text" id="#" name="name">
-                            <input class="input" type="hidden" id="id" name="id" value="<?= $name ?>">
-                        </div>
-                        <div class="input_container">
-                            <label class="label" for="#">Email Address: </label>
-                            <br>
-                            <input class="input" type="text" id="#" name="email_add">
-                        </div>
-                        <div >
-                            <label class="label" for="#">Do you want to be Anonymous or Not: </label>
-                            <br>
-                            <div>
-                            <input class="input" type="radio" id="yes" name="anonymous" value="Yes" checked>
-                            <label class="label" for="Yes">Yes</label>
-                                </div>
-                            <div>
-                            <input class="input" type="radio" id="no" name="anonymous" value="No" >
-                            <label class="label" for="No">No</label>
+                        
+                        <label class="label" for="#">Do you want to be Anonymous or Not: </label>
+                        <input class="input" type="hidden" id="id" name="id" value="<?= $name ?>">
+                        <input class="input" type="hidden" id="name" name="name" value="">
+                        <input class="input" type="hidden" id="email_add" name="email_add" value="">
+                        <div class="input_radio">
+                            
+                            <div class="bttn_radio">
+                                <input class="bttn_input" type="radio" id="yes" name="anonymous" value="Yes" checked>
+                                <label class="bttn_input" for="Yes">Yes</label>
+                            </div>
+                            <div class="bttn_radio">
+                                <input class="bttn_input" type="radio" id="no" name="anonymous" value="No" >
+                                <label class="bttn_input" for="No">No</label>
                             </div>
                         </div>
-                        <div class="input_container">
-                            <label class="label" for="#">What's bothering you? </label>
-                            <br>
-                            <input class="input" type="text" id="#" name="reason">
+
+                        <div class="eval">
+                            <label for="#" class="label">What's bothering you? </label>
+                            <i class="fa-solid fa-asterisk"></i>
+                            <i id="i_recommendation" class="fa-solid "></i>
+                            <div class="input " id="input_fst_name">
+                                <textarea class="input-field evalInput" placeholder="Reason for taklng Appointment" name="reason" id="reason"></textarea>
+                            </div>
                         </div>
                         
                         <div class="input_container">
-                            <label class="label" for="#">Councelor: </label>
+                            <label class="label" for="#">Counselor: </label>
                             <select class="input" required name = "counselor_id" id="counselor_id">
-                            <br>
                             <option disabled value="" selected ="selected">Select a Counselor</option>
                             <?php 
-            
                                 $query = "SELECT * from adminaccountinfo";
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))

@@ -4,6 +4,30 @@
     include_once('../includes/header.php');
     include 'assets/dbconnection.php';
 
+    $connection = new mysqli('localhost', 'root','','test_db');
+    if ($connection->connect_error){
+        die(
+            'Error : ('. $connection->connect_errno.') '.$connection->connect_error
+        );
+    }
+
+    $idFecth = $_SESSION['AdminID'];
+    $sql_fetchid = mysqli_query($connection, 
+    "SELECT adminAccount.AdminFirstName, adminAccount.AdminUserRoleID, userRole.AdminPageStudentCounceling, 
+    userRole.AdminPageViolation, userRole.AdminMaintenance, userRole.StatusID
+    FROM adminaccountinfo AS adminAccount 
+    INNER JOIN adminuserrole AS userRole 
+    ON adminAccount.AdminUserRoleID = userRole.AdminUserRoleID WHERE adminAccount.AdminAccountID = '$idFecth' ");
+    
+    while($row = mysqli_fetch_assoc($sql_fetchid))
+    {
+        $userRoleID = $row['AdminUserRoleID']; 
+        $studCounceling = $row['AdminPageStudentCounceling']; $studViol = $row['AdminPageViolation']; 
+        $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
+    }
+    if ($studViol != '1'){
+        header('Location: ../Page 404/');
+    }
 
     $SQL = $conn->query("SELECT 
     `entry_id`,

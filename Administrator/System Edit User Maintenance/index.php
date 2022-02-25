@@ -3,6 +3,31 @@
     $page = 'maintenance';
     include_once('../includes/header.php');
 
+    $connection = new mysqli('localhost', 'root','','test_db');
+    if ($connection->connect_error){
+        die(
+            'Error : ('. $connection->connect_errno.') '.$connection->connect_error
+        );
+    }
+
+    $idFecth = $_SESSION['AdminID'];
+    $sql_fetchid = mysqli_query($connection, 
+    "SELECT adminAccount.AdminFirstName, adminAccount.AdminUserRoleID, userRole.AdminPageStudentCounceling, 
+    userRole.AdminPageViolation, userRole.AdminMaintenance, userRole.StatusID
+    FROM adminaccountinfo AS adminAccount 
+    INNER JOIN adminuserrole AS userRole 
+    ON adminAccount.AdminUserRoleID = userRole.AdminUserRoleID WHERE adminAccount.AdminAccountID = '$idFecth' ");
+    
+    while($row = mysqli_fetch_assoc($sql_fetchid))
+    {
+        $userRoleID = $row['AdminUserRoleID']; 
+        $studCounceling = $row['AdminPageStudentCounceling']; $studViol = $row['AdminPageViolation']; 
+        $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
+    }
+    if ($systemMaintenance != '1'){
+        header('Location: ../Page 404/');
+    }
+
     $acc_id = $_GET['acc_id'];
 
     $userRole = $conn->query("SELECT AdminAccountID, AdminFirstName, AdminMiddleName, AdminLastName, AdminSufifx, 

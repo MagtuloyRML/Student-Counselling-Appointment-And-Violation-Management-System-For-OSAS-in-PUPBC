@@ -10,6 +10,7 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -40,9 +41,10 @@
 }
 .appoint_form .title_content h3{
     color: var(--button-hover-color-font-icon);
-    padding-bottom: 20px;
 }
 .appoint_form .content_appoint{
+    width: 100%;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,7 +52,7 @@
 }
 .form_content{
     width: 100%;
-    
+    padding: 10px;
 }
 .content_appoint .input_container{
     width: 100%;
@@ -61,11 +63,27 @@
     font-size: 1rem;
     font-weight: 600;
 }
+.input_radio{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bttn_radio{
+    font-size: 16px;
+    color: var(--button-hover-color-font-icon);
+    font-weight: 600;
+    padding: 5px;
+}
+.bttn_input{
+    padding: 2px;
+    cursor: pointer;
+}
 .input_container .input{
     width: 100%;
     padding: 2px 5px 2px;
     border: 1px solid var(--button-hover-color-font-icon);
     color: var(--button-hover-color-font-icon);
+    font-size: var(--normal-font-size);
 }
 
 .form_action{
@@ -88,4 +106,47 @@
 }
 .form_action .form_bttn:hover{
     background-color: var(--maroong-content-hover);
+}
+
+.eval{
+    width: 100%;
+    font-size: var(--normal-font-size);
+}
+  
+.input_container .input-field {
+    color: var(--button-hover-color-font-icon);
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: var(--normal-font-size);
+}
+.evalInput{
+    resize: none;
+    font-size: 13px;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    min-width: 200px;
+    color: var(--button-hover-color-font-icon);
+    border-radius: .25rem;
+    border: 1px solid var(--button-hover-color-font-icon);
+}
+
+.eval .label{
+    font-size: var(--normal-font-size);
+    color: var(--button-hover-color-font-icon);
+    font-weight: 600;
+    padding: 10px 0 10px;
+}
+.fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+}
+.fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
 }

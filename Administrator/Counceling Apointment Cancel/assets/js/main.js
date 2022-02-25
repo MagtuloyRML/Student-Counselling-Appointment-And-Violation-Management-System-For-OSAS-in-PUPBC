@@ -24,37 +24,18 @@ $(document).ready(function () {
         if($('#cancel_reason').val().length > 0){
             errorReasonInput = false;
             $("#i_reason").removeClass('fa-circle-exclamation');
+            $("#openCancelMSG").attr("disabled", false);
+            $("#openCancelMSG").removeClass('disable');
+            $("#openCancelMSG").addClass('bttn');
         } else {
             errorReasonInput = true;
             $("#i_reason").addClass('fa-circle-exclamation');
-        }
-        $("#openCancelMSG").attr("disabled", false);
-        $("#openCancelMSG").removeClass('disable');
-        $("#openCancelMSG").addClass('bttn');
-    })
-
-    $("#cancelAppoint").submit(function (e) { 
-        e.preventDefault();
-        if(errorReasonInput == true){
-            $("#i_reason").removeClass('fa-circle-exclamation');
-        }
-        if(errorReasonInput == false  ){
-            $.ajax({
-                url: "cancel_sched_work.php",
-                type: 'POST',
-                data: $('#cancelAppoint').serialize(),
-                datatype: "text",
-                cache:false,
-                success:function(result){
-                    if($.trim(result) == "success"){
-                        $("#cancelAppoint")[0].reset();
-                        errorReasonInput = true;
-                        window.location.href = '../Counceling Apointment Approval/';
-                    }
-                        
-                }
-            });
+            $("#openCancelMSG").attr("disabled", true);
+            $("#openCancelMSG").removeClass('bttn');
+            $("#openCancelMSG").addClass('disable');
         }
         
-    });
+    })
+
+    
 });

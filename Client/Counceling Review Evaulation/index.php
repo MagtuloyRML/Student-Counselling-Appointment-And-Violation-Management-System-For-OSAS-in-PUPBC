@@ -80,8 +80,9 @@
     }
     
 ?>
-    <div class="body_container">
-        <div class="content">
+    
+    <div class="content">
+        <div class="profile">
             <div class="title">
                 <h1>System Maintenance</h1>
                 <hr>
@@ -170,7 +171,7 @@
                                     <input class="input-field" type="text" value="<?= $nstart_app.' - '.$nend_app ?>" name="mid_name" id="mid_name" readonly>
                                 </div>
                             </div>
-                            <div class="input_container link">
+                            <div class="input_container zlink">
                                 <label for="#" class="label">Zoom Link: </label>
                                 <div class="input " id="input_mid_name">
                                     <input class="input-field" type="text" value="<?= $CounseZLink ?>" name="mid_name" id="mid_name" readonly>
@@ -190,9 +191,9 @@
                         </div>                 
                     </form>
             </div>
-
         </div>
     </div>
+    
 
     <script src="assets/js/main.js"></script>
 

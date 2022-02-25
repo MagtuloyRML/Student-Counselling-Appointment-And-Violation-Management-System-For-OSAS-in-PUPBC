@@ -6,6 +6,17 @@ include ("../../../assets/PHPSpreedsheet/vendor/autoload.php");
 
 $connect = new PDO("mysql:host=localhost;dbname=studentviolation_db", "root", "");
 
+    $location = "localhost";
+    $name = "root";
+    $password = "";
+    $database = "studentviolation_db";
+
+    $conn = new mysqli($location, $name, $password, $database);
+
+    if($conn->connect_error){
+        echo "Connection Error";
+    }
+
 
 if($_FILES["file_path"]["name"] != '')
 {
@@ -29,15 +40,26 @@ if($_FILES["file_path"]["name"] != '')
         
         foreach($data as $row)
         {
+            $pprogIDGet  = $row[7];
+            $checkExistingpprog = "SELECT pID FROM forprogram WHERE pCode = '$pprogIDGet' ";
+            $query_resultProg = $connect->prepare($checkExistingpprog);
+            $query_resultProg->execute();
+            $rowResultProg = $query_resultProg->fetch(PDO::FETCH_ASSOC);
+
+            $newProgID = $rowResultProg['pID'];
+
+            $fullname = $row[1].', '.$row[2].' '.$row[3];
+
             $insert_data = array(
                 ':studNUM'  => $row[0],
+                ':fullName'  => $fullname,
                 ':lastNAME'  => $row[1],
                 ':firstNAME'  => $row[2],
                 ':midNAME'  => $row[3],
                 ':sec'  => $row[4],
                 ':add'  => $row[5],
                 ':gen'  => $row[6],
-                ':progID'  => $row[7],
+                ':progID'  => $newProgID,
                 ':ayCode'  => $row[8]
             );
             $pstudNUM = $row[0];
@@ -60,6 +82,7 @@ if($_FILES["file_path"]["name"] != '')
 
             if ($rowResult) {
                 //Para makapag generate ng auto incremented id
+                
                 $query9 = "SELECT * FROM forstudents order by id desc limit 1";
                 $res = mysqli_query($conn, $query9);
                 $row = mysqli_fetch_array($res);
@@ -71,9 +94,9 @@ if($_FILES["file_path"]["name"] != '')
 
                 //Update data if Existing na yung studentNumber
                 $update_data = "
-                UPDATE forstudents SET studNum =:studNUM, 
+                UPDATE forstudents SET studNum =:studNUM, fullName = :fullName,
                 lastName = :lastNAME, firstName = :firstNAME, middleName = :midNAME,
-                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, id = '$stud_id'
+                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, id = $stud_id, status = 'Enrolled'
                 WHERE studNum =:studNUM";
                 $updatestatement = $connect->prepare($update_data);
                 $updatestatement->execute($insert_data);
@@ -92,8 +115,8 @@ if($_FILES["file_path"]["name"] != '')
                 //inserting data if walang kaparehas na studentnumber
                 $query = "
                 INSERT INTO forstudents
-                (studNum, lastName, firstName, middleName, Section, Address, Gender , progCode, ayCode, id) 
-                VALUES (:studNUM, :lastNAME, :firstNAME, :midNAME, :sec , :add, :gen, :progID, :ayCode, '$stud_id')
+                (studNum, fullName, lastName, firstName, middleName, Section, Address, Gender , progCode, ayCode, id, status) 
+                VALUES (:studNUM, :fullName, :lastNAME, :firstNAME, :midNAME, :sec , :add, :gen, :progID, :ayCode, $stud_id, 'Enrolled')
                 ";
 
                 $statement = $connect->prepare($query);
