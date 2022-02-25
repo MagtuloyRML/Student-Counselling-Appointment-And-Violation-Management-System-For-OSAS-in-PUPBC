@@ -30,6 +30,18 @@
     $c_id = $_GET['id'];
     $a_id = $_GET['a_id'];
     $cancel_id = $_GET['client_id'];
+
+    $sql_fetchdate = mysqli_query($conn, "SELECT app_date, start_app, end_app from schedules WHERE id = '$a_id'");
+    while($rowget = mysqli_fetch_assoc($sql_fetchdate))
+    {
+        $app_date = $rowget['app_date'];
+        $start_app = $rowget['start_app'];
+        $nstart_app = date("g:i a", strtotime($start_app));
+        $end_app = $rowget['end_app'];
+        $nend_app = date("g:i a", strtotime($end_app));
+    }
+
+
 ?>
     <form id="cancelAppoint" action="cancel_sched_work.php" method ="POST" >
         <div class="body_container">
@@ -45,8 +57,28 @@
                             include '../includes/appoitment_sub_nav.php';
                         ?>
                         <a href="../Counceling Apointment Approval/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
+
+                        <h4>Apppointment Information:</h4>
+
+                        <p class="text">Cancel Appointment: </p>
+
+                        <div class="date_group">
+                            <div class="date_container">
+                                <label for="#" class="datelabel">Apppointment Date: </label>
+                                <div class="date " id="input_mid_name">
+                                    <input class="date-field" type="text" value="<?= $app_date ?>" name="mid_name" id="mid_name" readonly>
+                                </div>
+                            </div>
+                            <div class="date_container">
+                                <label for="#" class="datelabel">Apppointment Time: </label>
+                                <div class="date " id="input_mid_name">
+                                    <input class="date-field" type="text" value="<?= $nstart_app.' - '.$nend_app ?>" name="mid_name" id="mid_name" readonly>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form_content">
-                            <p class="text head">Cancel Appointment: </p>
+                            
                             <p class="text">Fill up the following to cancel your Schedule</p>
                             <div class="input_container">
                                 <label for="#" class="label">Cancellation Reason: </label>

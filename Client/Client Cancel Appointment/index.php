@@ -16,13 +16,40 @@
 
     $a_id = $_GET['a_id'];
 
+    $sql_fetchdate = mysqli_query($conn, "SELECT app_date, start_app, end_app from schedules WHERE id = '$a_id'");
+    while($rowget = mysqli_fetch_assoc($sql_fetchdate))
+    {
+        $app_date = $rowget['app_date'];
+        $start_app = $rowget['start_app'];
+        $nstart_app = date("g:i a", strtotime($start_app));
+        $end_app = $rowget['end_app'];
+        $nend_app = date("g:i a", strtotime($end_app));
+    }
+
 ?>
-    <form id="cancelAppoint" action="cancel_sched_work.php" method ="POST" >
+    <form id="cancelAppoint" action="assets/cancel_sched_work.php" method ="POST" >
         <div class="content">
             <div class="profile">
                 <a href="../Client Manage Appointment/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
                 <div class="title_content">
                     <h3>Cancellation of Schedule</h3>
+                </div>
+
+                <p class="text">Appointment Information: </p>
+
+                <div class="date_group">
+                     <div class="date_container">
+                        <label for="#" class="datelabel">Apppointment Date: </label>
+                        <div class="date " id="input_mid_name">
+                            <input class="date-field" type="text" value="<?= $app_date ?>" name="mid_name" id="mid_name" readonly>
+                        </div>
+                    </div>
+                    <div class="date_container">
+                        <label for="#" class="datelabel">Apppointment Time: </label>
+                        <div class="date " id="input_mid_name">
+                            <input class="date-field" type="text" value="<?= $nstart_app.' - '.$nend_app ?>" name="mid_name" id="mid_name" readonly>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="form_content">
