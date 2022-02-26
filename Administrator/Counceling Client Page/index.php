@@ -74,6 +74,58 @@
     INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
 
     WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
+    
+    if(isset($_POST['submit'])){
+        $searched = $_POST['search'];
+
+        $sched = $conn->query("SELECT 
+        `id`,
+        `ClientFirstName` as firstName,
+        `ClientMiddleName` as middleName,
+        `ClientLastName` as lastName,
+        `ClientStudentNo` as studNum,
+        `ClientAddress` as c_address,
+        `ClientContactNo` as c_contact_num,
+        `ClientGuardian` as guardian_name,
+        `ClientGuardianNo` as guardian_num,
+        `end_app`,
+        `app_date`,
+        `start_app`,
+        `stat`,
+        `client_id`,
+        `anonymity`,
+        `AdminFirstName` as a_firstName,
+        `AdminLastName` as a_lastName
+        FROM schedules
+        INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
+        INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
+        
+        WHERE `stat` = 'Done' AND `anonymity` = 'No' AND `remarks` = '$name'
+        AND ClientStudentNo = '$searched'");
+
+        $query = $conn->query("SELECT 
+        `id`,
+        `ClientFirstName` as firstName,
+        `ClientMiddleName` as middleName,
+        `ClientLastName` as lastName,
+        `ClientStudentNo` as studNum,
+        `ClientAddress` as c_address,
+        `ClientContactNo` as c_contact_num,
+        `ClientGuardian` as guardian_name,
+        `ClientGuardianNo` as guardian_num,
+        `end_app`,
+        `app_date`,
+        `start_app`,
+        `stat`,
+        `anonymity`,
+        `AdminFirstName` as a_firstName,
+        `AdminLastName` as a_lastName
+        FROM schedules
+        INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
+        INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
+
+        WHERE `anonymity` = 'Yes' AND `stat` = 'Done' AND `remarks` = '$name'");
+    }
 
 ?>
     <div class="body_container">
@@ -86,9 +138,9 @@
                 </div>
                 <p>This is the list of all the appointments that you still haven't evaluated.</p>
                 <div class="searchBar">
-                    <form action="">
-                        <input type="text" placeholder="Search" class="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                    <form action="" method="POST">
+                        <input type="text" placeholder="Enter Student Number" class="search" name="search">
+                        <button type="submit" name="submit" id="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
 
@@ -145,7 +197,11 @@
                         </tr>
                         <?php while($row = $query->fetch_array()){
                             
-                            $dateFormat = date("d/m/Y", strtotime($row['end_app']));
+                            $app_date = $row['app_date'];
+                            $start_app = $row['start_app'];
+                            $nstart_app = date("g:i a", strtotime($start_app));
+                            $end_app = $row['end_app'];
+                            $nend_app = date("g:i a", strtotime($end_app));
                             $status = $row['stat'];
                             $a_nameFormat = $row['a_lastName'].', '.$row['a_firstName'];
                             $id = $row['id'];

@@ -55,9 +55,9 @@ if (isset($_POST['submit'])) {
 
 
 			//pag kuha ng data sa db tables.
-			$sql = "SELECT start_app, end_app FROM schedules
-			WHERE '$start_app' BETWEEN start_app AND end_app
-			AND '$end_app' BETWEEN start_app AND end_app";
+			$sql = "SELECT remarks, start_app, end_app FROM schedules
+			WHERE remarks = '$remarks' AND '$start_app' BETWEEN start_app AND end_app
+			OR '$end_app' BETWEEN start_app AND end_app";
 			$result = mysqli_query($conn, $sql);
 
 			//conditions

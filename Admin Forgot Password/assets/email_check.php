@@ -12,7 +12,7 @@ $email = $_POST['email'];
 
 
 // fetching the data from the database
-$sql_fetch = mysqli_query($conn, "SELECT * from clientaccountinfo WHERE ClientEmailAdd = '$email'");
+$sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminEmailAdd = '$email'");
 if(mysqli_num_rows($sql_fetch) > 0){
     
     //creating a random code
@@ -29,12 +29,12 @@ if(mysqli_num_rows($sql_fetch) > 0){
     $myRandomString = generateRandomString(6);
 
     //updating the column code in database for verification purposes
-    $updateUser = $conn->query("UPDATE clientaccountinfo SET code = '$myRandomString' WHERE ClientEmailAdd = '$email'");
+    $updateUser = $conn->query("UPDATE adminaccountinfo SET code = '$myRandomString' WHERE AdminEmailAdd = '$email'");
 
         if($updateUser){
             while($row = $sql_fetch->fetch_array()){
                 //pagsesendan ng email
-                $mailTo = $row['ClientEmailAdd'];
+                $mailTo = $row['AdminEmailAdd'];
                 //Message to recipient
                 
                 $body ="

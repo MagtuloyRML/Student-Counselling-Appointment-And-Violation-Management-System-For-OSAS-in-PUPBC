@@ -13,10 +13,12 @@
     
     $a_id = $_POST['id'];
     $reason = $_POST['reason'];
-
+    $remarks = $_POST['counselor'];
+    $notification = $conn->query("INSERT INTO adminnotification(AdminAccountID, NotificationTitle, NotificationMessage, AdminNotificationStatusID, DateTimeStamp)
+				VALUES('$remarks', 'Cancelled Appointment', 'A client has cancelled his/her appointment. Please check schedule page', '2', NOW())");
     $update = $conn->query("UPDATE schedules SET stat ='Cancelled', cancel_id = '$name', cancel_reason ='$reason' WHERE id = '$a_id'");
     if($update){
-        echo "success";
+        echo "<script>window.location.href='../../Client Home/index.php?success=Appointment Cancelled'</script>";
     }
     
    

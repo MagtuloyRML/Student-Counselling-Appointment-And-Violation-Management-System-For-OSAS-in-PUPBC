@@ -16,7 +16,7 @@
 
     $a_id = $_GET['a_id'];
 
-    $sql_fetchdate = mysqli_query($conn, "SELECT app_date, start_app, end_app from schedules WHERE id = '$a_id'");
+    $sql_fetchdate = mysqli_query($conn, "SELECT remarks, app_date, start_app, end_app from schedules WHERE id = '$a_id'");
     while($rowget = mysqli_fetch_assoc($sql_fetchdate))
     {
         $app_date = $rowget['app_date'];
@@ -24,6 +24,7 @@
         $nstart_app = date("g:i a", strtotime($start_app));
         $end_app = $rowget['end_app'];
         $nend_app = date("g:i a", strtotime($end_app));
+        $counselor = $rowget['remarks'];
     }
 
 ?>
@@ -47,6 +48,7 @@
                     <div class="date_container">
                         <label for="#" class="datelabel">Apppointment Time: </label>
                         <div class="date " id="input_mid_name">
+                        <input class="date-field" type="hiden" value="<?= $counselor ?>" name="counselor" id="counselor" readonly>
                             <input class="date-field" type="text" value="<?= $nstart_app.' - '.$nend_app ?>" name="mid_name" id="mid_name" readonly>
                         </div>
                     </div>
