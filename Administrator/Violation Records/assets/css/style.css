@@ -111,6 +111,7 @@
 
 .modal_content{
     overflow: auto;
+    height: 83%;
 }
 .records_print_prop{
     margin-bottom: 10px;
@@ -176,6 +177,7 @@
     }
     .print-container, .print-container * {
         visibility:visible; 
+        overflow:hidden;
     }
     .print-container {
         position:absolute;

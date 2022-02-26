@@ -1,5 +1,5 @@
 <?php
-    $title = 'Counceling Apointment Dashboard';
+    $title = 'Counseling Apointment Dashboard';
     $page = 'ca_home';
     include_once('../includes/header.php');
 
@@ -487,13 +487,38 @@ if(isset($_POST['submit'])){
         $total_anonymous = $row_anonymous[0];
 
     }
+
+
 }
+
+    $sched = $conn->query("SELECT 
+    `id`,
+    `ClientFirstName` as firstName,
+    `ClientMiddleName` as middleName,
+    `ClientLastName` as lastName,
+    `ClientStudentNo` as studNum,
+    `ClientAddress` as c_address,
+    `ClientContactNo` as c_contact_num,
+    `ClientGuardian` as guardian_name,
+    `ClientGuardianNo` as guardian_num,
+    `end_app`,
+    `app_date`,
+    `start_app`,
+    `stat`,
+    `anonymity`,
+    `AdminFirstName` as a_firstName,
+    `AdminLastName` as a_lastName
+    FROM schedules
+    INNER JOIN clientaccountinfo ON schedules.client_id = clientaccountinfo.ClientAccountID
+    INNER JOIN adminaccountinfo ON schedules.remarks = adminaccountinfo.AdminAccountID 
+    WHERE `stat` = 'Done' AND `remarks` = '$name' ORDER BY start_app DESC LIMIT 6");
 ?>
     <div class="body_container">
         <div class="content">
             <div class="approv_content">
+
                 <div class="title">
-                    <h1>Counceling Dashboard</h1>
+                    <h1>Counseling Dashboard</h1>
                     <hr>
                 </div>
                 <div class="dash_content time_date">
@@ -514,30 +539,23 @@ if(isset($_POST['submit'])){
                 </div>
                 
                 <div class="charts_container">
-                    <div class="chart_content">
-                        <p class="chart_label">Line Graph</p>
-                        <div class="canvas_holder">
-                            <canvas class="graph" id="lineGraph"></canvas>
-                        </div>
-                    </div>
                     
                     <div class="chart_content ">
-                    <div class="student_select">
-                    <form method="POST">
-                            <label for="#" class="label">Range: </label>
-                            <select class="range_selection" name = "range" id="range">
-                            
-                            <option value="weekly" selected>Weekly</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
-                                
-                            </select>
-                            <button type="submit" name="submit" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button><br>
-                            <p><i>This will apply to Bar and Pie chart only</i></p>
-                    </form>
+
+                        <div class="student_select">
+                            <form method="POST">
+                                <label for="#" class="label">Range: </label>
+                                <select class="range_selection" name = "range" id="range">
+                                    <option value="weekly" selected>Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="yearly">Yearly</option> 
+                                </select>
+                                <button type="submit" name="submit" value=">>" class="srch_bttn"><i class="fas fa-search"></i></button><br>
+                                <p class="reminder"><i>This will apply to Bar and Pie chart only</i></p>
+                            </form>
                         </div>
                         
-                        <p class="chart_label">Bar Graph</p>
+                        <p class="chart_label">Transaction's Count</p>
                         <div class="canvas_holder ">
                             <canvas class="graph" id="Bar"></canvas>
                         </div>
@@ -568,25 +586,58 @@ if(isset($_POST['submit'])){
                         //for the minute
                         //$minute = date("i", strtotime($row_upcoming['start_app']));
                         ?>
-                        <div class="date">
-                            <span id="dayname"></span>
-                            <span id="month"></span>
-                            <span id="daynum"></span>
-                            <span id="year"></span>
-                        </div>
-                        <div class="time">
-                            <span id="hour"></span>
-                            <span id="minutes"></span>
-                            <span id="seconds"></span>
-                            <span id="period"></span>
-                        </div>
-                        <p class="chart_label">Pie Chart</p>
+
+                        <p class="chart_label">Anonymity Count</p>
                         <div class="canvas_holder ">
                             <canvas class="graph" id="doughnutGraph"></canvas>
                         </div>
                     </div>
-                    <p><i>Note: The data will reset weekly, the Line Graph are only showing weekly reports</i></p>
+                    <p class="reminder"><i>Note: The data will reset weekly, the Line Graph are only showing weekly reports</i></p>
+
+                    <div class="chart_content">
+                        <p class="chart_label">Rate of Appointment</p>
+                        <div class="canvas_holder">
+                            <canvas class="graph" id="lineGraph"></canvas>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="list_client">
+                    <h3 class="list_title">Previous Clients</h3>
+                    <table class="display_client">
+                        <tr> 
+                            <th class="client_title" style="width: 12%;">Appointment ID</th>
+                            <th class="client_title" style="width: 12%;">Date of Appointment</th>
+                            <th class="client_title" style="width: 8%;"></th>
+                        </tr>
+                        <?php while($row = $sched->fetch_array()){
+                            $c_nameFormat = $row['lastName'].', '.$row['firstName'].' '.$row['middleName'];
+                            $studNum = $row['studNum'];
+                            $address = $row['c_address'];
+                            $contactNum = $row['c_contact_num'];
+                            $guardianName = $row['guardian_name'];
+                            $guardianNum = $row['guardian_num'];
+                            $app_date = $row['app_date'];
+                            $start_app = $row['start_app'];
+                            $nstart_app = date("g:i a", strtotime($start_app));
+                            $end_app = $row['end_app'];
+                            $nend_app = date("g:i a", strtotime($end_app));
+                            $status = $row['stat'];
+                            $a_nameFormat = $row['a_lastName'].', '.$row['a_firstName'];
+                            $id = $row['id'];
+                            
+                            ?>
+                        <tr>
+                            <td class="client_data"><?= $id ?></td>
+                            <td class="client_data"><?= $app_date.' '.$nstart_app.' - '.$nend_app  ?></td>
+                            <td class="client_data"><a href="../Counceling Client Evaulation Form/?a_id=<?php echo $row['id']; ?>" class="bttn_table"><i class="fas fa-thumbs-up"></i>Evaluate</a></td>
+                        </tr>
+                        <?php } ?>
+                    </table>
+                    <a class="down_bttn_table" href="../Counceling Client Page/">See More</a>
+                </div>
+
+                
                 
 
             </div>
@@ -604,10 +655,14 @@ if(isset($_POST['submit'])){
                     label: '# of Appointments',
                     data: [<?= $total_known ?>, <?= $total_anonymous?>],
                     backgroundColor: [
-                        'rgba(255, 99, 132)',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)'
-                    ]
+                        'rgb(136, 136, 136)',
+                        '#810000'
+                    ],
+                    borderColor: [
+                        'rgb(136, 136, 136)',
+                        '#810000'
+                    ],
+                    borderWidth: 1
                    
                 }]
             },
@@ -645,18 +700,18 @@ if(isset($_POST['submit'])){
                     label: '# of Votes',
                     data: [<?= $total_cancelled?>, <?= $total_evaluated?>, <?= $total_pending?>, <?= $total_confirmed?>, <?= $total_done?>],
                     backgroundColor: [
-                        'rgba(255, 99, 132)',
-                        'rgba(54, 162, 235)',
-                        'rgba(255, 206, 86)',
-                        'rgba(75, 192, 192)',
-                        'rgba(255, 159, 64)'
+                        'rgb(220,20,60)',
+                        'rgb(178,34,34)',
+                        'rgb(165,42,42)',
+                        'rgb(139,0,0)',
+                        'rgb(128,0,0)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(255, 159, 64, 1)'
+                        'rgb(220,20,60)',
+                        'rgb(178,34,34)',
+                        'rgb(165,42,42)',
+                        'rgb(139,0,0)',
+                        'rgb(128,0,0)'
                     ],
                     borderWidth: 1
                 }]
@@ -670,6 +725,8 @@ if(isset($_POST['submit'])){
                 }
             }
         });
+
+        
     </script>
     
 </body>

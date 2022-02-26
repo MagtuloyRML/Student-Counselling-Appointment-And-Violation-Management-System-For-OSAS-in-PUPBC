@@ -167,3 +167,19 @@ body{
     color: var(--color-content0-bg);
     background-color: var(--button-color-font-icon);
 }
+
+.p_register, .p_register a{
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    text-align: center;
+}
+
+.p_register a{
+    font-weight: 600;
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    color: var(--maroong-content-bg);
+}
+.p_register a:hover{
+    color: var(--maroong-content-hover);
+}

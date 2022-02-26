@@ -1,5 +1,5 @@
 <?php
-    $title = 'Maintenance Counceling Schedule';
+    $title = 'Maintenance Counseling Schedule';
     $page = 'maintenance';
     include_once('../includes/header.php');
 

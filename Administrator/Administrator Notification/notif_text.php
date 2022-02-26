@@ -7,7 +7,7 @@
         FROM adminnotification AS adminNotif
         INNER JOIN notificationstatus AS nStatus 
         ON adminNotif.AdminNotificationStatusID = nStatus.NotificationStatusID 
-        WHERE adminNotif.AdminAccountID = '$id' ");
+        WHERE adminNotif.AdminAccountID = '$id' ORDER BY DateTimeStamp DESC ");
         
         while ($row = mysqli_fetch_array( $sql )) {
             $nTitle = $row["NotificationTitle"]; $nMSG = $row["NotificationMessage"]; $nStatus = $row["NotificationStatusDescription"]; 

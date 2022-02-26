@@ -60,7 +60,11 @@
                             <select class="input" required name = "counselor_id" id="counselor_id">
                             <option disabled value="" selected ="selected">Select a Counselor</option>
                             <?php 
-                                $query = "SELECT * from adminaccountinfo";
+                                $query = "SELECT adminAcc.AdminAccountID, adminAcc.AdminLastName,
+                                         adminAcc.AdminFirstName, adminAcc.AdminMiddleName
+                                        from adminaccountinfo as adminAcc
+                                        INNER JOIN counsellingzoomlink AS cZlink 
+                                        ON adminAcc.AdminAccountID = cZlink.AdminAccountID WHERE cZlink.CounseZLink IS NOT NULL";
                                 $result1 = mysqli_query($conn, $query);
                                 while($row2 = mysqli_fetch_assoc($result1))
                                 {?>

@@ -5,7 +5,7 @@
                     Dashboard
                 </a>
                 <a href="../Counceling Apointment Approval/" class="sub_nav_bttn<?php if ($sub_page == 'approval_app'){ echo '_active';}?>">
-                    Apointment Approval
+                    Appointment Approval
                 </a>
                 <a href="../Counceling Appointment Schedule/" class="sub_nav_bttn<?php if ($sub_page == 'schedule'){ echo '_active';}?>">
                    Schedule

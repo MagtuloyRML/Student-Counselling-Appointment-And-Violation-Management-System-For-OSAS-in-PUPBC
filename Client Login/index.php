@@ -74,8 +74,8 @@
                         <button type="submit" name="submit" class="selection_bttn"><i class="fas fa-sign-in-alt"></i> Login</button>
                     </div>
                     <div class="p_register">
-                    <a href="../Client Forgot Password/">Forgot your Password?</a>
-                </div>
+                        <a href="../Client Forgot Password/">Forgot your Password?</a>
+                    </div>
                 </div>
                 <div class="p_register">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p> <a href="../Client Registration/"> Sign up here</a>

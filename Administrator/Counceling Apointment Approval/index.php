@@ -1,5 +1,5 @@
 <?php
-    $title = 'Counceling Approval Schedule';
+    $title = 'Counseling Approval Schedule';
     $page = 'ca_appoint_sched_approve';
     include_once('../includes/header.php');
 

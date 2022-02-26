@@ -1,5 +1,5 @@
 <?php
-    $title = 'Counceling Apointment Dashboard';
+    $title = 'Counseling Apointment Dashboard';
     $page = 'ca_appoint_sched_view';
     include_once('../includes/header.php');
     $id = $_SESSION['AdminID'];

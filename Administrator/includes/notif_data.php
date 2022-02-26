@@ -9,6 +9,9 @@
         if($fetch > 0){
             echo '<span class="badge" id="notifCount">'.$fetch.'</span>';
         }
+        elseif($fetch > 10){
+            echo '<span class="badge" id="notifCount">10+</span>';
+        }
         $conn->close();
     }
     

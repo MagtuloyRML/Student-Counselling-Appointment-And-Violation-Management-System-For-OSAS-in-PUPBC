@@ -1,5 +1,5 @@
 <?php
-    $title = 'Maintenance Counceling Link';
+    $title = 'Maintenance Counseling Link';
     $page = 'maintenance';
     include_once('../includes/header.php');
 

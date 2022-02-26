@@ -5,7 +5,7 @@
 
     --button-color-font-icon: rgb(136, 136, 136);
     --button-hover-color-font-icon: rgb(84, 83, 87);
-    --button-hover-bg: rgb(160, 160, 160);
+    --button-hover-bg: rgb(207 210 229);
     --color-content0-bg: white;
     --body-color: rgb(209, 209, 209);
 
@@ -28,7 +28,7 @@ body{
     position: relative;
     padding: 0 0 0 5.75rem;
     transition: .5s;
-    background-color: var(--body-color);
+    background-color: #e9eaf1;
 }
 h1{
     margin: 0;
@@ -106,7 +106,7 @@ ul{
 
 .navi_link:hover{
     color: var(--button-hover-color-font-icon);
-    background-color: var(--button-hover-bg);
+    background-color: rgb(207 210 229);
 }
 .fas{
     font-size: 1.25rem;
@@ -124,7 +124,7 @@ ul{
 }
 .active_side{
     color: var(--button-hover-color-font-icon);
-    background-color: var(--button-hover-bg);
+    background-color: rgb(207 210 229);
 }
 
 .collapse{

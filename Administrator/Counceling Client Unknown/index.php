@@ -1,5 +1,5 @@
 <?php
-    $title = 'Counceling Client Unknown';
+    $title = 'Counseling Client Unknown';
     $page = 'ca_client';
     include_once('../includes/header.php');
     $id = $_SESSION['AdminID'];

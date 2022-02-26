@@ -36,7 +36,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(193 201 219 / 50%);
 }
 
 .modal_upload_bg .modal_upload{

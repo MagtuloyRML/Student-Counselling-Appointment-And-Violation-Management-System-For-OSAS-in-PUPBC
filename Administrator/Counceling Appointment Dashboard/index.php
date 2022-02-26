@@ -1,5 +1,5 @@
 <?php
-    $title = 'Counceling Apointment Dashboard';
+    $title = 'Counseling Apointment Dashboard';
     $page = 'ca_appoint_sched';
     $id = 'ap_dash';
     $online_script = '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

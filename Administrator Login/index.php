@@ -66,6 +66,10 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="p_register">
+                    <a href="../Client Forgot Password/">Forgot your Password?</a>
+                </div>
                 
                 <div class="bttn_group">
                     <div class="login_bttn">

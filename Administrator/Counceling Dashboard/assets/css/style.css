@@ -71,6 +71,7 @@
     max-height: 500px;
     width: 350px;
     padding: 10px 0 10px;
+    margin: auto;
 }
 .donut{
     width: 280px;
@@ -87,4 +88,94 @@
 .graph{
     width: 100%;
     height: 100%;
+}
+.student_select{
+    width: 100%;
+}
+.student_select .label{
+    font-size: 14px;
+    color: var(--button-hover-color-font-icon);
+    width: 100px;
+}
+.student_select .range_selection{
+    font-size: 14px;
+    color: var(--button-hover-color-font-icon);
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid var(--button-hover-color-font-icon);
+    text-align: center;
+}
+.student_select .srch_bttn{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    color: var(--button-color-font-icon);
+    background-color: transparent;
+    padding: 5px 4px 5px 7px;
+    font-size: 11px;
+    border-radius: .25rem;
+}
+.student_select .srch_bttn:hover{
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-color-font-icon);
+}
+.reminder{
+    font-size: var(--small-font-size);
+    text-align: center;
+    color: var(--button-color-font-icon);
+}
+
+.list_client{
+    padding-top: 30px;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+}
+.list_client .list_title{
+    padding: 5px 30px 3px;
+    width: auto;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+.list_client .display_client{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.display_client .client_title{
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-hover);
+    font-size: 11px;
+}
+.display_client .client_data{
+    border: 1px solid #ddd;
+    padding: 2px 5px 2px;
+    font-size: 11px;
+    text-align: center;
+}
+.client_data .bttn_table{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--maroong-content-bg);
+    cursor: pointer;
+}
+.client_data .bttn_table:hover{
+    color: var(--maroong-content-hover);
+}
+
+.down_bttn_table{
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+    cursor: pointer;
+    float: right;
+}
+.down_bttn_table:hover{
+    color: var(--maroong-content-hover);
 }

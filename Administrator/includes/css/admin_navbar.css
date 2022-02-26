@@ -31,7 +31,7 @@
 
 body{
     position: relative;
-    background-color: rgb(209, 209, 209);
+    background-color: #e9eaf1;
 }
 
 .top_nav_bar{
@@ -121,7 +121,7 @@ body{
     height: auto;
     background: white;
     border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);
+    box-shadow: 0 2px 5px 0 rgb(48 73 163 / 10%);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-1px);
@@ -199,7 +199,7 @@ body{
     height: auto;
     background: white;
     border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgb(0, 0, 0, .1);
+    box-shadow: 0 2px 5px 0 rgb(48 73 163 / 10%);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-1px);
@@ -370,7 +370,7 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--body-color);
+    background-color: #e9eaf1;
 }
 .loader div{
     height: 150px;

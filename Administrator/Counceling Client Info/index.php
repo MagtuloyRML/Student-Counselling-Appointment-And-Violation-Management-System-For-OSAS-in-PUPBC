@@ -1,5 +1,5 @@
 <?php
-    $title = 'Counceling Client Information';
+    $title = 'Counseling Client Information';
     $page = 'ca_client';
     include_once('../includes/header.php');
     

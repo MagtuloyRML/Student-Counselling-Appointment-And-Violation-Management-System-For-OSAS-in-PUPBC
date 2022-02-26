@@ -82,7 +82,7 @@
                     <a href="#" class="navi_logo">PUPBC Website</a>
                 </div>
 <?php if ($studCounceling == '1'){ echo '                <div class="navi_list">
-                    <h3 class="sub_title"><i class="fas fa-hospital-user" id="nav-toggle1"></i>Counceling</h3>
+                    <h3 class="sub_title"><i class="fas fa-hospital-user" id="nav-toggle1"></i>Counseling</h3>
                     <a href="../Counceling Dashboard/" id="cdash" class="navi_link ">
                         <i class="fas fa-chart-line"></i>
                         <span class="navi_name">DashBoard</span>
@@ -121,7 +121,7 @@
                         <i class="fas fa-chevron-down" id="drop_bttn"></i>
 
                         <ul class="collapse_menu">
-<?php if ($studCounceling == '1'){ echo '                            <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counceling</a> ';}?>
+<?php if ($studCounceling == '1'){ echo '                            <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counseling</a> ';}?>
 <?php if ($studViol == '1'){ echo '                            <a href="../Violation Maintenance Program/" class="collapse_link">Violation</a> ';}?>
 <?php if ($systemMaintenance == '1'){ echo '                            <a href="../System User Maintenance/" class="collapse_link">Maintenance</a> ';}?>
                         </ul>
