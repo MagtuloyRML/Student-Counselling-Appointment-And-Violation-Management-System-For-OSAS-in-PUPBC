@@ -28,65 +28,68 @@
     <title>Client Login</title>
 </head>
 <body>
-    <div class="select_container">
-        <div class="selection">
-            <a class="back_bttn" href="../index.php"><i class="fas fa-arrow-left"></i></a>
-            <div class="welcome_text">
-                <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean fringilla nec ante vel vestibulum. Sed id nibh tincidunt, volutpat risus eu, dignissim risus.
-                </p>
-            </div>
-
-            <div class="error">
-                <div class="error_msg" id="error_message">
-                    <li id="error_username"></li>
-                    <li id="error_pass"></li>
-                    <li id="error_acc"></li>
+    <div class="body">
+        <div class="select_container">
+            <div class="selection">
+                <a class="back_bttn" href="../index.php"><i class="fas fa-arrow-left"></i></a>
+                <div class="welcome_text">
+                    <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
+                    <h2>Office of Student Affairs and Services Portal</h2>
+                    <p>Student Counseling Appointment and Violation Management System for OSAS
+                    </p>
                 </div>
-            </div>
-            
-            <form id="loginForm" action="assets/client_login_work.php" method="POST" autocomplete="off">
-                <div class="input_group">
-                    <div class="input_container " >
-                        <div class="input " id="input_stud_num">
-                            <input class="input-field" type="text" placeholder="Student Number" name="stud_num" id="stud_num">
-                            <i id="i_stud_num" ></i>
-                            <i class="fas fa-user-tie"></i>
+
+                <div class="error">
+                    <div class="error_msg" id="error_message">
+                        <li id="error_username"></li>
+                        <li id="error_pass"></li>
+                        <li id="error_acc"></li>
+                    </div>
+                </div>
+                
+                <form id="loginForm" action="assets/client_login_work.php" method="POST" autocomplete="off">
+                    <div class="input_group">
+                        <div class="input_container " >
+                            <div class="input " id="input_stud_num">
+                                <input class="input-field" type="text" placeholder="Student Number  Ex: 2010-00000-BN-0" name="stud_num" id="stud_num">
+                                <i id="i_stud_num" ></i>
+                                <i class="fas fa-user-tie"></i>
+                            </div>
                         </div>
+                        
+
+                        <div class="input_container " >
+                            <div class="input " id="input_password">
+                                <input class="input-field" type="password" placeholder="Password" name="password" id="password">
+                                <i class="fas fa-eye" id="viewPass"></i>
+                                <i id="i_password" ></i>
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
                     </div>
                     
-
-                    <div class="input_container " >
-                        <div class="input " id="input_password">
-                            <input class="input-field" type="password" placeholder="Password" name="password" id="password">
-                            <i class="fas fa-eye" id="viewPass"></i>
-                            <i id="i_password" ></i>
-                            <i class="fas fa-lock"></i>
+                    <div class="bttn_group">
+                        <div class="login_bttn">
+                            <button type="submit" name="submit" class="selection_bttn"><i class="fas fa-sign-in-alt"></i> Login</button>
                         </div>
-                    </div>
-                    
-                </div>
-                 
-                <div class="bttn_group">
-                    <div class="login_bttn">
-                        <button type="submit" name="submit" class="selection_bttn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                        <div class="p_register">
+                            <a href="../Client Forgot Password/">Forgot your Password?</a>
+                        </div>
                     </div>
                     <div class="p_register">
-                        <a href="../Client Forgot Password/">Forgot your Password?</a>
+                        <p>Do you want to make an Account?</p> <a href="../Client Registration/"> Sign up here</a>
                     </div>
-                </div>
-                <div class="p_register">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit?</p> <a href="../Client Registration/"> Sign up here</a>
-                </div>
-            </form>
-            
-            
+                </form>
+                
+                
+
+            </div>
 
         </div>
 
     </div>
+    
     <script src="assets/js/main.js"></script>
     
 </body>

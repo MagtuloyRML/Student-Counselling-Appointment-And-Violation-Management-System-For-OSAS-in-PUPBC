@@ -22,9 +22,8 @@
         <div class="login_form">
             <div class="welcome_text">
                 <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean fringilla nec ante vel vestibulum.
+                <h2>Office of Student Affairs and Services Portal</h2>
+                <p>Student Counseling Appointment and Violation Management System for OSAS
                 </p>
                 <br>
                 <?php if (isset($_GET['error'])) { ?>

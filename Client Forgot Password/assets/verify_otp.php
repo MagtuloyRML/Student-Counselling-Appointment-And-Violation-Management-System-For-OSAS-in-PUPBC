@@ -15,7 +15,6 @@ if(isset($_POST['submit'])){
         header( "Location:verify_otp.php?error=The entered OTP is invalid&email=$email");
         exit();
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -41,6 +40,9 @@ if(isset($_POST['submit'])){
         <div class="login_form">
             <div class="welcome_text">
                 <img class="logo" src="img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
+                <h2>Office of Student Affairs and Services Portal</h2>
+                <p>Student Counseling Appointment and Violation Management System for OSAS
+                </p>
                 <h2>OTP Verification</h2>
                 <p> <?php if (isset($_GET['error'])) { ?>
                                     <p class="error"><?php echo $_GET['error']; ?></p>

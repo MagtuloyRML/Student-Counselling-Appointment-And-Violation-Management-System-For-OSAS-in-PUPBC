@@ -24,29 +24,31 @@
     <title>PUPBC Website</title>
 </head>
 <body>
-    <div class="select_container">
-        <div class="selection">
-            <div class="welcome_text">
-                <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean fringilla nec ante vel vestibulum. Sed id nibh tincidunt, volutpat risus eu, dignissim risus.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Aenean fringilla nec ante vel vestibulum. Sed id nibh tincidunt, volutpat risus eu, dignissim risus.</p>
-            </div>
-            <div class="bttn_group">
-                <div class="select_bttn">
-                    <button onclick="window.location.href='Client Login/'" class="selection_bttn"><i class="fas fa-user-graduate"></i> Client</button>
+    <div class="body">
+        <div class="select_container">
+            <div class="selection">
+                <div class="welcome_text">
+                    <img class="logo" src="assets/img/1200px-Polytechnic_University_of_the_Philippines_Biñan_Logo.svg.png" alt="PUPBC LOGO">
+                    <h2>Office of Student Affairs and Services Portal</h2>
+                    <p>Student Counseling Appointment and Violation Management System for OSAS
+                    </p>
                 </div>
-                <div class="select_bttn">
-                    <button onclick="window.location.href='Administrator Login/'" class="selection_bttn"><i class="fas fa-user-tie"></i> Administrator</button>
+                <div class="bttn_group">
+                    <div class="select_bttn">
+                        <button onclick="window.location.href='Client Login/'" class="selection_bttn"><i class="fas fa-user-graduate"></i> Client</button>
+                    </div>
+                    <div class="select_bttn">
+                        <button onclick="window.location.href='Administrator Login/'" class="selection_bttn"><i class="fas fa-user-tie"></i> Administrator</button>
+                    </div>
                 </div>
+                
+
             </div>
-            
 
         </div>
 
     </div>
+    
     
 </body>
 </html>

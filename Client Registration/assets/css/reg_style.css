@@ -3,7 +3,7 @@
 :root{
     --nav-width: 92px;
 
-    --button-color-font-icon: rgb(136, 136, 136);
+    --button-color-font-icon: rgb(178, 185, 235);
     --button-hover-color-font-icon: rgb(84, 83, 87);
     --button-hover-bg: rgb(160, 160, 160);
     --color-content0-bg: white;
@@ -27,7 +27,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: var(--body-color);
+    background-color: #e9eaf1;
     position: relative;
     display: flex;
     align-content: center;
@@ -68,7 +68,7 @@ body{
 }
 .title h1{
     font-size: 1.5rem;
-    color: var(--button-color-font-icon);
+    color: var(--button-hover-color-font-icon);
     display: inline-block;
 }
 .title hr{
@@ -129,7 +129,7 @@ body{
 }
 .input .fa-eye, .input .fa-eye-slash{
     cursor: pointer;
-    color: var(--button-hover-color-font-icon);
+    color: var(--button-color-font-icon);
     transition: ease 2s;
 }
 
@@ -144,14 +144,15 @@ body{
 .reg_form .bttn_group{
     padding: 0 20px 20px;
 }
+
 .bttn_group .reg_bttn .selection_bttn{
     margin-bottom: 10px;
-    padding: 5px 10px 5px;
-    border: 1px solid var(--button-color-font-icon);
+    padding: 5px 0 5px;
     border-radius: .25rem;
     text-decoration: none;
-    background-color: transparent;
-    color: var(--button-color-font-icon);
+    background-color: var(--button-color-font-icon);
+    color: var(--color-content0-bg);
+    border: none;
     font-size: 1.25rem;
     font-weight: 600;
     width: 100%;
@@ -161,7 +162,6 @@ body{
 
 
 .bttn_group .reg_bttn .selection_bttn:hover{
-    color: var(--color-content0-bg);
-    background-color: var(--button-color-font-icon);
+    background-color: rgb(98, 107, 175);
 }
 

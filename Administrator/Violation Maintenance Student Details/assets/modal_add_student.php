@@ -16,83 +16,109 @@ include('dbconnection.php');
         <form id="studDetails" method="POST" action="assets/save_add_student.php">
             <div class="modal_content">
                 <div class="modal_studDetails_input_container">
-                    <div class="input_sd">
+                    <div class="input_group">
+                            <div class="input_container">
+                                <label for="#" class="label">Student Num: </label>
+                                <div class="input " id="input_fst_name">
+                                    <input class="input-field" type="text" placeholder="Ex: 2000-00000-BN-0" name="studNum" id="studNum">
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_fst_name" class="fa-solid "></i>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Last Name: </label>
+                                <div class="input " id="input_mid_name">
+                                    <input class="input-field" type="text" placeholder="Ex: Dela Cruz" name="lastName" id="lastName">
+                                    <i id="i_mid_name" class="fa-solid "></i>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">First Name: </label>
+                                <div class="input " id="input_last_name">
+                                    <input class="input-field" type="text" placeholder="Ex: Juan" name="firstName" id="firstName">
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_last_name" class="fa-solid "></i>
+                                </div>
+                            </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Middle Name: </label>
+                                <div class="input " id="input_suf_name">
+                                    <input class="input-field" type="text" placeholder="Ex: Jr. (Leave if None)" name="middleName" id="middleName">
+                                    <i id="i_suf_name" class="fa-solid "></i>
+                                </div>
+                            </div>
 
-                        <div class="modal_studDetails_input">
-                            <p class="label">Student Num: </p>
-                            <input type="text" class="input_field" id="studNum" name="studNum">
-                        </div>
-                        <div class="modal_studDetails_input">
-                            <p class="label">Last Name: </p>
-                            <input type="text" class="input_field" id="lastName" name="lastName">
-                        </div>
-                        <div class="modal_studDetails_input">
-                            <p class="label">First Name: </p>
-                            <input type="text" class="input_field" id="firstName" name="firstName">
-                        </div>
-                        <div class="modal_studDetails_input">
-                            <p class="label">Middle Name: </p>
-                            <input type="text" class="input_field" id="middleName" name="middleName">
-                        </div>
-                    </div>
+                            <div class="input_container" >
+                                <label for="#" class="label">Academic Year </label>
+                                <div class="input " id="input_userRole">
+                                    <select class="input-field select" name="ayCode" id="ayCode">
+                                        <option disabled selected> --Academic Year & Section-- </option>
+                                        <?php
+                                        include_once 'dbconnection.php';
+                                        $sql = mysqli_query($conn, "SELECT * FROM foracademicyear ");
+                                        while ($row = mysqli_fetch_array($sql)) {
+                                                echo "<option value='" . $row['code'] . "'>" . $row['code'] . " Semester </option>";
+                                        }
+                                        ?>
+                                    </select>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_userRole" class="fa-solid "></i>
+                                </div>
+                            </div>
 
-                    <div class="input_sd">
-
-                        <div class="modal_studDetails_input">
-                            <p class='label'>Academic Year: </p>
-                            <select class="input_field" name="ayCode" id="ayCode">
-
-                                    <option disabled selected> --Academic Year & Section-- </option>
-                                    <?php
-                                    include_once 'dbconnection.php';
-
-                                    $sql = mysqli_query($conn, "SELECT * FROM foracademicyear ");
-
-                                    while ($row = mysqli_fetch_array($sql)) {
-                                        echo "<option value='" . $row['code'] . "'>" . $row['code'] . " Semester </option>";
-                                    }
-                                    ?>
-
-                                </select>
-                        </div>
-                        <div class="modal_studDetails_input">
-                            <p class="label">Section: </p>
-                            <input type="text" class="input_field" id="Section" name="Section">
-                        </div>
-
-                        <div class="modal_studDetails_input">
-                            <p class="label">Address: </p>
-                            <input type="text" class="input_field" id="Addres" name="Addres">
-                        </div>
-
-                        <div class="modal_studDetails_input">
-                            <p class="label">Gender: </p>
-
-                            <select class="input_field" name="Gender" id="Gender">
-                                <option disabled selected> --Enter Gender-- </option>
-                                <option value="Male">Male </option>
-                                <option value="Female">Female </option>
-                            </select>
-                        </div>
-
-                        <div class="modal_studDetails_input">
-                            <p class='label'>Program: </p>
-                            <select class="input_field" name="progCode" id="progCode">
-
-                                <option disabled selected> --Select Program-- </option>
-                                <?php
-                                $result1 = mysqli_query($conn, "SELECT * FROM forprogram");
-                                $options = "";
-                                while ($row2 = mysqli_fetch_array($result1)) { ?>
-                                    <option value="<?php echo $row2['pID']; ?>"><?php echo $row2['pDescription']; ?> </option>
-                                <?php
-                                }
-                                ?>
-
-                            </select>
-                        </div>
-
-                    </div>
+                            <div class="input_container">
+                                <label for="#" class="label">Section: </label>
+                                <div class="input " id="input_admin_email">
+                                    <input class="input-field" type="text" placeholder="Ex: 1" name="Section" id="Section">
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_admin_email" class="fa-solid "></i>
+                                </div>
+                            </div>
+                            
+                            <div class="input_container">
+                                <label for="#" class="label">Address: </label>
+                                <div class="input " id="input_username">
+                                    <input class="input-field" type="text" placeholder="Ex: Binan Laguna" name="Addres" id="Addres">
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_username" class="fa-solid "></i>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="input_container" >
+                                <label for="#" class="label">Gender: </label>
+                                <div class="input " id="input_gender">
+                                    <select class="input-field select" name="Gender" id="Gender">
+                                        <option disabled selected> --Enter Gender-- </option>
+                                        <option value="Male">Male </option>
+                                        <option value="Female">Female </option>
+                                    </select>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_gender" class="fa-solid "></i>
+                                </div>
+                            </div>
+                            
+                            <div class="input_container">
+                                <label for="#" class="label">Program: </label>
+                                <div class="input " id="input_admin_contact">
+                                    <select class="input-field select" name="progCode" id="progCode">
+                                        <option disabled selected> --Select Program-- </option>
+                                        <?php
+                                        $result1 = mysqli_query($conn, "SELECT * FROM forprogram");
+                                        $options = "";
+                                        while ($row2 = mysqli_fetch_array($result1)) { ?>
+                                            <option value="<?php echo $row2['pID']; ?>"><?php echo $row2['pDescription']; ?> </option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_admin_contact" class="fa-solid "></i>
+                                </div>
+                                
+                            </div>
+                            
+                        </div> 
 
                 </div>
 
