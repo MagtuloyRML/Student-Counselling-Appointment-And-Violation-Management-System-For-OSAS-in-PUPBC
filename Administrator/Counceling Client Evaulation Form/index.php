@@ -210,7 +210,7 @@
                         </div>                 
                         <div class="action_content">
                             <button class= "bttn" type="submit" name="submit" id="submit">
-                            <i class="fa-solid fa-address-card"></i>  Sumbit Form</button>
+                            <i class="fa-solid fa-address-card"></i>  Submit Form</button>
                         </div>
                     </form>
             </div>

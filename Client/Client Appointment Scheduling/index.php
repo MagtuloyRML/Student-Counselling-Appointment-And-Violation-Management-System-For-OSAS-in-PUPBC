@@ -29,10 +29,12 @@
                                 <?php } ?>
 
                         <p>Fill up the following to appoint a Schedule: </p>
-                        
+                        <label class="label" for="#">Enter Nickname (Optional) : </label>
+                        <input class="input" type="text" id="name" name="name" value="">
+                        <br>
                         <label class="label" for="#">Do you want to be Anonymous or Not: </label>
                         <input class="input" type="hidden" id="id" name="id" value="<?= $name ?>">
-                        <input class="input" type="hidden" id="name" name="name" value="">
+                        
                         <input class="input" type="hidden" id="email_add" name="email_add" value="">
                         <div class="input_radio">
                             
