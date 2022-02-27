@@ -76,7 +76,7 @@
             $directory = "../../assets/user_profile_pic/client/";
             $prof_pic = $detailpic['PictureFilename'];
         }
-        $profile_pic = "<img class='prof_pic' id='prof_pic' src='$directory$studNum/$prof_pic' alt='Profile Pic'>";
+        $profile_pic = "<img class='prof_pic' id='prof_pic' src='$directory,$studNum/$prof_pic' alt='Profile Pic'>";
     }
     elseif($anonymity == 'Yes'){
         $email_add = 'Unknown';
@@ -96,10 +96,30 @@
     }
     
 ?>
+<!-- FOR PRINT MODULE -->
+<style>
+@media print{
+    
+    body *{
+        visibility: hidden;
+    }
+    .body_container, .body_container *{
+        visibility: visible;
+    }
+    .body_container{
+        position:absolute;
+        left: 0;
+        top: 0;
+    }
+    .bttn, .acc_bttn{
+        display: none !important;
+    }
+}
+</style>
     <div class="body_container">
         <div class="content">
             <div class="title">
-                <h1>System Maintenance</h1>
+                <h1>Student Evaluation</h1>
                 <hr>
             </div>
             <div class="subcontent">
@@ -117,14 +137,20 @@
                                 <?php echo $profile_pic; ?>
                             </div>
                         </div>
+                        <div class="records_print_bttn">
+                    <a href="#" onclick="window.print();" class="bttn" id="print_record_btn" >
+                        <i class="fas fa-print"></i>
+                        Print Record
+                    </a>
+                </div>
                         <h4>Client Information:</h4>
                         <div class="input_group">
                             <div class="input_container">
                                 <label for="#" class="label">Full Name: </label>
-                                <div class="input " id="input_fst_name">
+                                <div class="input" id="input_fst_name">
                                     <input class="input-field" type="text" value="<?= $fname ?>" name="fst_name" id="fst_name" readonly>
-                                    <input class="input-field" type="hidden" value="<?= $appointmentID ?>" name="a_id" id="a_id" >
-                                    <input class="input-field" type="hidden" value="<?= $name ?>" name="id" id="id" >
+                                    <input class="input-field" type="hidden" value="<?= $appointmentID ?>" name="a_id" id="no-print" >
+                                    <input class="input-field" type="hidden" value="<?= $name ?>" name="id" id="no-print" >
                                 </div>
                             </div>
                             <div class="input_container">
@@ -193,7 +219,7 @@
                             </div>
                         </div>
                         
-                    
+                        <div class ="resize">
                         <div class="input_group">
                             <div class="eval">
                                 <label for="#" class="label">Evaluation: </label>
@@ -202,6 +228,7 @@
                                 <div class="input " id="input_fst_name">
                                     <textarea class="input-field evalInput" placeholder="Evaluation of this Apppointment" name="evaluation" id="evaluation" readonly><?= $eval ?></textarea>
                                 </div>
+                               
                             </div>
                             <div class="eval">
                                 <label for="#" class="label">Recommendation: </label>
@@ -210,11 +237,13 @@
                                 <div class="input " id="input_fst_name">
                                     <textarea class="input-field evalInput" placeholder="Recommendation of this Apppointment" name="recommendation" id="recommendation" readonly><?= $recom ?></textarea>
                                 </div>
+                               
                             </div>
                         </div>
                         <div class="action_content">
                             <a href="../Counceling Client Edit Evaulation/?a_id=<?php echo $appointmentID; ?>" class= "bttn" id="submit"> <i class="fa-solid fa-pen-to-square"></i> Edit Evaluation Form</a>
-                        </div>                
+                        </div> 
+                                </div>               
                     
             </div>
 
