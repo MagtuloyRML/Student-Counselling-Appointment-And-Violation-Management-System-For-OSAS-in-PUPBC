@@ -119,9 +119,9 @@
 
 
 /*modal*/
-.modal_bg .modal{
+/*.modal_bg .modal{
     width: 35%;
-}
+}*/
 .modal .modal_content .modal_add_violation{
     color: var(--button-color-font-icon);
 }
@@ -165,4 +165,28 @@
 }
 .modal_add_sanction .violation_selection{
     width: 250px;
+}
+
+@media (max-width: 1200px) {
+    .content{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .content{
+        width: 100%;
+    }
+
 }

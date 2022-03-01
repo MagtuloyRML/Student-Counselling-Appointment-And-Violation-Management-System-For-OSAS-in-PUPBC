@@ -104,8 +104,11 @@
 }
 
 /*Modal Print*/
+.modal_bg{
+    padding: 2px;
+}
 .modal_bg .modal{
-    width: 80%;
+    /*width: 80%;*/
     height: 80%;
 }
 
@@ -167,11 +170,7 @@
     font-size: 11px;
 }
 @media print {
-    @page {
-        size: 210mm 297mm; 
-        /* Chrome sets own margins, we change these printer settings */
-        margin: 20mm 16mm 20mm 16mm; 
-    }
+    
     body * {
         visibility:hidden; 
     }
@@ -184,9 +183,29 @@
         left:0px;
         top: 0px; 
     }
-    table { page-break-inside:auto }
-    tr    { page-break-inside:avoid; page-break-after:auto }
-    thead { display:table-header-group; }
-    tfoot { display:table-footer-group; }
-}
     
+}
+
+@media (max-width: 1200px) {
+    .content_rec{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content_rec{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content_rec{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .content_rec{
+        width: 100%;
+    }
+
+}

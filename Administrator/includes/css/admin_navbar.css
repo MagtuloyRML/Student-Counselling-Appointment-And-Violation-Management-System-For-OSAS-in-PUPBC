@@ -67,7 +67,7 @@ body{
 }
 
 .navi-bar{
-    display: block;
+    display: flex;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20%;
@@ -76,6 +76,7 @@ body{
     width: 100%;
     background-color: white;
     align-items: center;
+    
 }
 .navi-bar, .menu{
     display: flex;
@@ -392,3 +393,14 @@ nav{
     }
 }
 
+@media (max-width: 1024px) {
+    .navi-bar{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navi-bar, .menu {
+        margin-right: 0;
+        justify-content: space-between;
+    }
+}

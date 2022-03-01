@@ -134,3 +134,27 @@
 .action_content .bttn:hover{
     background-color: var(--maroong-content-hover);
 }
+
+@media (max-width: 1200px) {
+    .content{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .content{
+        width: 100%;
+    }
+
+}

@@ -76,7 +76,7 @@
             $directory = "../../assets/user_profile_pic/client/";
             $prof_pic = $detailpic['PictureFilename'];
         }
-        $profile_pic = "<img class='prof_pic' id='prof_pic' src='$directory,$studNum/$prof_pic' alt='Profile Pic'>";
+        $profile_pic = "<img class='prof_pic' id='prof_pic' src='$directory$studNum/$prof_pic' alt='Profile Pic'>";
     }
     elseif($anonymity == 'Yes'){
         $email_add = 'Unknown';
@@ -151,12 +151,14 @@
                                 <?php echo $profile_pic; ?>
                             </div>
                         </div>
+
                         <div class="records_print_bttn">
-                            <a href="#" onclick="window.print();" class="bttn" id="print_record_btn" >
+                            <a onclick="window.print();" class="bttn" id="print_record_btn" >
                                 <i class="fas fa-print"></i>
                                 Print Record
                             </a>
                         </div>
+
                         <h4>Client Information:</h4>
                         <div class="input_group">
                             <div class="input_container">

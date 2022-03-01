@@ -84,6 +84,9 @@
 }
 
 /*modal*/
+.curri .modal{
+    width: 80%;
+}
 .modal_upload_bg .modal_upload{
     width: 80%;
 }
@@ -103,6 +106,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 4px;
+    flex-grow: 1;
 }
 .modal_curri_input .label{
     width: 188px;
@@ -157,4 +161,28 @@
 }
 .footer_modal_bttn .disable:hover{
     background-color: var(--button-hover-bg);
+}
+
+@media (max-width: 1200px) {
+    .content{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .content{
+        width: 100%;
+    }
+
 }

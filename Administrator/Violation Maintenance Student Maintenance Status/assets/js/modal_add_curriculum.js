@@ -15,3 +15,6 @@ window.onclick = function(event) {
         document.querySelector('#modal_curri_input').style.display = "none";
     }
   };
+$(document).ready(function () {
+    $('#vSide').addClass('sideActive');
+});

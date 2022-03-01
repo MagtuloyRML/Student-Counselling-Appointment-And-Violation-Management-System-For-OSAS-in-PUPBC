@@ -159,11 +159,33 @@
     background-color: var(--button-color-font-icon);
 }
 
-.prof_pic_edit{
-    width: 45%;
-}
+
 .image_crop{
     width: 350px;
     height: 350px;
     padding-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+    .content{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .content{
+        width: 100%;
+    }
+
 }

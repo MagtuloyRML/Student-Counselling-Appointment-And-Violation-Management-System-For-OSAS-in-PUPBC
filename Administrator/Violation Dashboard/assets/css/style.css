@@ -68,6 +68,7 @@
     justify-content: center;
     flex-direction: row;
     flex-flow: wrap;
+    flex-grow: 1;
 }
 .dash_content h3, .dash_content .fas{
     padding: .75rem;
@@ -84,3 +85,26 @@
     font-weight: bold;
 }
 
+@media (max-width: 1200px) {
+    .container{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .container{
+        width: 100%;
+    }
+
+}

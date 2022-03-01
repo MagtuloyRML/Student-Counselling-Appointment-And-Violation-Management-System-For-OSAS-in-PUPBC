@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#cdash').addClass('active_side');
+    $('#sidecdash').addClass('sideActive');
 });
 function updateClock(){
     var now = new Date();

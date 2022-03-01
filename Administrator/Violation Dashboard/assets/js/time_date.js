@@ -39,4 +39,5 @@ function updateClock(){
 
   $(document).ready(function () {
     $('#vdash').addClass('active_side');
+    $('#sidevdash').addClass('sideActive');
   });

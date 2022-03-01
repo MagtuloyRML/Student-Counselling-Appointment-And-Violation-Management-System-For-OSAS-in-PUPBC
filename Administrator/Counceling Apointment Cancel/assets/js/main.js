@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#cappoint').addClass('active_side');
+    $('#sidecappoint').addClass('sideActive');
 
     $("#openCancelMSG").attr("disabled", true);
     $("#openCancelMSG").removeClass('bttn');

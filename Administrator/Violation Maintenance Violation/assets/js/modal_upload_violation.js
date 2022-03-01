@@ -15,3 +15,6 @@ window.onclick = function(event) {
         document.querySelector('#modal_upload_violation').style.display = "none";
     }
   };
+$(document).ready(function () {
+    $('#vSide').addClass('sideActive');
+});

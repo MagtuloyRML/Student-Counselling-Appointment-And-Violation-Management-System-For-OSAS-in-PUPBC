@@ -30,6 +30,21 @@
         $studCounceling = $row['AdminPageStudentCounceling']; $studViol = $row['AdminPageViolation']; 
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
+
+    $sql_fetch = mysqli_query($conn, "SELECT AdminFirstName, AdminMiddleName, AdminLastName, AdminSufifx,
+     AdminContactNo, AdminEmailAdd, AdminAddress from adminaccountinfo WHERE AdminAccountID = '$id'");
+    while($details = mysqli_fetch_assoc($sql_fetch))
+    {
+        $fname = $details['AdminFirstName']; $mname = $details['AdminMiddleName']; $lname = $details['AdminLastName']; $sname = $details['AdminSufifx'];
+        $aAdd = $details['AdminAddress']; $aNo = $details['AdminContactNo']; $aEmail = $details['AdminEmailAdd']; 
+    }
+
+    $sql_fetchpic = mysqli_query($conn, "SELECT PictureFilename from adminprofilepictureinfo WHERE AdminAccountID = '$id' AND UsedStatus = TRUE ");
+    while($detailpic = mysqli_fetch_assoc($sql_fetchpic))
+    {
+        $prof_pic = $detailpic['PictureFilename'];
+    }
+    $directory = "../../assets/user_profile_pic/admin/";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +87,75 @@
 <body id="body-pd" <?php if ($page == 'v_home'||$page == 'ca_home' ){ echo 'onload="initClock()"';}?>>
     <div class="loader" scroll="no">
         <div></div>
+    </div>
+
+    <div id="blur">
+        <div class="sideBar_mobile" id="sideBar_mobile">
+            <div class="sb_bttn" id="close_side">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <div class="prf_content">
+                <a class="profile_bttn" href="../Administrator Profile/">
+                    <div class="pic" id="profile_bttn">
+                        <img class="prof_pic" id="prof_pic" src="<?php echo $directory,'pbcscvs',$id,'/', $prof_pic?>" alt="Profile Pic">
+                    </div>
+                    <div class="side_Text">
+                        <p class="sideName"><?php echo $lname, ', ', $fname; ?></p>
+
+                        <p class="pview">View Profile</p>
+                    </div>
+                </a>    
+            </div>
+            
+            <?php if ($studCounceling == '1'){ echo '  <h3 class="title_text"><i class="fa-solid fa-hospital-user"></i> Counseling</h3>
+            <div class="sbMobile_menu">
+                <div class="sb_div">
+                    <a href="../Counceling Dashboard/" id="sidecdash" class="sb_Link "><i class="fa-solid fa-chart-line"></i> DashBoard</a>
+                </div>
+                <div class="sb_div">
+                    <a href="../Counceling Appointment Dashboard/" id="sidecappoint" class="sb_Link "><i class="fa-solid fa-calendar-days"></i> Appointment</a>
+                </div>
+                <div class="sb_div">
+                    <a href="../Counceling Client Page/" id="sidecClient" class="sb_Link "><i class="fa-solid fa-users"></i> Client</a>
+                </div>
+            </div>
+            ';}?>
+
+            <?php if ($studViol == '1'){ echo '  <h3 class="title_text"><i class="fa-solid fa-house-chimney-user"></i> Violation</h3>
+            <div class="sbMobile_menu">
+                <div class="sb_div">
+                    <a href="../Violation Dashboard/" id="sidevdash" class="sb_Link "><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                </div>
+                <div class="sb_div">
+                    <a href="../Violation Entry/" id="sidevEntry" class="sb_Link "><i class="fa-solid fa-bullhorn"></i> Violation Entry</a>
+                </div>
+                <div class="sb_div">
+                    <a href="../Violation Records/" id="sidevRec" class="sb_Link "><i class="fa-solid fa-address-card"></i> Records</a>
+                </div>
+            </div>
+            ';}?>
+
+            <h3 class="title_text"><i class="fa-solid fa-screwdriver-wrench"></i> Maintenance</h3>
+            <div class="sbMobile_menu">
+                <div class="sb_div">
+                <?php if ($studCounceling == '1'){ echo '   <a href="../Councelling Maintenance Schedule/" id="cSide" class="sb_Link "><i class="fa-solid fa-hospital-user"></i> Counseling</a> ';}?>
+                </div>
+                <div class="sb_div">
+                <?php if ($studViol == '1'){ echo '   <a href="../Violation Maintenance Program/" id="vSide" class="sb_Link "><i class="fa-solid fa-house-chimney-user"></i> Violation</a> ';}?>
+                </div>
+                <div class="sb_div">
+                <?php if ($systemMaintenance == '1'){ echo '   <a href="../System User Maintenance/" id="sysSide" class="sb_Link "><i class="fa-solid fa-screwdriver-wrench"></i> System</a> ';}?>
+                </div>
+            </div>
+            
+            <div class="side_down_bttn">
+                <div class="sb_div">
+                    <a href="../includes/logout.php" class="downBttn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+
     </div>
     
     <div class="side_navbar" id="sideNavbar">
@@ -123,7 +207,7 @@
                         <ul class="collapse_menu">
 <?php if ($studCounceling == '1'){ echo '                            <a href="../Councelling Maintenance Schedule/" class="collapse_link">Counseling</a> ';}?>
 <?php if ($studViol == '1'){ echo '                            <a href="../Violation Maintenance Program/" class="collapse_link">Violation</a> ';}?>
-<?php if ($systemMaintenance == '1'){ echo '                            <a href="../System User Maintenance/" class="collapse_link">Maintenance</a> ';}?>
+<?php if ($systemMaintenance == '1'){ echo '                            <a href="../System User Maintenance/" class="collapse_link">System</a> ';}?>
                         </ul>
                     </div>
                 </div>
@@ -133,6 +217,11 @@
 
     <div class="top_nav_bar">
         <div class="navi-bar">
+            <div class="sideBar_bttn">
+                <button class="sb_bttnOpen" id="open_side">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
             
             <div class="menu">
                 <!--- Notifcation drop down content-->

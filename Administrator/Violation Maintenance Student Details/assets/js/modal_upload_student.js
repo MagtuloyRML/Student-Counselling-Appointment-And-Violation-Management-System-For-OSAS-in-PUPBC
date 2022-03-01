@@ -295,3 +295,6 @@ window.onclick = function(event) {
       };
 
   };
+$(document).ready(function () {
+    $('#vSide').addClass('sideActive');
+});

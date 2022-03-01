@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $('#sysSide').addClass('sideActive');
 
     $("#submitRole").attr("disabled", true);
     $("#submitRole").removeClass('bttn');

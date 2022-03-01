@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    $('#sysSide').addClass('sideActive');
 
     $("#addUser").submit(function(event){
         event.preventDefault();

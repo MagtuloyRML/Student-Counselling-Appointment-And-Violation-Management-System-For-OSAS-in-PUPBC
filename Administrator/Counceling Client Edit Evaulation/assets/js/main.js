@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $('#cClient').addClass('active_side');
+    $('#sidecClient').addClass('sideActive');
 
     $("#submit").attr("disabled", true);
     $("#submit").removeClass('bttn');

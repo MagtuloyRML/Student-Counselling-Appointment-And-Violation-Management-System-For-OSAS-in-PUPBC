@@ -18,4 +18,5 @@ window.onclick = function(event) {
 
 $(document).ready(function () {
     $('#vRec').addClass('active_side');
+    $('#sidevRec').addClass('sideActive');
 });

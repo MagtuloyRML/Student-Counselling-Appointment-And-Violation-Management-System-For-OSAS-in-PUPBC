@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $('#cSide').addClass('sideActive');
 
     $("#evaulAvailSched").submit(function(event){
         event.preventDefault();
