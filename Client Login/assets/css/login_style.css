@@ -60,7 +60,7 @@ body{
     top: 0;
     float: left;
     font-size: 1.5rem;
-    color: var(--button-color-font-icon);
+    color: rgb(129 137 197);
 }
 .selection .back_bttn:hover{
     color: var(--maroong-content-bg);
@@ -173,7 +173,8 @@ body{
 
 
 .bttn_group .login_bttn .selection_bttn:hover{
-    background-color: rgb(98, 107, 175);
+    /*background-color: rgb(98, 107, 175);*/
+    background-color: var(--maroong-content-bg);
 }
 
 .p_register, .p_register a{
@@ -189,4 +190,28 @@ body{
 }
 .p_register a:hover{
     color: var(--maroong-content-hover);
+}
+
+@media (max-width: 1200px) {
+    .select_container{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .select_container{
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .select_container{
+        width: 100%;
+    }
+
+}
+@media (max-width: 480px) {
+    .select_container{
+        width: 100%;
+    }
 }

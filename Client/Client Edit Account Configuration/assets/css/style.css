@@ -137,6 +137,7 @@ h4{
     margin-bottom: 15px;
     font-size: var(--small-font-size);
     text-align: center;
+    flex-grow: 1;
 }
 .prePass{
     width: 95%;
@@ -228,11 +229,32 @@ h4{
     background-color: var(--button-color-font-icon);
 }
 
-.prof_pic_edit{
-    width: 45%;
-}
+
 .image_crop{
     width: 350px;
     height: 350px;
     padding-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+    .home_content, .appoint_form, .profile{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .home_content, .appoint_form, .profile{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home_content, .appoint_form, .profile{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .home_content, .appoint_form, .profile{
+        width: 100%;
+    }
 }

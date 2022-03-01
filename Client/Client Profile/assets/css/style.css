@@ -87,6 +87,8 @@
 
 .profile_content_info{
     width: 70%;
+    padding: 0 5px 0;
+    flex-grow: 1;
 }
 .profile_content_info .input-container{
     width: 100%;
@@ -96,6 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-grow: 1;
 }
 .input-container .label{
     width: 40%;
@@ -163,11 +166,32 @@
 }
 
 
-.prof_pic_edit{
-    width: 45%;
-}
+
 .image_crop{
     width: 350px;
     height: 350px;
     padding-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+    .home_content, .appoint_form, .profile{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .home_content, .appoint_form, .profile{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home_content, .appoint_form, .profile{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .home_content, .appoint_form, .profile{
+        width: 100%;
+    }
 }

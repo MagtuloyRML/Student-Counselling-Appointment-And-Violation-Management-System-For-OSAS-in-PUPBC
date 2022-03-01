@@ -123,6 +123,7 @@ h4{
     margin-bottom: 15px;
     font-size: var(--small-font-size);
     text-align: center;
+    flex-grow: 1;
 }
 .zlink {
     display: flex;
@@ -296,4 +297,28 @@ h4{
     color: var(--button-hover-color-font-icon);
     border: none;
     width: 100%;
+}
+
+
+@media (max-width: 1200px) {
+    .home_content, .appoint_form, .profile{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .home_content, .appoint_form, .profile{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home_content, .appoint_form, .profile{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .home_content, .appoint_form, .profile{
+        width: 100%;
+    }
 }

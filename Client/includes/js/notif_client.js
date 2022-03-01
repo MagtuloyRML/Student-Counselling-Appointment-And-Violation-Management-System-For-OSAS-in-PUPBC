@@ -42,6 +42,29 @@ $(document).ready(function () {
             success: function () {
             }
         });
+    });
+
+    $("#open_side").click(function () { 
+        $("#sideBar_mobile").addClass('openSide');
+        $("#blur").addClass('blur');
         
     });
+
+    $("#close_side").click(function () { 
+        $("#sideBar_mobile").removeClass('openSide');
+        $("#blur").removeClass('blur');
+        
+    });
+
+    $("#blur").click(function () { 
+        $("#sideBar_mobile").removeClass('openSide');
+        $("#blur").removeClass('blur');
+    });
+
+    if($('#blur').css('display') == 'none')
+    {   
+        $("#sideBar_mobile").removeClass('openSide');
+        $("#blur").removeClass('blur');
+    }
+
 });

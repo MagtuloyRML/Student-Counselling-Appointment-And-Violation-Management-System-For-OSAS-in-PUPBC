@@ -18,7 +18,7 @@
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
     if ($studCounceling != '1'){
-        header('Location: ../Page 404/');
+        echo "<script> window.location.href = '../Page 404/';</script>";
     }
     
     $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
@@ -41,7 +41,7 @@
                     include '../includes/cmain_sub_nav.php';
                 ?>
                 <div class="title">
-                    <h1>Evaulator's Schedule</h1>
+                    <h1>Evaluator's Schedule</h1>
                     <hr>
                 </div>
                 <form id="evaulAvailSched" action ="assets/insertAvail_sched.php" method = "POST">

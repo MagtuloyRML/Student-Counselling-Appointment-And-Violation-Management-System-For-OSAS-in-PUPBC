@@ -25,7 +25,7 @@
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
     if ($systemMaintenance != '1'){
-        header('Location: ../Page 404/');
+        echo "<script> window.location.href = '../Page 404/';</script>";
     }
 
     $result1 = mysqli_query($conn, "SELECT * from genderrole");

@@ -133,6 +133,7 @@ h4{
     margin-bottom: 15px;
     font-size: var(--small-font-size);
     text-align: center;
+    flex-grow: 1;
 }
 .prePass{
     width: 95%;

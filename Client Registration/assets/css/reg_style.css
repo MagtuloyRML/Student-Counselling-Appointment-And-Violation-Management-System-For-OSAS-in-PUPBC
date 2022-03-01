@@ -90,6 +90,7 @@ body{
     margin-bottom: 15px;
     font-size: var(--small-font-size);
     text-align: center;
+    flex-grow: 1;
 }
 .input_container .label{
     color: var(--button-hover-color-font-icon);
@@ -160,8 +161,8 @@ body{
     cursor: pointer;
 }
 
-
 .bttn_group .reg_bttn .selection_bttn:hover{
-    background-color: rgb(98, 107, 175);
+    /*background-color: rgb(98, 107, 175);*/
+    background-color: var(--maroong-content-bg);
 }
 

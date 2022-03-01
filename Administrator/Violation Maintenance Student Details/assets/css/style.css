@@ -125,6 +125,7 @@
     margin-bottom: 15px;
     font-size: 11px;
     text-align: center;
+    flex-grow: 1;
 }
 .input_container .label{
     color: var(--button-hover-color-font-icon);

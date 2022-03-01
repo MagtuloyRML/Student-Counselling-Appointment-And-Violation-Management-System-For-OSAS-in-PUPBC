@@ -25,7 +25,7 @@
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
     if ($studViol != '1'){
-        header('Location: ../Page 404/');
+        echo "<script> window.location.href = '../Page 404/';</script>";
     }
 ?>
 

@@ -48,7 +48,7 @@
                     <div class="date_container">
                         <label for="#" class="datelabel">Apppointment Time: </label>
                         <div class="date " id="input_mid_name">
-                        <input class="date-field" type="hiden" value="<?= $counselor ?>" name="counselor" id="counselor" readonly>
+                        <input class="date-field" type="hidden" value="<?= $counselor ?>" name="counselor" id="counselor" readonly>
                             <input class="date-field" type="text" value="<?= $nstart_app.' - '.$nend_app ?>" name="mid_name" id="mid_name" readonly>
                         </div>
                     </div>

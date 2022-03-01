@@ -89,6 +89,30 @@ body{
 
 
 .bttn_group .select_bttn .selection_bttn:hover{
-    background-color: rgb(98, 107, 175);
+    /*background-color: rgb(98, 107, 175);*/
+    background-color: var(--maroong-content-bg);
 }
-    
+  
+@media (max-width: 1200px) {
+    .select_container{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .select_container{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .select_container{
+        width: 100%;
+    }
+
+}
+@media (max-width: 480px) {
+    .select_container{
+        width: 100%;
+    }
+}

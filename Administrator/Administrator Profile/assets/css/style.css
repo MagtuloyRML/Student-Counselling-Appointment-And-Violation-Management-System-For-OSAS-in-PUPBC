@@ -82,6 +82,7 @@
 
 .profile_content_info{
     width: 70%;
+    flex-grow: 1;
 }
 .profile_content_info .input-container{
     width: 100%;
@@ -91,6 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-grow: 1;
 }
 .input-container .label{
     width: 40%;

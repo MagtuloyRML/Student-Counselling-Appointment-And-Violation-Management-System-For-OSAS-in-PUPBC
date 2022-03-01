@@ -18,7 +18,7 @@
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
     if ($studCounceling != '1'){
-        header('Location: ../Page 404/');
+        echo "<script> window.location.href = '../Page 404/';</script>";
     }
     
     $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");

@@ -209,6 +209,7 @@ $(document).ready(function(){
                 success:function(data){
                     if(data = "Success"){
                         $("#prof_pic_div").load("assets/displayUpdatedPic.php");
+                        $("#profile_bttn").load("assets/displayUpdatedPic.php");
                         $('#modal_edit_pic').css('display', 'none');
                         $('#pic_filename').val(null);
                     }

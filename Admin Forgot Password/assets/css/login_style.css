@@ -165,5 +165,42 @@ body{
 
 
 .bttn_group .login_bttn .selection_bttn:hover{
-    background-color: rgb(98, 107, 175);
+    /*background-color: rgb(98, 107, 175);*/
+    background-color: var(--maroong-content-bg);
+}
+
+@media (max-width: 1200px) {
+    body{
+        padding: 70px 15% 0;
+    }
+    .body_content{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    body{
+        padding: 70px 10% 0;
+    }
+    .body_content{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    body{
+        padding: 70px 5% 0;
+    }
+    .body_content{
+        width: 100%;
+    }
+
+}
+@media (max-width: 480px) {
+    body{
+        padding: 70px 2% 0;
+    }
+    .body_content{
+        width: 100%;
+    }
 }

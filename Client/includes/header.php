@@ -14,12 +14,23 @@
 
     $id = $_SESSION['StudID'];
 
-    $sql_fetch = mysqli_query($conn, "SELECT ClientFirstName from clientaccountinfo WHERE ClientAccountID = '$id'");
+    $sql_fetch = mysqli_query($conn, "SELECT ClientFirstName, ClientMiddleName, ClientLastName, ClientSuffix, ClientStudentNo
+     from clientaccountinfo WHERE ClientAccountID = '$id'");
     $name = "";
     while($row = mysqli_fetch_assoc($sql_fetch))
     {
         $name = $row['ClientFirstName'];
+        $fname = $row['ClientFirstName']; $mname = $row['ClientMiddleName']; 
+        $lname = $row['ClientLastName']; $sname = $row['ClientSuffix'];
+        $stud_ID = $row['ClientStudentNo'];
     }
+
+    $sql_fetchpic = mysqli_query($conn, "SELECT PictureFilename from clientprofilepictureinfo WHERE ClientAccountID = '$id' AND UsedStatus = TRUE ");
+    while($detailpic = mysqli_fetch_assoc($sql_fetchpic))
+    {
+        $prof_pic = $detailpic['PictureFilename'];
+    }
+    $directory = "../../assets/user_profile_pic/client/";
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,8 +64,59 @@
     <div class="loader" scroll="no">
         <div></div>
     </div>
+
+    <div id="blur">
+        <div class="sideBar_mobile" id="sideBar_mobile">
+            <div class="sb_bttn" id="close_side">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <div class="prf_content">
+                <a class="profile_bttn" href="../Client Profile/">
+                    <div class="pic" id="profile_bttn">
+                        <img class="prof_pic" id="prof_pic" src="<?php echo $directory, $stud_ID,'/', $prof_pic?>" alt="Profile Pic">
+                    </div>
+                    <div class="side_Text">
+                        <p class="sideName"><?php echo $lname, ', ', $fname; ?></p>
+                        <p class="sideName"><?php echo $stud_ID; ?></p>
+
+                        <p class="pview">View Profile</p>
+                    </div>
+                </a>    
+            </div>
+            
+            
+            <div class="sbMobile_menu">
+                <div class="sb_div">
+                    <a href="../Client Home/" class="sb_Link <?php if ($page == 'client_home'){ echo 'sideActive';}?>"><i class="fa-solid fa-house-chimney"></i> Home</a>
+                </div>
+                <div class="sb_div">
+                    <a href="../Client Appointment Scheduling/" class="sb_Link <?php if ($page == 'client_app_sched'){ echo 'sideActive';}?>"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+                </div>
+                <div class="sb_div">
+                    <a href="../Client Manage Appointment/" class="sb_Link <?php if ($page == 'client_manage_appointment'){ echo 'sideActive';}?>"><i class="fa-solid fa-calendar-days"></i> Manage Schedule</a>
+                </div>
+            </div>
+
+            <div class="side_down_bttn">
+                <div class="sb_div">
+                    <a href="../includes/logout.php" class="downBttn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
     <div class="page">
         <div class="navi-bar">
+            <div class="sideBar_bttn">
+                <button class="sb_bttnOpen" id="open_side">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
             <div class="topmenu">
                 <a class="link<?php if ($page == 'client_home'){ echo '_active';}?>" href="../Client Home/">Home</a>
                 <a class="link<?php if ($page == 'client_app_sched'){ echo '_active';}?>" href="../Client Appointment Scheduling/">Appoint</a>

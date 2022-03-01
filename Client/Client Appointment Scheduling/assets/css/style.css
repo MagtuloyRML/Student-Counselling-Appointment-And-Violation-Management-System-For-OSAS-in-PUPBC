@@ -150,3 +150,27 @@
     font-size: 15px;
     color: var(--pink);
 }
+
+
+@media (max-width: 1200px) {
+    .home_content, .appoint_form, .profile{
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .home_content, .appoint_form, .profile{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home_content, .appoint_form, .profile{
+        width: 95%;
+    }
+}
+@media (max-width: 480px) {
+    .home_content, .appoint_form, .profile{
+        width: 100%;
+    }
+}

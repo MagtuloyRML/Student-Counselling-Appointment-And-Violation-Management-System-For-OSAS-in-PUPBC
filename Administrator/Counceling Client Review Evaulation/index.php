@@ -18,7 +18,7 @@
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
     if ($studCounceling != '1'){
-        header('Location: ../Page 404/');
+        echo "<script> window.location.href = '../Page 404/';</script>";
     }
     $sql_fetch = mysqli_query($conn, "SELECT * from adminaccountinfo WHERE AdminAccountID = '$id'");
     $name = "";
@@ -99,9 +99,9 @@
 <!-- FOR PRINT MODULE -->
 <style>
 @media print{
-    
     body *{
         visibility: hidden;
+        font-size: 11px;
     }
     .body_container, .body_container *{
         visibility: visible;
@@ -110,9 +110,23 @@
         position:absolute;
         left: 0;
         top: 0;
+        width: 100%;
+    }
+    h1{
+        font-size: 13px;
+    }
+    .content{
+        padding: 0;
+        width: 100%;
     }
     .bttn, .acc_bttn{
         display: none !important;
+    }
+    .evalInput{
+        height: auto;
+    }
+    .input_group{
+        padding: 5px 0 5px;
     }
 }
 </style>
@@ -123,7 +137,7 @@
                 <hr>
             </div>
             <div class="subcontent">
-            <?php if (isset($_GET['error'])) { ?>
+                <?php if (isset($_GET['error'])) { ?>
                                     <p class="error"><?php echo $_GET['error']; ?></p>
                                 <?php } ?>
 
@@ -138,11 +152,11 @@
                             </div>
                         </div>
                         <div class="records_print_bttn">
-                    <a href="#" onclick="window.print();" class="bttn" id="print_record_btn" >
-                        <i class="fas fa-print"></i>
-                        Print Record
-                    </a>
-                </div>
+                            <a href="#" onclick="window.print();" class="bttn" id="print_record_btn" >
+                                <i class="fas fa-print"></i>
+                                Print Record
+                            </a>
+                        </div>
                         <h4>Client Information:</h4>
                         <div class="input_group">
                             <div class="input_container">

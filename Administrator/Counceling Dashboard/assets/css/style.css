@@ -72,9 +72,11 @@
     width: 350px;
     padding: 10px 0 10px;
     margin: auto;
+    flex-grow: 1;
 }
 .donut{
     width: 280px;
+    flex-grow: 0;
 }
 .chart_label{
     text-align: center;

@@ -25,7 +25,7 @@
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
     if ($studCounceling != '1'){
-        header('Location: ../Violation Dashboard/');
+        echo "<script> window.location.href = '../Violation Dashboard/';</script>";
     }
 ?> 
 <?php 
