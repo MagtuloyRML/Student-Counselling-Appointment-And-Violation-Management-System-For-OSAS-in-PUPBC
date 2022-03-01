@@ -24,8 +24,21 @@
         
         $insert="INSERT INTO adminprofilepictureinfo (AdminAccountID, PictureFilename, UploadDate, UsedStatus) VALUES ('$id','$filename', '$now', TRUE)";
         mysqli_query($conn, $insert);
-        echo "Success";
+        echo '<span class="alert_icon green">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+                <span class="alert_text">
+                    Updated Picture Successful
+                </span>';
         
+    }
+    else{
+        echo '<span class="alert_icon red">
+                <i class="fa-solid fa-exclamation"></i>
+            </span>
+            <span class="alert_text">
+                Updated Picture Unsuccessfully
+            </span>';
     }
     
 ?>

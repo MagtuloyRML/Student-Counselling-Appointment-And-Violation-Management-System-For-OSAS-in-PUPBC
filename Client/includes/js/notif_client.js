@@ -47,7 +47,6 @@ $(document).ready(function () {
     $("#open_side").click(function () { 
         $("#sideBar_mobile").addClass('openSide');
         $("#blur").addClass('blur');
-        
     });
 
     $("#close_side").click(function () { 
@@ -66,5 +65,10 @@ $(document).ready(function () {
         $("#sideBar_mobile").removeClass('openSide');
         $("#blur").removeClass('blur');
     }
+
+    $("#alert_Close_bott").click(function () { 
+        $("#alert_bottom").removeClass('alertOpen');
+        
+    });
 
 });

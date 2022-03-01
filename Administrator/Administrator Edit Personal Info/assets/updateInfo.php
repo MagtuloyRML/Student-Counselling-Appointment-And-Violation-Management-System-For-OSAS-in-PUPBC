@@ -18,10 +18,19 @@
      AdminSufifx = '$suf_name', AdminContactNo = '$aNo', AdminEmailAdd = '$aEmail' , AdminAddress = '$aAdd' WHERE AdminAccountID = '$id'";
     $query_run = mysqli_query($conn, $updateInfo);
     if($query_run){
-        echo "Data Inserted";
-        header ("Location: ../../Administrator Edit Personal Info/");
+        echo '<span class="alert_icon green">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+                <span class="alert_text">
+                    Edit Successful
+                </span>';
+        
     }else{
-        echo "something is wrong" . $updateInfo . $conn->error;
+        echo '<span class="alert_icon red">
+                    <i class="fa-solid fa-exclamation"></i>
+                </span>
+                <span class="alert_text">
+                    Edit Unsuccessful
+                </span>';
     }
-
 ?> 

@@ -156,6 +156,8 @@ $(document).ready(function(){
                         $('#npass').addClass('input-error');
                         $('#i_npass').addClass(' fa-exclamation-circle');
                     }
+
+                    
                 }
             });
         } else{

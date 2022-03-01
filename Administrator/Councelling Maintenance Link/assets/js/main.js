@@ -33,10 +33,11 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if($.trim(result) == "success"){
-                        $("#zlinkForm")[0].reset();
-                        window.location='../Councelling Maintenance Link/';
-                    }
+                    $("#alert_bottom").addClass('alertOpen');
+                    $("#alert_content").html(result);
+                    setTimeout(function(){
+                        $("#alert_bottom").removeClass('alertOpen');
+                    },5000);
                     
                 }
             });

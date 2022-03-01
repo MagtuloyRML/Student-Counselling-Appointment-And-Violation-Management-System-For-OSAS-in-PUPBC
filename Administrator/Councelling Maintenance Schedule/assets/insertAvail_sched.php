@@ -11,7 +11,19 @@ include '../../../assets/connection/DBconnection.php';
     $run = mysqli_query($conn, $sql);
 
     if($run){
-        echo "success";
+        echo '<span class="alert_icon green">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+                <span class="alert_text">
+                    Update Schedule Successful
+                </span>';
+    }else{
+        echo '<span class="alert_icon red">
+                    <i class="fa-solid fa-exclamation"></i>
+                </span>
+                <span class="alert_text">
+                    Update Schedule Unsuccessfully
+                </span>';
     }
 
 ?>

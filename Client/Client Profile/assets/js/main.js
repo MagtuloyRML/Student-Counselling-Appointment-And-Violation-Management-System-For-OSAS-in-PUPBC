@@ -40,13 +40,17 @@ $(document).ready(function(){
                 url: "assets/upload_picture.php",
                 type: "POST", 
                 data: {"image": response},
-                success:function(data){
-                    if(data = "Success"){
-                        $("#prof_pic_div").load("assets/displayUpdatedPic.php");
-                        $("#profile_bttn").load("assets/displayUpdatedPic.php");
-                        $('#modal_edit_pic').css('display', 'none');
-                        $('#pic_filename').val(null);
-                    }
+                success:function(result){
+                    $("#prof_pic_div").load("assets/displayUpdatedPic.php");
+                    $("#profile_bttn").load("assets/displayUpdatedPic.php");
+                    $('#modal_edit_pic').css('display', 'none');
+                    $('#pic_filename').val(null);
+                    
+                    $("#alert_bottom").addClass('alertOpen');
+                    $("#alert_content").html(result);
+                    setTimeout(function(){
+                        $("#alert_bottom").removeClass('alertOpen')
+                    },5000);
                 }
             });
         })

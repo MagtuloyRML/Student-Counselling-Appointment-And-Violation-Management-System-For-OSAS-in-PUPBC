@@ -89,6 +89,15 @@
         <div></div>
     </div>
 
+    <div class="alert " id="alert_bottom">
+        <div class="alert_content">
+            <div class="alert_content_text" id="alert_content">
+                
+            </div>
+            <button class="alert_close" id="alert_Close_bott"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
     <div id="blur">
         <div class="sideBar_mobile" id="sideBar_mobile">
             <div class="sb_bttn" id="close_side">

@@ -68,4 +68,9 @@ $(document).ready(function () {
         $("#sideBar_mobile").removeClass('openSide');
         $("#blur").removeClass('blur');
     }
+    
+    $("#alert_Close_bott").click(function () { 
+        $("#alert_bottom").removeClass('alertOpen');
+        
+    });
 });
