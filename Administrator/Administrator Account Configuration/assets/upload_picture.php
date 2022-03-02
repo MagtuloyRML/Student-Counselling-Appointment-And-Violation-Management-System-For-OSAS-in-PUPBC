@@ -28,7 +28,7 @@
                     <i class="fa-solid fa-check"></i>
                 </span>
                 <span class="alert_text">
-                    Updated Picture Successful
+                    Updated Picture Successfully
                 </span>';
         
     }

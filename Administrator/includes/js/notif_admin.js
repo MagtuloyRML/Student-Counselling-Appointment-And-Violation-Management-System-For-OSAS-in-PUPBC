@@ -71,6 +71,5 @@ $(document).ready(function () {
     
     $("#alert_Close_bott").click(function () { 
         $("#alert_bottom").removeClass('alertOpen');
-        
     });
 });

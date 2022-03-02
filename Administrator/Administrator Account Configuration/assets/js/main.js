@@ -45,6 +45,7 @@ $(document).ready(function(){
                     $("#profile_bttn").load("assets/displayUpdatedPic.php");
                     $('#modal_edit_pic').css('display', 'none');
                     $('#pic_filename').val(null);
+
                     $("#alert_bottom").addClass('alertOpen');
                     $("#alert_content").html(result);
                     setTimeout(function(){
@@ -186,13 +187,7 @@ $(document).ready(function(){
                 cache:false,
                 success:function(result){
                     
-                    if( $.trim(result) == 'updateSucces'){
-                        $("#editInfo")[0].reset();
-                        errorpass = true;
-                        errorpassword = true;
-                        errorCpassword = true;
-                    }
-                    else if( $.trim(result) == 'something is wrong'){
+                    if( $.trim(result) == 'something is wrong'){
                         alert ("Error Connection");
                     }
                     else if( $.trim(result) == 'errorPrePass'){
@@ -207,6 +202,17 @@ $(document).ready(function(){
                         $('#i_conpass').addClass(' fa-exclamation-circle');
                         $('#npass').addClass('input-error');
                         $('#i_npass').addClass(' fa-exclamation-circle');
+                    }
+                    else{
+                        $("#editInfo")[0].reset();
+                        errorpass = true;
+                        errorpassword = true;
+                        errorCpassword = true;
+                        $("#alert_bottom").addClass('alertOpen');
+                        $("#alert_content").html(result);
+                        setTimeout(function(){
+                            $("#alert_bottom").removeClass('alertOpen')
+                        },5000);
                     }
                 }
             });

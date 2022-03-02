@@ -34,13 +34,9 @@
         <div class="content">
             <div class="approv_content">
                 <div class="title">
-                <?php if (isset($_GET['error'])) { ?>
-                                    <p class="error"><?php echo $_GET['error']; ?></p>
-                                <?php } ?>
-
-                                <?php if (isset($_GET['success'])) { ?>
-                                    <p class="success"><?php echo $_GET['success']; ?></p>
-                                <?php } ?>
+                    <?php if (isset($_GET['msg'])) { ?>
+                        <input class="input" type="hidden" id="msg" name="msg" value="<?php echo $_GET['msg']; ?>">
+                    <?php } ?>
                     <h1>Appointment</h1>
                     <hr>
                 </div>
@@ -101,6 +97,16 @@
             </div>
         </div>
     </div>
+
+    <div class="alert " id="alert_bottomappointment">
+        <div class="alert_content">
+            <div class="alert_content_text" id="alert_contentappointment">
+                
+            </div>
+            <button class="alert_close" id="alert_Close_bottappointment"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+    
     <script src="assets/js/main.js"></script>
 
 </body>

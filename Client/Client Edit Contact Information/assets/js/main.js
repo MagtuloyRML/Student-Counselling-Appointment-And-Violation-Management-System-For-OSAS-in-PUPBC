@@ -108,7 +108,7 @@ $(document).ready(function(){
                     $("#alert_bottom").addClass('alertOpen');
                     $("#alert_content").html(result);
                     setTimeout(function(){
-                        $("#alert_bottom").removeClass('alertOpen');
+                        $("#alert_bottom").removeClass('alertOpen')
                     },5000);
                 }
             });
@@ -116,8 +116,6 @@ $(document).ready(function(){
 
 
         }
-        
-
     })
     
     $image_crop = $('#image_demo').croppie({

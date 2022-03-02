@@ -281,6 +281,7 @@ body{
 }
 
 .alert{
+    display: block;
     position: fixed;
     z-index: 100000;
     height: 100px;
@@ -294,6 +295,7 @@ body{
     font-size: 15px;
     transition: 0.6s ease;
     transition-property: right;
+    flex-grow: 1;
 }
 .alert.alertOpen{
     right: 0;

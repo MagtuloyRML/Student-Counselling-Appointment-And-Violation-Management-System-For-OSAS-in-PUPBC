@@ -33,8 +33,37 @@ $(document).ready(function () {
             $("#openCancelMSG").removeClass('bttn');
             $("#openCancelMSG").addClass('disable');
         }
-        
     })
+
+    $("#cancelAppoint").submit(function(event){
+        event.preventDefault();
+        if(errorReasonInput == false ){
+            $.ajax({
+                url: "assets/cancel_sched_work.php",
+                type: 'POST',
+                data: $('#cancelAppoint').serialize(),
+                datatype: "text",
+                cache:false,
+                success:function(result){
+                    $("#alert_bottom").addClass('alertOpen');
+                    $("#alert_content").html(result);
+                    setTimeout(function(){
+                        $("#alert_bottom").removeClass('alertOpen')
+                    },5000);
+                    setTimeout(function(){
+                        window.location.href = "../Client Manage Appointment/";
+                    },5200);
+
+                }
+            });
+        } else{
+
+
+        }
+        
+
+    })
+
 
 
 });

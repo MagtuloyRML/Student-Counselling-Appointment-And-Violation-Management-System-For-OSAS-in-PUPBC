@@ -73,13 +73,13 @@
                         echo "Message has been sent";
                     }
                 }
-                echo "<script>window.location.href='../Counceling Apointment Approval/?success=Appointment Cancelled'</script>";
+                echo "<script>window.location.href='../Counceling Apointment Approval/?msg=mgs003'</script>";
                 exit();
             
     }
     else
     {
-        echo "Error confirming record"; // display error message if not delete
+        echo "<script>window.location.href='../Counceling Apointment Approval/?msg=mgs002'</script>"; // display error message if not delete
     }
 
     exit();

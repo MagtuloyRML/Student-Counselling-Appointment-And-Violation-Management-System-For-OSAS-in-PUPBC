@@ -112,7 +112,7 @@ $(document).ready(function(){
                     $("#alert_bottom").addClass('alertOpen');
                     $("#alert_content").html(response);
                     setTimeout(function(){
-                        $("#alert_bottom").removeClass('alertOpen');
+                        $("#alert_bottom").removeClass('alertOpen')
                     },5000);
                 }
             });

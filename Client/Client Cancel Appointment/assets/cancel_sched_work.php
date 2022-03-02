@@ -18,7 +18,19 @@
 				VALUES('$remarks', 'Cancelled Appointment', 'A client has cancelled his/her appointment. Please check schedule page', '2', NOW())");
     $update = $conn->query("UPDATE schedules SET stat ='Cancelled', cancel_id = '$name', cancel_reason ='$reason' WHERE id = '$a_id'");
     if($update){
-        echo "<script>window.location.href='../../Client Home/index.php?success=Appointment Cancelled'</script>";
+        echo '<span class="alert_icon green">
+                    <i class="fa-solid fa-check"></i>
+                </span>
+                <span class="alert_text">
+                    Cancel Schedule Successful
+                </span>';
+    }else{
+        echo '<span class="alert_icon red">
+                    <i class="fa-solid fa-exclamation"></i>
+                </span>
+                <span class="alert_text">
+                    Cancel Schedule Unsuccessful
+                </span>';
     }
     
    

@@ -76,12 +76,12 @@
                     echo "Message has been sent";
                 }
             }
-            echo "<script>window.location.href='index.php?success=Appointment Confirmed'</script>";
+            echo "<script>window.location.href='../Counceling Apointment Approval/?msg=mgs001'</script>";
             exit();
     }
     else
     {
-        echo "Error confirming record"; // display error message if not delete
+        echo "<script>window.location.href='../Counceling Apointment Approval/?msg=mgs002'</script>"; // display error message if not delete
     }
 
     exit();

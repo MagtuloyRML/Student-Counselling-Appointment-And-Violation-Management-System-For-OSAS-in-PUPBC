@@ -69,10 +69,11 @@ require ('../../../assets/PHPMailer/src/PHPMailer.php');
         VALUES('$client_id', 'Appointment Evaluated', 'You have a new evaluation on your previous appointment.', '2', NOW())");
         
         $update = $conn->query("UPDATE schedules SET stat = 'Evaluated' WHERE id = '$a_id'");
-    echo "success";
-        exit();
+        if($update){
+            echo "<script>window.location.href='../../Counceling Client Page/?msg=mgs001'</script>";
+        }
     }else{
-        echo "something's Wrong";
+        echo "<script>window.location.href='../../Counceling Client Page/?msg=mgs002'</script>";
         exit();
     }
 

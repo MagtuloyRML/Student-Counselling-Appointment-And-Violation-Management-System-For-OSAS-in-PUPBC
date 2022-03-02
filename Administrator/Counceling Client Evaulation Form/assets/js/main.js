@@ -18,9 +18,17 @@ $(document).ready(function(){
             evaluationError = true;
             $("#i_evaluation").addClass('fa-circle-exclamation');
         }
-        $("#submit").attr("disabled", false);
-        $("#submit").removeClass('disable');
-        $("#submit").addClass('bttn');
+
+        if(evaluationError == false && recomError == false){
+            $("#submit").attr("disabled", false);
+            $("#submit").removeClass('disable');
+            $("#submit").addClass('bttn');
+        }
+        else{
+            $("#submit").attr("disabled", true);
+            $("#submit").removeClass('bttn');
+            $("#submit").addClass('disable');
+        }
     })
 
     $('#recommendation').keyup(function(){
@@ -31,14 +39,22 @@ $(document).ready(function(){
             recomError = true;
             $("#i_recommendation").addClass('fa-circle-exclamation');
         }
-        $("#submit").attr("disabled", false);
-        $("#submit").removeClass('disable');
-        $("#submit").addClass('bttn');
+        if(evaluationError == false && recomError == false){
+            $("#submit").attr("disabled", false);
+            $("#submit").removeClass('disable');
+            $("#submit").addClass('bttn');
+        }
+        else{
+            $("#submit").attr("disabled", true);
+            $("#submit").removeClass('bttn');
+            $("#submit").addClass('disable');
+        }
+        
     })
 
     
-    $("#evalEntry").submit(function(event){
-        event.preventDefault();
+    $("#evalEntry").submit(function(){
+        
         if(evaluationError == true){
             $("#i_evaluation").addClass('fa-circle-exclamation');
         }
@@ -54,18 +70,8 @@ $(document).ready(function(){
                     data: $('#evalEntry').serialize(),
                     datatype: "text",
                     cache:false,
-                    success:function(result){
-                        if($.trim(result) == "success"){
-                            $("#evalEntry")[0].reset();
-                            window.location.href = '../Counceling Client Page/';
-                        }
-                        else if($.trim(result) == "somethingWrong"){
-                            $("#i_evaluation").addClass('fa-circle-exclamation');
-                            $("#i_recommendation").addClass('fa-circle-exclamation');
-                            evaluationError = true;
-                            recomError = true;
-                            
-                        }
+                    success:function(){
+                        
                         
                     }
                 });

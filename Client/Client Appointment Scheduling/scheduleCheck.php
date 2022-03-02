@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 
 	//kung piniling date ay kahapon o nung isang araw pa.
 	if($start_app < $dateNow){
-		header("Location: index.php?error=The date you picked is invalid");
+		header("Location: index.php?msg=The date you picked is invalid");
 		exit();
 	}else{
 
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
 			//conditions
 			if (mysqli_num_rows($result) > 0) {
 				
-					header("Location: index.php?error=The schedule is already taken");
+					header("Location: index.php?msg=mgs002");
 					exit();
 				} 
 				//if ever  walang kaparehas, papasok na yung nilagay sa form sa db.
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
 				VALUES('$remarks', 'New Appointment', 'You have a new appointment, check appointment approval page.', '2', NOW())");
 						$result2 = mysqli_query($conn, $sql2);
 						if ($result2){
-							header("Location: index.php?success=Recorded successfully");
+							header("Location: index.php?msg=mgs001");
 							exit();
 						}else {
 							header("Location: index.php?unknown error occured.$result2.$conn->error;");
@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
 			//conditions
 			if (mysqli_num_rows($result) > 0) {
 				
-					header("Location: index.php?error=The schedule is already taken");
+					header("Location: index.php?msg=mgs002");
 					exit();
 				} 
 				//if ever  walang kaparehas, papasok na yung nilagay sa form sa db.
@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
 				VALUES('$remarks', 'New Appointment', 'You have a new appointment, check appointment approval page.', '2', NOW())");
 						$result2 = mysqli_query($conn, $sql2);
 						if ($result2){
-							header("Location: index.php?success=Recorded successfully");
+							header("Location: index.php?msg=mgs001");
 							exit();
 						}else {
 							header("Location: index.php?unknown error occured.$result2.$conn->error;");

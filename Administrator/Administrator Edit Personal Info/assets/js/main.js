@@ -45,6 +45,7 @@ $(document).ready(function(){
                     $("#profile_bttn").load("assets/displayUpdatedPic.php");
                     $('#modal_edit_pic').css('display', 'none');
                     $('#pic_filename').val(null);
+
                     $("#alert_bottom").addClass('alertOpen');
                     $("#alert_content").html(result);
                     setTimeout(function(){
@@ -210,7 +211,7 @@ $(document).ready(function(){
                     $("#alert_bottom").addClass('alertOpen');
                     $("#alert_content").html(response);
                     setTimeout(function(){
-                        $("#alert_bottom").removeClass('alertOpen');
+                        $("#alert_bottom").removeClass('alertOpen')
                     },5000);
                 }
             });

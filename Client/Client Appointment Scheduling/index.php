@@ -20,13 +20,11 @@
                 <form action = "dateSelection.php" method = "POST">
                     <div class="form_content">
                         <!-- message if ever recorded or taken yung sched -->
-                        <?php if (isset($_GET['error'])) { ?>
-                                    <p class="error"><?php echo $_GET['error']; ?></p>
-                                <?php } ?>
+                        
+                        <?php if (isset($_GET['msg'])) { ?>
+                            <input class="input" type="hidden" id="msg" name="msg" value="<?php echo $_GET['msg']; ?>">
+                        <?php } ?>
 
-                                <?php if (isset($_GET['success'])) { ?>
-                                    <p class="success"><?php echo $_GET['success']; ?></p>
-                                <?php } ?>
 
                         <p>Fill up the following to appoint a Schedule: </p>
                         <label class="label" for="#">Enter Nickname (Optional) : </label>
@@ -88,6 +86,16 @@
         </div>
     </div>
 
+    <div class="alert " id="alert_bottomappointment">
+        <div class="alert_content">
+            <div class="alert_content_text" id="alert_contentappointment">
+                
+            </div>
+            <button class="alert_close" id="alert_Close_bottappointment"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
 
 </body>
 

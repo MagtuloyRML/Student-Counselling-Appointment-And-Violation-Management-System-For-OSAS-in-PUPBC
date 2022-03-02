@@ -99,13 +99,6 @@
                 <hr>
             </div>
             <div class="subcontent">
-            <?php if (isset($_GET['error'])) { ?>
-                                    <p class="error"><?php echo $_GET['error']; ?></p>
-                                <?php } ?>
-
-                                <?php if (isset($_GET['success'])) { ?>
-                                    <p class="success"><?php echo $_GET['success']; ?></p>
-                                <?php } ?>
                     <form id="evalEntry" method ="POST" action="assets/insert_eval.php">
                     <h3 class="subtitle">Evaluation Form</h3>
                         <a href="../Counceling Client Page/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>

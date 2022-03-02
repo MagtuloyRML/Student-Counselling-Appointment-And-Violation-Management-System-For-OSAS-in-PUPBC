@@ -21,8 +21,13 @@
                 $updateInfo="UPDATE clientaccountinfo SET ClientPassword = '$npass' WHERE ClientAccountID = '$stud_ID'";
                 $query_run = mysqli_query($conn, $updateInfo);
                 if($query_run){
-                echo "updateSucces";
-                header ("Location: ../../Client Edit Account Configuration/");
+                echo '<span class="alert_icon green">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span class="alert_text">
+                            Change Password Successfully
+                        </span>';
+                
                 }else{
                 echo "something is wrong" . $updateInfo . $conn->error;
                 }
