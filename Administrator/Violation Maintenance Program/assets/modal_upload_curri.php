@@ -61,13 +61,12 @@
                     },
                     success:function(data)
                     {
-                        $('#message').html(data);
                         $('#uploadExcelFile')[0].reset();
                         $('#uploadFunction').attr('disabled', false);
                         $('#uploadFunction').text('Upload');
                         $("#table").load("assets/updatedDisplay_pcode.php");
                         $('#modal_upload_curri').css('display', 'none');
-                        window.location.href = '../Violation Maintenance Program/';
+                        window.location.href = '../Violation Maintenance Program/?msg='+data;
 
                         
                     }

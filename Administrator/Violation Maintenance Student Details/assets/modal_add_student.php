@@ -1,8 +1,6 @@
 <?php
 include('dbconnection.php');
 
-
-
 ?>
 
 <!---Modal/ Pop up-->
@@ -22,14 +20,15 @@ include('dbconnection.php');
                                 <div class="input " id="input_fst_name">
                                     <input class="input-field" type="text" placeholder="Ex: 2000-00000-BN-0" name="studNum" id="studNum">
                                     <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_fst_name" class="fa-solid "></i>
+                                    <i id="i_studNum" class="fa-solid "></i>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Last Name: </label>
                                 <div class="input " id="input_mid_name">
                                     <input class="input-field" type="text" placeholder="Ex: Dela Cruz" name="lastName" id="lastName">
-                                    <i id="i_mid_name" class="fa-solid "></i>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                    <i id="i_lastNamee" class="fa-solid "></i>
                                 </div>
                             </div>
                             <div class="input_container">
@@ -37,14 +36,14 @@ include('dbconnection.php');
                                 <div class="input " id="input_last_name">
                                     <input class="input-field" type="text" placeholder="Ex: Juan" name="firstName" id="firstName">
                                     <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_last_name" class="fa-solid "></i>
+                                    <i id="i_firstName" class="fa-solid "></i>
                                 </div>
                             </div>
                             <div class="input_container">
                                 <label for="#" class="label">Middle Name: </label>
                                 <div class="input " id="input_suf_name">
-                                    <input class="input-field" type="text" placeholder="Ex: Jr. (Leave if None)" name="middleName" id="middleName">
-                                    <i id="i_suf_name" class="fa-solid "></i>
+                                    <input class="input-field" type="text" placeholder="Ex: Mendez. (If None, Type None)" name="middleName" id="middleName">
+                                    <i id="i_middleName" class="fa-solid "></i>
                                 </div>
                             </div>
 
@@ -62,7 +61,7 @@ include('dbconnection.php');
                                         ?>
                                     </select>
                                     <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_userRole" class="fa-solid "></i>
+                                    <i id="i_ayCode" class="fa-solid "></i>
                                 </div>
                             </div>
 
@@ -71,7 +70,7 @@ include('dbconnection.php');
                                 <div class="input " id="input_admin_email">
                                     <input class="input-field" type="text" placeholder="Ex: 1" name="Section" id="Section">
                                     <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_admin_email" class="fa-solid "></i>
+                                    <i id="i_Section" class="fa-solid "></i>
                                 </div>
                             </div>
                             
@@ -80,7 +79,7 @@ include('dbconnection.php');
                                 <div class="input " id="input_username">
                                     <input class="input-field" type="text" placeholder="Ex: Binan Laguna" name="Addres" id="Addres">
                                     <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_username" class="fa-solid "></i>
+                                    <i id="i_Addres" class="fa-solid "></i>
                                 </div>
                             </div>
                             
@@ -113,7 +112,7 @@ include('dbconnection.php');
                                         ?>
                                     </select>
                                     <i class="fa-solid fa-asterisk"></i>
-                                    <i id="i_admin_contact" class="fa-solid "></i>
+                                    <i id="i_progCode" class="fa-solid "></i>
                                 </div>
                                 
                             </div>
@@ -126,8 +125,8 @@ include('dbconnection.php');
             </div>
 
             <div class="footer_modal_bttn">
-                <a href="#" class="modal_foot_bttn" type="submit" onclick="document.getElementById('studDetails').submit()"><i class="fas fa-save"></i> Save</a>
-                <a href="#" id="close_modal2" class="modal_foot_bttn"><i class="fas fa-sign-out-alt"></i> Exit</a>
+                <button id="submit" name="submit" class="modal_foot_bttn1" type="submit" ><i class="fas fa-save"></i> Save</button>
+                <a id="close_modal2" class="modal_foot_bttn"><i class="fas fa-sign-out-alt"></i> Exit</a>
             </div>
 
         </form>

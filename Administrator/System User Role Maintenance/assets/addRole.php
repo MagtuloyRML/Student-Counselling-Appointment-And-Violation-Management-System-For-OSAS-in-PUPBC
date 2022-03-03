@@ -13,10 +13,10 @@
     AdminMaintenance, StatusID) VALUES ('$roleNameCheckNew','$studCouncheck','$studViolationcheck','$sysMainsCheck','1')";
     $query_run = mysqli_query($conn, $insert);
     if($query_run){
-        echo "success";
+        echo "msg004";
         
     }else{
-        echo "something is wrong" . $insert . $conn->error;
+        echo "msg005";
     }
 
 ?> 

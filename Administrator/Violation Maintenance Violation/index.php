@@ -40,6 +40,10 @@
                     <hr>
                 </div>
 
+                <?php if (isset($_GET['msg'])) { ?>
+                    <input class="input" type="hidden" id="msg" name="msg" value="<?php echo $_GET['msg']; ?>">
+                <?php } ?>
+
                 <div class="violation_content_tables">
                     
                     <div class="v_table_content">
@@ -47,12 +51,10 @@
                             <h1>Violation</h1>
                             <hr>
                         </div>
-                        <table class="v_table">
+                        <table class="v_table" id="v_table">
                             <tr> 
                                 <th class="violation_title">Violation</th>
                                 <th class="violation_title"> </th>
-                                <th class="violation_title"> </th>
-                                
                             </tr>
                             
                                 <!-- DISPLAYING THE VIOLATION INSERTED FROM DATABASE -->
@@ -71,10 +73,8 @@
                                 <td class="violation_data" id="Violations" name="Violations"><?php echo $row['Violations'] . "<br>"; ?> </td>
 
                                 <td class="violation_data">
-                                    <a href="assets/delete.php?Violations=<?php echo $row['Violations']; ?>" class="v_data_bttn"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                                <td class="violation_data">
-
+                                    <!--<a href="assets/delete.php?Violations=<"?php echo $row['Violations']; ?>" class="v_data_bttn"><i class="fas fa-trash-alt"></i></a>-->
+                                    <a id="<?php echo $row['v_code']; ?>" class="v_data_bttn"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             <?php
@@ -84,7 +84,7 @@
                         </table>
 
                         <div class="v_action_bttn_grp">
-                            <a href="#" class="v_action_bttn" id="openModal_addviolation">
+                            <a class="v_action_bttn" id="openModal_addviolation">
                                 <i class="fas fa-plus-square"></i>
                                 Add Violation
                             </a>
@@ -97,7 +97,7 @@
                             <hr>
                         </div>
 
-                        <table class="s_table">
+                        <table class="s_table" id="s_table">
                             <tr>
                                 <th class="sanction_title">Sanction</th>
                                 <th class="sanction_title"> </th>
@@ -117,7 +117,8 @@
                                 <tr>
                                     <td class="sanction_data"><?php echo $row['Sanctions'] . "<br>"; ?></td>
                                     <td class="sanction_data">
-                                    <a href="assets/delete_sanc.php?Sanctions=<?php echo $row['Sanctions']; ?>" class="s_data_bttn"><i class="fas fa-trash-alt"></i></a>
+                                    <!--<a href="assets/delete_sanc.php?Sanctions=<;?php echo $row['Sanctions']; ?>" class="s_data_bttn"><i class="fas fa-trash-alt"></i></a>-->
+                                    <a id="<?php echo $row['s_id']; ?>" class="s_data_bttn"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             <?php
@@ -127,7 +128,7 @@
                         </table>
 
                         <div class="s_action_bttn_grp">
-                            <a href="#" class="s_action_bttn" id="openModal_addsanction">
+                            <a class="s_action_bttn" id="openModal_addsanction">
                                 <i class="fas fa-plus-square"></i>
                                 Add Sanction
                             </a>
@@ -137,6 +138,15 @@
                 
 
             </div>
+    </div>
+
+    <div class="alert " id="alert_bottomappointment">
+        <div class="alert_content">
+            <div class="alert_content_text" id="alert_contentappointment">
+                
+            </div>
+            <button class="alert_close" id="alert_Close_bottappointment"><i class="fa-solid fa-xmark"></i></button>
+        </div>
     </div>
 
     <?php

@@ -10,6 +10,7 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -73,13 +74,15 @@
 .s_table .sanction_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    font-size: 14px;
 }
 .v_table .violation_data,
 .s_table .sanction_data{
     border: 1px solid #ddd;
     padding: 2px 3px 2px;
-    font-size: var(--small-font-size);
+    font-size: 12px;
     text-decoration: none;
+    text-align: center;
 }
 .violation_data .v_data_bttn,
 .sanction_data .s_data_bttn{
@@ -89,6 +92,11 @@
     color: var(--maroong-content-bg);
     font-size: 20px;
     text-decoration: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    
 }
 .v_data_bttn:hover,
 .s_data_bttn:hover{
@@ -110,6 +118,8 @@
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
     border-radius: .5rem;
+    cursor: pointer;
+    text-align: center;
 }
 
 .v_action_bttn_grp .v_action_bttn:hover,
@@ -122,12 +132,13 @@
 /*.modal_bg .modal{
     width: 35%;
 }*/
+
 .modal .modal_content .modal_add_violation{
     color: var(--button-color-font-icon);
 }
 
 .modal_add_violation label{
-    font: 1.75rem;
+    font: 14px;
     padding-right: 4px;
     font-weight: bold;
 }
@@ -135,9 +146,9 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    font-size: 1rem;
+    font-size: 13px;
     padding: 0 5px 0;
-    color: var(--button-color-font-icon);
+    color: var(--button-hover-color-font-icon);
 }
 .modal_add_violation .input_field:focus {
     border: 2px solid var(--maroong-content-bg);
@@ -148,7 +159,7 @@
 }
 
 .modal_add_sanction label{
-    font: 1.75rem;
+    font: 14px;
     padding-right: 4px;
     font-weight: bold;
 }
@@ -156,15 +167,109 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    font-size: 1rem;
+    font-size: 13px;
     padding: 0 5px 0;
-    color: var(--button-color-font-icon);
+    color: var(--button-hover-color-font-icon);
 }
 .modal_add_sanction .input_field:focus {
     border: 2px solid var(--maroong-content-bg);
 }
 .modal_add_sanction .violation_selection{
     width: 250px;
+}
+
+.modal_add_violation .label{
+    width: 188px;
+    font-size: 15px;
+    color: var(--button-hover-color-font-icon);
+    justify-items: flex-start;
+}
+.modal_add_violation .input_field{
+    
+    padding: 2px;
+    text-align: center;
+}
+
+.modal_add_violation .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.modal_add_violation .fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+}
+
+.modal_add_violation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    flex-grow: 1;
+}
+
+.modal_add_sanction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    flex-grow: 1;
+}
+
+.modal_add_sanction .label{
+    width: 188px;
+    font-size: 15px;
+    color: var(--button-hover-color-font-icon);
+    justify-items: flex-start;
+}
+.modal_add_sanction .input_field{
+    
+    padding: 2px;
+    text-align: center;
+}
+
+.modal_add_sanction .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.modal_add_sanction .fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+}
+
+.footer_modal_bttn .modal_foot_bttn1 {
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.footer_modal_bttn .modal_foot_bttn1:hover{
+    background-color: var(--maroong-content-hover);
+}
+.footer_modal_bttn .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+.footer_modal_bttn .disable:hover{
+    background-color: var(--button-hover-bg);
 }
 
 @media (max-width: 1200px) {

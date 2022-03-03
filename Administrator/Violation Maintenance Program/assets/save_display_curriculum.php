@@ -11,10 +11,10 @@
     
         if(!$result){
     
-            echo "Failed";
+            echo "msg007";
         }
         else{
-            echo "successAdd";
+            echo "msg006";
         }
 ?>
             

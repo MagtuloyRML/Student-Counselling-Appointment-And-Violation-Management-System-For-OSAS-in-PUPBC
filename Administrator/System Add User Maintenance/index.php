@@ -57,6 +57,7 @@
                     include '../includes/sub_content_navadd.php';
                 ?>
                 <h3 class="subtitle">Information Form</h3>
+                
                     <?php
                         include '../../assets/connection/DBconnection.php';
                         $result1 = mysqli_query($conn, "SELECT * from genderrole");

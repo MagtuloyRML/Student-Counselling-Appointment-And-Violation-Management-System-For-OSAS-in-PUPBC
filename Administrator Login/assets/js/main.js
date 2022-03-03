@@ -111,7 +111,7 @@ $(document).ready(function(){
                     }
                     else{
                         $('#error_acc').show();
-                        $("#error_acc").text('Incorrect Student Number or Password');
+                        $("#error_acc").text('Incorrect Username or Password');
 
                         $('#input_username').addClass('input-error');
                         $('#i_username').addClass('fas fa-exclamation-circle');

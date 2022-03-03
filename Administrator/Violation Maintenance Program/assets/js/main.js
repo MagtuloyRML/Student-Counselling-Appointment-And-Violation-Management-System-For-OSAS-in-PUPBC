@@ -1,5 +1,38 @@
 $(document).ready(function(){
     $('#vSide').addClass('sideActive');
+
+    $("#alert_Close_bottappointment").click(function () { 
+        $("#alert_bottomappointment").removeClass('alertOpen');
+    });
+    
+    if($('#msg').val()){
+        $("#alert_bottomappointment").addClass('alertOpen');
+        if($('#msg').val() == 'msg001'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Data Upload Successfully</span>";
+        }
+        else if($('#msg').val() == 'msg002'){
+            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Select xlxs file only</span>";
+        }
+        else if($('#msg').val() == 'msg003'){
+            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Please select a file</span>";
+        }
+        else if($('#msg').val() == 'msg004'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Edit Data Successfully</span>";
+        }
+        else if($('#msg').val() == 'msg005'){
+            var msg = "<span class='alert_icon red'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Edit Data Unsuccessfully</span>";
+        }
+        else if($('#msg').val() == 'msg006'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Insert Data Successfully</span>";
+        }
+        else if($('#msg').val() == 'msg007'){
+            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Insert Data Unsuccessfully</span>";
+        }
+        $("#alert_contentappointment").html(msg);
+        setTimeout(function(){
+            $("#alert_bottomappointment").removeClass('alertOpen')
+        },5000);
+    }
     
     $("#addSubmit").attr("disabled", true);
     $("#addSubmit").removeClass('modal_foot_bttn1');
@@ -50,9 +83,16 @@ $(document).ready(function(){
             programerror = false;
             $("#i_pcAdd").removeClass('fa-circle-exclamation');
         }
-        $("#addSubmit").attr("disabled", false);
-        $("#addSubmit").removeClass('disable');
-        $("#addSubmit").addClass('modal_foot_bttn1');
+        if( programerror == false && despcriptoinerror == false){
+            $("#addSubmit").attr("disabled", false);
+            $("#addSubmit").removeClass('disable');
+            $("#addSubmit").addClass('modal_foot_bttn1');
+        }else{
+            $("#addSubmit").attr("disabled", true);
+            $("#addSubmit").removeClass('modal_foot_bttn1');
+            $("#addSubmit").addClass('disable');
+        }
+        
     });
 
     $("#progDescription").keyup(function(){ 
@@ -63,9 +103,15 @@ $(document).ready(function(){
             despcriptoinerror = false;
             $("#i_pdAdd").removeClass('fa-circle-exclamation');
         }
-        $("#addSubmit").attr("disabled", false);
-        $("#addSubmit").removeClass('disable');
-        $("#addSubmit").addClass('modal_foot_bttn1');
+        if( programerror == false && despcriptoinerror == false){
+            $("#addSubmit").attr("disabled", false);
+            $("#addSubmit").removeClass('disable');
+            $("#addSubmit").addClass('modal_foot_bttn1');
+        }else{
+            $("#addSubmit").attr("disabled", true);
+            $("#addSubmit").removeClass('modal_foot_bttn1');
+            $("#addSubmit").addClass('disable');
+        }
     });
 
     $("#pcodeInput").submit(function(event){
@@ -86,15 +132,14 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if($.trim(result) == "successAdd"){
-                        $("#pcodeInput")[0].reset();
-                        $("#table_data").append("assets/updatedDisplay_pcode.php");
-                        $("#addSubmit").attr("disabled", true);
-                        $("#addSubmit").removeClass('modal_foot_bttn1');
-                        $("#addSubmit").addClass('disable');
-                        $('#modal_curri_input').css('display', 'none');
-                        window.location.href = '../Violation Maintenance Program/';
-                    }
+                    $("#pcodeInput")[0].reset();
+                    $("#table_data").append("assets/updatedDisplay_pcode.php");
+                    $("#addSubmit").attr("disabled", true);
+                    $("#addSubmit").removeClass('modal_foot_bttn1');
+                    $("#addSubmit").addClass('disable');
+                    $('#modal_curri_input').css('display', 'none');
+                    window.location.href = '../Violation Maintenance Program/?msg='+result;
+                    
                      
                 }
             });
@@ -160,9 +205,16 @@ $(document).ready(function(){
             programTexterror = false;
             $("#i_pc").removeClass('fa-circle-exclamation');
         }
-        $("#editsubmit").attr("disabled", false);
-        $("#editsubmit").removeClass('disable');
-        $("#editsubmit").addClass('modal_foot_bttn1');
+        if(programTexterror == false && despcriptoinTexterror == false){
+            $("#editsubmit").attr("disabled", false);
+            $("#editsubmit").removeClass('disable');
+            $("#editsubmit").addClass('modal_foot_bttn1');
+        }else{
+            $("#editsubmit").attr("disabled", true);
+            $("#editsubmit").removeClass('modal_foot_bttn1');
+            $("#editsubmit").addClass('disable');
+        }
+        
     });
                     
     $("#pd").keyup(function(){ 
@@ -173,9 +225,15 @@ $(document).ready(function(){
             despcriptoinTexterror = false;
             $("#i_pd").removeClass('fa-circle-exclamation');
         }
-        $("#editsubmit").attr("disabled", false);
-        $("#editsubmit").removeClass('disable');
-        $("#editsubmit").addClass('modal_foot_bttn1');
+        if(programTexterror == false && despcriptoinTexterror == false){
+            $("#editsubmit").attr("disabled", false);
+            $("#editsubmit").removeClass('disable');
+            $("#editsubmit").addClass('modal_foot_bttn1');
+        }else{
+            $("#editsubmit").attr("disabled", true);
+            $("#editsubmit").removeClass('modal_foot_bttn1');
+            $("#editsubmit").addClass('disable');
+        }
     });
 
 
@@ -197,15 +255,13 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if($.trim(result) == "success"){
                         $("#editSave")[0].reset();
                         $("#table_data").append("assets/updatedDisplay_pcode.php");
                         $("#editsubmit").attr("disabled", true);
                         $("#editsubmit").removeClass('modal_foot_bttn1');
                         $("#editsubmit").addClass('disable');
                         $('#modal_curri_edit').css('display', 'none');
-                        window.location.href = '../Violation Maintenance Program/';
-                    }
+                        window.location.href = '../Violation Maintenance Program/?msg='+result;
                      
                 }
             });

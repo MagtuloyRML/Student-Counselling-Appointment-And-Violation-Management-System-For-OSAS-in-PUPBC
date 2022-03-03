@@ -20,7 +20,7 @@
     //Get the same student number in the database
     $verify = $conn->query("SELECT * from clientaccountinfo WHERE ClientStudentNo = '$stud_num'");
     if(mysqli_num_rows($verify) > 0){
-        header ("Location: ../index.php?error=Student Number is already Taken");
+        echo 'mgs001';
     }else{
         //insert sa database
         $insert="INSERT INTO clientaccountinfo (ClientFirstName, ClientMiddleName, ClientLastName,

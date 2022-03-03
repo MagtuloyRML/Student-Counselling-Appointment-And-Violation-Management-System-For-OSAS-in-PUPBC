@@ -45,14 +45,13 @@ body{
     justify-content: center;
     align-items: center;
 }
-.selection .back_bttn{
+.select_container .back_bttn{
     top: 0;
     float: left;
-    margin-left: 20%;
-    font-size: 1.5rem;
+    font-size: 20px;
     color: var(--button-color-font-icon);
 }
-.selection .back_bttn:hover{
+.select_container .back_bttn:hover{
     color: var(--maroong-content-bg);
 }
 
@@ -165,4 +164,35 @@ body{
     /*background-color: rgb(98, 107, 175);*/
     background-color: var(--maroong-content-bg);
 }
+
+@media (max-width: 1200px) {
+    
+}
+
+@media (max-width: 1024px) {
+    body{
+        padding: 30px 5% 0;
+    }
+    .reg_form{
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    body{
+        padding: 30px 5% 0;
+    }
+    .reg_form{
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    body{
+        padding: 30px 5% 0;
+    }
+    .reg_form{
+        width: 100%;
+    }
+}
+
 

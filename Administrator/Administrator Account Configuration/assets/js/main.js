@@ -186,7 +186,6 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    
                     if( $.trim(result) == 'something is wrong'){
                         alert ("Error Connection");
                     }

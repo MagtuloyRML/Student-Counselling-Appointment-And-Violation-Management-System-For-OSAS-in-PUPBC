@@ -190,10 +190,53 @@ $(document).ready(function(){
                     datatype: "text",
                     cache:false,
                     success:function(result){
-                        if(result = "success"){
-                            $("#addUser")[0].reset();
-                            
+                        if($.trim(result) == "msg001"){
+                            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Name is Already Exists</span>";
+
+                            $("#alert_bottom").addClass('alertOpen');
+                            $("#alert_content").html(msg);
+                            setTimeout(function(){
+                                $("#alert_bottom").removeClass('alertOpen')
+                            },5000);
                         }
+                        else if( $.trim(result) == 'msg002'){
+                            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Username Already Exists</span>";
+
+                            $("#alert_bottom").addClass('alertOpen');
+                            $("#alert_content").html(msg);
+                            setTimeout(function(){
+                                $("#alert_bottom").removeClass('alertOpen')
+                            },5000);
+                        }
+                        else if( $.trim(result) == 'msg003'){
+                            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Email Address Already Taken</span>";
+
+                            $("#alert_bottom").addClass('alertOpen');
+                            $("#alert_content").html(msg);
+                            setTimeout(function(){
+                                $("#alert_bottom").removeClass('alertOpen')
+                            },5000);
+                        }
+                        else if( $.trim(result) == 'msg004'){
+                            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Add New User Successfully</span>";
+
+                            $("#alert_bottom").addClass('alertOpen');
+                            $("#alert_content").html(msg);
+                            setTimeout(function(){
+                                $("#alert_bottom").removeClass('alertOpen')
+                            },5000);
+                        }
+                        else if( $.trim(result) == 'msg005'){
+                            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Someting Wrong in Data</span>";
+
+                            $("#alert_bottom").addClass('alertOpen');
+                            $("#alert_content").html(msg);
+                            setTimeout(function(){
+                                $("#alert_bottom").removeClass('alertOpen')
+                            },5000);
+                        }
+                        
+                        
                         
                     }
                 });

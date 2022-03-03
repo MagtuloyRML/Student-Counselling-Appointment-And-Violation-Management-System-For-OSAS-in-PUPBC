@@ -87,36 +87,32 @@ if($_FILES["file_path"]["name"] != '')
                 $res = mysqli_query($conn, $query9);
                 $row = mysqli_fetch_array($res);
                 $lastid = $row['id'];
-
-                $stud_id = substr($lastid, 0);
-                $stud_id = intval($stud_id);
-                $stud_id = ($stud_id + 1);
+                $stud_id = ($lastid + 1);
+                
 
                 //Update data if Existing na yung studentNumber
                 $update_data = "
                 UPDATE forstudents SET studNum =:studNUM, fullName = :fullName,
                 lastName = :lastNAME, firstName = :firstNAME, middleName = :midNAME,
-                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, id = $stud_id, status = 'Enrolled'
+                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, id = '$stud_id', status = 'Enrolled'
                 WHERE studNum =:studNUM";
                 $updatestatement = $connect->prepare($update_data);
                 $updatestatement->execute($insert_data);
             }
             else{
                 //Para makapag generate ng auto incremented id
-                $query10 = "SELECT * FROM forstudents order by id desc limit 1";
-                $res = mysqli_query($conn, $query10);
+                
+                $query9 = "SELECT * FROM forstudents order by id desc limit 1";
+                $res = mysqli_query($conn, $query9);
                 $row = mysqli_fetch_array($res);
                 $lastid = $row['id'];
-
-                $stud_id = substr($lastid, 0);
-                $stud_id = intval($stud_id);
-                $stud_id = ($stud_id + 1);
+                $stud_id = ($lastid + 1);
 
                 //inserting data if walang kaparehas na studentnumber
                 $query = "
                 INSERT INTO forstudents
                 (studNum, fullName, lastName, firstName, middleName, Section, Address, Gender , progCode, ayCode, id, status) 
-                VALUES (:studNUM, :fullName, :lastNAME, :firstNAME, :midNAME, :sec , :add, :gen, :progID, :ayCode, $stud_id, 'Enrolled')
+                VALUES (:studNUM, :fullName, :lastNAME, :firstNAME, :midNAME, :sec , :add, :gen, :progID, :ayCode, '$stud_id', 'Enrolled')
                 ";
 
                 $statement = $connect->prepare($query);
@@ -124,18 +120,34 @@ if($_FILES["file_path"]["name"] != '')
             }
             
         }
-        $message = '<div class="alert alert-success">Data Imported Successfully</div>';
+        $message = '<span class="alert_icon green">
+                        <i class="fa-solid fa-check"></i>
+                        </span>
+                        <span class="alert_text">
+                            Data Upload Successfully
+                        </span>';
 
+        }
+        else{
+            $message = '<span class="alert_icon orange">
+                            <i class="fa-solid fa-exclamation"></i>
+                        </span>
+                        <span class="alert_text">
+                            Select xlxs file only
+                        </span>';
+        }
     }
-    else{
-        $message = '<div class="alert alert-danger">Only .xls or .xlsx file allowed</div>';
+    else
+    {
+    $message = '<span class="alert_icon orange">
+                    <i class="fa-solid fa-exclamation"></i>
+                </span>
+                <span class="alert_text">
+                    Please select a file
+                </span>';
+                
     }
-}
-else
-{
- $message = '<div class="alert alert-danger">Please Select File</div>';
-}
 
-echo $message;
+    echo $message;
 
 ?>

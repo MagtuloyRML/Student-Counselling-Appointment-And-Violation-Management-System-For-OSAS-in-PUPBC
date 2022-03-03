@@ -64,16 +64,16 @@ if($_FILES["file_path"]["name"] != '')
             }
             
         }
-        $message = '<div class="alert alert-success">Data Imported Successfully</div>';
+        $message = 'msg001';
 
     }
     else{
-        $message = '<div class="alert alert-danger">Only .xls or .xlsx file allowed</div>';
+        $message = 'msg002';
     }
 }
 else
 {
- $message = '<div class="alert alert-danger">Please Select File</div>';
+ $message = 'msg003';
 }
 
 echo $message;

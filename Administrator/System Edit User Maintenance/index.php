@@ -55,6 +55,10 @@
                 <a href="../System User Maintenance/" class="acc_bttn"><i class="fas fa-arrow-left"></i></a>
                 <h3 class="subtitle">Edit Account Role</h3>
 
+                <?php if (isset($_GET['msg'])) { ?>
+                    <input class="input" type="hidden" id="msg" name="msg" value="<?php echo $_GET['msg']; ?>">
+                <?php } ?>
+
                 <form id="edituserRole"  method = "POST">
                     <div class="input_group">
                         <input class="input" type="hidden" id="id" name="id" value="<?php echo $id ?>">

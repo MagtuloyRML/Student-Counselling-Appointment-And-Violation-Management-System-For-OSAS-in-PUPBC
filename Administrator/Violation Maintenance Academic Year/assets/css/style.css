@@ -10,6 +10,7 @@
     --maroong-content-bg: #810000;
     --maroong-content-hover: #630000;
     --body-color: rgb(209, 209, 209);
+    --pink: #f42c38;
 
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
@@ -82,16 +83,69 @@
 
 .modal_acyr_input_container{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .modal_acyr_input{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 4px;
+    flex-grow: 1;
 }
 .modal_acyr_input .label{
-    width: 100px;
+    width: 188px;
+    font-size: 15px;
+    color: var(--button-hover-color-font-icon);
+    justify-items: flex-start;
 }
 .modal_acyr_input .input_field{
-    width: 200px;
+    width: 100%;
+    padding: 2px;
+    text-align: center;
+}
+
+.modal_acyr_input .fa-asterisk{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--pink);
+}
+.modal_acyr_input .fa-circle-exclamation{
+    padding: .5rem;
+    font-size: 15px;
+    color: var(--maroong-content-bg);
+}
+
+.footer_modal_bttn .modal_foot_bttn1 {
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.footer_modal_bttn .modal_foot_bttn1:hover{
+    background-color: var(--maroong-content-hover);
+}
+.footer_modal_bttn .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+.footer_modal_bttn .disable:hover{
+    background-color: var(--button-hover-bg);
 }

@@ -41,11 +41,11 @@
                 </div>
 
                 <div class="sd_bttn_group">
-                    <a href="#" class="sd_bttn" id="upload_student_bttn">
+                    <a class="sd_bttn" id="upload_student_bttn">
                         <i class="fas fa-upload"></i>
                         Upload
                     </a>
-                    <a href="#" class="sd_bttn" id="openModal_add_student">
+                    <a class="sd_bttn" id="openModal_add_student">
                         <i class="fas fa-plus-square" ></i>
                         Create
                     </a>

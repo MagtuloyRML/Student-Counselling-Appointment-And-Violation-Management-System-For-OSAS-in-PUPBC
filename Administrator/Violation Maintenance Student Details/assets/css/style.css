@@ -44,6 +44,7 @@
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
     border-radius: .5rem;
+    cursor: pointer;
 }
 .sd_bttn:hover{
     background-color: var(--maroong-content-hover);
@@ -77,9 +78,9 @@
 }
 
 /*modal/pop up*/
-/*.modal{
+.modal{
     width: 80%;
-}*/
+}
 .modal_upload_bg .modal_upload{
     width: 80%;
 }
@@ -158,6 +159,38 @@
     padding: .5rem;
     font-size: 15px;
     color: var(--maroong-content-bg);
+}
+
+.footer_modal_bttn .modal_foot_bttn1 {
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--maroong-content-bg);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.footer_modal_bttn .modal_foot_bttn1:hover{
+    background-color: var(--maroong-content-hover);
+}
+.footer_modal_bttn .disable{
+    width: max-content;
+    height: auto;
+    padding: 6px 10px 6px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    color: var(--color-content0-bg);
+    background-color: var(--body-color);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+.footer_modal_bttn .disable:hover{
+    background-color: var(--button-hover-bg);
 }
 
 @media (max-width: 1200px) {

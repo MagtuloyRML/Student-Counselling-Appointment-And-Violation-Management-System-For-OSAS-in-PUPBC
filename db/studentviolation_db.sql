@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 22, 2022 at 08:21 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.1
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 03, 2022 at 09:42 AM
+-- Server version: 8.0.21
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,11 +27,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `foracademicyear`
 --
 
-CREATE TABLE `foracademicyear` (
+DROP TABLE IF EXISTS `foracademicyear`;
+CREATE TABLE IF NOT EXISTS `foracademicyear` (
   `code` varchar(50) NOT NULL,
-  `yearFrom` year(4) NOT NULL,
-  `yearTo` year(4) NOT NULL,
-  `Semester` varchar(50) NOT NULL
+  `yearFrom` year NOT NULL,
+  `yearTo` year NOT NULL,
+  `Semester` varchar(50) NOT NULL,
+  PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,12 +41,18 @@ CREATE TABLE `foracademicyear` (
 --
 
 INSERT INTO `foracademicyear` (`code`, `yearFrom`, `yearTo`, `Semester`) VALUES
+(' - , ', 0000, 0000, ''),
+('2002 - 2003, 2nd', 2002, 2003, '2nd'),
 ('2018', 2018, 2019, '1st'),
 ('2019, 2020', 2019, 2020, '1st'),
+('2020 - 2021, 1st', 2020, 2021, '1st'),
+('2020 - 2026, 1st', 2020, 2026, '1st'),
+('2021 - 2022, 2nd', 2021, 2022, '2nd'),
 ('2021, 2022 ', 2021, 2022, '1st'),
 ('2022, 2023 ', 2022, 2023, '1st'),
 ('2022, 2023 - 1st', 2022, 2023, '1st'),
-('2022, 2023 - 2nd', 2022, 2023, '2nd');
+('2022, 2023 - 2nd', 2022, 2023, '2nd'),
+('2023 - 2024, 1st', 2023, 2024, '1st');
 
 -- --------------------------------------------------------
 
@@ -52,24 +60,31 @@ INSERT INTO `foracademicyear` (`code`, `yearFrom`, `yearTo`, `Semester`) VALUES
 -- Table structure for table `forprogram`
 --
 
-CREATE TABLE `forprogram` (
-  `pID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `forprogram`;
+CREATE TABLE IF NOT EXISTS `forprogram` (
+  `pID` int NOT NULL AUTO_INCREMENT,
   `pCode` varchar(255) NOT NULL,
-  `pDescription` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `pDescription` varchar(255) NOT NULL,
+  PRIMARY KEY (`pID`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `forprogram`
 --
 
 INSERT INTO `forprogram` (`pID`, `pCode`, `pDescription`) VALUES
-(1, 'BSA-2', ''),
+(1, 'BSA-1', 'asdasdasda'),
 (2, 'BSA\r\n', 'Bachelor of Science in Accounting\r\n'),
 (3, 'BSEDSS\r\n', 'Bachelor of Secondary Education major in Social Studies\r\n'),
 (4, 'DCET\r\n', 'Diploma in Computer Engineering Technology\r\n'),
 (5, 'DICT', 'Diploma in Information Technology\r\n'),
 (6, 'BSEDEN\r\n', 'Bachelor of Secondary Education major in English\r\n'),
-(7, 'BSITsasa', 'sasasa');
+(7, 'BSIT', 'sasasa'),
+(8, 'adasdasda', 'dasdasdasda'),
+(9, 'BSEDEN', 'Bachelor of Secondary Education major in English'),
+(10, 'BSEDSS', 'Bachelor of Secondary Education major in Social Studies'),
+(11, 'BSBSBSBS', 'adasdasdasdasdasda'),
+(12, 'asdasdasd', 'dasdasdasa');
 
 -- --------------------------------------------------------
 
@@ -77,19 +92,23 @@ INSERT INTO `forprogram` (`pID`, `pCode`, `pDescription`) VALUES
 -- Table structure for table `forstudents`
 --
 
-CREATE TABLE `forstudents` (
+DROP TABLE IF EXISTS `forstudents`;
+CREATE TABLE IF NOT EXISTS `forstudents` (
   `studNum` varchar(255) NOT NULL,
-  `id` varchar(255) NOT NULL,
-  `fullName` varchar(250) NOT NULL,
+  `id` int NOT NULL,
+  `fullName` varchar(250) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `lastName` text NOT NULL,
   `firstName` text NOT NULL,
   `middleName` text NOT NULL,
   `Section` varchar(50) NOT NULL,
   `Address` varchar(250) NOT NULL,
   `Gender` text NOT NULL,
-  `progCode` int(11) NOT NULL,
+  `progCode` int NOT NULL,
   `ayCode` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `status` varchar(255) NOT NULL,
+  PRIMARY KEY (`studNum`),
+  KEY `pID_forpro` (`progCode`),
+  KEY `ay_code_foray` (`ayCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -97,14 +116,19 @@ CREATE TABLE `forstudents` (
 --
 
 INSERT INTO `forstudents` (`studNum`, `id`, `fullName`, `lastName`, `firstName`, `middleName`, `Section`, `Address`, `Gender`, `progCode`, `ayCode`, `status`) VALUES
-('2018-00154-BN-0', '1', 'PACHECA sa, BRIAN JOSHUA BUENDIA', 'PACHECA sa', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 6, '2022, 2023 - 1st', 'Enrolled'),
-('2019-00001-BN-0', '2', 'bolbol as, kils uas', 'bolbol as', 'kils', 'uas', '1', 'Muntianlupa', 'Female', 2, '2018', 'Enrolled'),
-('2019-00002-BN-0', '3', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 4, '2018', 'Enrolled'),
-('2019-00003-BN-0', '4', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 5, '2021, 2022 ', 'Enrolled'),
-('2019-00004-BN-0', '5', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 6, '2021, 2022 ', 'Enrolled'),
-('2019-00021-BN-0', '6', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 3, '2021, 2022 ', 'Enrolled'),
-('2019-00026-BN-0', '7', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 2, '2021, 2022 ', 'Enrolled'),
-('2019-00502-BN-0', '8', 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 2, '2022, 2023 - 2nd', 'Enrolled');
+('2018-00069-BN-0', 23, 'Sample, Sample Change Samplezczxcz', 'Sample', 'Sample Change', 'Samplezczxcz', '1', 'Sample with Barangay City Municipality and Country ', 'Male', 7, '2022, 2023 - 2nd', 'Enrolled'),
+('2018-00154-BN-0', 1, 'PACHECa, BRIAN JOSHUA BUENDIA', 'PACHECa', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 3, '2022, 2023 - 1st', 'Deleted'),
+('2018-00572-BN-3', 26, 'Samplekjkkuku, Sample Change qeqqweqw', 'Samplekjkkuku', 'Sample Change', 'qeqqweqw', '1', 'Sample with Barangay City Municipality and Country ', 'Male', 7, '2022, 2023 - 2nd', 'Enrolled'),
+('2018-03371-BN-2', 25, 'Samplesfsfd, Sample Chazxczxczxnge Samplejkjkhj', 'Samplesfsfd', 'Sample Chazxczxczxnge', 'Samplejkjkhj', '1', 'Sample with Barangay City Municipality and Country ', 'Male', 7, '2022, 2023 - 2nd', 'Enrolled'),
+('2018-11170-BN-0', 24, 'Samplesfsdf, Sadasdasda Sampleadad', 'Samplesfsdf', 'Sadasdasda', 'Sampleadad', '1', 'Sample with Barangay City Municipality and Country ', 'Male', 7, '2022, 2023 - 2nd', 'Enrolled'),
+('2019-00001-BN-0', 2, 'bolbol as, kils uas', 'bolbol as', 'kils', 'uas', '1', 'Muntianlupa', 'Female', 2, '2022, 2023 - 1st', 'Enrolled'),
+('2019-00002-BN-0', 3, 'CA, BRIAN JOSHUA BUENDIA', 'CA', 'BRIAN JOSHUA', 'BUENDIA', '1', 'J.REYES STREET', 'Male', 4, '2022, 2023 - 1st', 'Enrolled'),
+('2019-00003-BN-0', 4, 'ECA, BRIAN JOSHUA BUENDIA', 'ECA', 'BRIAN JOSHUA', 'BUENDIA', '2', 'J.REYES STREET', 'Male', 5, '2021, 2022 ', 'Enrolled'),
+('2019-00004-BN-0', 5, 'PACHECA, BRIAN JOSHUA BUENDIA', 'PACHECA', 'BRIAN JOSHUA', 'BUENDIA', '3', 'J.REYES STREET', 'Male', 2, '2021, 2022 ', 'Enrolled'),
+('2019-00021-BN-0', 18, 'Samplekjkkuku, Sample Change qeqqweqw', '17', 'Samplesfsfd, Sample Chazxczxczxnge Samplejkjkhj', '16', 'Samplesfsdf, Sadasdasda Sampleadad', '15', 'Sample, Sample Change Samplezczxcz', 7, 'Samplekjkkuku, Sample Change qeqqweqw', 'Enrolled'),
+('2019-00026-BN-0', 4, 'Samplekjkkuku, Sample Change qeqqweqw', '8', 'Samplekjkkuku, Sample Change qeqqweqw', '7', 'PACHECA, BRIAN JOSHUA ', 'PACHECA', 'BRIAN JOSHUA', 7, '1', 'Enrolled'),
+('2019-00060-BN-0', 2, 'Samplesfsdf, Sadasdasda Sampleadad', '10', 'Dela Cruz, Juan None', 'Dela Cruz', 'Juan', 'None', '1', 7, 'Male', 'Enrolled'),
+('2019-00070-BN-0', 1, 'Sample, Sample Change Samplezczxcz', '11', 'Dela Cruz, Juanito None', 'Dela Cruz', 'Juanito', 'None', '1', 7, 'Male', 'Enrolled');
 
 -- --------------------------------------------------------
 
@@ -112,10 +136,12 @@ INSERT INTO `forstudents` (`studNum`, `id`, `fullName`, `lastName`, `firstName`,
 -- Table structure for table `forthesanctions`
 --
 
-CREATE TABLE `forthesanctions` (
-  `s_id` int(11) NOT NULL,
-  `Sanctions` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `forthesanctions`;
+CREATE TABLE IF NOT EXISTS `forthesanctions` (
+  `s_id` int NOT NULL AUTO_INCREMENT,
+  `Sanctions` varchar(500) NOT NULL,
+  PRIMARY KEY (`s_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `forthesanctions`
@@ -123,7 +149,9 @@ CREATE TABLE `forthesanctions` (
 
 INSERT INTO `forthesanctions` (`s_id`, `Sanctions`) VALUES
 (1, 'Cleaning'),
-(2, 'Suspension');
+(2, 'Suspension'),
+(4, 'Cleaning 3 days'),
+(5, 'Kickout');
 
 -- --------------------------------------------------------
 
@@ -131,10 +159,12 @@ INSERT INTO `forthesanctions` (`s_id`, `Sanctions`) VALUES
 -- Table structure for table `fortheviolations`
 --
 
-CREATE TABLE `fortheviolations` (
-  `v_code` int(11) NOT NULL,
-  `Violations` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `fortheviolations`;
+CREATE TABLE IF NOT EXISTS `fortheviolations` (
+  `v_code` int NOT NULL AUTO_INCREMENT,
+  `Violations` varchar(500) NOT NULL,
+  PRIMARY KEY (`v_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `fortheviolations`
@@ -142,7 +172,9 @@ CREATE TABLE `fortheviolations` (
 
 INSERT INTO `fortheviolations` (`v_code`, `Violations`) VALUES
 (1, 'Bullying'),
-(2, 'Harassment');
+(2, 'Harassment'),
+(7, 'Cheating'),
+(14, 'Cutting');
 
 -- --------------------------------------------------------
 
@@ -150,17 +182,24 @@ INSERT INTO `fortheviolations` (`v_code`, `Violations`) VALUES
 -- Table structure for table `forviolationentries`
 --
 
-CREATE TABLE `forviolationentries` (
-  `entry_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `forviolationentries`;
+CREATE TABLE IF NOT EXISTS `forviolationentries` (
+  `entry_id` int NOT NULL AUTO_INCREMENT,
   `studNum` varchar(255) NOT NULL,
   `fullName` varchar(250) NOT NULL,
-  `pCode` int(11) NOT NULL,
+  `pCode` int NOT NULL,
   `Section` varchar(50) NOT NULL,
-  `Violations` int(11) NOT NULL,
-  `Sanctions` int(11) NOT NULL,
+  `Violations` int NOT NULL,
+  `Sanctions` int NOT NULL,
   `Date` date NOT NULL,
-  `code` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `code` varchar(50) NOT NULL,
+  PRIMARY KEY (`entry_id`),
+  KEY `studnum_forstud` (`studNum`),
+  KEY `ay_code_foracad` (`code`),
+  KEY `violation_forthevio` (`Violations`),
+  KEY `sanction_forthesanc` (`Sanctions`),
+  KEY `pID_forprogram` (`pCode`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `forviolationentries`
@@ -189,8 +228,14 @@ INSERT INTO `forviolationentries` (`entry_id`, `studNum`, `fullName`, `pCode`, `
 (20, '2018-00154-BN-0', 'PACHECA, BRIAN JOSHUA BUENDIA', 6, '1', 1, 2, '2022-02-14', '2021, 2022 '),
 (21, '2018-00154-BN-0', 'PACHECA, BRIAN JOSHUA BUENDIA', 6, '1', 2, 2, '2022-02-21', '2021, 2022 '),
 (22, '2018-00154-BN-0', 'PACHECA, BRIAN JOSHUA BUENDIA', 6, '1', 1, 1, '2022-02-18', '2021, 2022 '),
-(23, '2018-00154-BN-0', 'PACHECA, BRIAN JOSHUA BUENDIA', 6, '1', 2, 1, '2022-02-09', '2021, 2022 '),
-(24, '2019-00001-BN-0', 'bolbol a, kils uas', 2, '1', 2, 2, '2022-02-25', '2019, 2020');
+(23, '2018-00154-BN-0', 'PACHECA sa, BRIAN JOSHUA BUENDIA', 6, '2', 2, 2, '2022-02-09', '2022, 2023 - 1st'),
+(24, '2019-00001-BN-0', 'bolbol as, kils uas', 2, '1', 2, 2, '2022-02-25', '2018'),
+(25, '2018-00154-BN-0', 'PACHECA sa, BRIAN JOSHUA BUENDIA', 6, '2', 1, 2, '2022-02-28', '2022, 2023 - 1st'),
+(26, '2018-00154-BN-0', 'PACHECA sa, BRIAN JOSHUA BUENDIA', 6, '2', 1, 1, '2022-02-24', '2022, 2023 - 1st'),
+(27, '2018-00154-BN-0', 'PACHECa, BRIAN JOSHUA BUENDIA', 3, '2', 1, 4, '2022-02-24', '2022, 2023 - 1st'),
+(28, '2018-00154-BN-0', 'PACHECa, BRIAN JOSHUA BUENDIA', 3, '2', 1, 2, '2022-02-28', '2022, 2023 - 1st'),
+(29, '2018-00154-BN-0', 'PACHECa, BRIAN JOSHUA BUENDIA', 3, '2', 7, 1, '2022-03-01', '2022, 2023 - 1st'),
+(30, '2018-00154-BN-0', 'PACHECa, BRIAN JOSHUA BUENDIA', 3, '2', 2, 4, '2022-03-02', '2022, 2023 - 1st');
 
 -- --------------------------------------------------------
 
@@ -198,98 +243,13 @@ INSERT INTO `forviolationentries` (`entry_id`, `studNum`, `fullName`, `pCode`, `
 -- Table structure for table `students`
 --
 
-CREATE TABLE `students` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `students`;
+CREATE TABLE IF NOT EXISTS `students` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `studNum` varchar(255) NOT NULL,
-  `lastName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `foracademicyear`
---
-ALTER TABLE `foracademicyear`
-  ADD PRIMARY KEY (`code`);
-
---
--- Indexes for table `forprogram`
---
-ALTER TABLE `forprogram`
-  ADD PRIMARY KEY (`pID`);
-
---
--- Indexes for table `forstudents`
---
-ALTER TABLE `forstudents`
-  ADD PRIMARY KEY (`studNum`),
-  ADD KEY `pID_forpro` (`progCode`),
-  ADD KEY `ay_code_foray` (`ayCode`);
-
---
--- Indexes for table `forthesanctions`
---
-ALTER TABLE `forthesanctions`
-  ADD PRIMARY KEY (`s_id`);
-
---
--- Indexes for table `fortheviolations`
---
-ALTER TABLE `fortheviolations`
-  ADD PRIMARY KEY (`v_code`);
-
---
--- Indexes for table `forviolationentries`
---
-ALTER TABLE `forviolationentries`
-  ADD PRIMARY KEY (`entry_id`),
-  ADD KEY `studnum_forstud` (`studNum`),
-  ADD KEY `ay_code_foracad` (`code`),
-  ADD KEY `violation_forthevio` (`Violations`),
-  ADD KEY `sanction_forthesanc` (`Sanctions`),
-  ADD KEY `pID_forprogram` (`pCode`);
-
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `forprogram`
---
-ALTER TABLE `forprogram`
-  MODIFY `pID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `forthesanctions`
---
-ALTER TABLE `forthesanctions`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `fortheviolations`
---
-ALTER TABLE `fortheviolations`
-  MODIFY `v_code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `forviolationentries`
---
-ALTER TABLE `forviolationentries`
-  MODIFY `entry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `students`
---
-ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  `lastName` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Constraints for dumped tables

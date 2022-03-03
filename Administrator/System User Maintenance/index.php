@@ -58,6 +58,10 @@
                 ?>
                 <h3 class="subtitle">Users</h3>
 
+                <?php if (isset($_GET['msg'])) { ?>
+                    <input class="input" type="hidden" id="msg" name="msg" value="<?php echo $_GET['msg']; ?>">
+                <?php } ?>
+
                 <div class="list">
                     <form method ="POST">
                     <h3 class="list_title">List</h3>
@@ -118,6 +122,15 @@
                 
             </div>
 
+        </div>
+    </div>
+
+    <div class="alert " id="alert_bottomappointment">
+        <div class="alert_content">
+            <div class="alert_content_text" id="alert_contentappointment">
+                
+            </div>
+            <button class="alert_close" id="alert_Close_bottappointment"><i class="fa-solid fa-xmark"></i></button>
         </div>
     </div>
 

@@ -14,10 +14,10 @@
     $update = $conn->query("UPDATE adminuserrole SET AdminUserRole ='$roleNameCheckNew', AdminPageStudentCounceling = '$studCouncheck',
      AdminPageViolation ='$studViolationcheck', AdminMaintenance ='$sysMainsCheck', StatusID ='$status' WHERE AdminUserRoleID = '$id' ");
     if($update){
-        echo "success";
+        echo "msg001";
         
     }else{
-        echo "something is wrong" . $update . $conn->error;
+        echo "msg002";
     }
 
 ?> 

@@ -59,12 +59,20 @@
                     },
                     success:function(data)
                     {
-                        $('#message').html(data);
                         $('#uploadExcelFile')[0].reset();
                         $('#uploadFunction').attr('disabled', false);
                         $('#uploadFunction').text('Upload');
                         $("#table").load("assets/updatedDisplay_student_details.php");
-                        
+
+                        $('#modal_upload_student').css('display', 'none');
+
+                        $("#alert_bottom").addClass('alertOpen');
+                        $("#alert_content").html(data);
+                        setTimeout(function(){
+                            $("#alert_bottom").removeClass('alertOpen')
+                        },5000);
+
+
 
                     }
                 })

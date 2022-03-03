@@ -8,6 +8,7 @@ $(document).ready(function(){
     errorpassword = true;
     errorCpassword = true;
     errorbday = true;
+    genderError = true;
     erroradd = true;
     errorclient_contact = true;
     errorguar_name = true;
@@ -117,6 +118,18 @@ $(document).ready(function(){
         }
     })
 
+    $("#gender").blur(function(){ 
+        if($("#gender").val() == 0){
+            genderError = true;
+            $('#input_gender').addClass('input-error');
+            $('#i_gender').addClass('fas fa-exclamation-circle');
+        }else{
+            genderError = false;
+            $('#input_gender').removeClass('input-error');
+            $('#i_gender').removeClass('fas fa-exclamation-circle');
+        }
+    });
+
     $('#bday').blur(function(){
         var bdayVal = $('#bday').val();
         if(Date.parse(bdayVal)){
@@ -215,8 +228,57 @@ $(document).ready(function(){
     $("#registration").submit(function(event){
         event.preventDefault();
 
+        if(errorfst_name == true){
+            $('#input_fst_name').addClass('input-error');
+            $('#i_fst_name').addClass('fas fa-exclamation-circle');
+        }
+        if(errorlast_name == true){
+            $('#input_last_name').addClass('input-error');
+            $('#i_last_name').addClass('fas fa-exclamation-circle');
+        }
+        if(errorstud_num == true){
+            $('#input_stud_num').addClass('input-error');
+            $('#i_stud_num').addClass('fas fa-exclamation-circle');
+        }
+        if(errorclient_email == true){
+            $('#input_client_email').addClass('input-error');
+            $('#i_client_email').addClass('fas fa-exclamation-circle');
+        }
+        if(errorpassword == true){
+            $('#input_password').addClass('input-error');
+            $('#i_password').addClass('fas fa-exclamation-circle');
+        }
+        if(errorCpassword == true){
+            $('#input_cpassword').addClass('input-error');
+            $('#i_cpassword').addClass('fas fa-exclamation-circle');
+        }
+        if(genderError == true){
+            $('#input_gender').addClass('input-error');
+            $('#i_gender').addClass('fas fa-exclamation-circle');
+        }
+        if(errorbday == true){
+            $('#input_bday').addClass('input-error');
+            $('#i_bday').addClass('fas fa-exclamation-circle');
+        }
+        if(erroradd == true){
+            $('#input_add').addClass('input-error');
+            $('#i_add').addClass('fas fa-exclamation-circle');
+        }
+        if(errorclient_contact == true){
+            $('#input_client_contact').addClass('input-error');
+            $('#i_client_contact').addClass('fas fa-exclamation-circle');
+        }
+        if(errorguar_name == true){
+            $('#input_guar_name').addClass('input-error');
+            $('#i_guar_name').addClass('fas fa-exclamation-circle');
+        }
+        if(errorguardian_contact == true){
+            $('#input_guardian_contact').addClass('input-error');
+            $('#i_guardian_contact').addClass('fas fa-exclamation-circle');
+        }
+
         if(errorfst_name == false && errormid_name == false && errorlast_name == false && errorstud_num == false && errorclient_email == false && 
-            errorpassword == false && errorCpassword == false && errorbday == false && erroradd == false && errorclient_contact == false && 
+            genderError == true && errorpassword == false && errorCpassword == false && errorbday == false && erroradd == false && errorclient_contact == false && 
             errorguar_name == false && errorguardian_contact == false){
             $.ajax({
                 url: "assets/client_registration_process.php",

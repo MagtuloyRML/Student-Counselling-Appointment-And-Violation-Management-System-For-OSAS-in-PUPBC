@@ -69,8 +69,15 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if($.trim(result) == "success"){
-                        window.location.href = '../System User Maintenance/';
+                    if($.trim(result) == "msg002"){
+                        var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Edit Role Unsuccessfully</span>";
+                        $("#alert_bottom").addClass('alertOpen');
+                        $("#alert_content").html(msg);
+                        setTimeout(function(){
+                            $("#alert_bottom").removeClass('alertOpen')
+                        },5000);
+                    }else{
+                        window.location.href = '../System User Maintenance/?msg='+result;
                     }
                 }
             });

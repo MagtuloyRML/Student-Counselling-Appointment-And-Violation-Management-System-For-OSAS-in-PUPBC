@@ -65,19 +65,21 @@
 .c_table .curriculum_title{
     color: var(--color-content0-bg);
     background-color: var(--maroong-content-bg);
+    font-size: 12px;
 }
 .c_table .curriculum_data{
     border: 1px solid #ddd;
     padding: 2px 3px 2px;
-    font-size: var(--small-font-size);
+    font-size: 11px;
 }
 .curriculum_data .c_data_bttn{
     display: flex;
     justify-content: center;
     padding: 2px;
     color: var(--maroong-content-bg);
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
+    cursor: pointer;
 }
 .c_data_bttn:hover{
     color: var(--maroong-content-hover);
