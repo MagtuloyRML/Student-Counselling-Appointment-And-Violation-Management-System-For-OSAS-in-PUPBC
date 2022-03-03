@@ -30,13 +30,19 @@
         $studCounceling = $row['AdminPageStudentCounceling']; $studViol = $row['AdminPageViolation']; 
         $systemMaintenance = $row['AdminMaintenance']; $roleStatus = $row['StatusID']; 
     }
+    if($roleStatus == 2){
+        header('location: ../../Administrator Unavailable Role/');
+    }
 
     $sql_fetch = mysqli_query($conn, "SELECT AdminFirstName, AdminMiddleName, AdminLastName, AdminSufifx,
-     AdminContactNo, AdminEmailAdd, AdminAddress from adminaccountinfo WHERE AdminAccountID = '$id'");
+     AdminContactNo, AdminEmailAdd, AdminAddress, AccountStatusID from adminaccountinfo WHERE AdminAccountID = '$id'");
     while($details = mysqli_fetch_assoc($sql_fetch))
     {
         $fname = $details['AdminFirstName']; $mname = $details['AdminMiddleName']; $lname = $details['AdminLastName']; $sname = $details['AdminSufifx'];
-        $aAdd = $details['AdminAddress']; $aNo = $details['AdminContactNo']; $aEmail = $details['AdminEmailAdd']; 
+        $aAdd = $details['AdminAddress']; $aNo = $details['AdminContactNo']; $aEmail = $details['AdminEmailAdd']; $active = $details['AccountStatusID']; 
+    }
+    if($active == 2){
+        header('location: ../../Administrator Unavailable Account/');
     }
 
     $sql_fetchpic = mysqli_query($conn, "SELECT PictureFilename from adminprofilepictureinfo WHERE AdminAccountID = '$id' AND UsedStatus = TRUE ");

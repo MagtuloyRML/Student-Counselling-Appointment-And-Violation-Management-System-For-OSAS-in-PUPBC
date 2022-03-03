@@ -24,9 +24,9 @@ include('dbconnection.php');
             Section = '$Section', Violations = '$violationsEdit', Sanctions = '$sanctionsEdit' , Date = '$dateEdit' , code = '$ayCode' WHERE entry_id = '$editID'";
             $query_run = mysqli_query($conn, $updateInfo);
             if($query_run){
-                echo "success";
+                echo "msg003";
             }else{
-                echo "something is wrong" . $updateInfo . $conn->error;
+                echo "msg004";
             }
         }
     }else{

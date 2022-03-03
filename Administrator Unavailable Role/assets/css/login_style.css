@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --nav-width: 92px;
+
+    --button-color-font-icon: rgb(178, 185, 235);
+    --button-hover-color-font-icon: rgb(84, 83, 87);
+    --button-hover-bg: rgb(160, 160, 160);
+    --color-content0-bg: white;
+    --maroong-content-bg: #810000;
+    --maroong-content-hover: #630000;
+    --body-color: rgb(209, 209, 209);
+
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+*::before, ::after{
+    box-sizing: border-box;
+}
+body{
+    background-color: #e9eaf1;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 70px 20% 0;
+}
+.body_content{
+    display: inline-block;
+    align-content: center;
+    justify-content: center;
+}
+.body_content .back_bttn{
+    top: 0;
+    float: left;
+    font-size: 1.5rem;
+    color: var(--button-color-font-icon);
+}
+.body_content .back_bttn:hover{
+    color: var(--maroong-content-bg);
+}
+.body_content .welcome_text{
+    width: 100%;
+    color: var(--button-hover-color-font-icon);
+    padding: 0 0 30px;
+    text-align: center;
+}
+.welcome_text .logo{
+    width: 100px;
+    height: 100px;
+}
+.welcome_text h2{
+    font-size: 1.25rem;
+    padding: 0 5% 10px;
+}
+.login_form{
+    margin: 0 10% 0;
+    background-color: var(--color-content0-bg);
+    padding: 10px 10% 10px;
+    border-radius: 1rem;
+    
+}
+.error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error_msg{
+    display: flexbox;
+    text-align: center;
+    width: 66%;
+}
+
+.input_group{
+    padding: 10px 5% 10px;
+    display: block;
+    align-content: center;
+    justify-content: center;
+}
+
+.input_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: .5rem;
+    font-size: var(--small-font-size);
+    text-align: center;
+    flex-grow: 1;
+}
+.input_container .input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+  
+.input_container .input-field {
+    color: var(--button-hover-color-font-icon);
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.input .fas{
+    padding: .5rem;
+    font-size: 18px;
+    color: var(--maroong-content-bg);
+    background-color: transparent;
+}
+
+.input_container .fa-user-tie, .input_container .fa-lock{
+    padding: 10px;
+    background: var(--button-color-font-icon);
+    color: white;
+    text-align: center;
+
+}
+
+.input-error{
+    box-shadow: 0 0 5px var(--maroong-content-bg);
+    border: 2px solid var(--maroong-content-bg);
+}
+
+.input-success{
+    box-shadow: 0 0 5px var(--maroong-content-bg);
+    border: 2px solid var(--maroong-content-bg);
+}
+
+.input .fa-eye, .input .fa-eye-slash{
+    cursor: pointer;
+    color: var(--button-color-font-icon);
+    transition: ease 2s;
+}
+
+.bttn_group{
+    padding: 5px;
+}
+.bttn_group .login_bttn .selection_bttn{
+    margin-bottom: 10px;
+    padding: 5px 0 5px;
+    border-radius: .25rem;
+    text-decoration: none;
+    background-color: var(--button-color-font-icon);
+    color: var(--color-content0-bg);
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.Text{
+    text-align: center;
+    color: var(--button-hover-color-font-icon);
+    font-size: 16px;
+}
+
+.bttn_group .login_bttn .selection_bttn:hover{
+    /*background-color: rgb(98, 107, 175);*/
+    background-color: var(--maroong-content-bg);
+}
+.p_register{
+    margin-bottom: 20px;
+}
+
+.p_register, .p_register a{
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    text-align: center;
+}
+
+.p_register a{
+    font-weight: 600;
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    color: var(--maroong-content-bg);
+}
+.p_register a:hover{
+    color: var(--maroong-content-hover);
+}
+
+@media (max-width: 1200px) {
+    body{
+        padding: 70px 15% 0;
+    }
+    .body_content{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    body{
+        padding: 70px 10% 0;
+    }
+    .body_content{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    body{
+        padding: 70px 5% 0;
+    }
+    .body_content{
+        width: 100%;
+    }
+
+}
+@media (max-width: 480px) {
+    body{
+        padding: 70px 2% 0;
+    }
+    .body_content{
+        width: 100%;
+    }
+}

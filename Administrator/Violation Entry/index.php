@@ -85,6 +85,9 @@
                 <h1>Violation Entry</h1>
                 <hr>
             </div>
+            <?php if (isset($_GET['msg'])) { ?>
+                <input class="input" type="hidden" id="msg" name="msg" value="<?php echo $_GET['msg']; ?>">
+            <?php } ?>
             <!-- SEARCH BOX -->
             <div class="searchBar">
                 <form action="" method="POST">
@@ -154,6 +157,15 @@
         include ('assets/modal_add_vio_entry.php');
         include ('assets/modal_edit_vio_entry.php');
     ?>
+
+    <div class="alert " id="alert_bottomappointment">
+        <div class="alert_content">
+            <div class="alert_content_text" id="alert_contentappointment">
+                
+            </div>
+            <button class="alert_close" id="alert_Close_bottappointment"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </div>
     <script src="assets/js/main.js"></script>
 
 

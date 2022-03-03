@@ -1,6 +1,39 @@
 $(document).ready(function(){
     $('#vEntry').addClass('active_side');
     $('#sidevEntry').addClass('sideActive');
+
+    $("#alert_Close_bottappointment").click(function () { 
+        $("#alert_bottomappointment").removeClass('alertOpen');
+    });
+    
+    if($('#msg').val()){
+        $("#alert_bottomappointment").addClass('alertOpen');
+        if($('#msg').val() == 'msg001'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Add Entry Successfully</span>";
+        }
+        else if($('#msg').val() == 'msg002'){
+            var msg = "<span class='alert_icon red'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Unidentify Student</span>";
+        }
+        else if($('#msg').val() == 'msg003'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Edit Entry Successfully</span>";
+        }
+        else if($('#msg').val() == 'msg004'){
+            var msg = "<span class='alert_icon red'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Edit Entry Unsuccessfully</span>";
+        }
+        else if($('#msg').val() == 'msg005'){
+            var msg = "<span class='alert_icon red'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Edit Data Unsuccessfully</span>";
+        }
+        else if($('#msg').val() == 'msg006'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Insert Data Successfully</span>";
+        }
+        else if($('#msg').val() == 'msg007'){
+            var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Insert Data Unsuccessfully</span>";
+        }
+        $("#alert_contentappointment").html(msg);
+        setTimeout(function(){
+            $("#alert_bottomappointment").removeClass('alertOpen')
+        },5000);
+    }
     
     $("#entrysubmit").attr("disabled", true);
     $("#entrysubmit").removeClass('modal_foot_bttn1');
@@ -122,15 +155,14 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if($.trim(result) == "success"){
-                        $("#studDetails")[0].reset();
-                        $("#table_data").append("assets/refresh_table.php");
-                        $("#entrysubmit").attr("disabled", true);
-                        $("#entrysubmit").removeClass('modal_foot_bttn1');
-                        $("#entrysubmit").addClass('disable');
-                        $('#modal_add_entry').css('display', 'none');
-                        window.location.href = '../Violation Entry/';
-                    }
+                    $("#studDetails")[0].reset();
+                    $("#table_data").append("assets/refresh_table.php");
+                    $("#entrysubmit").attr("disabled", true);
+                    $("#entrysubmit").removeClass('modal_foot_bttn1');
+                    $("#entrysubmit").addClass('disable');
+                    $('#modal_add_entry').css('display', 'none');
+                    window.location.href = '../Violation Entry/?msg='+result;
+                    
                      
                 }
             });
@@ -286,17 +318,16 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    if($.trim(result) == "success"){
+                    if ($.trim(result) == "unknownStudent"){
+                        $("#i_studNumEdit").addClass('fa-circle-exclamation');
+                    }else{
                         $("#editDetails")[0].reset();
                         $("#table_data").append("assets/refresh_table.php");
                         $("#editsubmit").attr("disabled", true);
                         $("#editsubmit").removeClass('modal_foot_bttn1');
                         $("#editsubmit").addClass('disable');
                         $('#modal_edit_entry').css('display', 'none');
-                        window.location.href = '../Violation Entry/';
-                    }
-                    else if ($.trim(result) == "unknownStudent"){
-                        $("#i_studNumEdit").addClass('fa-circle-exclamation');
+                        window.location.href = '../Violation Entry/?msg='+result;
                     }
                      
                 }

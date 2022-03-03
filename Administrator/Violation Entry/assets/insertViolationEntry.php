@@ -40,9 +40,9 @@ include('dbconnection.php');
         '$date',
         '$ayCode')";
         $insert_run = mysqli_query($conn, $insert);
-        echo "success";
+        echo "msg001";
     }
     }else{
-        echo "Your student number is invalid / not found.";
+        echo "msg002";
     }
 ?>

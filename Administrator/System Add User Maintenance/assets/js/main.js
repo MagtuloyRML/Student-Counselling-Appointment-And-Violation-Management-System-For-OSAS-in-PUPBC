@@ -217,15 +217,6 @@ $(document).ready(function(){
                                 $("#alert_bottom").removeClass('alertOpen')
                             },5000);
                         }
-                        else if( $.trim(result) == 'msg004'){
-                            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Add New User Successfully</span>";
-
-                            $("#alert_bottom").addClass('alertOpen');
-                            $("#alert_content").html(msg);
-                            setTimeout(function(){
-                                $("#alert_bottom").removeClass('alertOpen')
-                            },5000);
-                        }
                         else if( $.trim(result) == 'msg005'){
                             var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Someting Wrong in Data</span>";
 
@@ -234,6 +225,18 @@ $(document).ready(function(){
                             setTimeout(function(){
                                 $("#alert_bottom").removeClass('alertOpen')
                             },5000);
+                        }
+                        else{
+                            /*var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Add New User Successfully</span>";
+
+                            $("#alert_bottom").addClass('alertOpen');
+                            $("#alert_content").html(msg);
+                            setTimeout(function(){
+                                $("#alert_bottom").removeClass('alertOpen')
+                            },5000);*/
+                            $("#addUser")[0].reset();
+                            window.location.href = '../Violation Maintenance Program/?msg=msg004';
+                            
                         }
                         
                         
