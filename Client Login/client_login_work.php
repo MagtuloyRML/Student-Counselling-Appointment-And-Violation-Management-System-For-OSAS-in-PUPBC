@@ -16,9 +16,20 @@ if(isset($_POST['submit'])){
     //checking if the password and username is matching the database
         while($row = $result->fetch_array()){
             //if the pass and username is correct, display this
-            if( $row['stud_num'] == $username & $row['stud_pass'] == $pass ){
-                $_SESSION['stud_num'] = $username;
-                header('location: ../client/client home/?login=success');
+            if( $row['stud_num'] == $username ){
+
+                if(password_verify($pass, $row['ClientPassword']))  
+                {  
+                    //return true;  
+                    $_SESSION['stud_num'] = $username;
+                    header('location: ../client/client home/?login=success');
+                }  
+                else  
+                {  
+                    //return false;  
+                    echo '<script>alert("Wrong User Details")</script>';  
+                }  
+                
                 die;
             //if the pass and username is INCORRECT, display this
             }else{

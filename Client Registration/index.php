@@ -172,7 +172,7 @@
                     </div>
                     <div class="bttn_group">
                         <div class="reg_bttn">
-                            <button type="submit" name="submit" class="selection_bttn"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
+                            <button type="submit" name="submit" id="submit" class="selection_bttn"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
                         </div>
                     </div>
                </form>

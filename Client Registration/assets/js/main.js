@@ -278,7 +278,7 @@ $(document).ready(function(){
         }
 
         if(errorfst_name == false && errormid_name == false && errorlast_name == false && errorstud_num == false && errorclient_email == false && 
-            genderError == true && errorpassword == false && errorCpassword == false && errorbday == false && erroradd == false && errorclient_contact == false && 
+            genderError == false && errorpassword == false && errorCpassword == false && errorbday == false && erroradd == false && errorclient_contact == false && 
             errorguar_name == false && errorguardian_contact == false){
             $.ajax({
                 url: "assets/client_registration_process.php",
@@ -287,11 +287,25 @@ $(document).ready(function(){
                 datatype: "text",
                 cache:false,
                 success:function(result){
-                    window.location='../Client Login/';
-                    $("#registration")[0].reset();
+                    if( $.trim(result) == 'mgs001'){
+                        $('#input_fst_name').addClass('input-error');
+                        $('#i_fst_name').addClass('fas fa-exclamation-circle');
+                        $('#input_last_name').addClass('input-error');
+                        $('#i_last_name').addClass('fas fa-exclamation-circle');
+                        $('#input_stud_num').addClass('input-error');
+                        $('#i_stud_num').addClass('fas fa-exclamation-circle');
+                    }
+                    else if( $.trim(result) == 'mgs002'){
+                        window.location='../Client Login/';
+                        $("#registration")[0].reset();
+                    }
+                    else if( $.trim(result) == 'mgs004'){
+                        $('#input_client_email').addClass('input-error');
+                        $('#i_client_email').addClass('fas fa-exclamation-circle');
+                    }
+                    
                 }
             });
-            $("#registration")[0].reset();
             
         } else{
 
