@@ -39,22 +39,22 @@
     $enrolled = 'Enrolled';
     $disabled = 'Disabled';
     $sched = $conn->query("SELECT 
-    `id`,
-    `studNum`,
-    `lastName`,
-    `firstName`,
-    `middleName`,
-    `Section`,
-    `Address`,
-    `Gender`,
-    `progCode`,
+    id,
+    studNum,
+    lastName,
+    firstName,
+    middleName,
+    Section,
+    Address,
+    Gender,
+    progCode,
     t2.pCode AS p_description,
     t3.code AS a_code,
     status FROM forstudents t1
     INNER JOIN forprogram t2 ON t1.progCode = t2.pID
     INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code
     
-    WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+    WHERE status = '$enrolled' OR status = '$disabled'");
 
     //search button and drop down button
     if(isset($_POST['submit'])){
@@ -62,15 +62,15 @@
         if(isset($_POST['search_box'])){
             $searched = $_POST['search_box'];
             $sched = $conn->query("SELECT 
-            `id`,
-            `studNum`,
-            `lastName`,
-            `firstName`,
-            `middleName`,
-            `Section`,
-            `Address`,
-            `progCode`,
-            `Gender`,
+            id,
+            studNum,
+            lastName,
+            firstName,
+            middleName,
+            Section,
+            Address,
+            progCode,
+            Gender,
             t2.pCode AS p_description,
             t3.code AS a_code,
             status FROM forstudents t1
@@ -98,6 +98,7 @@
                 $curriculum2 = $_POST['curri2_'.$updateid];
                 $sec = $_POST['section_'.$updateid];
                 $add = $_POST['address_'.$updateid];
+                $gend = $_POST['gender_'.$updateid];
                 $fullName = $ln . ", " . $fn . " " . $mn;
 
                 
@@ -111,24 +112,25 @@
                     middleName = '$mn',
                     progCode = '$curriculum',
                     Section = '$sec',
-                    Address = '$add'
+                    Address = '$add',
+                    Gender = '$gend'
                     WHERE id = $updateid";
                     mysqli_query($conn, $updateUser);
                     $sched = $conn->query("SELECT 
-                    `id`,
-                    `studNum`,
-                    `lastName`,
-                    `firstName`,
-                    `middleName`,
-                    `Section`,
-                    `Address`,
-                    `progCode`,
-                    `Gender`,
+                    id,
+                    studNum,
+                    lastName,
+                    firstName,
+                    middleName,
+                    Section,
+                    Address,
+                    progCode,
+                    Gender,
                     t2.pCode AS p_description,
                     t3.code AS a_code,
                     status FROM forstudents t1
                     INNER JOIN forprogram t2 ON t1.progCode = t2.pID
-                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE status = '$enrolled' OR status = '$disabled'");
                 }else{
                     $updateUser = "UPDATE forstudents SET fullName = '$fullName', 
                     lastName = '$ln', 
@@ -136,24 +138,25 @@
                     middleName = '$mn',
                     progCode = '$curriculum2',
                     Section = '$sec',
-                    Address = '$add'
+                    Address = '$add',
+                    Gender = '$gend'
                     WHERE id =$updateid";
                     mysqli_query($conn, $updateUser);
                     $sched = $conn->query("SELECT 
-                    `id`,
-                    `studNum`,
-                    `lastName`,
-                    `firstName`,
-                    `middleName`,
-                    `Section`,
-                    `progCode`,
-                    `Address`,
-                    `Gender`,
+                    id,
+                    studNum,
+                    lastName,
+                    firstName,
+                    middleName,
+                    Section,
+                    progCode,
+                    Address,
+                    Gender,
                     t2.pCode AS p_description,
                     t3.code AS a_code,
                     status FROM forstudents t1
                     INNER JOIN forprogram t2 ON t1.progCode = t2.pID
-                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE `status` = '$enrolled' OR `status` = '$disabled'");
+                    INNER JOIN foracademicyear t3 ON t1.ayCode = t3.code WHERE status = '$enrolled' OR status = '$disabled'");
                 }
 
             }
@@ -226,6 +229,7 @@
                             $curri2 = $row['p_description'];
                             $section = $row['Section'];
                             $address = $row['Address'];
+                            $gender = $row['Gender'];
 				        ?>
                         <tr>
                             <td class="stud_data"> <input class="cbox" type ='checkbox' name ='update[]' value='<?= $id ?>'></td>
@@ -250,7 +254,7 @@
                             
                             <td class="stud_data"> <input class="inputTable" type ='text' name ='section_<?= $id ?>' value='<?= $section ?>'> </td>
                             <td class="stud_data" style="width: 33%;"> <input class="inputTable" type ='text' name ='address_<?= $id ?>' value='<?= $address ?>'> </td>
-                            <td class="stud_data"> <?php echo $row['Gender']?> </td>
+                            <td class="stud_data"> <input class="inputTable" type ='text' name ='gender_<?= $id ?>' value='<?= $gender ?>'>  </td>
                             
                         </tr>
                         <?php

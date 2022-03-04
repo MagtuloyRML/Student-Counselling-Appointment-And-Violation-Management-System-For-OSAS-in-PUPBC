@@ -235,8 +235,7 @@ $(document).ready(function(){
                                 $("#alert_bottom").removeClass('alertOpen')
                             },5000);*/
                             $("#addUser")[0].reset();
-                            window.location.href = '../Violation Maintenance Program/?msg=msg004';
-                            
+                            window.location.href = '../System User Maintenance/?msg=msg008';
                         }
                         
                         

@@ -28,6 +28,9 @@ $(document).ready(function(){
         else if($('#msg').val() == 'msg007'){
             var msg = "<span class='alert_icon orange'><i class='fa-solid fa-exclamation'></i></span><span class='alert_text'>Insert Data Unsuccessfully</span>";
         }
+        else if($('#msg').val() == 'msg008'){
+            var msg = "<span class='alert_icon green'><i class='fa-solid fa-check'></i></span><span class='alert_text'>Add User Successfully</span>";
+        }
         $("#alert_contentappointment").html(msg);
         setTimeout(function(){
             $("#alert_bottomappointment").removeClass('alertOpen')

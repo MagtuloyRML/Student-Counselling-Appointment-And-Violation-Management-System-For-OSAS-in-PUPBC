@@ -81,20 +81,12 @@ if($_FILES["file_path"]["name"] != '')
 
 
             if ($rowResult) {
-                //Para makapag generate ng auto incremented id
-                
-                $query9 = "SELECT * FROM forstudents order by id desc limit 1";
-                $res = mysqli_query($conn, $query9);
-                $row = mysqli_fetch_array($res);
-                $lastid = $row['id'];
-                $stud_id = ($lastid + 1);
-                
-
+               
                 //Update data if Existing na yung studentNumber
                 $update_data = "
                 UPDATE forstudents SET studNum =:studNUM, fullName = :fullName,
                 lastName = :lastNAME, firstName = :firstNAME, middleName = :midNAME,
-                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, id = '$stud_id', status = 'Enrolled'
+                Section = :sec , Address = :add, Gender = :gen, progCode = :progID, ayCode = :ayCode, status = 'Enrolled'
                 WHERE studNum =:studNUM";
                 $updatestatement = $connect->prepare($update_data);
                 $updatestatement->execute($insert_data);
@@ -105,8 +97,15 @@ if($_FILES["file_path"]["name"] != '')
                 $query9 = "SELECT * FROM forstudents order by id desc limit 1";
                 $res = mysqli_query($conn, $query9);
                 $row = mysqli_fetch_array($res);
-                $lastid = $row['id'];
-                $stud_id = ($lastid + 1);
+                
+                $count = mysqli_num_rows($res);
+                if ($count > 0){
+                    $lastid = $row['id'];
+                    $stud_id = ($lastid + 1);
+                }
+                else{
+                    $stud_id = 1;
+                }
 
                 //inserting data if walang kaparehas na studentnumber
                 $query = "

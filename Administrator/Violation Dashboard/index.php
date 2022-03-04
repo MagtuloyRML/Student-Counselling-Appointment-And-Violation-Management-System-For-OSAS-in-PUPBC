@@ -50,7 +50,15 @@
                 <!-- A.Y CODE VISUALIZATION -->
                 <div class="dash_content">
                     <h3><i class="fas fa-school"></i>Academic Year: </h3>
-                    <p>00000000</p>
+                    <?php 
+                    include('assets/dbconnection.php');
+
+                    $get = $conn->query("SELECT * FROM foracademicyear ORDER BY code DESC LIMIT 1");
+
+                    $fetch = mysqli_fetch_array($get);
+                    $code = $fetch['code'];
+                    echo '<p>'.$code.' Semester</p>';
+                    ?>
                 </div>
 
                 <!-- TOTAL NUMBERS OF STUDENT VISUAL DATA  -->
