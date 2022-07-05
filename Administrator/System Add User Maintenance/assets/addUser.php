@@ -79,7 +79,7 @@
                             $mail -> SMTPAuth = true;
                         
                             $mail -> Username = "godrel0422@gmail.com";
-                            $mail -> Password = "Simplepassword123";
+                            $mail -> Password = "&9=>tWzdT";
                         
                             $mail -> SMTPSecure = "tls";
                         
