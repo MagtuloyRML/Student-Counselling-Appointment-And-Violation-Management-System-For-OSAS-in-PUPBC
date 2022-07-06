@@ -38,14 +38,14 @@ require ('../../../assets/PHPMailer/src/PHPMailer.php');
         
             $mail -> SMTPAuth = true;
         
-            $mail -> Username = "godrel0422@gmail.com";
-            $mail -> Password = "&9=>tWzdT";
+            $mail -> Username = "studentcounselingpupbc@gmail.com";
+            $mail -> Password = "Access!23";
         
             $mail -> SMTPSecure = "tls";
         
             $mail -> Port = "587";
         
-            $mail -> From = "godrel0422@gmail.com";
+            $mail -> From = "studentcounselingpupbc@gmail.com";
             $mail -> FromName = "Admin Evaluation";
         
             $mail -> addAddress($mailTo, "Test");

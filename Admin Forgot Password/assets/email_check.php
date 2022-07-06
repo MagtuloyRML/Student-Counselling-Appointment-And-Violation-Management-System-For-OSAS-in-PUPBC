@@ -57,14 +57,14 @@ if(mysqli_num_rows($sql_fetch) > 0){
                 
                     $mail -> SMTPAuth = true;
                 
-                    $mail -> Username = "godrel0422@gmail.com";
-                    $mail -> Password = "&9=>tWzdT";
+                    $mail -> Username = "studentcounselingpupbc@gmail.com";
+                    $mail -> Password = "Access!23";
                 
                     $mail -> SMTPSecure = "tls";
                 
                     $mail -> Port = "587";
                 
-                    $mail -> From = "godrel0422@gmail.com";
+                    $mail -> From = "studentcounselingpupbc@gmail.com";
                     $mail -> FromName = "Forgot Password Code";
                 
                     $mail -> addAddress($mailTo, "Test");
