@@ -58,7 +58,7 @@ if(mysqli_num_rows($sql_fetch) > 0){
                     $mail -> SMTPAuth = true;
                 
                     $mail -> Username = "studentcounselingpupbc@gmail.com";
-                    $mail -> Password = "Access!23";
+                    $mail -> Password = "ewpbneyhunnzxccg";
                 
                     $mail -> SMTPSecure = "tls";
                 

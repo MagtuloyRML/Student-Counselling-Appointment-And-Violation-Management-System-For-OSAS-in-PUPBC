@@ -39,7 +39,7 @@ require ('../../../assets/PHPMailer/src/PHPMailer.php');
             $mail -> SMTPAuth = true;
         
             $mail -> Username = "studentcounselingpupbc@gmail.com";
-            $mail -> Password = "Access!23";
+            $mail -> Password = "ewpbneyhunnzxccg";
         
             $mail -> SMTPSecure = "tls";
         
