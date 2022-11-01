@@ -12,7 +12,7 @@
 
 #### **Student Profile page:**
 >This page is generally the student credentials and information on the system. On this page, they could view the previous appointments that they had and view the recommendation of the counselor.
->[image](https://user-images.githubusercontent.com/58243039/199358655-e0900025-823e-4e57-86f3-1ea0f651769d.png)
+>![image](https://user-images.githubusercontent.com/58243039/199358655-e0900025-823e-4e57-86f3-1ea0f651769d.png)
 
 #### **Admin profile page:**
 >This page is generally the admin credential and information on the system. On this page, they could view the previous appointments that they had and view the evaluation and recommendation that they entered on previous clients. They could also edit that evaluation on this page.
